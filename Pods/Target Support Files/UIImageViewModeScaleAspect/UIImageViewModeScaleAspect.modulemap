@@ -1,0 +1,6 @@
+framework module UIImageViewModeScaleAspect {
+  umbrella header "UIImageViewModeScaleAspect-umbrella.h"
+
+  export *
+  module * { export * }
+}

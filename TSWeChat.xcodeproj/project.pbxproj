@@ -1,0 +1,854 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */; };
+		AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */; };
+		AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */; };
+		AE87425C1C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */; };
+		AE87425D1C7AE0F1003A435C /* TSUIImage+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */; };
+		AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */; };
+		AE87425F1C7AE0F1003A435C /* TSUIColor+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */; };
+		AE8742601C7AE0F1003A435C /* TSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742581C7AE0F1003A435C /* TSImagePicker.swift */; };
+		AE8742611C7AE0F1003A435C /* TSProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */; };
+		AE8742631C7AE0F1003A435C /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87425B1C7AE0F1003A435C /* SwiftTimer.swift */; };
+		AE8742741C7AE23E003A435C /* TSMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742701C7AE23E003A435C /* TSMessageModel.swift */; };
+		AE8742751C7AE23E003A435C /* TSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742711C7AE23E003A435C /* TSModel.swift */; };
+		AE8742761C7AE23E003A435C /* TSApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742721C7AE23E003A435C /* TSApplicationManager.swift */; };
+		AE8742771C7AE23E003A435C /* TSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742731C7AE23E003A435C /* TSUserManager.swift */; };
+		AE8742791C7AE48A003A435C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742781C7AE48A003A435C /* NSDate+Extension.swift */; };
+		AE87427D1C7AF166003A435C /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = AE87427C1C7AF166003A435C /* message.json */; };
+		AE87427F1C7AF602003A435C /* TSModelTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87427E1C7AF602003A435C /* TSModelTransformer.swift */; };
+		AE8742871C7B079B003A435C /* TSMeAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742851C7B079B003A435C /* TSMeAvatarTableViewCell.swift */; };
+		AE8742881C7B079B003A435C /* TSMeAvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8742861C7B079B003A435C /* TSMeAvatarTableViewCell.xib */; };
+		AE87428A1C7B0D7D003A435C /* Kenny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE8742891C7B0D7D003A435C /* Kenny.jpg */; };
+		AE87428C1C7B250D003A435C /* TSContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87428B1C7B250D003A435C /* TSContactModel.swift */; };
+		AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */; };
+		AE8742921C7B3547003A435C /* TSContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */; };
+		AE8742941C7B4A8B003A435C /* contact.json in Resources */ = {isa = PBXBuildFile; fileRef = AE8742931C7B4A8B003A435C /* contact.json */; };
+		AE8F49991C46A7DD009C1541 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */; };
+		AE8F499A1C46A7DD009C1541 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */; };
+		AE8F499B1C46A7DD009C1541 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */; };
+		AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499D1C46A905009C1541 /* AboutApp.swift */; };
+		AE8F49AD1C46A905009C1541 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */; };
+		AE8F49AE1C46A905009C1541 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499F1C46A905009C1541 /* Device.swift */; };
+		AE8F49AF1C46A905009C1541 /* NSData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A01C46A905009C1541 /* NSData+Extension.swift */; };
+		AE8F49B01C46A905009C1541 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */; };
+		AE8F49B11C46A905009C1541 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */; };
+		AE8F49B21C46A905009C1541 /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A31C46A905009C1541 /* NSObject+String.swift */; };
+		AE8F49B31C46A905009C1541 /* UIBarButtonItem+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */; };
+		AE8F49B41C46A905009C1541 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */; };
+		AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */; };
+		AE8F49B61C46A905009C1541 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */; };
+		AE8F49B81C46A905009C1541 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A91C46A905009C1541 /* UIView+Extension.swift */; };
+		AE8F49B91C46A905009C1541 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */; };
+		AE8F49BA1C46A905009C1541 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */; };
+		AE8F49C01C46AA5F009C1541 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49BF1C46AA5F009C1541 /* Notes.swift */; };
+		AE92B5E51C3FF73000968A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B5E41C3FF73000968A3A /* AppDelegate.swift */; };
+		AE92B5FA1C3FF73000968A3A /* TSWeChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B5F91C3FF73000968A3A /* TSWeChatTests.swift */; };
+		AE92B7881C3FF7C900968A3A /* TSAppMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B6BA1C3FF7C900968A3A /* TSAppMacro.swift */; };
+		AE92B8991C3FFC5D00968A3A /* TSChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8531C3FFC5C00968A3A /* TSChatViewController.swift */; };
+		AE92B89A1C3FFC5D00968A3A /* TSChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8541C3FFC5C00968A3A /* TSChatViewController.xib */; };
+		AE92B8AE1C3FFC5D00968A3A /* TSTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B86F1C3FFC5C00968A3A /* TSTabbarViewController.swift */; };
+		AE92B8BD1C3FFC5D00968A3A /* TSMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8821C3FFC5D00968A3A /* TSMessageTableViewCell.swift */; };
+		AE92B8BE1C3FFC5D00968A3A /* TSMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8831C3FFC5D00968A3A /* TSMessageTableViewCell.xib */; };
+		AE92B8BF1C3FFC5D00968A3A /* TSMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8841C3FFC5D00968A3A /* TSMessageViewController.swift */; };
+		AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8851C3FFC5D00968A3A /* TSMessageViewController.xib */; };
+		AE92B8C31C3FFC9000968A3A /* TSDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8C11C3FFC9000968A3A /* TSDiscoverViewController.swift */; };
+		AE92B8C41C3FFC9000968A3A /* TSDiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8C21C3FFC9000968A3A /* TSDiscoverViewController.xib */; };
+		AE92B8C71C3FFCE900968A3A /* TSMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8C51C3FFCE900968A3A /* TSMeViewController.swift */; };
+		AE92B8C81C3FFCE900968A3A /* TSMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8C61C3FFCE900968A3A /* TSMeViewController.xib */; };
+		AE92B8CB1C3FFD0D00968A3A /* TSContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8C91C3FFD0D00968A3A /* TSContactsViewController.swift */; };
+		AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CA1C3FFD0D00968A3A /* TSContactsViewController.xib */; };
+		AE92B8D21C3FFFDB00968A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */; };
+		AE92B8D31C3FFFDB00968A3A /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CF1C3FFFDB00968A3A /* beep.wav */; };
+		AE92B8D41C3FFFDB00968A3A /* hello.amr in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8D01C3FFFDB00968A3A /* hello.amr */; };
+		AE92B8D51C3FFFDB00968A3A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8D11C3FFFDB00968A3A /* Media.xcassets */; };
+		AEE69A5A1C7CB07C00C69224 /* Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEE69A591C7CB07C00C69224 /* Expression.plist */; };
+		AEE69B251C7CB2AF00C69224 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEE69B241C7CB2AF00C69224 /* Expression.bundle */; };
+		AEE69B621C81997500C69224 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */; };
+		AEE69B631C81997500C69224 /* String+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B601C81997500C69224 /* String+Crypto.swift */; };
+		AEE69B641C81997500C69224 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B611C81997500C69224 /* String+Extension.swift */; };
+		AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE92B5F61C3FF73000968A3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE92B5D91C3FF73000968A3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE92B5E01C3FF73000968A3A;
+			remoteInfo = TSWeChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageTextTableViewCell.swift; sourceTree = "<group>"; };
+		AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSImageTextTableViewCell.xib; sourceTree = "<group>"; };
+		AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImageVIew+WeChat.swift"; sourceTree = "<group>"; };
+		AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImage+WeChat.swift"; sourceTree = "<group>"; };
+		AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSUserDefaults.swift; sourceTree = "<group>"; };
+		AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIColor+WeChat.swift"; sourceTree = "<group>"; };
+		AE8742581C7AE0F1003A435C /* TSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImagePicker.swift; sourceTree = "<group>"; };
+		AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSProgressHUD.swift; sourceTree = "<group>"; };
+		AE87425B1C7AE0F1003A435C /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
+		AE8742701C7AE23E003A435C /* TSMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMessageModel.swift; sourceTree = "<group>"; };
+		AE8742711C7AE23E003A435C /* TSModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSModel.swift; sourceTree = "<group>"; };
+		AE8742721C7AE23E003A435C /* TSApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSApplicationManager.swift; sourceTree = "<group>"; };
+		AE8742731C7AE23E003A435C /* TSUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSUserManager.swift; sourceTree = "<group>"; };
+		AE8742781C7AE48A003A435C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		AE87427C1C7AF166003A435C /* message.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
+		AE87427E1C7AF602003A435C /* TSModelTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSModelTransformer.swift; sourceTree = "<group>"; };
+		AE8742851C7B079B003A435C /* TSMeAvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMeAvatarTableViewCell.swift; sourceTree = "<group>"; };
+		AE8742861C7B079B003A435C /* TSMeAvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMeAvatarTableViewCell.xib; sourceTree = "<group>"; };
+		AE8742891C7B0D7D003A435C /* Kenny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kenny.jpg; sourceTree = "<group>"; };
+		AE87428B1C7B250D003A435C /* TSContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactModel.swift; sourceTree = "<group>"; };
+		AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactTableViewCell.swift; sourceTree = "<group>"; };
+		AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSContactTableViewCell.xib; sourceTree = "<group>"; };
+		AE8742931C7B4A8B003A435C /* contact.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contact.json; sourceTree = "<group>"; };
+		AE8F49941C46A7DD009C1541 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		AE8F49971C46A7DD009C1541 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		AE8F499D1C46A905009C1541 /* AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
+		AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		AE8F499F1C46A905009C1541 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		AE8F49A01C46A905009C1541 /* NSData+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
+		AE8F49A31C46A905009C1541 /* NSObject+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+String.swift"; sourceTree = "<group>"; };
+		AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Block.swift"; sourceTree = "<group>"; };
+		AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49A91C46A905009C1541 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AE8F49BE1C46A95E009C1541 /* TSWeChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE8F49BF1C46AA5F009C1541 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		AE92B5E11C3FF73000968A3A /* TSWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE92B5E41C3FF73000968A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE92B5F51C3FF73000968A3A /* TSWeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSWeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE92B5F91C3FF73000968A3A /* TSWeChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSWeChatTests.swift; sourceTree = "<group>"; };
+		AE92B5FB1C3FF73000968A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE92B6BA1C3FF7C900968A3A /* TSAppMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSAppMacro.swift; sourceTree = "<group>"; };
+		AE92B7B21C3FFA5200968A3A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE92B8531C3FFC5C00968A3A /* TSChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatViewController.swift; sourceTree = "<group>"; };
+		AE92B8541C3FFC5C00968A3A /* TSChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSChatViewController.xib; sourceTree = "<group>"; };
+		AE92B86F1C3FFC5C00968A3A /* TSTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabbarViewController.swift; sourceTree = "<group>"; };
+		AE92B8821C3FFC5D00968A3A /* TSMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMessageTableViewCell.swift; sourceTree = "<group>"; };
+		AE92B8831C3FFC5D00968A3A /* TSMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMessageTableViewCell.xib; sourceTree = "<group>"; };
+		AE92B8841C3FFC5D00968A3A /* TSMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMessageViewController.swift; sourceTree = "<group>"; };
+		AE92B8851C3FFC5D00968A3A /* TSMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMessageViewController.xib; sourceTree = "<group>"; };
+		AE92B8C11C3FFC9000968A3A /* TSDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSDiscoverViewController.swift; sourceTree = "<group>"; };
+		AE92B8C21C3FFC9000968A3A /* TSDiscoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSDiscoverViewController.xib; sourceTree = "<group>"; };
+		AE92B8C51C3FFCE900968A3A /* TSMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMeViewController.swift; sourceTree = "<group>"; };
+		AE92B8C61C3FFCE900968A3A /* TSMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMeViewController.xib; sourceTree = "<group>"; };
+		AE92B8C91C3FFD0D00968A3A /* TSContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactsViewController.swift; sourceTree = "<group>"; };
+		AE92B8CA1C3FFD0D00968A3A /* TSContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSContactsViewController.xib; sourceTree = "<group>"; };
+		AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE92B8CF1C3FFFDB00968A3A /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		AE92B8D01C3FFFDB00968A3A /* hello.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = hello.amr; sourceTree = "<group>"; };
+		AE92B8D11C3FFFDB00968A3A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		AEE69A591C7CB07C00C69224 /* Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expression.plist; sourceTree = "<group>"; };
+		AEE69B241C7CB2AF00C69224 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
+		AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
+		AEE69B601C81997500C69224 /* String+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Crypto.swift"; sourceTree = "<group>"; };
+		AEE69B611C81997500C69224 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
+		D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.release.xcconfig"; sourceTree = "<group>"; };
+		F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE92B5DE1C3FF73000968A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE92B5F21C3FF73000968A3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18FCDE5FEB0C6C5536DF0CBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */,
+				D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AE87426E1C7AE23E003A435C /* CoreModule */ = {
+			isa = PBXGroup;
+			children = (
+				AE87426F1C7AE23E003A435C /* Models */,
+				AE8742721C7AE23E003A435C /* TSApplicationManager.swift */,
+				AE8742731C7AE23E003A435C /* TSUserManager.swift */,
+			);
+			path = CoreModule;
+			sourceTree = "<group>";
+		};
+		AE87426F1C7AE23E003A435C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE8742701C7AE23E003A435C /* TSMessageModel.swift */,
+				AE8742711C7AE23E003A435C /* TSModel.swift */,
+				AE87427E1C7AF602003A435C /* TSModelTransformer.swift */,
+				AE87428B1C7B250D003A435C /* TSContactModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE8F49931C46A7DD009C1541 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				AE8F49941C46A7DD009C1541 /* SVIndefiniteAnimatedView.h */,
+				AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */,
+				AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */,
+				AE8F49971C46A7DD009C1541 /* SVProgressHUD.h */,
+				AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		AE8F499C1C46A905009C1541 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AE8F499D1C46A905009C1541 /* AboutApp.swift */,
+				AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */,
+				AE8F499F1C46A905009C1541 /* Device.swift */,
+				AE8F49A01C46A905009C1541 /* NSData+Extension.swift */,
+				AE8742781C7AE48A003A435C /* NSDate+Extension.swift */,
+				AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */,
+				AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */,
+				AE8F49A31C46A905009C1541 /* NSObject+String.swift */,
+				AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */,
+				AEE69B601C81997500C69224 /* String+Crypto.swift */,
+				AEE69B611C81997500C69224 /* String+Extension.swift */,
+				AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */,
+				AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */,
+				AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */,
+				AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */,
+				AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */,
+				AE8F49A91C46A905009C1541 /* UIView+Extension.swift */,
+				AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */,
+				AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AE92B5D81C3FF73000968A3A = {
+			isa = PBXGroup;
+			children = (
+				AE92B5E31C3FF73000968A3A /* TSWeChat */,
+				AE92B5F81C3FF73000968A3A /* TSWeChatTests */,
+				AE92B5E21C3FF73000968A3A /* Products */,
+				FB51EDC618380CF0CB9A05BC /* Frameworks */,
+				18FCDE5FEB0C6C5536DF0CBA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		AE92B5E21C3FF73000968A3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B5E11C3FF73000968A3A /* TSWeChat.app */,
+				AE92B5F51C3FF73000968A3A /* TSWeChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE92B5E31C3FF73000968A3A /* TSWeChat */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B5E41C3FF73000968A3A /* AppDelegate.swift */,
+				AE92B6041C3FF7C900968A3A /* Classes */,
+				AE92B6981C3FF7C900968A3A /* General */,
+				AE8F499C1C46A905009C1541 /* Helpers */,
+				AE92B6B91C3FF7C900968A3A /* Macro */,
+				AE92B8CD1C3FFFDB00968A3A /* Resources */,
+				AE92B7AC1C3FFA5200968A3A /* Supportting Files */,
+				AE92B6C01C3FF7C900968A3A /* Vendor */,
+			);
+			path = TSWeChat;
+			sourceTree = "<group>";
+		};
+		AE92B5F81C3FF73000968A3A /* TSWeChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B5F91C3FF73000968A3A /* TSWeChatTests.swift */,
+				AE92B5FB1C3FF73000968A3A /* Info.plist */,
+			);
+			path = TSWeChatTests;
+			sourceTree = "<group>";
+		};
+		AE92B6041C3FF7C900968A3A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AE87426E1C7AE23E003A435C /* CoreModule */,
+				AE92B83E1C3FFC5C00968A3A /* Chat */,
+				AE92B8701C3FFC5C00968A3A /* Contacts */,
+				AE92B83D1C3FFC5C00968A3A /* Discover */,
+				AE92B87C1C3FFC5C00968A3A /* Me */,
+				AE92B8811C3FFC5D00968A3A /* Message */,
+				AE92B86E1C3FFC5C00968A3A /* Tabbar */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AE92B6981C3FF7C900968A3A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */,
+				AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */,
+				AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */,
+				AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */,
+				AE8742581C7AE0F1003A435C /* TSImagePicker.swift */,
+				AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */,
+				AE87425B1C7AE0F1003A435C /* SwiftTimer.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		AE92B6B91C3FF7C900968A3A /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B6BA1C3FF7C900968A3A /* TSAppMacro.swift */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		AE92B6C01C3FF7C900968A3A /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				AE8F49931C46A7DD009C1541 /* SVProgressHUD */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		AE92B7AC1C3FFA5200968A3A /* Supportting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE8F49BE1C46A95E009C1541 /* TSWeChat-Bridging-Header.h */,
+				AE92B7B21C3FFA5200968A3A /* Info.plist */,
+				AE8F49BF1C46AA5F009C1541 /* Notes.swift */,
+			);
+			path = "Supportting Files";
+			sourceTree = "<group>";
+		};
+		AE92B83D1C3FFC5C00968A3A /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B8C11C3FFC9000968A3A /* TSDiscoverViewController.swift */,
+				AE92B8C21C3FFC9000968A3A /* TSDiscoverViewController.xib */,
+				AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */,
+				AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		AE92B83E1C3FFC5C00968A3A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B8531C3FFC5C00968A3A /* TSChatViewController.swift */,
+				AE92B8541C3FFC5C00968A3A /* TSChatViewController.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		AE92B86E1C3FFC5C00968A3A /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B86F1C3FFC5C00968A3A /* TSTabbarViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		AE92B8701C3FFC5C00968A3A /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */,
+				AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */,
+				AE92B8C91C3FFD0D00968A3A /* TSContactsViewController.swift */,
+				AE92B8CA1C3FFD0D00968A3A /* TSContactsViewController.xib */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		AE92B87C1C3FFC5C00968A3A /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B8C51C3FFCE900968A3A /* TSMeViewController.swift */,
+				AE92B8C61C3FFCE900968A3A /* TSMeViewController.xib */,
+				AE8742851C7B079B003A435C /* TSMeAvatarTableViewCell.swift */,
+				AE8742861C7B079B003A435C /* TSMeAvatarTableViewCell.xib */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		AE92B8811C3FFC5D00968A3A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				AE92B8821C3FFC5D00968A3A /* TSMessageTableViewCell.swift */,
+				AE92B8831C3FFC5D00968A3A /* TSMessageTableViewCell.xib */,
+				AE92B8841C3FFC5D00968A3A /* TSMessageViewController.swift */,
+				AE92B8851C3FFC5D00968A3A /* TSMessageViewController.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		AE92B8CD1C3FFFDB00968A3A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEE69B241C7CB2AF00C69224 /* Expression.bundle */,
+				AE8742931C7B4A8B003A435C /* contact.json */,
+				AE8742891C7B0D7D003A435C /* Kenny.jpg */,
+				AE87427C1C7AF166003A435C /* message.json */,
+				AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */,
+				AE92B8CF1C3FFFDB00968A3A /* beep.wav */,
+				AE92B8D01C3FFFDB00968A3A /* hello.amr */,
+				AE92B8D11C3FFFDB00968A3A /* Media.xcassets */,
+				AEE69A591C7CB07C00C69224 /* Expression.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FB51EDC618380CF0CB9A05BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE92B5E01C3FF73000968A3A /* TSWeChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE92B5FE1C3FF73000968A3A /* Build configuration list for PBXNativeTarget "TSWeChat" */;
+			buildPhases = (
+				333F8A69197CBA2F78BBB29A /* Check Pods Manifest.lock */,
+				AE92B5DD1C3FF73000968A3A /* Sources */,
+				AE92B5DE1C3FF73000968A3A /* Frameworks */,
+				AE92B5DF1C3FF73000968A3A /* Resources */,
+				9680021210E15A4A2681EDFB /* Embed Pods Frameworks */,
+				751D460FDFD59FFE4D35526B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSWeChat;
+			productName = TSWeChat;
+			productReference = AE92B5E11C3FF73000968A3A /* TSWeChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE92B5F41C3FF73000968A3A /* TSWeChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE92B6011C3FF73000968A3A /* Build configuration list for PBXNativeTarget "TSWeChatTests" */;
+			buildPhases = (
+				AE92B5F11C3FF73000968A3A /* Sources */,
+				AE92B5F21C3FF73000968A3A /* Frameworks */,
+				AE92B5F31C3FF73000968A3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE92B5F71C3FF73000968A3A /* PBXTargetDependency */,
+			);
+			name = TSWeChatTests;
+			productName = TSWeChatTests;
+			productReference = AE92B5F51C3FF73000968A3A /* TSWeChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE92B5D91C3FF73000968A3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TS;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Hilen;
+				TargetAttributes = {
+					AE92B5E01C3FF73000968A3A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					AE92B5F41C3FF73000968A3A = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = AE92B5E01C3FF73000968A3A;
+					};
+				};
+			};
+			buildConfigurationList = AE92B5DC1C3FF73000968A3A /* Build configuration list for PBXProject "TSWeChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE92B5D81C3FF73000968A3A;
+			productRefGroup = AE92B5E21C3FF73000968A3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE92B5E01C3FF73000968A3A /* TSWeChat */,
+				AE92B5F41C3FF73000968A3A /* TSWeChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE92B5DF1C3FF73000968A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE92B8BE1C3FFC5D00968A3A /* TSMessageTableViewCell.xib in Resources */,
+				AE92B8D31C3FFFDB00968A3A /* beep.wav in Resources */,
+				AE8742921C7B3547003A435C /* TSContactTableViewCell.xib in Resources */,
+				AE87427D1C7AF166003A435C /* message.json in Resources */,
+				AE8742881C7B079B003A435C /* TSMeAvatarTableViewCell.xib in Resources */,
+				AE8742941C7B4A8B003A435C /* contact.json in Resources */,
+				AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */,
+				AE8F499A1C46A7DD009C1541 /* SVProgressHUD.bundle in Resources */,
+				AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */,
+				AE92B8C81C3FFCE900968A3A /* TSMeViewController.xib in Resources */,
+				AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */,
+				AEE69B251C7CB2AF00C69224 /* Expression.bundle in Resources */,
+				AE92B8D51C3FFFDB00968A3A /* Media.xcassets in Resources */,
+				AE87428A1C7B0D7D003A435C /* Kenny.jpg in Resources */,
+				AE92B89A1C3FFC5D00968A3A /* TSChatViewController.xib in Resources */,
+				AE92B8C41C3FFC9000968A3A /* TSDiscoverViewController.xib in Resources */,
+				AE92B8D41C3FFFDB00968A3A /* hello.amr in Resources */,
+				AEE69A5A1C7CB07C00C69224 /* Expression.plist in Resources */,
+				AE92B8D21C3FFFDB00968A3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE92B5F31C3FF73000968A3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		333F8A69197CBA2F78BBB29A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		751D460FDFD59FFE4D35526B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9680021210E15A4A2681EDFB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE92B5DD1C3FF73000968A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8F49BA1C46A905009C1541 /* UIViewController+Extension.swift in Sources */,
+				AE8F49B11C46A905009C1541 /* NSNotificationCenter+Block.swift in Sources */,
+				AE8742751C7AE23E003A435C /* TSModel.swift in Sources */,
+				AE8F49AE1C46A905009C1541 /* Device.swift in Sources */,
+				AE8F49B91C46A905009C1541 /* UIView+Frame.swift in Sources */,
+				AE8742761C7AE23E003A435C /* TSApplicationManager.swift in Sources */,
+				AE92B8CB1C3FFD0D00968A3A /* TSContactsViewController.swift in Sources */,
+				AE8F49C01C46AA5F009C1541 /* Notes.swift in Sources */,
+				AE87428C1C7B250D003A435C /* TSContactModel.swift in Sources */,
+				AE8F49B61C46A905009C1541 /* UISearchBar+Extension.swift in Sources */,
+				AE8F49B81C46A905009C1541 /* UIView+Extension.swift in Sources */,
+				AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */,
+				AEE69B621C81997500C69224 /* PHAsset+Extension.swift in Sources */,
+				AE8F49991C46A7DD009C1541 /* SVIndefiniteAnimatedView.m in Sources */,
+				AE8F49B31C46A905009C1541 /* UIBarButtonItem+Block.swift in Sources */,
+				AE92B8BF1C3FFC5D00968A3A /* TSMessageViewController.swift in Sources */,
+				AE92B5E51C3FF73000968A3A /* AppDelegate.swift in Sources */,
+				AE8F49B21C46A905009C1541 /* NSObject+String.swift in Sources */,
+				AE92B8BD1C3FFC5D00968A3A /* TSMessageTableViewCell.swift in Sources */,
+				AE87427F1C7AF602003A435C /* TSModelTransformer.swift in Sources */,
+				AE87425D1C7AE0F1003A435C /* TSUIImage+WeChat.swift in Sources */,
+				AE87425C1C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift in Sources */,
+				AE92B8991C3FFC5D00968A3A /* TSChatViewController.swift in Sources */,
+				AE87425F1C7AE0F1003A435C /* TSUIColor+WeChat.swift in Sources */,
+				AE92B8AE1C3FFC5D00968A3A /* TSTabbarViewController.swift in Sources */,
+				AE8F49B41C46A905009C1541 /* UIImage+Extension.swift in Sources */,
+				AE8742791C7AE48A003A435C /* NSDate+Extension.swift in Sources */,
+				AE8742611C7AE0F1003A435C /* TSProgressHUD.swift in Sources */,
+				AE8F49AD1C46A905009C1541 /* CGRect+Extension.swift in Sources */,
+				AE8742741C7AE23E003A435C /* TSMessageModel.swift in Sources */,
+				AEE69B631C81997500C69224 /* String+Crypto.swift in Sources */,
+				AE8742601C7AE0F1003A435C /* TSImagePicker.swift in Sources */,
+				AE92B8C31C3FFC9000968A3A /* TSDiscoverViewController.swift in Sources */,
+				AE8742771C7AE23E003A435C /* TSUserManager.swift in Sources */,
+				AE8742631C7AE0F1003A435C /* SwiftTimer.swift in Sources */,
+				AE8F49AF1C46A905009C1541 /* NSData+Extension.swift in Sources */,
+				AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */,
+				AE92B7881C3FF7C900968A3A /* TSAppMacro.swift in Sources */,
+				AEE69B641C81997500C69224 /* String+Extension.swift in Sources */,
+				AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */,
+				AE8F49B01C46A905009C1541 /* NSDictionary+Extension.swift in Sources */,
+				AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */,
+				AE92B8C71C3FFCE900968A3A /* TSMeViewController.swift in Sources */,
+				AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */,
+				AE8F499B1C46A7DD009C1541 /* SVProgressHUD.m in Sources */,
+				AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */,
+				AE8742871C7B079B003A435C /* TSMeAvatarTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE92B5F11C3FF73000968A3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE92B5FA1C3FF73000968A3A /* TSWeChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE92B5F71C3FF73000968A3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE92B5E01C3FF73000968A3A /* TSWeChat */;
+			targetProxy = AE92B5F61C3FF73000968A3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AE92B5FC1C3FF73000968A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE92B5FD1C3FF73000968A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE92B5FF1C3FF73000968A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "$(SRCROOT)/TSWeChat/Supportting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TSWeChat/Vendor/VoiceConvert/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		AE92B6001C3FF73000968A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "$(SRCROOT)/TSWeChat/Supportting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TSWeChat/Vendor/VoiceConvert/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		AE92B6021C3FF73000968A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TSWeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSWeChat.app/TSWeChat";
+			};
+			name = Debug;
+		};
+		AE92B6031C3FF73000968A3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TSWeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSWeChat.app/TSWeChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE92B5DC1C3FF73000968A3A /* Build configuration list for PBXProject "TSWeChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE92B5FC1C3FF73000968A3A /* Debug */,
+				AE92B5FD1C3FF73000968A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE92B5FE1C3FF73000968A3A /* Build configuration list for PBXNativeTarget "TSWeChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE92B5FF1C3FF73000968A3A /* Debug */,
+				AE92B6001C3FF73000968A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE92B6011C3FF73000968A3A /* Build configuration list for PBXNativeTarget "TSWeChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE92B6021C3FF73000968A3A /* Debug */,
+				AE92B6031C3FF73000968A3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE92B5D91C3FF73000968A3A /* Project object */;
+}

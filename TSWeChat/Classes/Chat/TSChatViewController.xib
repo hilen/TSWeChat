@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSChatViewController" customModule="TSWeChat" customModuleProvider="target">
+            <connections>
+                <outlet property="listTableView" destination="x8V-sF-3a5" id="UzE-fp-PjP"/>
+                <outlet property="tableViewBottomConstraint" destination="DTn-Xp-GzF" id="xWm-86-ESe"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8V-sF-3a5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
+                    <color key="backgroundColor" red="0.34432870370000002" green="0.78879527500000002" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="V8N-B4-dig"/>
+                        <outlet property="delegate" destination="-1" id="nDS-rn-oc1"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="x8V-sF-3a5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Amx-9M-Uir"/>
+                <constraint firstAttribute="bottom" secondItem="x8V-sF-3a5" secondAttribute="bottom" constant="50" id="DTn-Xp-GzF"/>
+                <constraint firstAttribute="trailing" secondItem="x8V-sF-3a5" secondAttribute="trailing" id="Wcz-ml-pmg"/>
+                <constraint firstItem="x8V-sF-3a5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bxz-py-htq"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="932" y="527"/>
+        </view>
+    </objects>
+</document>
