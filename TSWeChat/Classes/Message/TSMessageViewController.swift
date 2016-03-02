@@ -54,7 +54,9 @@ class TSMessageViewController: UIViewController {
 extension TSMessageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        self.ts_goChatViewController(self.itemDataSouce[indexPath.row])
+        let viewController = TSChatViewController.initFromNib() as! TSChatViewController
+        viewController.messageModel = self.itemDataSouce[indexPath.row]
+        self.ts_pushAndHideTabbar(viewController)
     }
 }
 

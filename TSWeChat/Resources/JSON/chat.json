@@ -1,0 +1,271 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453355368648",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453355368652",
+      "message": "哈哈哈哈哈哈哈哈，测试测试",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453355369353",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453355369368",
+      "message": "6",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453355739203",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453355739199",
+      "message": "a",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453355742132",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453355742133",
+      "message": "2",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453358045",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx",
+      "audioInfo": {
+        "key_hash": "4bdc6752ffdb76d307567968963fdf02",
+        "channels": "1",
+        "file_size": "11264",
+        "duration": "7",
+        "audio_url": "http://7xl2es.com1.z0.glb.clouddn.com/4bdc6752ffdb76d307567968963fdf02.amr",
+        "audio_id": "1485",
+        "format_name": "amr/amr",
+        "mime_type": "audio/amr",
+        "bit_rate": "12822.018"
+      },
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "type": "1",
+      "timestamp": "1453358048458",
+      "message_type": "2",
+      "picInfo": null,
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1453372358",
+      "chat_receive_id": "wx1234skjksmsjdfwe234",
+      "audioInfo": {
+        "key_hash": "0b835eaaf57e12f553a28fcbc3d6790e",
+        "channels": "1",
+        "file_size": "28672",
+        "duration": "17",
+        "audio_url": "http://7xl2es.com1.z0.glb.clouddn.com/0b835eaaf57e12f553a28fcbc3d6790e.amr",
+        "audio_id": "xxxxxxxxxx",
+        "format_name": "amr/amr",
+        "mime_type": "audio/amr",
+        "bit_rate": "12840.000"
+      },
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "type": "1",
+      "timestamp": "1453372359786",
+      "message_type": "2",
+      "picInfo": null,
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453432337812",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453432337716",
+      "message": "[憨笑][憨笑][憨笑]哈哈哈哈明明敏明啊读书兔兔[坏笑][坏笑]",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454050189",
+      "chat_receive_id": "wx1234skjksmsjdfwe234",
+      "audioInfo": null,
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "type": "1",
+      "timestamp": "1453459821874",
+      "message_type": "1",
+      "picInfo": {
+        "thumb_url": "http://ww4.sinaimg.cn/mw690/ac593e95jw1f1d7adxl27j20dw09dmy8.jpg",
+        "width": "500",
+        "original_url": "http://ww4.sinaimg.cn/mw690/ac593e95jw1f1d7adxl27j20dw09dmy8.jpg",
+        "image_id": "1825764285",
+        "height": "337"
+      },
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453461571010",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453461570936",
+      "message": "啊啊啊 http://www.baidu.com 哈哈哈就",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453461830368",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453461830314",
+      "message": "www.baidu.com",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453461887639",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453461887583",
+      "message": "时间间隔 cell 是本地生成的数据。www.github.com.abc",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_type": "1",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1453461900243",
+      "picInfo": {
+        "thumb_url": "http://ww4.sinaimg.cn/mw690/6a011e49gw1f1ij5gzj4tj20c80c43zk.jpg",
+        "width": "440",
+        "original_url": "http://ww3.sinaimg.cn/large/6a011e49gw1f1ij5gzj4tj20c80c43zk.jpg",
+        "image_id": "1825764285",
+        "height": "436"
+      },
+      "type": "1",
+      "message_id": "wx1234skjksmsjdfwe234iPhone1453461900188",
+      "message": "",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    },
+    {
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454050179",
+      "chat_receive_id": "wx1234skjksmsjdfwe234",
+      "audioInfo": {
+        "key_hash": "4bdc6752ffdb76d307567968963fdf02",
+        "channels": "1",
+        "file_size": "3078",
+        "duration": "7",
+        "audio_url": "http://7xl2es.com1.z0.glb.clouddn.com/4bdc6752ffdb76d307567968963fdf02.amr",
+        "audio_id": "xxxxxxxxx",
+        "format_name": "amr/amr",
+        "mime_type": "audio/amr",
+        "bit_rate": "12825.000"
+      },
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "type": "1",
+      "timestamp": "1454050186495",
+      "message_type": "2",
+      "picInfo": null,
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454050185",
+      "chat_receive_id": "wx1234skjksmsjdfwe234",
+      "audioInfo": {
+        "key_hash": "ac8ee63ae1e7d7185bcc99d11145eebb",
+        "channels": "1",
+        "file_size": "30720",
+        "duration": "30",
+        "audio_url": "http://7xl2es.com1.z0.glb.clouddn.com/30k_basic_AMR.amr",
+        "audio_id": "1491",
+        "format_name": "amr/amr",
+        "mime_type": "audio/amr",
+        "bit_rate": "12819.672"
+      },
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "type": "1",
+      "timestamp": "1454050192804",
+      "message_type": "2",
+      "picInfo": null,
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454050189",
+      "chat_receive_id": "wx1234skjksmsjdfwe234",
+      "audioInfo": null,
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "type": "1",
+      "timestamp": "1454050196116",
+      "message_type": "1",
+      "picInfo": {
+        "thumb_url": "http://ww3.sinaimg.cn/bmiddle/692a6bbcgw1exp81myss3j20g40o6tah.jpg",
+        "width": "440",
+        "original_url": "http://ww3.sinaimg.cn/bmiddle/692a6bbcgw1exp81myss3j20g40o6tah.jpg",
+        "image_id": "1825764285",
+        "height": "660"
+      },
+      "message": "",
+      "device": "iPhone"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "timestamp": "1454063956429",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063956356",
+      "message": "[憨笑]我发个表情试试，哈哈哈哈，我的电话: 13581887557 [阴险] ",
+      "device": "iPhone",
+      "chat_receive_id": "wx1234skjksmsjdfwe234"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx43922sdkfjsfmmxdfmx",
+      "timestamp": "1454063961015",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063961005",
+      "message": "[晕] 这是测试的数据，数据来源于文件：chat.json",
+      "device": "iPhone",
+      "chat_receive_id": "wx1234skjksmsjdfwe234"
+    },
+    {
+      "message_type": "0",
+      "chat_send_id": "wx1234skjksmsjdfwe234",
+      "timestamp": "1454063963082",
+      "picInfo": null,
+      "type": "1",
+      "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063963073",
+      "message": "[悠闲][悠闲][悠闲]这是 TSWeChat 开源项目，高仿微信 ，github地址是: https://github.com/hilen/TSWeChat ，Written by Swift 2.0",
+      "device": "iPhone",
+      "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
+    }
+  ],
+  "message": "success",
+  "msgTotal": "76",
+  "successful": 1,
+  "error_code": 0
+}

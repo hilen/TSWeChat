@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSChatShareMoreView" customModule="TSWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cbo-Mt-8iz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="6QC-Fp-d5G">
+                        <size key="itemSize" width="65" height="93"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Y86-zY-A3K"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Jn1-wo-VX5"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cbo-Mt-8iz" secondAttribute="trailing" id="44o-BE-rmu"/>
+                <constraint firstAttribute="bottom" secondItem="cbo-Mt-8iz" secondAttribute="bottom" id="FGQ-1O-cEj"/>
+                <constraint firstItem="cbo-Mt-8iz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fC1-eM-FlE"/>
+                <constraint firstItem="cbo-Mt-8iz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pAy-ES-T6L"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="listCollectionView" destination="cbo-Mt-8iz" id="29g-fi-mv6"/>
+            </connections>
+            <point key="canvasLocation" x="490" y="508"/>
+        </view>
+    </objects>
+</document>

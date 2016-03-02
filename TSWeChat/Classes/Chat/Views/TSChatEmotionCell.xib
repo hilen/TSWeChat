@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TSChatEmotionCell" customModule="TSWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Z-tq-3lC">
+                        <rect key="frame" x="9" y="9" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="8DD-p6-jLV"/>
+                            <constraint firstAttribute="width" constant="32" id="qu0-9W-RdL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="Q5Z-tq-3lC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3Hz-zE-rVi"/>
+                <constraint firstItem="Q5Z-tq-3lC" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="LKV-dm-f2g"/>
+                <constraint firstAttribute="trailing" secondItem="Q5Z-tq-3lC" secondAttribute="trailing" id="NI8-aY-i1K"/>
+                <constraint firstAttribute="bottom" secondItem="Q5Z-tq-3lC" secondAttribute="bottom" id="V0i-1Q-Fo3"/>
+                <constraint firstItem="Q5Z-tq-3lC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fmO-Vr-nqd"/>
+                <constraint firstItem="Q5Z-tq-3lC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uZV-Yy-ukk"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3Hz-zE-rVi"/>
+                    <exclude reference="NI8-aY-i1K"/>
+                    <exclude reference="V0i-1Q-Fo3"/>
+                    <exclude reference="fmO-Vr-nqd"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="emotionImageView" destination="Q5Z-tq-3lC" id="jxA-fR-PTe"/>
+            </connections>
+            <point key="canvasLocation" x="418" y="394"/>
+        </collectionViewCell>
+    </objects>
+</document>

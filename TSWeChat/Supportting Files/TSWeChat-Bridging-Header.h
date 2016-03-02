@@ -9,4 +9,6 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "SVProgressHUD.h"
+#import "VoiceConverterHeaders.h"
+#import "VoiceConverter.h"
 #endif

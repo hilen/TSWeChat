@@ -6,17 +6,17 @@
            "message_unread_num": 0,
            "userid": "3277",
            "meesage_from_type": "2",
-           "avatar_url": "http://tp1.sinaimg.cn/1640016932/180/5710557422/1",
-           "nickname": "张雨绮",
+           "avatar_url": "http://ww2.sinaimg.cn/large/6a011e49jw1f1j01nj8g6j204f04ft8r.jpg",
+           "nickname": "金宝拉",
            "last_message": {
-           "message_id": "1303iphone1446696401194",
+           "message_id": "wx1234skjksmsjdfwe234iphone1446696401194",
            "receive_userid": "3277",
-           "send_userid": "1303",
+           "send_userid": "wx1234skjksmsjdfwe234",
            "ctime": "2016-02-22 15:18:40",
            "timestamp": 1456154320227,
            "message_content_type": "0",
-           "client_message_id": "1303iphone1446696401194",
-           "message": "我现在就打她回来包鱼头汤！！",
+           "client_message_id": "wx1234skjksmsjdfwe234iphone1446696401194",
+           "message": "[悠闲][悠闲][悠闲]这是 TSWeChat 开源项目，高仿微信 ，github地址是: https://github.com/hilen/TSWeChat ，Written by Swift 2.0",
            "device": "iphone"
            }
         },
@@ -24,8 +24,8 @@
         "message_unread_num": 374,
         "userid": "1011",
         "meesage_from_type": "2",
-        "avatar_url": "http://tp2.sinaimg.cn/1577826897/180/5746878873/1",
-        "nickname": "冯大辉",
+        "avatar_url": "http://tp4.sinaimg.cn/2217389255/180/5734480469/0",
+        "nickname": "包租婆",
         "last_message": {
           "message_id": "735pc1456111059588",
           "receive_userid": "1011",
@@ -34,7 +34,7 @@
           "timestamp": 1456111050243,
           "message_content_type": "0",
           "client_message_id": "735pc1456111059588",
-          "message": "今儿你干啥了？",
+          "message": "啥时候交房租？",
           "device": "mac"
         }
       },
@@ -42,17 +42,17 @@
         "message_unread_num": 0,
         "userid": "719",
         "meesage_from_type": "1",
-        "avatar_url": "http://tp1.sinaimg.cn/3343337200/180/5745655149/1",
-        "nickname": "大白熊",
+        "avatar_url": "http://tp2.sinaimg.cn/2144684673/180/5746266273/1",
+        "nickname": "我了个擦",
         "last_message": {
-          "message_id": "1303iphone1454407342317",
+          "message_id": "wx1234skjksmsjdfwe234iphone1454407342317",
           "receive_userid": "719",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2016-02-02 18:02:26",
           "timestamp": 1454407342344,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1454407342317",
-          "message": "能换个硬盘传输带吗？你上次给我换过的",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1454407342317",
+          "message": "听说最近上映了《功夫熊猫3》？",
           "device": "iphone"
         }
       },
@@ -61,15 +61,15 @@
         "userid": "3089",
         "meesage_from_type": "1",
         "avatar_url": "http://tp3.sinaimg.cn/5483505050/180/5751030225/1",
-        "nickname": "栾天舒",
+        "nickname": "栾地舒",
         "last_message": {
-          "message_id": "1303iphone1454403959249",
+          "message_id": "wx1234skjksmsjdfwe234iphone1454403959249",
           "receive_userid": "3089",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2016-02-02 17:06:03",
           "timestamp": 1454403959261,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1454403959249",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1454403959249",
           "message": "[大笑中][大笑中]",
           "device": "iphone"
         }
@@ -89,7 +89,7 @@
           "message_id": "open14543960954421",
           "misc": null,
           "message": "请大家好好看电影！",
-          "receive_userid": "1303"
+          "receive_userid": "wx1234skjksmsjdfwe234"
         }
       },
       {
@@ -97,7 +97,7 @@
         "userid": "2077",
         "meesage_from_type": "2",
         "avatar_url": "http://tp4.sinaimg.cn/1345566427/180/5730976522/0",
-        "nickname": "关爱程序员健康协会",
+        "nickname": "ALvslee",
         "last_message": {
           "message_id": "3829android1454063104269",
           "receive_userid": "2077",
@@ -114,17 +114,17 @@
         "message_unread_num": 0,
         "userid": "2179",
         "meesage_from_type": "2",
-        "avatar_url": "http://tp3.sinaimg.cn/3229125510/180/5693916311/1",
-        "nickname": "美人鱼",
+        "avatar_url": "http://tp4.sinaimg.cn/1942473263/180/5746245576/1",
+        "nickname": "杜先生",
         "last_message": {
-          "message_id": "1303iphone1453195614287",
+          "message_id": "wx1234skjksmsjdfwe234iphone1453195614287",
           "receive_userid": "2179",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2016-01-19 17:26:54",
           "timestamp": 1453195614306,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1453195614287",
-          "message": "登顶华语票房新纪录，这一切要感谢的是观众",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1453195614287",
+          "message": "这些数据全在 Resources/JSON 文件夹内",
           "device": "iphone"
         }
       },
@@ -150,7 +150,7 @@
         "message_unread_num": 0,
         "userid": "2279",
         "meesage_from_type": "2",
-        "avatar_url": "http://tp3.sinaimg.cn/1197161814/180/1290146312/1",
+        "avatar_url": "http://tp2.sinaimg.cn/1258256457/180/5616578718/1",
         "nickname": "吐槽",
         "last_message": {
           "message_id": "3089iphone1452741634531",
@@ -171,13 +171,13 @@
         "avatar_url": "http://tp4.sinaimg.cn/3217179555/180/5693967295/1",
         "nickname": "栾的一比",
         "last_message": {
-          "message_id": "1303iphone1452670900407",
+          "message_id": "wx1234skjksmsjdfwe234iphone1452670900407",
           "receive_userid": "3789",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2016-01-13 15:41:40",
           "timestamp": 1452670900430,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1452670900407",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1452670900407",
           "message": "[偷偷笑][偷偷笑][偷偷笑]",
           "device": "iphone"
         }
@@ -189,13 +189,13 @@
         "avatar_url": "http://tp4.sinaimg.cn/1713926427/180/40000875722/1",
         "nickname": "微博搞笑排行榜",
         "last_message": {
-          "message_id": "1303iphone1449215396443",
+          "message_id": "wx1234skjksmsjdfwe234iphone1449215396443",
           "receive_userid": "2099",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2015-12-04 15:49:56",
           "timestamp": 1449215396305,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1449215396443",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1449215396443",
           "message": "58888",
           "device": "iphone"
         }
@@ -205,10 +205,10 @@
         "userid": "740",
         "meesage_from_type": "1",
         "avatar_url": "http://tp4.sinaimg.cn/1720173771/180/40048639291/1",
-        "nickname": "黄海源",
+        "nickname": "黄有赞",
         "last_message": {
           "message_id": "740android1446946463886",
-          "receive_userid": "1303",
+          "receive_userid": "wx1234skjksmsjdfwe234",
           "send_userid": "740",
           "ctime": "2015-11-08 09:34:23",
           "timestamp": 1446946463481,
@@ -225,13 +225,13 @@
         "avatar_url": "http://tp1.sinaimg.cn/1197191492/180/5749865306/1",
         "nickname": "大妹子",
         "last_message": {
-          "message_id": "1303iphone1445935599453",
+          "message_id": "wx1234skjksmsjdfwe234iphone1445935599453",
           "receive_userid": "1049",
-          "send_userid": "1303",
+          "send_userid": "wx1234skjksmsjdfwe234",
           "ctime": "2015-10-27 16:46:39",
           "timestamp": 1445935599805,
           "message_content_type": "0",
-          "client_message_id": "1303iphone1445935599453",
+          "client_message_id": "wx1234skjksmsjdfwe234iphone1445935599453",
           "message": "好久不见啊",
           "device": "iphone"
         }

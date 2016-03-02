@@ -30,7 +30,7 @@ class UserManager: NSObject {
     
     let TSKeychain = Keychain(service: "com.wechat.Hilen") //keychain
     var accessToken: String? {
-        get { return TSUserDefaults.getString(kAccessToken, defaultValue: "") }
+        get { return TSUserDefaults.getString(kAccessToken, defaultValue: "这是我的 AccessToken") }
         set (newValue) { TSUserDefaults.setString(kAccessToken, value: newValue) }
     }
     /// 用户昵称，不是登录名
@@ -40,7 +40,7 @@ class UserManager: NSObject {
     }
     var avatar: String?
     var userId: String? {
-        get { return TSUserDefaults.getString(kUserId, defaultValue: "0") }
+        get { return TSUserDefaults.getString(kUserId, defaultValue: TSConfig.testUserID) }
         set (newValue) { TSUserDefaults.setString(kUserId, value: newValue) }
     }
     var isLogin: Bool {

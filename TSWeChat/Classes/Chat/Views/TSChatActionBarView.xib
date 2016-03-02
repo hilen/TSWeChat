@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSChatActionBarView" customModule="TSWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zB-ma-iQN" userLabel="Button-voice" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
+                    <rect key="frame" x="5" y="8" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="Gcj-zD-jRo"/>
+                        <constraint firstAttribute="height" constant="35" id="dDO-Ni-H6z"/>
+                    </constraints>
+                    <state key="normal" image="tool_voice_1"/>
+                    <state key="highlighted" image="tool_voice_2"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osw-Mt-kUn" userLabel="Button-add" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
+                    <rect key="frame" x="280" y="8" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Ecb-Aw-3QC"/>
+                        <constraint firstAttribute="width" constant="35" id="beG-1u-ROX"/>
+                    </constraints>
+                    <state key="normal" image="tool_share_1"/>
+                    <state key="highlighted" image="tool_share_2"/>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-BD-K9i">
+                    <rect key="frame" x="47" y="5" width="190" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQt-LW-wuw" userLabel="Button-emotion" customClass="TSChatButton" customModule="TSWeChat" customModuleProvider="target">
+                    <rect key="frame" x="244" y="8" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="gsf-QV-VAX"/>
+                        <constraint firstAttribute="height" constant="35" id="nPE-zM-j1B"/>
+                    </constraints>
+                    <state key="normal" image="tool_emotion_1"/>
+                    <state key="highlighted" image="tool_emotion_2"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVF-64-Ix3" userLabel="Button-record">
+                    <rect key="frame" x="47" y="7" width="190" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="按住  说话">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" title="松开  结束"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="2gR-l3-Wrb"/>
+                <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="VVF-64-Ix3" secondAttribute="trailing" constant="7" id="4hP-aC-5To"/>
+                <constraint firstAttribute="bottom" secondItem="VVF-64-Ix3" secondAttribute="bottom" constant="7" id="50v-rM-EWo"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="Hoc-ej-nFP"/>
+                <constraint firstItem="0zB-ma-iQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="IBJ-om-8d8"/>
+                <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="UFx-BD-K9i" secondAttribute="trailing" constant="7" id="K8x-cQ-BHq"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="leading" secondItem="nQt-LW-wuw" secondAttribute="trailing" constant="1" id="NNd-LC-5up"/>
+                <constraint firstAttribute="bottom" secondItem="UFx-BD-K9i" secondAttribute="bottom" constant="5" id="Vmf-yi-zOO"/>
+                <constraint firstItem="nQt-LW-wuw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="d1L-vd-Piq"/>
+                <constraint firstItem="VVF-64-Ix3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="i89-LZ-qmT"/>
+                <constraint firstAttribute="bottom" secondItem="nQt-LW-wuw" secondAttribute="bottom" constant="7" id="kfs-Gh-l2M"/>
+                <constraint firstAttribute="bottom" secondItem="osw-Mt-kUn" secondAttribute="bottom" constant="7" id="o44-pf-YfN"/>
+                <constraint firstAttribute="bottom" secondItem="0zB-ma-iQN" secondAttribute="bottom" constant="7" id="rjk-eI-ano"/>
+                <constraint firstItem="UFx-BD-K9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ucu-cO-1Qg"/>
+                <constraint firstAttribute="trailing" secondItem="osw-Mt-kUn" secondAttribute="trailing" constant="5" id="wKi-Zw-DbS"/>
+                <constraint firstItem="UFx-BD-K9i" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="wsa-Ef-KbS"/>
+                <constraint firstItem="osw-Mt-kUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xr0-fs-PQH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2gR-l3-Wrb"/>
+                    <exclude reference="d1L-vd-Piq"/>
+                    <exclude reference="xr0-fs-PQH"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="emotionButton" destination="nQt-LW-wuw" id="rUm-PH-zxX"/>
+                <outlet property="inputTextView" destination="UFx-BD-K9i" id="hDI-3V-5Tt"/>
+                <outlet property="recordButton" destination="VVF-64-Ix3" id="51n-j2-nRi"/>
+                <outlet property="shareButton" destination="osw-Mt-kUn" id="33H-4H-D6A"/>
+                <outlet property="voiceButton" destination="0zB-ma-iQN" id="lWX-kK-0Mx"/>
+            </connections>
+            <point key="canvasLocation" x="732" y="835"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tool_emotion_1" width="35" height="35"/>
+        <image name="tool_emotion_2" width="35" height="35"/>
+        <image name="tool_share_1" width="35" height="35"/>
+        <image name="tool_share_2" width="35" height="35"/>
+        <image name="tool_voice_1" width="35" height="35"/>
+        <image name="tool_voice_2" width="35" height="35"/>
+    </resources>
+</document>

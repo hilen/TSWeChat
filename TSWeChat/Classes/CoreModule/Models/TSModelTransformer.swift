@@ -25,6 +25,21 @@ let TransformerTimestampToTimeAgo = TransformOf<String, NSNumber>(fromJSON: { (v
 })
 
 
+//把字符串转换为 Float
+let TransformerStringToFloat = TransformOf<Float, String>(fromJSON: { (value: String?) -> Float? in
+    guard let value = value else {
+        return 0
+    }
+    let intValue: Float? = Float(value)
+    return intValue
+    }, toJSON: { (value: Float?) -> String? in
+        // transform value from Int? to String?
+        if let value = value {
+            return String(value)
+        }
+        return nil
+})
+
 //把字符串转换为 Int
 let TransformerStringToInt = TransformOf<Int, String>(fromJSON: { (value: String?) -> Int? in
     guard let value = value else {
