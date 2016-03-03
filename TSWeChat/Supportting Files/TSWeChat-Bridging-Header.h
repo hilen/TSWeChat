@@ -8,7 +8,7 @@
 @import UIKit;
 
 #import <CoreLocation/CoreLocation.h>
-#import "SVProgressHUD.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "VoiceConverterHeaders.h"
 #import "VoiceConverter.h"
 #endif

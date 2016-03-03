@@ -31,9 +31,6 @@
 		AE87428C1C7B250D003A435C /* TSContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87428B1C7B250D003A435C /* TSContactModel.swift */; };
 		AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */; };
 		AE8742921C7B3547003A435C /* TSContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */; };
-		AE8F49991C46A7DD009C1541 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */; };
-		AE8F499A1C46A7DD009C1541 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */; };
-		AE8F499B1C46A7DD009C1541 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */; };
 		AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499D1C46A905009C1541 /* AboutApp.swift */; };
 		AE8F49AD1C46A905009C1541 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */; };
 		AE8F49AE1C46A905009C1541 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499F1C46A905009C1541 /* Device.swift */; };
@@ -192,11 +189,6 @@
 		AE87428B1C7B250D003A435C /* TSContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactModel.swift; sourceTree = "<group>"; };
 		AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactTableViewCell.swift; sourceTree = "<group>"; };
 		AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSContactTableViewCell.xib; sourceTree = "<group>"; };
-		AE8F49941C46A7DD009C1541 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		AE8F49971C46A7DD009C1541 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		AE8F499D1C46A905009C1541 /* AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
 		AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		AE8F499F1C46A905009C1541 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -400,18 +392,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AE8F49931C46A7DD009C1541 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				AE8F49941C46A7DD009C1541 /* SVIndefiniteAnimatedView.h */,
-				AE8F49951C46A7DD009C1541 /* SVIndefiniteAnimatedView.m */,
-				AE8F49961C46A7DD009C1541 /* SVProgressHUD.bundle */,
-				AE8F49971C46A7DD009C1541 /* SVProgressHUD.h */,
-				AE8F49981C46A7DD009C1541 /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
 		AE8F499C1C46A905009C1541 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,7 +507,6 @@
 			isa = PBXGroup;
 			children = (
 				AEE69BDB1C81B61200C69224 /* VoiceConvert */,
-				AE8F49931C46A7DD009C1541 /* SVProgressHUD */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -897,7 +876,6 @@
 				AE8742881C7B079B003A435C /* TSMeAvatarTableViewCell.xib in Resources */,
 				AEE69C051C81B61200C69224 /* libopencore-amrnb.la in Resources */,
 				AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */,
-				AE8F499A1C46A7DD009C1541 /* SVProgressHUD.bundle in Resources */,
 				AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */,
 				AE92B8C81C3FFCE900968A3A /* TSMeViewController.xib in Resources */,
 				AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */,
@@ -1012,7 +990,6 @@
 				AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */,
 				AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */,
 				AEE69B621C81997500C69224 /* PHAsset+Extension.swift in Sources */,
-				AE8F49991C46A7DD009C1541 /* SVIndefiniteAnimatedView.m in Sources */,
 				AE8F49B31C46A905009C1541 /* UIBarButtonItem+Block.swift in Sources */,
 				AEBEE59E1C86F13D00956B0C /* HttpManager+UploadImage.swift in Sources */,
 				AEE69BA21C81B58600C69224 /* TSChatImageCell.swift in Sources */,
@@ -1081,7 +1058,6 @@
 				AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */,
 				AEE69BFE1C81B61200C69224 /* wav.mm in Sources */,
 				AEE69BC91C81B58600C69224 /* TSChatEmotionCell.swift in Sources */,
-				AE8F499B1C46A7DD009C1541 /* SVProgressHUD.m in Sources */,
 				AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */,
 				AEE69C161C81B6DD00C69224 /* TSChatModel.swift in Sources */,
 				AE8742871C7B079B003A435C /* TSMeAvatarTableViewCell.swift in Sources */,

@@ -16,6 +16,7 @@ PODS:
     - RxSwift (~> 2.0)
   - RxSwift (2.1.0)
   - SnapKit (0.19.1)
+  - SVProgressHUD (2.0-beta8)
   - Swift_cURLCommand (1.0.0)
   - SwiftyJSON (2.3.2)
   - UIColor_Hex_Swift (1.9)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - RxCocoa (~> 2.1.0)
   - RxSwift (~> 2.1.0)
   - SnapKit
+  - SVProgressHUD (~> 2.0-beta8)
   - Swift_cURLCommand
   - SwiftyJSON
   - UIColor_Hex_Swift (~> 1.9)
@@ -54,6 +56,7 @@ SPEC CHECKSUMS:
   RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
   RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
+  SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
   Swift_cURLCommand: 956902720891266119dd2b8d0b513ba353cfe625
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa

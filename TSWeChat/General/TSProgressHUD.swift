@@ -9,7 +9,7 @@
 /// 对 HUD 层进行一次封装
 
 import Foundation
-//import SVProgressHUD
+import SVProgressHUD
 
 class TSProgressHUD: NSObject {
     class func ts_initHUD() {

@@ -25,6 +25,7 @@ def pods
     
     #Objective-C
     pod 'YYText'
+    pod 'SVProgressHUD', '~> 2.0-beta8'
 end
 
 target 'TSWeChat' do
