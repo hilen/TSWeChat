@@ -31,4 +31,17 @@ Supporting Files| To deposite the original files
 
 TSWeChat is released under the MIT license. See LICENSE for details.
 
+## To Do
+- The custom photo album
+- WeChat custom ActionSheet
+- Long press the chat cell
+- The image viewer
+- GIf image cell in TSChatViewController
+- QRCodeViewController
+- ShakeViewController
+- Send my address
+- Viedo cell in TSChatViewController
+- TimelineViewController
+- And so on...
+
 ## [中文说明](Chinese_README.md)
