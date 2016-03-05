@@ -1,5 +1,5 @@
 # TSWeChat
-A high copy WeChat, written by Swift.
+A WeChat alternative, written in Swift.
 
 ## Requirements
 
