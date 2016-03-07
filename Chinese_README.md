@@ -1,8 +1,12 @@
 # TSWeChat 中文说明
-A high copy WeChat, written by Swift.
-请使用 Cocoapods（version 0.39.0）/ iOS 8.0+ / Mac OS X 10.9+ 进行编译并运行。
+A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift.
 
-### 文件目录结构解释：
+## 运行环境
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0
+- iOS 8.0+ / Mac OS X 10.9+
+- Xcode 7.2+
+
+### 文件目录
 
 目录名称|介绍
 ---|---
