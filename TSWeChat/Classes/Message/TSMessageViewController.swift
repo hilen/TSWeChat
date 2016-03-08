@@ -8,16 +8,30 @@
 
 import UIKit
 import SwiftyJSON
+import SnapKit
 
 class TSMessageViewController: UIViewController {
     @IBOutlet private weak var listTableView: UITableView!
     private var itemDataSouce = [MessageModel]()
+    var actionFloatView: TSMessageActionFloatView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "消息"
+        self.title = "微信"
         self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
+        self.navigationItem.rightButtonAction(TSAsset.Barbuttonicon_add.image) { (Void) -> Void in
+            self.actionFloatView.hide(!self.actionFloatView.hidden)
+        }
         
+        //init actionFloatView
+        self.actionFloatView = TSMessageActionFloatView()
+        self.actionFloatView.delegate = self
+        self.view.addSubview(self.actionFloatView)
+        self.actionFloatView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(UIEdgeInsetsMake(64, 0, 0, 0))
+        }
+        
+        //init listTableView
         self.listTableView.registerNib(TSMessageTableViewCell.NibObject(), forCellReuseIdentifier: TSMessageTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 65
         self.listTableView.tableFooterView = UIView()
@@ -81,4 +95,20 @@ extension TSMessageViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - @protocol ActionFloatViewDelegate
+extension TSMessageViewController: ActionFloatViewDelegate {
+    func floatViewTapItemIndex(type: ActionFloatViewItemType) {
+        log.info("floatViewTapItemIndex:\(type)")
+        switch type {
+        case .GroupChat:
+            break
+        case .AddFriend:
+            break
+        case .Scan:
+            break
+        case .Payment:
+            break
+        }
+    }
+}
 

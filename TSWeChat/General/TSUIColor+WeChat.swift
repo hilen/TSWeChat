@@ -18,7 +18,7 @@ import UIKit
 
 extension UIColor {
     enum LocalColorName : String {
-        case barTintColor = "#31404C"  /*navigationbar 的颜色*/
+        case barTintColor = "#1A1A1A"  /*navigationbar 的颜色*/
         case tabbarSelectedTextColor = "#68BB1E"
         case viewBackgroundColor = "#E7EBEE"
     }

@@ -19,7 +19,7 @@ class TSMeViewController: UIViewController {
             ("相册", TSAsset.MoreMyAlbum.image),
             ("收藏", TSAsset.MoreMyFavorites.image),
             ("钱包", TSAsset.MoreMyBankCard.image),
-            ("优惠券", TSAsset.MoreExpressionShops.image),
+            ("优惠券", TSAsset.MyCardPackageIcon.image),
         ],
         [
             ("表情", TSAsset.MoreExpressionShops.image),

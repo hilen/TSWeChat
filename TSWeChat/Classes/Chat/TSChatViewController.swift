@@ -16,6 +16,7 @@ import SwiftyJSON
 /*
 *   聊天详情的 ViewController
 */
+private let kChatLoadMoreOffset: CGFloat = 30
 
 final class TSChatViewController: UIViewController {
     var messageModel: MessageModel?
@@ -42,15 +43,14 @@ final class TSChatViewController: UIViewController {
         self.title = self.messageModel!.nickname!
         self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
         self.navigationController!.interactivePopGestureRecognizer!.enabled = true
-        self.leftBackToPrevious()
 
         //TableView init
-        self.listTableView.tableFooterView = UIView()
         self.listTableView.registerNib(TSChatTextCell.NibObject(), forCellReuseIdentifier: TSChatTextCell.identifier)
         self.listTableView.registerNib(TSChatImageCell.NibObject(), forCellReuseIdentifier: TSChatImageCell.identifier)
         self.listTableView.registerNib(TSChatVoiceCell.NibObject(), forCellReuseIdentifier: TSChatVoiceCell.identifier)
         self.listTableView.registerNib(TSChatSystemCell.NibObject(), forCellReuseIdentifier: TSChatSystemCell.identifier)
         self.listTableView.registerNib(TSChatTimeCell.NibObject(), forCellReuseIdentifier: TSChatTimeCell.identifier)
+        self.listTableView.tableFooterView = UIView()
         self.listTableView.tableHeaderView = self.refreshView
         
         //初始化子 View，键盘控制，动作 bar
@@ -127,7 +127,7 @@ extension TSChatViewController: UITableViewDataSource {
 // MARK: - @protocol UIScrollViewDelegate
 extension TSChatViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y < 30) {
+        if (scrollView.contentOffset.y < kChatLoadMoreOffset) {
             if self.isEndRefreshing {
                 log.info("pull to refresh");
                 self.pullToLoadMore()
@@ -140,7 +140,7 @@ extension TSChatViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if (scrollView.contentOffset.y - scrollView.contentInset.top < 30) {
+        if (scrollView.contentOffset.y - scrollView.contentInset.top < kChatLoadMoreOffset) {
             if self.isEndRefreshing {
                 log.info("pull to refresh");
                 self.pullToLoadMore()

@@ -53,28 +53,28 @@ class TSProgressHUD: NSObject {
     private class func TSProgressHUDShow(type: HUDType, status: String? = nil, error: NSError? = nil) {
         switch type {
         case .Success:
-            SVProgressHUD.showSuccessWithStatus(status, maskType: .None)
+            SVProgressHUD.showSuccessWithStatus(status)
             break
         case .ErrorObject:
             guard let newError = error else {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
+                SVProgressHUD.showErrorWithStatus("Error:出错拉")
                 return
             }
             
             if newError.localizedFailureReason == nil {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
+                SVProgressHUD.showErrorWithStatus("Error:出错拉")
             } else {
-                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason, maskType: .None)
+                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason)
             }
             break
         case .ErrorString:
-            SVProgressHUD.showErrorWithStatus(status, maskType: .None)
+            SVProgressHUD.showErrorWithStatus(status)
             break
         case .Info:
-            SVProgressHUD.showInfoWithStatus(status, maskType: .None)
+            SVProgressHUD.showInfoWithStatus(status)
             break
         case .Loading:
-            SVProgressHUD.showWithStatus(status, maskType: .None)
+            SVProgressHUD.showWithStatus(status)
             break
         }
     }

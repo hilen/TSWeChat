@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.tabbarController = TSTabbarViewController()
         self.window!.rootViewController = self.tabbarController
         self.window!.makeKeyAndVisible()
-        TSApplicationManager.appInit()
+        TSApplicationManager.applicationConfigInit()
         return true
     }
 

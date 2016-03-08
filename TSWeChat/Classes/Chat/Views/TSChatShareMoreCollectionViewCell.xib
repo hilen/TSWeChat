@@ -19,8 +19,8 @@
                             <constraint firstAttribute="width" constant="59" id="Q18-dU-SA2"/>
                             <constraint firstAttribute="height" constant="59" id="rYd-1n-3kX"/>
                         </constraints>
-                        <state key="normal" backgroundImage="sharemore_bg_1"/>
-                        <state key="highlighted" backgroundImage="sharemore_bg_2"/>
+                        <state key="normal" backgroundImage="sharemore_other"/>
+                        <state key="highlighted" backgroundImage="sharemore_other_HL"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijh-bH-bJK">
                         <rect key="frame" x="3" y="70" width="59" height="21"/>
@@ -57,7 +57,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="sharemore_bg_1" width="59" height="59"/>
-        <image name="sharemore_bg_2" width="59" height="59"/>
+        <image name="sharemore_other" width="59" height="59"/>
+        <image name="sharemore_other_HL" width="59" height="59"/>
     </resources>
 </document>

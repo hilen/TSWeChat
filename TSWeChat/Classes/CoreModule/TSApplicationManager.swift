@@ -11,21 +11,20 @@ import Foundation
 import RxSwift
 
 class TSApplicationManager: NSObject {
-    static func appInit() {
+    static func applicationConfigInit() {
         self.initNavigationBar()
         self.initNotifications()
         TSProgressHUD.ts_initHUD()
     }
-    
+
     /**
      导航条初始化
      */
     static func initNavigationBar() {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UINavigationBar.appearance().barTintColor = UIColor(colorNamed: TSColor.barTintColor)
-        UINavigationBar.appearance().tintColor = UIColor.clearColor()
-        UINavigationBar.appearance().translucent = false
-        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().translucent = true
         let attributes = [
             NSFontAttributeName: UIFont.systemFontOfSize(19.0),
             NSForegroundColorAttributeName: UIColor.whiteColor()

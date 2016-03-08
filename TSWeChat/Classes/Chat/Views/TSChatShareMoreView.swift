@@ -26,10 +26,10 @@ class TSChatShareMoreView: UIView {
 
     private let itemDataSouce: [(name: String, iconImage: UIImage)] = [
         ("照片", TSAsset.Sharemore_pic.image),
-        ("相机", TSAsset.Sharemore_camera.image),
+        ("相机", TSAsset.Sharemore_video.image),
         ("小视频", TSAsset.Sharemore_sight.image),
         ("视频聊天", TSAsset.Sharemore_videovoip.image),
-        ("转账", TSAsset.Sharemore_pay.image),
+        ("转账", TSAsset.SharemorePay.image),
         ("位置", TSAsset.Sharemore_location.image),
         ("收藏", TSAsset.Sharemore_myfav.image),
     ]
