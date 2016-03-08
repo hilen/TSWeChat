@@ -3,6 +3,7 @@
 ![Program Language](https://img.shields.io/badge/Swift-compatible-orange.svg)&nbsp;
 ![Support](https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b4.svg)&nbsp;
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/hilen/TSWeChat/blob/master/LICENSE)&nbsp;
+[![codebeat](https://codebeat.co/badges/6eb4d97c-36f9-4b91-906f-ae4a8b38af30)](https://codebeat.co/projects/github-com-hilen-tswechat)
 
 
 A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift.
