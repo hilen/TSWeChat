@@ -91,7 +91,7 @@ class TSChatShareMoreView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         //Fix the width
-        self.listCollectionView.frame.sizeWidth = UIScreen.width
+        self.listCollectionView.width = UIScreen.width
     }
 
 }

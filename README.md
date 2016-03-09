@@ -12,6 +12,17 @@ A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written
 - iOS 8.0+ / Mac OS X 10.9+
 - Xcode 7.2+
 
+
+## Features
+- Send your rich text, expression, image and voice.
+- The cell image in `TSChatImageCell` is drawn by using `Mask Layer` . The chat background can be changed freely so that UI will look perfect.
+- Custom expression keyboard, custom tool keyboard.
+- Audio `wav` files can be automatically converted into `amr` files which facilite file transfer to Android devices. Both of the two type files have been doing cache.
+- When you tap the `TSChatVoiceCell`. It will automatically check the cache and download it by [Alamofire](https://github.com/Alamofire/Alamofire). 
+- When you send the image, it will be stored locally by using the caching mechanism of `Kingfisher`. After successfully uploaded, it will be automatically modified to image link's `MD5` value file name.
+- The data are loaded from the JSON file. All the `Models` are created via ObjectMapper which is easy to convert model objects (classes and structs) from JSON.
+
+
 ## Preview
 ![demo1](https://cloud.githubusercontent.com/assets/16911734/13484861/a72aedcc-e13c-11e5-8fa2-33679c1a4223.gif)
 
@@ -42,12 +53,14 @@ TSWeChat is released under the MIT license. See [LICENSE](https://github.com/hil
 - WeChat custom ActionSheet
 - Long press the chat cell
 - The image viewer
+- Address book
 - GIF image cell in TSChatViewController
 - QRCodeViewController
 - ShakeViewController
 - Send my address
-- Viedo cell in TSChatViewController
+- Video cell in TSChatViewController
 - TimelineViewController
+- Multilanguage support
 - And so on...
 
 ## [中文说明](Chinese_README.md)
