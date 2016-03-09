@@ -53,7 +53,11 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     func checkCameraPermission () {
         AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {granted in
             if !granted {
-                TSAlertView_show("无法访问您的相机", message: "请到设置 -> 隐私 -> 相机 ，打开访问权限" )
+                
+                dispatch_async_safely_to_main_queue({ () -> () in
+                    TSAlertView_show("无法访问您的相机", message: "请到设置 -> 隐私 -> 相机 ，打开访问权限" )
+                })
+                
             }
         })
     }
