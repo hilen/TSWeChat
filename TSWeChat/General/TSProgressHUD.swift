@@ -56,7 +56,7 @@ class TSProgressHUD: NSObject {
         case .Success:
             SVProgressHUD.showSuccessWithStatus(status)
             
-            SVProgressHUD.showSuccessWithStatus(status, maskType: .None)
+//            SVProgressHUD.showSuccessWithStatus(status, maskType: .None)
             break
         case .ErrorObject:
             guard let newError = error else {
