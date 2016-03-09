@@ -50,7 +50,9 @@ class AudioRecordManager: NSObject {
                 try session.setActive(true)
                 session.requestRecordPermission{allowed in
                     if !allowed {
-                        TSAlertView_show("无法访问您的麦克风", message: "请到设置 -> 隐私 -> 麦克风 ，打开访问权限")
+                        dispatch_async_safely_to_main_queue({ () -> () in
+                            TSAlertView_show("无法访问您的麦克风", message: "请到设置 -> 隐私 -> 麦克风 ，打开访问权限")
+                        })
                     }
                 }
             } catch let error as NSError {

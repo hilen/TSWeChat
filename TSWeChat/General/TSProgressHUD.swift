@@ -51,30 +51,39 @@ class TSProgressHUD: NSObject {
     
     //私有方法
     private class func TSProgressHUDShow(type: HUDType, status: String? = nil, error: NSError? = nil) {
+        SVProgressHUD.setDefaultMaskType(.None)
         switch type {
         case .Success:
-            SVProgressHUD.showSuccessWithStatus(status, maskType: .None)
+            SVProgressHUD.showSuccessWithStatus(status)
+            
+//            SVProgressHUD.showSuccessWithStatus(status, maskType: .None)
             break
         case .ErrorObject:
             guard let newError = error else {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
+                SVProgressHUD.showErrorWithStatus("Error:出错拉")
+//                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
                 return
             }
             
             if newError.localizedFailureReason == nil {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
+                SVProgressHUD.showErrorWithStatus("Error:出错拉")
+//                SVProgressHUD.showErrorWithStatus("Error:出错拉", maskType: .None)
             } else {
-                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason, maskType: .None)
+                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason)
+//                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason, maskType: .None)
             }
             break
         case .ErrorString:
-            SVProgressHUD.showErrorWithStatus(status, maskType: .None)
+            SVProgressHUD.showErrorWithStatus(status)
+//            SVProgressHUD.showErrorWithStatus(status, maskType: .None)
             break
         case .Info:
-            SVProgressHUD.showInfoWithStatus(status, maskType: .None)
+            SVProgressHUD.showInfoWithStatus(status)
+//            SVProgressHUD.showInfoWithStatus(status, maskType: .None)
             break
         case .Loading:
-            SVProgressHUD.showWithStatus(status, maskType: .None)
+            SVProgressHUD.showWithStatus(status)
+//            SVProgressHUD.showWithStatus(status, maskType: .None)
             break
         }
     }
