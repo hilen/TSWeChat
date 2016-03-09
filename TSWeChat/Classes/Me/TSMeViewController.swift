@@ -39,6 +39,10 @@ class TSMeViewController: UIViewController {
         self.listTableView.tableFooterView = UIView()
     }
 
+    deinit {
+        log.verbose("deinit")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

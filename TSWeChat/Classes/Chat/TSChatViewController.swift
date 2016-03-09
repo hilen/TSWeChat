@@ -78,7 +78,7 @@ final class TSChatViewController: UIViewController {
     }
     
     deinit {
-        
+        log.verbose("deinit")
     }
 
     override func didReceiveMemoryWarning() {

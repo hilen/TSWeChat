@@ -40,3 +40,6 @@ public class ChatConfig {
         return CGSizeMake(resizeThumbWidth, resizeThumbHeight)
     }
 }
+
+
+

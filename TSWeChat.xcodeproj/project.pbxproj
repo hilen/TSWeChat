@@ -12,6 +12,22 @@
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
 		AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */; };
 		AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */; };
+		AE69C7601C8DDEA600D929CD /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75A1C8DDEA600D929CD /* beep.wav */; };
+		AE69C7611C8DDEA600D929CD /* call.caf in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75B1C8DDEA600D929CD /* call.caf */; };
+		AE69C7621C8DDEA600D929CD /* camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75C1C8DDEA600D929CD /* camera.wav */; };
+		AE69C7631C8DDEA600D929CD /* hello.amr in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75D1C8DDEA600D929CD /* hello.amr */; };
+		AE69C7641C8DDEA600D929CD /* shake_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75E1C8DDEA600D929CD /* shake_match.wav */; };
+		AE69C7651C8DDEA600D929CD /* shake_nomatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75F1C8DDEA600D929CD /* shake_nomatch.wav */; };
+		AE69C7671C8E6A2500D929CD /* close.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C7661C8E6A2500D929CD /* close.wav */; };
+		AE69C7691C8E6AD200D929CD /* country_code.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE69C7681C8E6AD200D929CD /* country_code.txt */; };
+		AE69C76C1C8E6D4B00D929CD /* msg.caf in Resources */ = {isa = PBXBuildFile; fileRef = AE69C76A1C8E6D4B00D929CD /* msg.caf */; };
+		AE69C76D1C8E6D4B00D929CD /* msgtoolong.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C76B1C8E6D4B00D929CD /* msgtoolong.wav */; };
+		AE69C76F1C8E6E3B00D929CD /* pstncall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE69C76E1C8E6E3B00D929CD /* pstncall.mp3 */; };
+		AE69C7711C8E702D00D929CD /* sendmsg.caf in Resources */ = {isa = PBXBuildFile; fileRef = AE69C7701C8E702D00D929CD /* sendmsg.caf */; };
+		AE69C7731C8E707E00D929CD /* shake_sound_male.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C7721C8E707E00D929CD /* shake_sound_male.wav */; };
+		AE69C7761C8E74A900D929CD /* TSMessageActionFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C7751C8E74A900D929CD /* TSMessageActionFloatView.swift */; };
+		AE69C77A1C8F355700D929CD /* TSNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C7791C8F355700D929CD /* TSNavigationBar.swift */; };
+		AE69C77C1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C77B1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift */; };
 		AE87425C1C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */; };
 		AE87425D1C7AE0F1003A435C /* TSUIImage+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */; };
 		AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */; };
@@ -61,8 +77,6 @@
 		AE92B8CB1C3FFD0D00968A3A /* TSContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE92B8C91C3FFD0D00968A3A /* TSContactsViewController.swift */; };
 		AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CA1C3FFD0D00968A3A /* TSContactsViewController.xib */; };
 		AE92B8D21C3FFFDB00968A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */; };
-		AE92B8D31C3FFFDB00968A3A /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8CF1C3FFFDB00968A3A /* beep.wav */; };
-		AE92B8D41C3FFFDB00968A3A /* hello.amr in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8D01C3FFFDB00968A3A /* hello.amr */; };
 		AE92B8D51C3FFFDB00968A3A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE92B8D11C3FFFDB00968A3A /* Media.xcassets */; };
 		AEBEE5971C86B90600956B0C /* TSGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEE5961C86B90600956B0C /* TSGlobalHelper.swift */; };
 		AEBEE59C1C86F13D00956B0C /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEE5991C86F13D00956B0C /* HttpManager.swift */; };
@@ -170,6 +184,23 @@
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
 		AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageTextTableViewCell.swift; sourceTree = "<group>"; };
 		AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSImageTextTableViewCell.xib; sourceTree = "<group>"; };
+		AE69C75A1C8DDEA600D929CD /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		AE69C75B1C8DDEA600D929CD /* call.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = call.caf; sourceTree = "<group>"; };
+		AE69C75C1C8DDEA600D929CD /* camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = camera.wav; sourceTree = "<group>"; };
+		AE69C75D1C8DDEA600D929CD /* hello.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = hello.amr; sourceTree = "<group>"; };
+		AE69C75E1C8DDEA600D929CD /* shake_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_match.wav; sourceTree = "<group>"; };
+		AE69C75F1C8DDEA600D929CD /* shake_nomatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_nomatch.wav; sourceTree = "<group>"; };
+		AE69C7661C8E6A2500D929CD /* close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = close.wav; sourceTree = "<group>"; };
+		AE69C7681C8E6AD200D929CD /* country_code.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country_code.txt; sourceTree = "<group>"; };
+		AE69C76A1C8E6D4B00D929CD /* msg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msg.caf; sourceTree = "<group>"; };
+		AE69C76B1C8E6D4B00D929CD /* msgtoolong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgtoolong.wav; sourceTree = "<group>"; };
+		AE69C76E1C8E6E3B00D929CD /* pstncall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pstncall.mp3; sourceTree = "<group>"; };
+		AE69C7701C8E702D00D929CD /* sendmsg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sendmsg.caf; sourceTree = "<group>"; };
+		AE69C7721C8E707E00D929CD /* shake_sound_male.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shake_sound_male.wav; sourceTree = "<group>"; };
+		AE69C7751C8E74A900D929CD /* TSMessageActionFloatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMessageActionFloatView.swift; sourceTree = "<group>"; };
+		AE69C7791C8F355700D929CD /* TSNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNavigationBar.swift; sourceTree = "<group>"; };
+		AE69C77B1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSFullyHorizontalFlowLayout.swift; sourceTree = "<group>"; };
+		AE69C77D1C8FD94A00D929CD /* wechat.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = wechat.playground; sourceTree = "<group>"; };
 		AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImageVIew+WeChat.swift"; sourceTree = "<group>"; };
 		AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImage+WeChat.swift"; sourceTree = "<group>"; };
 		AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSUserDefaults.swift; sourceTree = "<group>"; };
@@ -224,8 +255,6 @@
 		AE92B8C91C3FFD0D00968A3A /* TSContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactsViewController.swift; sourceTree = "<group>"; };
 		AE92B8CA1C3FFD0D00968A3A /* TSContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSContactsViewController.xib; sourceTree = "<group>"; };
 		AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AE92B8CF1C3FFFDB00968A3A /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
-		AE92B8D01C3FFFDB00968A3A /* hello.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = hello.amr; sourceTree = "<group>"; };
 		AE92B8D11C3FFFDB00968A3A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		AEBEE5961C86B90600956B0C /* TSGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGlobalHelper.swift; sourceTree = "<group>"; };
 		AEBEE5991C86F13D00956B0C /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
@@ -367,6 +396,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE69C7591C8DDEA600D929CD /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				AE69C7721C8E707E00D929CD /* shake_sound_male.wav */,
+				AE69C7701C8E702D00D929CD /* sendmsg.caf */,
+				AE69C76E1C8E6E3B00D929CD /* pstncall.mp3 */,
+				AE69C76A1C8E6D4B00D929CD /* msg.caf */,
+				AE69C76B1C8E6D4B00D929CD /* msgtoolong.wav */,
+				AE69C7661C8E6A2500D929CD /* close.wav */,
+				AE69C75A1C8DDEA600D929CD /* beep.wav */,
+				AE69C75B1C8DDEA600D929CD /* call.caf */,
+				AE69C75C1C8DDEA600D929CD /* camera.wav */,
+				AE69C75D1C8DDEA600D929CD /* hello.amr */,
+				AE69C75E1C8DDEA600D929CD /* shake_match.wav */,
+				AE69C75F1C8DDEA600D929CD /* shake_nomatch.wav */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		AE69C7741C8E748A00D929CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE69C7751C8E74A900D929CD /* TSMessageActionFloatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AE87426E1C7AE23E003A435C /* CoreModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +485,7 @@
 				18FCDE5FEB0C6C5536DF0CBA /* Pods */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		AE92B5E21C3FF73000968A3A /* Products */ = {
 			isa = PBXGroup;
@@ -490,6 +547,8 @@
 				AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */,
 				AE87425B1C7AE0F1003A435C /* SwiftTimer.swift */,
 				AEBEE5961C86B90600956B0C /* TSGlobalHelper.swift */,
+				AE69C7791C8F355700D929CD /* TSNavigationBar.swift */,
+				AE69C77B1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -565,6 +624,7 @@
 		AE92B8811C3FFC5D00968A3A /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				AE69C7741C8E748A00D929CD /* View */,
 				AE92B8821C3FFC5D00968A3A /* TSMessageTableViewCell.swift */,
 				AE92B8831C3FFC5D00968A3A /* TSMessageTableViewCell.xib */,
 				AE92B8841C3FFC5D00968A3A /* TSMessageViewController.swift */,
@@ -576,14 +636,15 @@
 		AE92B8CD1C3FFFDB00968A3A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AE69C7681C8E6AD200D929CD /* country_code.txt */,
+				AE69C7591C8DDEA600D929CD /* Audio */,
 				AEBEE5A41C87345700956B0C /* JSON */,
 				AEE69B241C7CB2AF00C69224 /* Expression.bundle */,
 				AE8742891C7B0D7D003A435C /* Kenny.jpg */,
 				AE92B8CE1C3FFFDB00968A3A /* Assets.xcassets */,
-				AE92B8CF1C3FFFDB00968A3A /* beep.wav */,
-				AE92B8D01C3FFFDB00968A3A /* hello.amr */,
 				AE92B8D11C3FFFDB00968A3A /* Media.xcassets */,
 				AEE69A591C7CB07C00C69224 /* Expression.plist */,
+				AE69C77D1C8FD94A00D929CD /* wechat.playground */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -866,7 +927,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE92B8BE1C3FFC5D00968A3A /* TSMessageTableViewCell.xib in Resources */,
-				AE92B8D31C3FFFDB00968A3A /* beep.wav in Resources */,
 				AEE69BCF1C81B58600C69224 /* TSChatShareMoreCollectionViewCell.xib in Resources */,
 				AEE69BCC1C81B58600C69224 /* TSChatEmotionInputView.xib in Resources */,
 				AEE69BCA1C81B58600C69224 /* TSChatEmotionCell.xib in Resources */,
@@ -874,28 +934,40 @@
 				AEBEE5A91C87345700956B0C /* contact.json in Resources */,
 				AEBEE5A81C87345700956B0C /* chat.json in Resources */,
 				AE8742881C7B079B003A435C /* TSMeAvatarTableViewCell.xib in Resources */,
+				AE69C7651C8DDEA600D929CD /* shake_nomatch.wav in Resources */,
+				AE69C7611C8DDEA600D929CD /* call.caf in Resources */,
 				AEE69C051C81B61200C69224 /* libopencore-amrnb.la in Resources */,
 				AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */,
 				AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */,
 				AE92B8C81C3FFCE900968A3A /* TSMeViewController.xib in Resources */,
 				AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */,
+				AE69C7641C8DDEA600D929CD /* shake_match.wav in Resources */,
 				AEE69BA31C81B58600C69224 /* TSChatImageCell.xib in Resources */,
 				AEE69B251C7CB2AF00C69224 /* Expression.bundle in Resources */,
 				AEE69BC81C81B58600C69224 /* TSChatActionBarView.xib in Resources */,
 				AEE69BC61C81B58600C69224 /* TSChatViewController.xib in Resources */,
+				AE69C76F1C8E6E3B00D929CD /* pstncall.mp3 in Resources */,
 				AE92B8D51C3FFFDB00968A3A /* Media.xcassets in Resources */,
+				AE69C7731C8E707E00D929CD /* shake_sound_male.wav in Resources */,
+				AE69C76D1C8E6D4B00D929CD /* msgtoolong.wav in Resources */,
+				AE69C7631C8DDEA600D929CD /* hello.amr in Resources */,
+				AE69C7711C8E702D00D929CD /* sendmsg.caf in Resources */,
+				AE69C7621C8DDEA600D929CD /* camera.wav in Resources */,
 				AEE69C0D1C81B61200C69224 /* opencore-amrnb.pc in Resources */,
 				AEE69BAB1C81B58600C69224 /* TSChatVoiceCell.xib in Resources */,
 				AEE69BD11C81B58600C69224 /* TSChatShareMoreView.xib in Resources */,
+				AE69C7601C8DDEA600D929CD /* beep.wav in Resources */,
 				AEE69C0E1C81B61200C69224 /* opencore-amrwb.pc in Resources */,
 				AEBEE5AA1C87345700956B0C /* message.json in Resources */,
 				AE87428A1C7B0D7D003A435C /* Kenny.jpg in Resources */,
 				AEE69C0C1C81B61200C69224 /* libopencore-amrwb.la in Resources */,
 				AEE69BD41C81B58600C69224 /* TSChatVoiceIndicatorView.xib in Resources */,
 				AEE69BA51C81B58600C69224 /* TSChatSystemCell.xib in Resources */,
+				AE69C7671C8E6A2500D929CD /* close.wav in Resources */,
 				AE92B8C41C3FFC9000968A3A /* TSDiscoverViewController.xib in Resources */,
 				AEE69BA71C81B58600C69224 /* TSChatTextCell.xib in Resources */,
-				AE92B8D41C3FFFDB00968A3A /* hello.amr in Resources */,
+				AE69C76C1C8E6D4B00D929CD /* msg.caf in Resources */,
+				AE69C7691C8E6AD200D929CD /* country_code.txt in Resources */,
 				AEE69BA91C81B58600C69224 /* TSChatTimeCell.xib in Resources */,
 				AEE69A5A1C7CB07C00C69224 /* Expression.plist in Resources */,
 				AE92B8D21C3FFFDB00968A3A /* Assets.xcassets in Resources */,
@@ -982,9 +1054,11 @@
 				AEE69C101C81B61200C69224 /* VoiceConverter.mm in Sources */,
 				AE8F49C01C46AA5F009C1541 /* Notes.swift in Sources */,
 				AE87428C1C7B250D003A435C /* TSContactModel.swift in Sources */,
+				AE69C7761C8E74A900D929CD /* TSMessageActionFloatView.swift in Sources */,
 				AE8F49B61C46A905009C1541 /* UISearchBar+Extension.swift in Sources */,
 				AE8F49B81C46A905009C1541 /* UIView+Extension.swift in Sources */,
 				AEE69C0F1C81B61200C69224 /* TSVoiceConverter.swift in Sources */,
+				AE69C77A1C8F355700D929CD /* TSNavigationBar.swift in Sources */,
 				AEE69BD01C81B58600C69224 /* TSChatShareMoreView.swift in Sources */,
 				AEE69BB21C81B58600C69224 /* ChatConfig.swift in Sources */,
 				AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */,
@@ -999,6 +1073,7 @@
 				AE92B8BD1C3FFC5D00968A3A /* TSMessageTableViewCell.swift in Sources */,
 				AE87427F1C7AF602003A435C /* TSModelTransformer.swift in Sources */,
 				AEBEE59D1C86F13D00956B0C /* HttpManager+UploadAudio.swift in Sources */,
+				AE69C77C1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift in Sources */,
 				AEE69BC01C81B58600C69224 /* TSChatViewController+CellEnums.swift in Sources */,
 				AEBEE5AF1C8754BD00956B0C /* TSChatButton.swift in Sources */,
 				AE87425D1C7AE0F1003A435C /* TSUIImage+WeChat.swift in Sources */,

@@ -68,6 +68,7 @@ class TSChatImageCell: TSChatBaseCell {
             imageOriginalHeight = imageModel.imageHeight!
         }
         
+        //根据原图尺寸等比获取缩略图的 size
         let originalSize = CGSizeMake(imageOriginalWidth, imageOriginalHeight)
         self.chatImageView.size = ChatConfig.getThumbImageSize(originalSize)
         

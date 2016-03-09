@@ -147,7 +147,7 @@
       "picInfo": null,
       "type": "1",
       "message_id": "wx1234skjksmsjdfwe234iPhone1453461887583",
-      "message": "时间间隔 cell 是本地生成的数据。www.github.com.abc",
+      "message": "时间间隔 cell 是本地生成的数据。www.github.com.abc. The separator time cell is generate by calculating the two MessageModel's timestamp",
       "device": "iPhone",
       "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
     },
@@ -237,7 +237,7 @@
       "picInfo": null,
       "type": "1",
       "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063956356",
-      "message": "[憨笑]我发个表情试试，哈哈哈哈，我的电话: 13581887557 [阴险] ",
+      "message": "[憨笑]我发个表情试试，哈哈哈哈，我的电话: 13581887557 [阴险].  I send a expression image to test, LOL. My phone is: 13581887557 [阴险]",
       "device": "iPhone",
       "chat_receive_id": "wx1234skjksmsjdfwe234"
     },
@@ -248,7 +248,7 @@
       "picInfo": null,
       "type": "1",
       "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063961005",
-      "message": "[晕] 这是测试的数据，数据来源于文件：chat.json",
+      "message": "[晕] 这是测试的数据，数据来源于文件：chat.json. This is the test data that comes form the chat.json",
       "device": "iPhone",
       "chat_receive_id": "wx1234skjksmsjdfwe234"
     },
@@ -259,7 +259,7 @@
       "picInfo": null,
       "type": "1",
       "message_id": "wx43922sdkfjsfmmxdfmxiPhone1454063963073",
-      "message": "[悠闲][悠闲][悠闲]这是 TSWeChat 开源项目，高仿微信 ，github地址是: https://github.com/hilen/TSWeChat ，Written in Swift 2.0",
+      "message": "[悠闲][悠闲][悠闲]This TSWeChat project, a alternative WeChat, Github: https://github.com/hilen/TSWeChat, written in Swift 2.0. Enjoy[可爱]",
       "device": "iPhone",
       "chat_receive_id": "wx43922sdkfjsfmmxdfmx"
     }

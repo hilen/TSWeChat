@@ -131,7 +131,6 @@ class TSChatTextParser: NSObject {
     }
 }
 
-
 class TSChatTextParseHelper {
     /// 高亮的文字背景色
     class var highlightBorder: YYTextBorder {

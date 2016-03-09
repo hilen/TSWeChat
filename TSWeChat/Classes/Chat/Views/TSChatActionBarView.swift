@@ -125,6 +125,10 @@ class TSChatActionBarView: UIView {
     override func awakeFromNib() {
 
     }
+    
+    deinit {
+        log.verbose("deinit")
+    }
 }
 
 // MARK: - @extension TSChatActionBarView

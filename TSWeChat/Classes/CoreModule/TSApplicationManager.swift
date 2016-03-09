@@ -18,7 +18,7 @@ class TSApplicationManager: NSObject {
     }
 
     /**
-     导航条初始化
+     Custom NavigationBar
      */
     static func initNavigationBar() {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
@@ -33,7 +33,7 @@ class TSApplicationManager: NSObject {
     }
     
     /**
-     注册推送
+     Register remote notification
      */
     static func initNotifications() {
         

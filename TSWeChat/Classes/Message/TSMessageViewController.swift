@@ -23,7 +23,7 @@ class TSMessageViewController: UIViewController {
             self.actionFloatView.hide(!self.actionFloatView.hidden)
         }
         
-        //init actionFloatView
+        //Init ActionFloatView
         self.actionFloatView = TSMessageActionFloatView()
         self.actionFloatView.delegate = self
         self.view.addSubview(self.actionFloatView)
@@ -31,7 +31,7 @@ class TSMessageViewController: UIViewController {
             make.edges.equalTo(UIEdgeInsetsMake(64, 0, 0, 0))
         }
         
-        //init listTableView
+        //Init listTableView
         self.listTableView.registerNib(TSMessageTableViewCell.NibObject(), forCellReuseIdentifier: TSMessageTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 65
         self.listTableView.tableFooterView = UIView()
@@ -39,7 +39,12 @@ class TSMessageViewController: UIViewController {
         self.fetchData()
     }
     
-    func fetchData() {
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.actionFloatView.hide(true)
+    }
+    
+    private func fetchData() {
         guard let JSONData = NSData.dataFromJSONFile("message") else {
             return
         }
@@ -52,10 +57,17 @@ class TSMessageViewController: UIViewController {
                 }
                 list.insert(model, atIndex: list.count)
             }
+            //Insert more data, make the UITableView long and long.  XD
+            self.itemDataSouce.insertContentsOf(list, at: 0)
+            self.itemDataSouce.insertContentsOf(list, at: 0)
             self.itemDataSouce.insertContentsOf(list, at: 0)
             self.itemDataSouce.insertContentsOf(list, at: 0)
             self.listTableView.reloadData()
         }
+    }
+    
+    deinit {
+        log.verbose("deinit")
     }
     
     override func didReceiveMemoryWarning() {

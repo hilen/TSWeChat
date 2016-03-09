@@ -17,6 +17,7 @@ class TSTabbarViewController: UITabBarController {
     
     func setupViewController() {
         let titleArray = ["微信", "通讯录", "发现", "我"]
+        
         let normalImagesArray = [
             TSAsset.Tabbar_mainframe.image,
             TSAsset.Tabbar_contacts.image,
@@ -40,9 +41,9 @@ class TSTabbarViewController: UITabBarController {
         
         let navigationVCArray = NSMutableArray()
         for (index, controller) in viewControllerArray.enumerate() {
-            controller.tabBarItem!.title = titleArray[index]
-            controller.tabBarItem!.image = normalImagesArray[index].imageWithRenderingMode(.AlwaysOriginal)
-            controller.tabBarItem!.selectedImage = selectedImagesArray[index].imageWithRenderingMode(.AlwaysOriginal)
+            controller.tabBarItem!.title = titleArray.get(index)
+            controller.tabBarItem!.image = normalImagesArray.get(index).imageWithRenderingMode(.AlwaysOriginal)
+            controller.tabBarItem!.selectedImage = selectedImagesArray.get(index).imageWithRenderingMode(.AlwaysOriginal)
             controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()], forState: .Normal)
             controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorNamed: TSColor.tabbarSelectedTextColor)], forState: .Selected)
             let navigationController = UINavigationController(rootViewController: controller)

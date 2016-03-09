@@ -11,9 +11,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZDH-lw-aqI">
+                    <rect key="frame" x="0.0" y="183" width="320" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="QrN-LU-MkM"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.72941176470000002" green="0.74117647060000003" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </pageControl>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cbo-Mt-8iz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="197" id="JZD-Cp-tay"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="6QC-Fp-d5G">
                         <size key="itemSize" width="65" height="93"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,15 +40,25 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.94117647059999998" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="cbo-Mt-8iz" secondAttribute="trailing" id="44o-BE-rmu"/>
+                <constraint firstItem="ZDH-lw-aqI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bta-3A-xbC"/>
                 <constraint firstAttribute="bottom" secondItem="cbo-Mt-8iz" secondAttribute="bottom" id="FGQ-1O-cEj"/>
+                <constraint firstAttribute="bottom" secondItem="ZDH-lw-aqI" secondAttribute="bottom" constant="-4" id="TAC-NG-Zf7"/>
                 <constraint firstItem="cbo-Mt-8iz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fC1-eM-FlE"/>
+                <constraint firstAttribute="trailing" secondItem="ZDH-lw-aqI" secondAttribute="trailing" id="nJd-Bk-v21"/>
                 <constraint firstItem="cbo-Mt-8iz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pAy-ES-T6L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="FGQ-1O-cEj"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="collectionViewHeightConstraint" destination="JZD-Cp-tay" id="ahq-8K-PTj"/>
                 <outlet property="listCollectionView" destination="cbo-Mt-8iz" id="29g-fi-mv6"/>
+                <outlet property="pageControl" destination="ZDH-lw-aqI" id="lXU-VM-Lrb"/>
             </connections>
-            <point key="canvasLocation" x="490" y="508"/>
+            <point key="canvasLocation" x="529" y="323"/>
         </view>
     </objects>
 </document>

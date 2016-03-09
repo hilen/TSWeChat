@@ -51,8 +51,6 @@ extension UIImage {
         case C2cReceiverMsgNodeBG_HL = "c2cReceiverMsgNodeBG_HL"
         case C2cSenderMsgNodeBG = "c2cSenderMsgNodeBG"
         case C2cSenderMsgNodeBG_HL = "c2cSenderMsgNodeBG_HL"
-        case Chat_image_mask_left = "chat_image_mask_left"
-        case Chat_image_mask_right = "chat_image_mask_right"
         case Chathistory_detail_end = "chathistory_detail_end"
         case Emoticon_keyboard_magnifier = "emoticon_keyboard_magnifier"
         case Emotion_delete = "emotion_delete"

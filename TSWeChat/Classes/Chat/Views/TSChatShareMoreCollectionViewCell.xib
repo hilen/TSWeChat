@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,14 +14,21 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="65" height="93"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-QU-qCH">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-QU-qCH">
                         <rect key="frame" x="3" y="6" width="59" height="59"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="Q18-dU-SA2"/>
+                            <constraint firstAttribute="width" secondItem="W52-QU-qCH" secondAttribute="height" multiplier="1:1" id="gUR-p4-RGi"/>
                             <constraint firstAttribute="height" constant="59" id="rYd-1n-3kX"/>
                         </constraints>
                         <state key="normal" backgroundImage="sharemore_other"/>
                         <state key="highlighted" backgroundImage="sharemore_other_HL"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Q18-dU-SA2"/>
+                                <exclude reference="rYd-1n-3kX"/>
+                            </mask>
+                        </variation>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijh-bH-bJK">
                         <rect key="frame" x="3" y="70" width="59" height="21"/>
@@ -53,7 +61,7 @@
                 <outlet property="itemButton" destination="W52-QU-qCH" id="hH2-F9-n33"/>
                 <outlet property="itemLabel" destination="Ijh-bH-bJK" id="DPc-W4-hjV"/>
             </connections>
-            <point key="canvasLocation" x="200.5" y="399.5"/>
+            <point key="canvasLocation" x="860.5" y="488.5"/>
         </collectionViewCell>
     </objects>
     <resources>
