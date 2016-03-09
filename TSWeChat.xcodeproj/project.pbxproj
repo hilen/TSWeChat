@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00DD43341C8FFC9D00787685 /* bgImage_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DD43311C8FFC9D00787685 /* bgImage_HL@2x.png */; };
+		00DD43351C8FFC9D00787685 /* cellLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DD43321C8FFC9D00787685 /* cellLine@2x.png */; };
+		00DD43361C8FFC9D00787685 /* RCActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DD43331C8FFC9D00787685 /* RCActionSheet.swift */; };
 		521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */; };
 		AE3CBC551C854B90008BA4AC /* TSChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */; };
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
@@ -165,6 +168,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DD43311C8FFC9D00787685 /* bgImage_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgImage_HL@2x.png"; sourceTree = "<group>"; };
+		00DD43321C8FFC9D00787685 /* cellLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellLine@2x.png"; sourceTree = "<group>"; };
+		00DD43331C8FFC9D00787685 /* RCActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCActionSheet.swift; sourceTree = "<group>"; };
 		879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatDataManager.swift; sourceTree = "<group>"; };
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
@@ -358,6 +364,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00DD43301C8FFC9D00787685 /* RCActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				00DD43311C8FFC9D00787685 /* bgImage_HL@2x.png */,
+				00DD43321C8FFC9D00787685 /* cellLine@2x.png */,
+				00DD43331C8FFC9D00787685 /* RCActionSheet.swift */,
+			);
+			path = RCActionSheet;
+			sourceTree = "<group>";
+		};
 		18FCDE5FEB0C6C5536DF0CBA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +522,7 @@
 		AE92B6C01C3FF7C900968A3A /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				00DD43301C8FFC9D00787685 /* RCActionSheet */,
 				AEE69BDB1C81B61200C69224 /* VoiceConvert */,
 			);
 			path = Vendor;
@@ -873,6 +890,7 @@
 				AE8742921C7B3547003A435C /* TSContactTableViewCell.xib in Resources */,
 				AEBEE5A91C87345700956B0C /* contact.json in Resources */,
 				AEBEE5A81C87345700956B0C /* chat.json in Resources */,
+				00DD43351C8FFC9D00787685 /* cellLine@2x.png in Resources */,
 				AE8742881C7B079B003A435C /* TSMeAvatarTableViewCell.xib in Resources */,
 				AEE69C051C81B61200C69224 /* libopencore-amrnb.la in Resources */,
 				AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */,
@@ -887,6 +905,7 @@
 				AEE69C0D1C81B61200C69224 /* opencore-amrnb.pc in Resources */,
 				AEE69BAB1C81B58600C69224 /* TSChatVoiceCell.xib in Resources */,
 				AEE69BD11C81B58600C69224 /* TSChatShareMoreView.xib in Resources */,
+				00DD43341C8FFC9D00787685 /* bgImage_HL@2x.png in Resources */,
 				AEE69C0E1C81B61200C69224 /* opencore-amrwb.pc in Resources */,
 				AEBEE5AA1C87345700956B0C /* message.json in Resources */,
 				AE87428A1C7B0D7D003A435C /* Kenny.jpg in Resources */,
@@ -1048,6 +1067,7 @@
 				AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */,
 				AEE69BBF1C81B58600C69224 /* TSChatViewController+ActionBar.swift in Sources */,
 				AE8F49B01C46A905009C1541 /* NSDictionary+Extension.swift in Sources */,
+				00DD43361C8FFC9D00787685 /* RCActionSheet.swift in Sources */,
 				AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */,
 				AE92B8C71C3FFCE900968A3A /* TSMeViewController.swift in Sources */,
 				AEBEE5A01C8706B800956B0C /* TSUploadModel.swift in Sources */,

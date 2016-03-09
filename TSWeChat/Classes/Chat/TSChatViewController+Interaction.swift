@@ -270,13 +270,14 @@ extension TSChatViewController: TSChatCellDelegate {
      点击了 cell 本身
      */
     func cellDidTaped(cell: TSChatBaseCell) {
-        
+        // TODO: goto content viewer
     }
     
     /**
      点击了 cell 的头像
      */
     func cellDidTapedAvatarImage(cell: TSChatBaseCell) {
+        //TODO: goto user's profile
         TSAlertView_show("点击了头像")
     }
     
@@ -284,6 +285,7 @@ extension TSChatViewController: TSChatCellDelegate {
      点击了 cell 的图片
      */
     func cellDidTapedImageView(cell: TSChatBaseCell) {
+        // TODO: goto image viewer
         TSAlertView_show("点击了图片")
     }
     
@@ -299,7 +301,12 @@ extension TSChatViewController: TSChatCellDelegate {
      点击了 cell 中文字的 电话
      */
     func cellDidTapedPhone(cell: TSChatBaseCell, phoneString: String) {
-        TSAlertView_show("点击了电话")
+        // TOTO: show mobile operation
+//        TSAlertView_show("点击了电话")
+        
+        let actionSheet = RCActionSheet.actionSheet(title: "点击了电话", buttonTitles: ["复制", "打电话", "保存"], redButtonIndex: -1, delegate: nil)
+        actionSheet.show()
+        
     }
     
     /**
