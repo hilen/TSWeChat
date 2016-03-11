@@ -246,6 +246,18 @@ extension TSChatViewController: UITextViewDelegate {
         return true
     }
     
+    func textViewDidChange(textView: UITextView) {
+        guard textView.contentSize.height < 120 else { return }
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.chatActionBarView.snp_updateConstraints { (make) -> Void in
+                make.height.equalTo(textView.contentSize.height + 17)
+            }
+            self.chatActionBarView.layoutIfNeeded()
+            textView.contentOffset = CGPoint.zero
+        }
+
+    }
+    
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         //设置键盘类型，响应 UIKeyboardWillShowNotification 事件
         self.chatActionBarView.inputTextViewCallKeyboard()
