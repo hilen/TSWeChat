@@ -25,6 +25,8 @@ class TSChatTimeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .None
+        self.backgroundColor = UIColor.clearColor()
+        self.contentView.backgroundColor = UIColor.clearColor()
     }
     
     func setCellContent(model: ChatModel) {

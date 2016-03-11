@@ -88,42 +88,25 @@ class TSChatActionBarView: UIView {
     }
     
     func initContent() {
-    }
-    
-    /**
-     画两根线, 也可以贴两个 UIView , 哈哈
-     */
-    override func drawRect(rect: CGRect) {
-        let scale = self.window!.screen.scale
-        let width = 1 / scale
-        let centerChoice: CGFloat = scale % 2 == 0 ? 4 : 2
-        let offset = scale / centerChoice * width
-        let context = UIGraphicsGetCurrentContext()
-
-        CGContextSetLineWidth(context, width)
-        CGContextSetStrokeColorWithColor(context, UIColor(rgba: "#C2C3C7").CGColor)
+        let topBorder = UIView()
+        let bottomBorder = UIView()
+        topBorder.backgroundColor = UIColor(rgba: "#C2C3C7")
+        bottomBorder.backgroundColor = UIColor(rgba: "#C2C3C7")
+        self.addSubview(topBorder)
+        self.addSubview(bottomBorder)
         
-        let x1: CGFloat = 0 + offset
-        let y1: CGFloat = 0 + offset
-        let x2: CGFloat = UIScreen.width + offset
-        let y2: CGFloat = 0 + offset
-        
-        CGContextBeginPath(context)
-        CGContextMoveToPoint(context, x1, y1)
-        CGContextAddLineToPoint(context, x2, y2)
-        
-        let x3: CGFloat = 0 + offset
-        let y3: CGFloat = 49.5 + offset
-        let x4: CGFloat = UIScreen.width + offset
-        let y4: CGFloat = 49.5 + offset
-        
-        CGContextMoveToPoint(context, x3, y3)
-        CGContextAddLineToPoint(context, x4, y4)
-        CGContextStrokePath(context)
+        topBorder.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self)
+            make.height.equalTo(0.5)
+        }
+        bottomBorder.snp_makeConstraints { (make) -> Void in
+            make.bottom.left.right.equalTo(self)
+            make.height.equalTo(0.5)
+        }
     }
     
     override func awakeFromNib() {
-
+        initContent()
     }
     
     deinit {

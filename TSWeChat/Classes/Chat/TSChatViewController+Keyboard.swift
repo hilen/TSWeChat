@@ -120,22 +120,15 @@ extension TSChatViewController {
         self.listTableView.stopScrolling()
         self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
 
-        var contentInsets = UIEdgeInsetsZero
-        if isShowing {
-            contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardRect.size.height), 0.0)
-        }
-
         UIView.animateWithDuration(
             duration,
             delay: 0,
             options: options,
             animations: {
-                self.listTableView.contentInset = contentInsets
-                self.listTableView.scrollIndicatorInsets = contentInsets
-                if isShowing {
-                    self.listTableView.scrollBottomToLastRow()
-                }
                 self.view.layoutIfNeeded()
+                if isShowing {
+                    self.listTableView.scrollToBottom(animated: false)
+                }
             },
             completion: { bool in
 
@@ -174,15 +167,12 @@ extension TSChatViewController {
         let heightOffset: CGFloat = 0
         self.listTableView.stopScrolling()
         self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, heightOffset, 0.0)
         
         UIView.animateWithDuration(
             0.25,
             delay: 0,
             options: .CurveEaseInOut,
             animations: {
-                self.listTableView.contentInset = contentInsets
-                self.listTableView.scrollIndicatorInsets = contentInsets
                 self.view.layoutIfNeeded()
             },
             completion: { bool in
@@ -217,7 +207,6 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
         let heightOffset = self.emotionInputView.height
         self.listTableView.stopScrolling()
         self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, heightOffset, 0.0)
     
         UIView.animateWithDuration(
             0.25,
@@ -232,8 +221,6 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
                 self.shareMoreView.snp_updateConstraints { make in
                     make.top.equalTo(self.chatActionBarView.snp_bottom).offset(self.view.height)
                 }
-                self.listTableView.contentInset = contentInsets
-                self.listTableView.scrollIndicatorInsets = contentInsets
                 self.listTableView.scrollBottomToLastRow()
                 self.view.layoutIfNeeded()
             },
@@ -248,7 +235,6 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
         let heightOffset = self.shareMoreView.height
         self.listTableView.stopScrolling()
         self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, heightOffset, 0.0)
         
         self.shareMoreView.top = self.view.height
         self.view.bringSubviewToFront(self.shareMoreView)
@@ -261,8 +247,6 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
                 self.shareMoreView.snp_updateConstraints { make in
                     make.top.equalTo(self.chatActionBarView.snp_bottom).offset(0)
                 }
-                self.listTableView.contentInset = contentInsets
-                self.listTableView.scrollIndicatorInsets = contentInsets
                 self.view.layoutIfNeeded()
                 self.listTableView.scrollBottomToLastRow()
             },

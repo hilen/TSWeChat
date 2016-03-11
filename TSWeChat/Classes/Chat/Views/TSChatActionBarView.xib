@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
@@ -29,7 +30,7 @@
                     <state key="highlighted" image="tool_share_2"/>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-BD-K9i">
-                    <rect key="frame" x="47" y="5" width="190" height="40"/>
+                    <rect key="frame" x="47" y="7" width="190" height="36"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
@@ -49,7 +50,6 @@
                     <state key="normal" title="按住  说话">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted" title="松开  结束"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,13 +61,13 @@
                 <constraint firstItem="0zB-ma-iQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="IBJ-om-8d8"/>
                 <constraint firstItem="nQt-LW-wuw" firstAttribute="leading" secondItem="UFx-BD-K9i" secondAttribute="trailing" constant="7" id="K8x-cQ-BHq"/>
                 <constraint firstItem="osw-Mt-kUn" firstAttribute="leading" secondItem="nQt-LW-wuw" secondAttribute="trailing" constant="1" id="NNd-LC-5up"/>
-                <constraint firstAttribute="bottom" secondItem="UFx-BD-K9i" secondAttribute="bottom" constant="5" id="Vmf-yi-zOO"/>
+                <constraint firstAttribute="bottom" secondItem="UFx-BD-K9i" secondAttribute="bottom" constant="7" id="Vmf-yi-zOO"/>
                 <constraint firstItem="nQt-LW-wuw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="d1L-vd-Piq"/>
                 <constraint firstItem="VVF-64-Ix3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="i89-LZ-qmT"/>
                 <constraint firstAttribute="bottom" secondItem="nQt-LW-wuw" secondAttribute="bottom" constant="7" id="kfs-Gh-l2M"/>
                 <constraint firstAttribute="bottom" secondItem="osw-Mt-kUn" secondAttribute="bottom" constant="7" id="o44-pf-YfN"/>
                 <constraint firstAttribute="bottom" secondItem="0zB-ma-iQN" secondAttribute="bottom" constant="7" id="rjk-eI-ano"/>
-                <constraint firstItem="UFx-BD-K9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ucu-cO-1Qg"/>
+                <constraint firstItem="UFx-BD-K9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="ucu-cO-1Qg"/>
                 <constraint firstAttribute="trailing" secondItem="osw-Mt-kUn" secondAttribute="trailing" constant="5" id="wKi-Zw-DbS"/>
                 <constraint firstItem="UFx-BD-K9i" firstAttribute="leading" secondItem="0zB-ma-iQN" secondAttribute="trailing" constant="7" id="wsa-Ef-KbS"/>
                 <constraint firstItem="osw-Mt-kUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xr0-fs-PQH"/>
