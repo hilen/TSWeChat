@@ -252,7 +252,7 @@ extension TSChatViewController: UITextViewDelegate {
             self.chatActionBarView.snp_updateConstraints { (make) -> Void in
                 make.height.equalTo(textView.contentSize.height + 17)
             }
-            self.chatActionBarView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
             self.listTableView.scrollToBottom(animated: false)
             textView.contentOffset = CGPoint.zero
         }
