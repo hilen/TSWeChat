@@ -20,10 +20,17 @@ private let kChatLoadMoreOffset: CGFloat = 30
 
 final class TSChatViewController: UIViewController {
     var messageModel: MessageModel?
-    @IBOutlet weak var tableViewMarginBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var listTableView: UITableView!
     @IBOutlet var refreshView: UIView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    lazy var listTableView: UITableView = {
+        let listTableView = UITableView(frame: CGRect.zero, style: .Plain)
+        listTableView.dataSource = self
+        listTableView.delegate = self
+        listTableView.backgroundColor = UIColor.clearColor()
+        listTableView.separatorStyle = .None
+        return listTableView
+    }()
     
     var chatActionBarView: TSChatActionBarView!  //action bar
     var actionBarPaddingBottomConstranit: Constraint? //action bar 的 bottom Constraint

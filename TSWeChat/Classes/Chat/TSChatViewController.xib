@@ -8,9 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TSChatViewController" customModule="TSWeChat" customModuleProvider="target">
             <connections>
                 <outlet property="indicatorView" destination="OcZ-Op-j5K" id="6iM-Lo-EK4"/>
-                <outlet property="listTableView" destination="x8V-sF-3a5" id="UzE-fp-PjP"/>
                 <outlet property="refreshView" destination="DD8-ep-ZYf" id="DJE-SR-BYe"/>
-                <outlet property="tableViewMarginBottomConstraint" destination="DTn-Xp-GzF" id="UwG-3H-WuP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,24 +16,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8V-sF-3a5">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
-                    <color key="backgroundColor" red="0.88235294117647056" green="0.90196078431372551" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="V8N-B4-dig"/>
-                        <outlet property="delegate" destination="-1" id="nDS-rn-oc1"/>
-                    </connections>
-                </tableView>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="x8V-sF-3a5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Amx-9M-Uir"/>
-                <constraint firstAttribute="bottom" secondItem="x8V-sF-3a5" secondAttribute="bottom" constant="50" id="DTn-Xp-GzF"/>
-                <constraint firstAttribute="trailing" secondItem="x8V-sF-3a5" secondAttribute="trailing" id="Wcz-ml-pmg"/>
-                <constraint firstItem="x8V-sF-3a5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bxz-py-htq"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="680" y="321"/>
         </view>
