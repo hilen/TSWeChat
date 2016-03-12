@@ -73,6 +73,11 @@ extension UITableView {
         self.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
     
+    func scrollToBottom(animated animated: Bool) {
+        let bottomOffset = CGPoint(x: 0, y:self.contentSize.height - self.bounds.size.height)
+        self.setContentOffset(bottomOffset, animated: animated)
+    }
+    
     var isContentInsetBottomZero: Bool {
         get { return self.contentInset.bottom == 0 }
     }

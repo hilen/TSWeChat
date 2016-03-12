@@ -41,6 +41,7 @@ class TSChatBaseCell: UITableViewCell {
         // Initialization code
         self.selectionStyle = .None
         self.contentView.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clearColor()
         
         //头像点击
         let tap = UITapGestureRecognizer()

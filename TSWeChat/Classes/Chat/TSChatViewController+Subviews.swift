@@ -16,13 +16,13 @@ extension TSChatViewController {
      创建聊天的各种子 view
      */
     func setupSubviews(delegate: UITextViewDelegate) {
-        self.initListTableViewTap()
         self.setupActionBar(delegate)
+        self.initListTableView()
         self.setupKeyboardInputView()
         self.setupVoiceIndicatorView()
     }
     
-    private func initListTableViewTap() {
+    private func initListTableView() {
         //点击 UITableView 隐藏键盘
         let tap = UITapGestureRecognizer()
         tap.cancelsTouchesInView = false
@@ -33,6 +33,13 @@ extension TSChatViewController {
             }
             strongSelf.hideAllKeyboard()
         }.addDisposableTo(self.disposeBag)
+        
+        self.view.addSubview(self.listTableView)
+        
+        self.listTableView.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.chatActionBarView.snp_top)
+        }
     }
     
     /**
@@ -50,7 +57,7 @@ extension TSChatViewController {
             make.left.equalTo(strongSelf.view.snp_left)
             make.right.equalTo(strongSelf.view.snp_right)
             strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp_bottom).constraint
-            make.height.equalTo(50)
+            make.height.equalTo(kChatActionBarOriginalHeight)
         }
     }
     
