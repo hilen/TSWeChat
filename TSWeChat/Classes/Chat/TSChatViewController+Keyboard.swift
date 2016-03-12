@@ -221,8 +221,8 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
                 self.shareMoreView.snp_updateConstraints { make in
                     make.top.equalTo(self.chatActionBarView.snp_bottom).offset(self.view.height)
                 }
-                self.listTableView.scrollBottomToLastRow()
                 self.view.layoutIfNeeded()
+                self.listTableView.scrollBottomToLastRow()
             },
             completion: { bool in
         })

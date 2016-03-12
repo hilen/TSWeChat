@@ -247,11 +247,13 @@ extension TSChatViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        guard textView.contentSize.height < 120 else { return }
+        guard textView.contentSize.height < kChatActionBarTextViewMaxHeight else { return }
         UIView.animateWithDuration(0.3) { () -> Void in
+            let currentTextHeight = textView.contentSize.height + 17
             self.chatActionBarView.snp_updateConstraints { (make) -> Void in
-                make.height.equalTo(textView.contentSize.height + 17)
+                make.height.equalTo(currentTextHeight)
             }
+            self.chatActionBarView.inputTextViewCurrentHeight = currentTextHeight
             self.view.layoutIfNeeded()
             self.listTableView.scrollToBottom(animated: false)
             textView.contentOffset = CGPoint.zero

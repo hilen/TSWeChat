@@ -28,12 +28,15 @@ extension TSChatViewController {
             }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
-            if strongSelf.chatActionBarView.recordButton.hidden {
+            let showRecoring = strongSelf.chatActionBarView.recordButton.hidden
+            if showRecoring {
                 strongSelf.chatActionBarView.showRecording()
                 voiceButton.emotionSwiftVoiceButtonUI(showKeyboard: true)
+                strongSelf.controlExpandableInputView(showExpandable: false)
             } else {
                 strongSelf.chatActionBarView.showTyingKeyboard()
                 voiceButton.emotionSwiftVoiceButtonUI(showKeyboard: false)
+                strongSelf.controlExpandableInputView(showExpandable: true)
             }
         }.addDisposableTo(self.disposeBag)
         
@@ -86,6 +89,8 @@ extension TSChatViewController {
             } else {
                 strongSelf.chatActionBarView.showEmotionKeyboard()
             }
+            
+            strongSelf.controlExpandableInputView(showExpandable: true)
         }.addDisposableTo(self.disposeBag)
         
         
@@ -101,6 +106,8 @@ extension TSChatViewController {
             } else {
                 strongSelf.chatActionBarView.showShareKeyboard()
             }
+            
+            strongSelf.controlExpandableInputView(showExpandable: true)
         }.addDisposableTo(self.disposeBag)
 
         
@@ -113,6 +120,27 @@ extension TSChatViewController {
             textView.becomeFirstResponder()
             textView.reloadInputViews()
         }.addDisposableTo(self.disposeBag)
+    }
+    
+    /**
+    Control the actionBarView height:
+    We should make actionBarView's height to original value when the user wants to show recording keyboard.
+    Otherwise we should make actionBarView's height to currentHeight
+    
+    - parameter showExpandable: show or hide expandable inputTextView
+    */
+    func controlExpandableInputView(showExpandable showExpandable: Bool) {
+        let textView = self.chatActionBarView.inputTextView
+        let currentTextHeight = self.chatActionBarView.inputTextViewCurrentHeight
+        UIView.animateWithDuration(0.3) { () -> Void in
+            let textHeight = showExpandable ? currentTextHeight : kChatActionBarOriginalHeight
+            self.chatActionBarView.snp_updateConstraints { (make) -> Void in
+                make.height.equalTo(textHeight)
+            }
+            self.view.layoutIfNeeded()
+            self.listTableView.scrollToBottom(animated: false)
+            textView.contentOffset = CGPoint.zero
+        }
     }
 }
 

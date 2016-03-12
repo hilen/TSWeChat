@@ -10,6 +10,9 @@
 import UIKit
 import UIColor_Hex_Swift
 
+let kChatActionBarOriginalHeight: CGFloat = 50      //ActionBar orginal height
+let kChatActionBarTextViewMaxHeight: CGFloat = 120   //Expandable textview max height
+
 /**
  *  表情按钮和分享按钮来控制键盘位置
  */
@@ -38,6 +41,7 @@ class TSChatActionBarView: UIView {
     
     var keyboardType: ChatKeyboardType? = .Default
     weak var delegate: TSChatActionBarViewDelegate?
+    var inputTextViewCurrentHeight: CGFloat = kChatActionBarOriginalHeight
     
     @IBOutlet weak var inputTextView: UITextView! { didSet{
         inputTextView.font = UIFont.systemFontOfSize(17)
