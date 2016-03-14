@@ -2,7 +2,7 @@
 A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift.
 
 ## 运行环境
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
 - iOS 8.0+ / Mac OS X 10.9+
 - Xcode 7.2+
 
@@ -26,6 +26,8 @@ Macro|存放整个应用会用到的宏定义，常量名等，比如 `Notificat
 Resources|存放资源文件，包括`Assets.xcassets`,`Media.xcassets`，`音频文件`，`plist 文件` 等
 Vendor|存放一些第三方库，尽量使用`cocoapods`来管理，万不得已可以存放在这里
 Supporting Files|项目原有的目录
+Script| APNs 测试脚本, 导出 IPA 文件的脚本目录，当然还有一些其他的，慢慢持续添加。
+Sketch| 存放一些图片的 Sketch 源文件。项目工程中的所有资源文件都来自 微信的 IPA 文件夹, 但是有一些资源是没有的或者没有找到，于是我决定自己来做。体验一下当设计师的感觉，2333
 
 ## 第三方库
 - [点击这里可以查看到 Podfile](https://github.com/hilen/TSWeChat/blob/master/Podfile)
@@ -33,4 +35,5 @@ Supporting Files|项目原有的目录
 ## License
 
 MIT license. 可以点击目录中 LICENSE 文件查看
+
 
