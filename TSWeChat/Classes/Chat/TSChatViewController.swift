@@ -29,6 +29,8 @@ final class TSChatViewController: UIViewController {
         listTableView.delegate = self
         listTableView.backgroundColor = UIColor.clearColor()
         listTableView.separatorStyle = .None
+        // This background image is stolen from Telegram App
+        listTableView.backgroundView = UIImageView(image: TSAsset.Chat_background.image)
         return listTableView
     }()
     

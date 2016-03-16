@@ -123,8 +123,8 @@ class TSChatTextParser: NSObject {
             
             //QQ 表情的文件名称
             let imageString =  "\(TSConfig.ExpressionBundleName)/\(theImageName)"
-            let emojiText = NSMutableAttributedString.yy_attachmentStringWithEmojiImage(UIImage(named: imageString), fontSize: fontSize + 1)
-            attributedText.replaceCharactersInRange(range, withAttributedString: emojiText)
+            let emojiText = NSMutableAttributedString.yy_attachmentStringWithEmojiImage(UIImage(named: imageString)!, fontSize: fontSize + 1)
+            attributedText.replaceCharactersInRange(range, withAttributedString: emojiText!)
             
             emoClipLength += range.length - 1
         }

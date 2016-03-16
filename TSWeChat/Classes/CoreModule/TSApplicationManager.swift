@@ -15,6 +15,7 @@ class TSApplicationManager: NSObject {
         self.initNavigationBar()
         self.initNotifications()
         TSProgressHUD.ts_initHUD()
+        LocationInstance.startLocation({}, failure: {})
     }
 
     /**

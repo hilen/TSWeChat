@@ -30,10 +30,10 @@ class TSYYTextLinePositionModifier: NSObject, YYTextLinePositionModifier {
     }
     
     // MARK: - @delegate YYTextLinePositionModifier
-    func modifyLines(lines: [AnyObject]!, fromText text: NSAttributedString!, inContainer container: YYTextContainer!) {
+    func modifyLines(lines: [YYTextLine], fromText text: NSAttributedString, inContainer container: YYTextContainer) {
         let ascent: CGFloat = self.font.pointSize * ascentScale
         let lineHeight: CGFloat = self.font.pointSize * self.lineHeightMultiple
-        for line: YYTextLine in lines as! [YYTextLine] {
+        for line: YYTextLine in lines {
             var position: CGPoint = line.position
             position.y = self.paddingTop + ascent + CGFloat(line.row) * lineHeight
             line.position = position

@@ -125,7 +125,7 @@ class TSChatTextCell: TSChatBaseCell {
         
         //计算高度
         var height: CGFloat = kChatAvatarMarginTop + kChatBubblePaddingBottom
-        let stringHeight = modifier.heightForLineCount(Int(textLayout.rowCount))
+        let stringHeight = modifier.heightForLineCount(Int(textLayout!.rowCount))
 
         height += max(stringHeight + kChatBubbleHeightBuffer + kChatBubbleBottomTransparentHeight, kChatBubbleImageViewHeight)
         model.cellHeight = height

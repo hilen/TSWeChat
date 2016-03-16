@@ -209,6 +209,7 @@ extension UIImage {
         case Tabbar_me = "tabbar_me"
         case Tabbar_meHL = "tabbar_meHL"
         case TabbarBkg = "tabbarBkg"
+        case Chat_background = "chat_background"
         case MessageRightTopBg = "MessageRightTopBg"
         
         var image: UIImage {

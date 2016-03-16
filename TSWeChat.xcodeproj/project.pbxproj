@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */; };
+		AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040A9E1C990B4A003A764D /* TSLocationManager.swift */; };
 		AE3CBC551C854B90008BA4AC /* TSChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */; };
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
 		AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */; };
@@ -180,6 +181,7 @@
 
 /* Begin PBXFileReference section */
 		879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		AE040A9E1C990B4A003A764D /* TSLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLocationManager.swift; sourceTree = "<group>"; };
 		AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatDataManager.swift; sourceTree = "<group>"; };
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
 		AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageTextTableViewCell.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				AE87426F1C7AE23E003A435C /* Models */,
 				AE8742721C7AE23E003A435C /* TSApplicationManager.swift */,
 				AE8742731C7AE23E003A435C /* TSUserManager.swift */,
+				AE040A9E1C990B4A003A764D /* TSLocationManager.swift */,
 			);
 			path = CoreModule;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				AEE69BB01C81B58600C69224 /* AudioRecordManager.swift in Sources */,
 				AEE69BC11C81B58600C69224 /* TSChatViewController+HandleData.swift in Sources */,
 				AEE69BC51C81B58600C69224 /* TSChatViewController.swift in Sources */,
+				AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */,
 				AEE69BB81C81B58600C69224 /* TSChatTextParser.swift in Sources */,
 				AE8F49AF1C46A905009C1541 /* NSData+Extension.swift in Sources */,
 				AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */,

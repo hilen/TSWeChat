@@ -1,0 +1,1 @@
+../../../INTULocationManager/LocationManager/INTULocationManager/INTUHeadingRequest.h

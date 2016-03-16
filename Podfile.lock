@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.2.0)
+  - Alamofire (3.2.1)
   - BSGridCollectionViewLayout (1.0.1)
   - BSImagePicker (2.2.0):
     - BSGridCollectionViewLayout (~> 1.0)
@@ -7,8 +7,9 @@ PODS:
   - Cent (5.0.0):
     - Dollar (~> 5.0.0)
   - Dollar (5.0.0)
+  - INTULocationManager (4.2.0)
   - KeychainAccess (2.3.3)
-  - Kingfisher (2.0.3)
+  - Kingfisher (2.1.0)
   - ObjectMapper (1.1.5)
   - RxBlocking (2.1.0):
     - RxSwift (~> 2.0)
@@ -22,13 +23,14 @@ PODS:
   - UIColor_Hex_Swift (1.9)
   - UIImageViewModeScaleAspect (1.3)
   - XCGLogger (3.2)
-  - YYText (0.9.19)
+  - YYText (1.0.2)
 
 DEPENDENCIES:
   - Alamofire
   - BSImagePicker (~> 2.2)
   - Cent
   - Dollar
+  - INTULocationManager
   - KeychainAccess (~> 2.3.3)
   - Kingfisher
   - ObjectMapper (~> 1.0)
@@ -44,13 +46,14 @@ DEPENDENCIES:
   - YYText
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   BSGridCollectionViewLayout: 60f542a260887148f9f4db1fc0e637e3d560df91
   BSImagePicker: 99c38db9ead99229d1dd4d09e6d5a707328405a5
   Cent: 4bfbe6037d911c0491425ae1ff8057404050fbb2
   Dollar: 310893dd6b3799b9b155e3deb61a0492987e4d03
+  INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   KeychainAccess: 9b7e49e48277e329b1b3195e54697ed313d30acf
-  Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
+  Kingfisher: 3ac09acad75a25ab22f6d7cef3de10d61dd4792d
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   RxBlocking: fa297def258d85c5beae9ed507f94645260b3747
   RxCocoa: 79b5feb8378545336e756a0a33fcf5e95050b71c
@@ -62,6 +65,6 @@ SPEC CHECKSUMS:
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
   UIImageViewModeScaleAspect: ec78901acfc20d3782154111a21d34390f8f71ad
   XCGLogger: da1f341f4bb8979db6e1df64232f04d9698402d4
-  YYText: b823b71b99b526c4a81029ecb59f3d8172ed5c9a
+  YYText: 9f1b8ce94f4169e40dd6a42182b42dbbd3e54020
 
 COCOAPODS: 0.39.0

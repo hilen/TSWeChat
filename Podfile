@@ -22,10 +22,11 @@ def pods
     pod 'Swift_cURLCommand'
     pod 'SnapKit'
     pod 'BSImagePicker', '~> 2.2'
-    
+
     #Objective-C
     pod 'YYText'
     pod 'SVProgressHUD', '~> 2.0-beta8'
+    pod 'INTULocationManager'
 end
 
 target 'TSWeChat' do
