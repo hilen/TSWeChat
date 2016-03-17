@@ -26,7 +26,7 @@ TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternati
 
 
 ## Preview
-You can run `TSWeChat.xcworkspace` to see all the views.<br><br>
+Run `pod install` in the `Terminal` and then run `TSWeChat.xcworkspace` to see all the views.<br><br>
 ![demo1](https://cloud.githubusercontent.com/assets/16911734/13484861/a72aedcc-e13c-11e5-8fa2-33679c1a4223.gif)
 
 ![demo2](https://cloud.githubusercontent.com/assets/16911734/13484978/e372c16e-e13d-11e5-84e0-d8df04ea17e8.gif)

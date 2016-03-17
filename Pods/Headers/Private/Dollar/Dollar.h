@@ -1,1 +1,0 @@
-../../../Dollar/Sources/Dollar.h

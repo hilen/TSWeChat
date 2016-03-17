@@ -7,7 +7,7 @@ A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written
 - Xcode 7.2+
 
 ##预览
-你可以运行`TSWeChat.xcworkspace` 来查看所有的 UI
+在终端里面运行 `pod install`，然后运行`TSWeChat.xcworkspace` 来查看所有的 UI
 
 ## 特色
 - 可以发送富文本，表情，图片还有声音。
