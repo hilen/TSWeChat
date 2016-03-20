@@ -32,7 +32,6 @@ class TSWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.leftBackToPrevious()
         self.view.backgroundColor = UIColor(rgba: "#2D3132")
         
         let preferences = WKPreferences()

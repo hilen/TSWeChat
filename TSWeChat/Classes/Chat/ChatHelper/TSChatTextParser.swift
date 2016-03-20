@@ -117,9 +117,7 @@ class TSChatTextParser: NSObject {
             }
             
             let imageName = attributedText.string.substringWithRange(attributedText.string.RangeFromNSRange(range)!)
-            guard let theImageName = TSEmojiDictionary[imageName] else {
-                continue
-            }
+            guard let theImageName = TSEmojiDictionary[imageName] else { continue }
             
             //QQ 表情的文件名称
             let imageString =  "\(TSConfig.ExpressionBundleName)/\(theImageName)"

@@ -117,9 +117,7 @@ extension TSChatViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let chatModel = self.itemDataSouce.get(indexPath.row)
-        guard let type: MessageContentType = chatModel.messageContentType where chatModel != nil else {
-            return 0
-        }
+        guard let type: MessageContentType = chatModel.messageContentType where chatModel != nil else { return 0 }
         return type.chatCellHeight(chatModel)
     }
     

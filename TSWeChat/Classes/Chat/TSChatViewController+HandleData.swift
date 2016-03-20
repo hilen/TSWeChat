@@ -15,9 +15,7 @@ extension TSChatViewController {
      */
     func chatSendText() {
         dispatch_async_safely_to_main_queue({[weak self] in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             let textView = strongSelf.chatActionBarView.inputTextView
             guard textView.text.length < 1000 else {
                 TSProgressHUD.ts_showWarningWithStatus("超出字数限制")
@@ -56,9 +54,7 @@ extension TSChatViewController {
      */
     func chatSendVoice(audioModel: ChatAudioModel) {
         dispatch_async_safely_to_main_queue({[weak self] in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             let model = ChatModel(audioModel: audioModel)
             strongSelf.itemDataSouce.append(model)
             let insertIndexPath = NSIndexPath(forRow: strongSelf.itemDataSouce.count - 1, inSection: 0)
@@ -71,9 +67,7 @@ extension TSChatViewController {
      */
     func chatSendImage(imageModel: ChatImageModel) {
         dispatch_async_safely_to_main_queue({[weak self] in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             let model = ChatModel(imageModel:imageModel)
             strongSelf.itemDataSouce.append(model)
             let insertIndexPath = NSIndexPath(forRow: strongSelf.itemDataSouce.count - 1, inSection: 0)

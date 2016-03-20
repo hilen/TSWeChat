@@ -36,9 +36,7 @@ class TSContactsViewController: UIViewController {
     }
     
     func fetchContactList() {
-        guard let JSONData = NSData.dataFromJSONFile("contact") else {
-            return
-        }
+        guard let JSONData = NSData.dataFromJSONFile("contact") else { return }
         let jsonObject = JSON(data: JSONData)
         if jsonObject != JSON.null {
             //创建群聊和公众帐号的数据
@@ -56,9 +54,7 @@ class TSContactsViewController: UIViewController {
             if let startArray = jsonObject["data"][0].arrayObject where startArray.count > 0 {
                 let tempList = NSMutableArray()
                 for dict in startArray {
-                    guard let model = TSMapper<ContactModel>().map(dict) else {
-                        continue
-                    }
+                    guard let model = TSMapper<ContactModel>().map(dict) else { continue }
                     tempList.addObject(model)
                 }
                 tempList.sortedArrayUsingSelector(Selector("compareContact:"))
@@ -70,9 +66,7 @@ class TSContactsViewController: UIViewController {
             if let contactArray = jsonObject["data"][1].arrayObject where contactArray.count > 0 {
                 let tempList = NSMutableArray()
                 for dict in contactArray {
-                    guard let model = TSMapper<ContactModel>().map(dict) else {
-                        continue
-                    }
+                    guard let model = TSMapper<ContactModel>().map(dict) else { continue }
                     tempList.addObject(model)
                 }
                 
@@ -82,10 +76,7 @@ class TSContactsViewController: UIViewController {
                 var dataSource = Dictionary<String, NSMutableArray>()
                 for index in 0..<tempList.count {
                     let contactModel = tempList[index] as! ContactModel
-                    guard let nameSpell: String = contactModel.nameSpell else {
-                        continue
-                    }
-                    
+                    guard let nameSpell: String = contactModel.nameSpell else { continue }
                     let firstLettery: String = nameSpell[0..<1].uppercaseString
                     if let letterArray: NSMutableArray = dataSource[firstLettery] {
                         letterArray.addObject(contactModel)
@@ -174,9 +165,7 @@ extension TSContactsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(TSContactTableViewCell.identifier, forIndexPath: indexPath) as! TSContactTableViewCell
         //判断一下数组越界问题
-        guard indexPath.section < self.sortedkeys.count else {
-            return cell
-        }
+        guard indexPath.section < self.sortedkeys.count else { return cell }
         let key: String = self.sortedkeys[indexPath.section]
         let dataArray: NSMutableArray = self.dataDict![key]!
         cell.setCellContnet(dataArray[indexPath.row] as! ContactModel)

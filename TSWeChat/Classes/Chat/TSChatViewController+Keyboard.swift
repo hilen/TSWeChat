@@ -27,9 +27,7 @@ extension TSChatViewController {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, name: UIKeyboardWillShowNotification, object: nil, handler: {
             [weak self] observer, notification in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.listTableView.scrollToBottomAnimated(false)
             strongSelf.keyboardControl(notification, isShowing: true)
             })
@@ -42,9 +40,7 @@ extension TSChatViewController {
         
         notificationCenter.addObserver(self, name: UIKeyboardWillHideNotification, object: nil, handler: {
             [weak self] observer, notification in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.keyboardControl(notification, isShowing: false)
             })
         

@@ -145,9 +145,7 @@ class AudioRecordManager: NSObject {
      更新进度
      */
     func updateMeters() {
-        guard let recorder = self.recorder else {
-            return
-        }
+        guard let recorder = self.recorder else { return }
         
         repeat {
             recorder.updateMeters()

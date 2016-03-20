@@ -26,9 +26,7 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
                 print("Cancel: \(assets)")
             }, finish: {[weak self] (assets: [PHAsset]) -> Void in
                 print("Finish: \(assets.get(0))")
-                guard let strongSelf = self else {
-                    return
-                }
+                guard let strongSelf = self else { return }
                 if let image = assets.get(0).getUIImage() {
                     strongSelf.resizeAndSendImage(image)
                 }
@@ -71,15 +69,10 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
         let storeKey = "send_image"+String(format: "%f", NSDate.milliseconds)
         let thumbSize = ChatConfig.getThumbImageSize(originalImage.size)
         
-        guard let thumbNail = originalImage.resize(thumbSize) else {
-            //获取缩略图失败 ，抛出异常：发送失败
-            return
-        }
-        
+        //获取缩略图失败 ，抛出异常：发送失败
+        guard let thumbNail = originalImage.resize(thumbSize) else { return }
         ImageFilesManager.storeImage(thumbNail, key: storeKey, completionHandler: { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             //发送图片消息
             let sendImageModel = ChatImageModel()
             sendImageModel.imageHeight = originalImage.size.height
@@ -116,14 +109,9 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
 // 拍照完成，进行上传图片，并且发送的请求
 extension TSChatViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        guard let mediaType = info[UIImagePickerControllerMediaType] as? NSString else {
-            return
-        }
-     
+        guard let mediaType = info[UIImagePickerControllerMediaType] as? NSString else { return }
         if mediaType.isEqualToString(kUTTypeImage as String) {
-            guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-                return
-            }
+            guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
             if picker.sourceType == .Camera {
                 self.resizeAndSendImage(image)
             }
@@ -247,18 +235,13 @@ extension TSChatViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        guard textView.contentSize.height < kChatActionBarTextViewMaxHeight else { return }
-        UIView.animateWithDuration(0.3) { () -> Void in
-            let currentTextHeight = textView.contentSize.height + 17
-            self.chatActionBarView.snp_updateConstraints { (make) -> Void in
-                make.height.equalTo(currentTextHeight)
-            }
-            self.chatActionBarView.inputTextViewCurrentHeight = currentTextHeight
-            self.view.layoutIfNeeded()
-            self.listTableView.scrollBottomToLastRow()
-            textView.contentOffset = CGPoint.zero
+        let contentHeight = textView.contentSize.height
+        guard contentHeight < kChatActionBarTextViewMaxHeight else {
+            return
         }
 
+        self.chatActionBarView.inputTextViewCurrentHeight = contentHeight + 17
+        self.controlExpandableInputView(showExpandable: true)
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {

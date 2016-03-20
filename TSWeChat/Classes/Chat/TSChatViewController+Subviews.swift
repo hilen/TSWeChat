@@ -28,9 +28,7 @@ extension TSChatViewController {
         tap.cancelsTouchesInView = false
         self.listTableView.addGestureRecognizer(tap)
         tap.rx_event.subscribeNext{[weak self] _ in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.hideAllKeyboard()
         }.addDisposableTo(self.disposeBag)
         
@@ -51,9 +49,7 @@ extension TSChatViewController {
         self.chatActionBarView.inputTextView.delegate = delegate
         self.view.addSubview(self.chatActionBarView)
         self.chatActionBarView.snp_makeConstraints { [weak self] (make) -> Void in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             make.left.equalTo(strongSelf.view.snp_left)
             make.right.equalTo(strongSelf.view.snp_right)
             strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp_bottom).constraint
@@ -70,9 +66,7 @@ extension TSChatViewController {
         self.emotionInputView.delegate = self
         self.view.addSubview(self.emotionInputView)
         self.emotionInputView.snp_makeConstraints {[weak self] (make) -> Void in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             make.left.equalTo(strongSelf.view.snp_left)
             make.right.equalTo(strongSelf.view.snp_right)
             make.top.equalTo(strongSelf.chatActionBarView.snp_bottom).offset(0)
@@ -84,9 +78,7 @@ extension TSChatViewController {
         self.shareMoreView!.delegate = self
         self.view.addSubview(self.shareMoreView)
         self.shareMoreView.snp_makeConstraints {[weak self] (make) -> Void in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             make.left.equalTo(strongSelf.view.snp_left)
             make.right.equalTo(strongSelf.view.snp_right)
             make.top.equalTo(strongSelf.chatActionBarView.snp_bottom).offset(0)
@@ -102,9 +94,7 @@ extension TSChatViewController {
         self.voiceIndicatorView = TSChatVoiceIndicatorView.fromNib()
         self.view.addSubview(self.voiceIndicatorView)
         self.voiceIndicatorView.snp_makeConstraints {[weak self] (make) -> Void in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             make.top.equalTo(strongSelf.view.snp_top).offset(100)
             make.left.equalTo(strongSelf.view.snp_left)
             make.bottom.equalTo(strongSelf.view.snp_bottom).offset(-100)

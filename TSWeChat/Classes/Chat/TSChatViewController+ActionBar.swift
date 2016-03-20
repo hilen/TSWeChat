@@ -23,9 +23,7 @@ extension TSChatViewController {
         
         //切换声音按钮
         voiceButton.rx_tap.subscribeNext{[weak self] _ in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
             let showRecoring = strongSelf.chatActionBarView.recordButton.hidden
@@ -46,9 +44,7 @@ extension TSChatViewController {
         let longTap = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longTap)
         longTap.rx_event.subscribeNext{[weak self] sender in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             if sender.state == .Began { //长按开始
                 finishRecording = true
                 strongSelf.voiceIndicatorView.recording()
@@ -77,9 +73,7 @@ extension TSChatViewController {
         
         //表情按钮
         emotionButton.rx_tap.subscribeNext{[weak self] _ in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //设置 button 的UI
             emotionButton.replaceEmotionButtonUI(showKeyboard: !emotionButton.showTypingKeyboard)
@@ -96,9 +90,7 @@ extension TSChatViewController {
         
         //分享按钮
         shareButton.rx_tap.subscribeNext{[weak self] _ in
-            guard let strongSelf = self else {
-                return
-            }
+            guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
             if shareButton.showTypingKeyboard {
@@ -138,7 +130,7 @@ extension TSChatViewController {
                 make.height.equalTo(textHeight)
             }
             self.view.layoutIfNeeded()
-            self.listTableView.scrollToBottom(animated: false)
+            self.listTableView.scrollBottomToLastRow()
             textView.contentOffset = CGPoint.zero
         }
     }

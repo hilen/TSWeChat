@@ -45,16 +45,12 @@ class TSMessageViewController: UIViewController {
     }
     
     private func fetchData() {
-        guard let JSONData = NSData.dataFromJSONFile("message") else {
-            return
-        }
+        guard let JSONData = NSData.dataFromJSONFile("message") else { return }
         let jsonObject = JSON(data: JSONData)
         if jsonObject != JSON.null {
             var list = [MessageModel]()
             for dict in jsonObject["data"].arrayObject! {
-                guard let model = TSMapper<MessageModel>().map(dict) else {
-                    continue
-                }
+                guard let model = TSMapper<MessageModel>().map(dict) else { continue }
                 list.insert(model, atIndex: list.count)
             }
             //Insert more data, make the UITableView long and long.  XD
