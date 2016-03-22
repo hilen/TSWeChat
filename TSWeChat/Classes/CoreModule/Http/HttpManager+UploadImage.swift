@@ -111,7 +111,7 @@ extension HttpManager {
                     dispatch_group_leave(group);
                 }
             )
-            index++
+            index += 1
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), {

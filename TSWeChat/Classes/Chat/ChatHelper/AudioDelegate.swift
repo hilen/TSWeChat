@@ -11,7 +11,7 @@ import Foundation
 /**
  *  录音的 delegate 函数
  */
-protocol RecordAudioDelegate: class{
+protocol RecordAudioDelegate: class {
     /**
      更新进度 , 0.0 - 9.0, 浮点数
      */

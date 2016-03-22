@@ -219,7 +219,7 @@ struct Device {
     // MARK: Retina Check
     
     static func IS_RETINA() -> Bool {
-        return UIScreen.mainScreen().respondsToSelector("scale")
+        return UIScreen.mainScreen().respondsToSelector(#selector(NSDecimalNumberBehaviors.scale))
     }
     
     // MARK: 3.5 Inch Checks

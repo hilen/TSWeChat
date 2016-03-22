@@ -35,20 +35,20 @@ extension UIScrollView {
     /// The vertical scroll indicator view.
     public var verticalScroller: UIView {
         get {
-            if (objc_getAssociatedObject(self, __FUNCTION__) == nil) {
-                objc_setAssociatedObject(self, __FUNCTION__, self.safeValueForKey(AssociatedKeys.kKeyScrollViewVerticalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN);
+            if (objc_getAssociatedObject(self, #function) == nil) {
+                objc_setAssociatedObject(self, #function, self.safeValueForKey(AssociatedKeys.kKeyScrollViewVerticalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN);
             }
-            return objc_getAssociatedObject(self, __FUNCTION__) as! UIView
+            return objc_getAssociatedObject(self, #function) as! UIView
         }
     }
 
     /// The horizontal scroll indicator view.
     public var horizontalScroller: UIView {
         get {
-            if (objc_getAssociatedObject(self, __FUNCTION__) == nil) {
-                objc_setAssociatedObject(self, __FUNCTION__, self.safeValueForKey(AssociatedKeys.kKeyScrollViewHorizontalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN);
+            if (objc_getAssociatedObject(self, #function) == nil) {
+                objc_setAssociatedObject(self, #function, self.safeValueForKey(AssociatedKeys.kKeyScrollViewHorizontalIndicator), objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN);
             }
-            return objc_getAssociatedObject(self, __FUNCTION__) as! UIView
+            return objc_getAssociatedObject(self, #function) as! UIView
         }
     }
     

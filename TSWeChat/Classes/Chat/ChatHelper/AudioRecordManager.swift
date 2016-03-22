@@ -112,7 +112,7 @@ class AudioRecordManager: NSObject {
             log.error("error localizedDescription:\(error.localizedDescription)")
             TSAlertView_show("初始化录音功能失败", message: error.localizedDescription)
         }
-        self.performSelector("readyStartRecord", withObject: self, afterDelay: 0.0)
+        self.performSelector(#selector(AudioRecordManager.readyStartRecord), withObject: self, afterDelay: 0.0)
     }
     
     /**
@@ -172,14 +172,14 @@ class AudioRecordManager: NSObject {
         self.isCancelRecord = false
         self.endTimer = CACurrentMediaTime()
         if (self.endTimer - self.startTime) < 0.5 {
-            NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: "readyStartRecord", object: self)
+            NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(AudioRecordManager.readyStartRecord), object: self)
             dispatch_async_safely_to_main_queue({ () -> () in
                 self.delegate?.audioRecordTooShort()
             })
         } else {
             self.audioTimeInterval = NSNumber(int: NSNumber(double: self.recorder.currentTime).intValue)
             if self.audioTimeInterval.intValue < 1 {
-                self.performSelector("readyStopRecord", withObject: self, afterDelay: 0.4)
+                self.performSelector(#selector(AudioRecordManager.readyStopRecord), withObject: self, afterDelay: 0.4)
             } else {
                 self.readyStopRecord()
             }
@@ -192,7 +192,7 @@ class AudioRecordManager: NSObject {
      */
     func cancelRrcord() {
         self.isCancelRecord = true
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: "readyStartRecord", object: self)
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(AudioRecordManager.readyStartRecord), object: self)
         self.isFinishRecord = false
         self.recorder.stop()
         self.recorder.deleteRecording()

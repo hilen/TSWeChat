@@ -22,7 +22,8 @@ extension TSChatViewController {
                 return
             }
             
-            guard textView.text.componentsSeparatedByString(" ").count < textView.text.length else {
+            let text = textView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            if text.length == 0 {
                 TSProgressHUD.ts_showWarningWithStatus("不能发送空白消息")
                 return
             }
@@ -35,17 +36,6 @@ extension TSChatViewController {
             textView.text = "" //发送完毕后清空
             
             strongSelf.textViewDidChange(strongSelf.chatActionBarView.inputTextView)
-            
-//            //Make the expandable UITextView to original height
-//            UIView.animateWithDuration(0.2) { () -> Void in
-//                strongSelf.chatActionBarView.snp_updateConstraints { (make) -> Void in
-//                    make.height.equalTo(kChatActionBarOriginalHeight)
-//                }
-//                strongSelf.chatActionBarView.inputTextViewCurrentHeight = kChatActionBarOriginalHeight
-//                strongSelf.view.layoutIfNeeded()
-//                strongSelf.listTableView.scrollToBottom(animated: false)
-//                textView.contentOffset = CGPoint.zero
-//            }
         })
     }
 

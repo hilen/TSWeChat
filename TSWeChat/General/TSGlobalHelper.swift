@@ -37,3 +37,5 @@ func TSAlertView_show(title: String, message: String? = nil) {
     let alertView = UIAlertView(title: title , message: theMessage, delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "好的")
     alertView.show()
 }
+
+

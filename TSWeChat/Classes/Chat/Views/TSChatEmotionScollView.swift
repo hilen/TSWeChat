@@ -64,7 +64,7 @@ class TSChatEmotionScollView: UICollectionView {
      停止 timmer
      */
     func endBackspaceTimer() {
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: "startBackspaceTimer", object: nil)
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(TSChatEmotionScollView.startBackspaceTimer), object: nil)
         if self.backspaceTimer != nil {
             self.backspaceTimer.invalidate()
             self.backspaceTimer = nil
@@ -149,7 +149,7 @@ extension TSChatEmotionScollView {
         
         if cell.isDelete {
             self.endBackspaceTimer()
-            self.performSelector("startBackspaceTimer", withObject: nil, afterDelay: 0.5)
+            self.performSelector(#selector(TSChatEmotionScollView.startBackspaceTimer), withObject: nil, afterDelay: 0.5)
         }
     }
     

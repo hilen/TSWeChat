@@ -57,7 +57,7 @@ class TSContactsViewController: UIViewController {
                     guard let model = TSMapper<ContactModel>().map(dict) else { continue }
                     tempList.addObject(model)
                 }
-                tempList.sortedArrayUsingSelector(Selector("compareContact:"))
+                tempList.sortedArrayUsingSelector(#selector(ContactModel.compareContact(_:)))
                 self.sortedkeys.append("★")
                 self.dataDict = self.dataDict! + ["★" : tempList]
             }

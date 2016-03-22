@@ -90,7 +90,7 @@ extension TSChatViewController {
         
         var heightForNewRows: CGFloat = 0
         var indexPaths = [NSIndexPath]()
-        for var i = 0; i < count; i++ {
+        for i in 0 ..< count {
             let indexPath = NSIndexPath(forRow: i, inSection: 0)
             indexPaths.append(indexPath)
             

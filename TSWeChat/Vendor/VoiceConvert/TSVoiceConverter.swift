@@ -52,6 +52,18 @@ class TSVoiceConverter {
         let result = String.fromCString(filePath)!
         return isAMRFile(result)
     }
+    
+    /**
+     是否是 mp3 文件
+     
+     - parameter filePath: mp3 文件路径
+     
+     - returns: Bool
+     */
+    static func isMP3File(filePath: String) -> Bool {
+        let result = String.fromCString(filePath)!
+        return isMP3File(result)
+    }
 }
 
 

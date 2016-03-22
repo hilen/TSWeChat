@@ -109,7 +109,7 @@ var AssociatedClosure: UInt8 = 0
 extension UIControl {
     private func ngl_addAction(forControlEvents events: UIControlEvents, withCallback callback: Void -> Void) {
         let wrapper = ClosureWrapper(callback: callback)
-        addTarget(wrapper, action:"invoke", forControlEvents: events)
+        addTarget(wrapper, action:#selector(ClosureWrapper.invoke), forControlEvents: events)
         objc_setAssociatedObject(self, &AssociatedClosure, wrapper, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }

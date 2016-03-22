@@ -74,7 +74,7 @@ public extension UIImage {
         let context: CGContextRef = UIGraphicsGetCurrentContext()!
         CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y)
         //        let layer: CALayer = view.layer
-        if view.respondsToSelector("drawViewHierarchyInRect:afterScreenUpdates:") {
+        if view.respondsToSelector(#selector(UIView.drawViewHierarchyInRect(_:afterScreenUpdates:))) {
             view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         } else {
             view.layer.renderInContext(UIGraphicsGetCurrentContext()!)

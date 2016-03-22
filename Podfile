@@ -9,7 +9,7 @@ def pods
     #Swift
     pod 'Alamofire'
     pod 'Kingfisher'
-    pod 'ObjectMapper', '~> 1.0'
+    pod 'ObjectMapper', '~> 1.1'
     pod 'SwiftyJSON'
     pod 'Dollar'
     pod 'Cent'

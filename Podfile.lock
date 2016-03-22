@@ -33,7 +33,7 @@ DEPENDENCIES:
   - INTULocationManager
   - KeychainAccess (~> 2.3.4)
   - Kingfisher
-  - ObjectMapper (~> 1.0)
+  - ObjectMapper (~> 1.1)
   - RxBlocking (~> 2.2)
   - RxCocoa (~> 2.2)
   - RxSwift (~> 2.2)

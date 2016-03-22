@@ -24,10 +24,7 @@ extension UITableView {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         self.beginUpdates()
-        self.insertRowsAtIndexPaths(
-            rows,
-            withRowAnimation: .None
-        )
+        self.insertRowsAtIndexPaths(rows, withRowAnimation: .None)
         self.endUpdates()
         self.scrollToRowAtIndexPath(rows[0], atScrollPosition: .Bottom, animated: false)
         CATransaction.commit()
@@ -39,7 +36,7 @@ extension UITableView {
         var rowCount = 0
         while i < self.numberOfSections {
             rowCount += self.numberOfRowsInSection(i)
-            i++
+            i += 1
         }
         return rowCount
     }

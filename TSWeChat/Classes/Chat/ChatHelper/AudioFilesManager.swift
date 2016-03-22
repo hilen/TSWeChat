@@ -106,7 +106,7 @@ class AudioFilesManager {
             var recordings = files.filter( { (name: String) -> Bool in
                 return name.hasSuffix(kAudioFileTypeWav)
             })
-            for var i = 0; i < recordings.count; i++ {
+            for i in 0 ..< recordings.count {
                 let path = path + "/" + recordings[i]
                 log.info("removing \(path)")
                 do {

@@ -71,7 +71,7 @@ class TSMessageActionFloatView: UIView {
         
         //init custom buttons
         var yValue = kFirstButtonY
-        for var index = 0; index < actionImages.count; index++ {
+        for index in 0 ..< actionImages.count {
             let itemButton: UIButton = UIButton(type: .Custom)
             itemButton.backgroundColor = UIColor.clearColor()
             itemButton.titleLabel!.font = UIFont.systemFontOfSize(17)
@@ -81,7 +81,7 @@ class TSMessageActionFloatView: UIView {
             itemButton.setTitle(actionTitles.get(index), forState: .Highlighted)
             itemButton.setImage(actionImages.get(index), forState: .Normal)
             itemButton.setImage(actionImages.get(index), forState: .Highlighted)
-            itemButton.addTarget(self, action: "buttonTaped:", forControlEvents: UIControlEvents.TouchUpInside)
+            itemButton.addTarget(self, action: #selector(TSMessageActionFloatView.buttonTaped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             itemButton.contentHorizontalAlignment = .Left
             itemButton.contentEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
             itemButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)

@@ -50,7 +50,7 @@ extension NSTimer {
     
     public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
+        return self.init(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: false)
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.
@@ -60,7 +60,7 @@ extension NSTimer {
     
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: true)
+        return self.init(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: true)
     }
     
     /// Create and schedule a timer that will call `block` once after the specified time.

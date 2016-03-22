@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 /// 联系人列表的 model
-class ContactModel: NSObject, TSModelProtocol {
+@objc class ContactModel: NSObject, TSModelProtocol {
     var avatarSmallURL : String?   //头像小图
     var chineseName : String? //中文名称
     var nameSpell : String?   //中文名称拼音
@@ -33,7 +33,7 @@ class ContactModel: NSObject, TSModelProtocol {
         userId <- map["userid"]
     }
     
-    internal func compareContact(contactModel: ContactModel) -> NSComparisonResult {
+    func compareContact(contactModel: ContactModel) -> NSComparisonResult {
         let result = self.nameSpell?.compare(contactModel.nameSpell!)
         return result!
     }
