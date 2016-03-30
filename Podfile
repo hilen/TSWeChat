@@ -15,13 +15,14 @@ def pods
     pod 'Cent'
     pod 'KeychainAccess', '~> 2.3.4'
     pod 'UIColor_Hex_Swift', '~> 2.0'
-    pod 'RxSwift', '~> 2.2'
-    pod 'RxCocoa', '~> 2.2'
-    pod 'RxBlocking', '~> 2.2'
+    pod 'RxSwift', '~> 2.3.1'
+    pod 'RxCocoa', '~> 2.3.1'
+    pod 'RxBlocking', '~> 2.3.1'
     pod 'XCGLogger'
     pod 'Swift_cURLCommand'
     pod 'SnapKit'
     pod 'BSImagePicker', '~> 2.2'
+    pod 'TSVoiceConverter'
 
     #Objective-C
     pod 'YYText'

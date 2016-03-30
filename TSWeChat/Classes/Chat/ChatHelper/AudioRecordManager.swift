@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import TSVoiceConverter
 
 //private let soundPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
 let kAudioFileTypeWav = "wav"

@@ -1,29 +1,30 @@
 PODS:
-  - Alamofire (3.2.1)
-  - BSGridCollectionViewLayout (1.0.1)
-  - BSImagePicker (2.2.0):
-    - BSGridCollectionViewLayout (~> 1.0)
+  - Alamofire (3.3.0)
+  - BSGridCollectionViewLayout (1.1.0)
+  - BSImagePicker (2.3.0):
+    - BSGridCollectionViewLayout (~> 1.1)
     - UIImageViewModeScaleAspect (~> 1.3)
   - Cent (5.0.0):
     - Dollar (~> 5.0.0)
   - Dollar (5.0.0)
   - INTULocationManager (4.2.0)
-  - KeychainAccess (2.3.4)
-  - Kingfisher (2.1.0)
-  - ObjectMapper (1.1.5)
-  - RxBlocking (2.2.0):
-    - RxSwift (~> 2.2)
-  - RxCocoa (2.2.0):
-    - RxSwift (~> 2.2)
-  - RxSwift (2.2.0)
-  - SnapKit (0.19.1)
-  - SVProgressHUD (2.0-beta8)
+  - KeychainAccess (2.3.5)
+  - Kingfisher (2.2.0)
+  - ObjectMapper (1.2.0)
+  - RxBlocking (2.3.1):
+    - RxSwift (~> 2.3.1)
+  - RxCocoa (2.3.1):
+    - RxSwift (~> 2.3.1)
+  - RxSwift (2.3.1)
+  - SnapKit (0.20.0)
+  - SVProgressHUD (2.0)
   - Swift_cURLCommand (1.0.0)
   - SwiftyJSON (2.3.2)
-  - UIColor_Hex_Swift (2.0)
+  - TSVoiceConverter (0.1.1)
+  - UIColor_Hex_Swift (2.1)
   - UIImageViewModeScaleAspect (1.3)
-  - XCGLogger (3.2)
-  - YYText (1.0.2)
+  - XCGLogger (3.3)
+  - YYText (1.0.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -41,30 +42,32 @@ DEPENDENCIES:
   - SVProgressHUD (~> 2.0-beta8)
   - Swift_cURLCommand
   - SwiftyJSON
+  - TSVoiceConverter
   - UIColor_Hex_Swift (~> 2.0)
   - XCGLogger
   - YYText
 
 SPEC CHECKSUMS:
-  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
-  BSGridCollectionViewLayout: 60f542a260887148f9f4db1fc0e637e3d560df91
-  BSImagePicker: 99c38db9ead99229d1dd4d09e6d5a707328405a5
+  Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  BSGridCollectionViewLayout: 5fd85b2d944426e5c1ed824ae46eb8da44606cf8
+  BSImagePicker: 591b28ce4994c44cbc4ac896717c1db9f9fadd18
   Cent: 4bfbe6037d911c0491425ae1ff8057404050fbb2
   Dollar: 310893dd6b3799b9b155e3deb61a0492987e4d03
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
-  KeychainAccess: 3a21b6944b4f2a22653f091d770cf10374961a94
-  Kingfisher: 3ac09acad75a25ab22f6d7cef3de10d61dd4792d
-  ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
-  RxBlocking: 5bbc826774c4290effa8fe070841e9d45e864639
-  RxCocoa: 42efb7a7145a8d1d5878e94ce48a580d29e0c796
-  RxSwift: b8a749f2204c6c7a5c29b306a9c3bc11d5b87c5b
-  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
-  SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
+  KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
+  Kingfisher: 350869ed88d6451803b390475d977abdd9f0a357
+  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  RxBlocking: 84fd81865a641a3843b33bae7b8315e78ddbd383
+  RxCocoa: a2baaf3462b989559a51dce59d78fbebb8fe0afa
+  RxSwift: 829b2843e9eddc77a02cb3f5117f0d55f8f646f1
+  SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
+  SVProgressHUD: e9e7c893686a20da55a28015ed384d9425e15479
   Swift_cURLCommand: 956902720891266119dd2b8d0b513ba353cfe625
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  UIColor_Hex_Swift: 07130bb5cc010905acc970609255edf4d80f06c8
+  TSVoiceConverter: d96960ce7cc07e455e69f30e092367a424d3c6a0
+  UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
   UIImageViewModeScaleAspect: ec78901acfc20d3782154111a21d34390f8f71ad
-  XCGLogger: da1f341f4bb8979db6e1df64232f04d9698402d4
-  YYText: 9f1b8ce94f4169e40dd6a42182b42dbbd3e54020
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
+  YYText: 3050159192035d7f232b537ce76668aac2e2bd8b
 
 COCOAPODS: 0.39.0

@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import Alamofire
+import TSVoiceConverter
 
 let AudioPlayInstance = AudioPlayManager.sharedInstance
 
