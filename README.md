@@ -11,7 +11,7 @@ TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternati
 ## Requirements
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
 - iOS 8.0+ / Mac OS X 10.9+
-- Xcode 7.2+
+- Xcode 7.3+
 
 
 ## Features
