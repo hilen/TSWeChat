@@ -9,7 +9,7 @@
 TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[中文说明](Chinese_README.md)
 
 ## Requirements
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
+- [CocoaPods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
 - iOS 8.0+ / Mac OS X 10.9+
 - Xcode 7.3+
 
@@ -43,7 +43,7 @@ General|To deposit reused `View and Class` related with business logic, such as 
 Helpers|Non-business logic extension, such as: `UIView+Extension.swift`, `UIImage+Resize.swift` and etc.
 Macro|To deposit macros and constant definitions used in the whole application, such as ` Notifications ` name , and  the third party librarie's keys.
 Resources| Resources. Such as `Assets.xcassets`, `Media.xcassets`, `JSON files`, `media files`, `plist files` and etc.
-Vendor| To deposit the third party liabraries that cannot be installed by `Cocoapods`.
+Vendor| To deposit the third party liabraries that cannot be installed by `CocoaPods`.
 Supporting Files| To deposit the original files
 Scripts| APNs script, export IPA file script and etc.
 Sketch| To deposit the original Sketch files. All the recourses in the project are come from the WeChat IPA folder, but some images I can't find. So I decided to do it myself. Yeah, I love design, sometimes coder become a designer is feeling good. XD
