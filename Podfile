@@ -19,7 +19,6 @@ def pods
     pod 'RxCocoa', '~> 2.3.1'
     pod 'RxBlocking', '~> 2.3.1'
     pod 'XCGLogger'
-    pod 'Swift_cURLCommand'
     pod 'SnapKit'
     pod 'BSImagePicker', '~> 2.2'
     pod 'TSVoiceConverter'
