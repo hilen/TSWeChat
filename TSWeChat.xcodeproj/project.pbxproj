@@ -13,6 +13,8 @@
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
 		AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */; };
 		AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */; };
+		AE5127061D64B475008442F4 /* TSMomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5127041D64B475008442F4 /* TSMomentsViewController.swift */; };
+		AE5127071D64B475008442F4 /* TSMomentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5127051D64B475008442F4 /* TSMomentsViewController.xib */; };
 		AE69C7601C8DDEA600D929CD /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75A1C8DDEA600D929CD /* beep.wav */; };
 		AE69C7611C8DDEA600D929CD /* call.caf in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75B1C8DDEA600D929CD /* call.caf */; };
 		AE69C7621C8DDEA600D929CD /* camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE69C75C1C8DDEA600D929CD /* camera.wav */; };
@@ -166,6 +168,8 @@
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
 		AE40FD221C5B644300CB7339 /* TSImageTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageTextTableViewCell.swift; sourceTree = "<group>"; };
 		AE40FD231C5B644300CB7339 /* TSImageTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSImageTextTableViewCell.xib; sourceTree = "<group>"; };
+		AE5127041D64B475008442F4 /* TSMomentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSMomentsViewController.swift; sourceTree = "<group>"; };
+		AE5127051D64B475008442F4 /* TSMomentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMomentsViewController.xib; sourceTree = "<group>"; };
 		AE69C75A1C8DDEA600D929CD /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		AE69C75B1C8DDEA600D929CD /* call.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = call.caf; sourceTree = "<group>"; };
 		AE69C75C1C8DDEA600D929CD /* camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = camera.wav; sourceTree = "<group>"; };
@@ -338,6 +342,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE1E4C431CE32167004BD467 /* Moments */ = {
+			isa = PBXGroup;
+			children = (
+				AE5127041D64B475008442F4 /* TSMomentsViewController.swift */,
+				AE5127051D64B475008442F4 /* TSMomentsViewController.xib */,
+			);
+			path = Moments;
+			sourceTree = "<group>";
+		};
 		AE69C7591C8DDEA600D929CD /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +479,7 @@
 		AE92B6041C3FF7C900968A3A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AE1E4C431CE32167004BD467 /* Moments */,
 				AEE69B671C81B58600C69224 /* Chat */,
 				AE87426E1C7AE23E003A435C /* CoreModule */,
 				AE92B8701C3FFC5C00968A3A /* Contacts */,
@@ -806,6 +820,7 @@
 				AE92B8C01C3FFC5D00968A3A /* TSMessageViewController.xib in Resources */,
 				AE92B8CC1C3FFD0D00968A3A /* TSContactsViewController.xib in Resources */,
 				AE92B8C81C3FFCE900968A3A /* TSMeViewController.xib in Resources */,
+				AE5127071D64B475008442F4 /* TSMomentsViewController.xib in Resources */,
 				AE40FD251C5B644300CB7339 /* TSImageTextTableViewCell.xib in Resources */,
 				AE69C7641C8DDEA600D929CD /* shake_match.wav in Resources */,
 				AEE69BA31C81B58600C69224 /* TSChatImageCell.xib in Resources */,
@@ -910,6 +925,7 @@
 				AEE69BCD1C81B58600C69224 /* TSChatEmotionScollView.swift in Sources */,
 				AEE69BC21C81B58600C69224 /* TSChatViewController+Interaction.swift in Sources */,
 				AE8742761C7AE23E003A435C /* TSApplicationManager.swift in Sources */,
+				AE5127061D64B475008442F4 /* TSMomentsViewController.swift in Sources */,
 				AEE69BC71C81B58600C69224 /* TSChatActionBarView.swift in Sources */,
 				AEE69BAE1C81B58600C69224 /* AudioFilesManager.swift in Sources */,
 				AE92B8CB1C3FFD0D00968A3A /* TSContactsViewController.swift in Sources */,

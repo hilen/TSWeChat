@@ -21,11 +21,11 @@ def pods
     pod 'XCGLogger'
     pod 'SnapKit'
     pod 'BSImagePicker', '~> 2.2'
-    pod 'TSVoiceConverter'
+    pod 'TSVoiceConverter', '0.1.2'
 
     #Objective-C
     pod 'YYText'
-    pod 'SVProgressHUD', '~> 2.0-beta8'
+    pod 'SVProgressHUD'
     pod 'INTULocationManager'
 end
 
