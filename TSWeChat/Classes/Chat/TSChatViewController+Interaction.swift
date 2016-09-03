@@ -209,6 +209,8 @@ extension TSChatViewController: ChatEmotionInputViewDelegate {
         var string = self.chatActionBarView.inputTextView.text
         string = string.stringByAppendingString(cell.emotionModel!.text)
         self.chatActionBarView.inputTextView.text = string
+        
+        self.textViewDidChange(self.chatActionBarView.inputTextView)
     }
     
     //点击撤退删除
