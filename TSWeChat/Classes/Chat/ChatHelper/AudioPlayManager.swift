@@ -153,22 +153,21 @@ class AudioPlayManager: NSObject {
                 return temporaryURL
             }
         }
-        // When
-        let headers = ["Authorization": "123456"]
-        Alamofire.download(audioModel.audioURL!, headers: headers, to: destination)
-            .response { resp in
-//                response = resp
-//                expectation.fulfill()
-                if let error = error, let delegate = self!.delegate {
+        
+        Alamofire.download(audioModel.audioURL!)
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+            }
+            .responseData { response in
+                if let error = response.result.error, let delegate = self.delegate {
                     log.error("Failed with error: \(error)")
                     delegate.audioPlayFailed()
                 } else {
                     log.info("Downloaded file successfully")
-                    self!.convertAmrToWavAndPlaySound(audioModel)
+                    self.convertAmrToWavAndPlaySound(audioModel)
                 }
 
         }
-
         
 //        Alamofire.download(.GET, audioModel.audioURL!, destination: destination)
 //            .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in

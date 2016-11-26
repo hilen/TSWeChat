@@ -40,58 +40,29 @@ extension HttpManager {
                 for (key, value) in parameters {
                     multipartFormData.append(value!.data(using: String.Encoding.utf8)!, withName: key)
                 }
-        },
+            },
             to: uploadAudioURLString,
             encodingCompletion: { result in
                 switch result {
                 case .success(let upload, _, _):
-                    upload.responseFileUploadSwiftyJSON(completionHandler: { response in
+                    upload.responseJSON { response in
                         log.info("response:\(response)")
                         switch response.result {
-                        case .Success(let data):
+                        case .success(let data):
                             /*
                              根据 JSON 返回格式，做好 UploadAudioModel 的 key->value 映射, 这里只是个例子
                              */
-                            let model: UploadAudioModel = TSMapper<UploadAudioModel>().map(JSON:data.dictionaryObject)!
-                            success(audioModel: model)
-                        case .Failure( _):
+                            let model: UploadAudioModel = TSMapper<UploadAudioModel>().map(JSONObject: data)!
+                            success(model)
+                        case .failure( _):
                             failure()
                         }
-                    })
-
+                    }
                 case .failure(let encodingError):
                     debugPrint(encodingError)
                 }
         })
         
-        
-
-//        Alamofire.upload(.POST, URLRequest, multipartFormData : { multipartFormData in
-//            multipartFormData.appendBodyPart(data: audioData, name: "audio", fileName: "file", mimeType: "audio/AMR")
-//            for (key, value) in parameters {
-//                multipartFormData.appendBodyPart(data: value!.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
-//            }
-//        },encodingCompletion: { result in
-//            switch result {
-//            case .Success(let upload, _, _):
-//                upload.responseFileUploadSwiftyJSON(completionHandler: { response in
-//                    log.info("response:\(response)")
-//                    switch response.result {
-//                    case .Success(let data):
-//                        /*
-//                        根据 JSON 返回格式，做好 UploadAudioModel 的 key->value 映射, 这里只是个例子
-//                        */
-//                        let model: UploadAudioModel = TSMapper<UploadAudioModel>().map(data.dictionaryObject)!
-//                        success(audioModel: model)
-//                    case .Failure( _):
-//                        failure()
-//                    }
-//                })
-//                
-//            case .Failure(let encodingError):
-//                debugPrint(encodingError)
-//            }
-//        })
     }
 }
 

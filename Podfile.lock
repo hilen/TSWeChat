@@ -32,7 +32,7 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.0)
   - BSImagePicker (~> 2.5.0)
   - Cent
   - Dollar
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: fa16054eb821ca26d6b1b6839e53d4c71cf369e5
+PODFILE CHECKSUM: 298c9bbffa6c642d0f41396674f388ccc7577f23
 
 COCOAPODS: 1.1.1

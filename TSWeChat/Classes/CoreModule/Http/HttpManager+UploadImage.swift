@@ -47,18 +47,18 @@ extension HttpManager {
             encodingCompletion: { result in
                 switch result {
                 case .success(let upload, _, _):
-                    upload.responseFileUploadSwiftyJSON(completionHandler: { response in
+                    upload.responseJSON { response in
                         switch response.result {
-                        case .Success(let data):
+                        case .success(let data):
                             /*
                              根据 JSON 返回格式，做好 UploadImageModel 的 key->value 映射, 这里只是个例子
                              */
-                            let model: UploadImageModel = TSMapper<UploadImageModel>().map(data.dictionaryObject)!
-                            success(imageModel: model)
-                        case .Failure( _):
+                            let model: UploadImageModel = TSMapper<UploadImageModel>().map(JSONObject:data)!
+                            success(model)
+                        case .failure( _):
                             failure()
                         }
-                    })
+                    }
                 case .failure(let encodingError):
                     debugPrint(encodingError)
                 }

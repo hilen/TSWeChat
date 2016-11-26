@@ -17,8 +17,8 @@ let TransformerTimestampToTimeAgo = TransformOf<String, NSNumber>(fromJSON: { (v
     
     let seconds = Double(value as! NSNumber)/1000
     let timeInterval: TimeInterval = TimeInterval(seconds)
-    let date = NSDate(timeIntervalSince1970: timeInterval)
-    let string = NSDate.messageAgoSinceDate(date)
+    let date = Date(timeIntervalSince1970: timeInterval)
+    let string = Date.messageAgoSinceDate(date)
     return string
     }, toJSON: { (value: String?) -> NSNumber? in
         return nil
