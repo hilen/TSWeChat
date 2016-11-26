@@ -29,9 +29,9 @@ class TSNavigationBar: UINavigationBar {
         let containerView : UIView = UIView()
         containerView.backgroundColor = UIColor.clear
         self.addSubview(containerView)
-        containerView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp_top).offset(-20)
-            make.left.equalTo(self.snp_left).offset(0)
+        containerView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp.top).offset(-20)
+            make.left.equalTo(self.snp.left).offset(0)
             make.width.equalTo(44)
             make.height.equalTo(64)
         }

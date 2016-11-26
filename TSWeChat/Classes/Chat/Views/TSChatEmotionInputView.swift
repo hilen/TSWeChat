@@ -56,7 +56,7 @@ class TSChatEmotionInputView: UIView {
         
         //init listCollectionView
         self.listCollectionView.collectionViewLayout = layout
-        self.listCollectionView.register(TSChatEmotionCell.NibObject(), forCellWithReuseIdentifier: TSChatEmotionCell.identifier)
+        self.listCollectionView.register(TSChatEmotionCell.ts_Nib(), forCellWithReuseIdentifier: TSChatEmotionCell.identifier)
         self.listCollectionView.isPagingEnabled = true
         self.listCollectionView.emotionScrollDelegate = self
 

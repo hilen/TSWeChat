@@ -27,12 +27,12 @@ class TSMessageViewController: UIViewController {
         self.actionFloatView = TSMessageActionFloatView()
         self.actionFloatView.delegate = self
         self.view.addSubview(self.actionFloatView)
-        self.actionFloatView.snp_makeConstraints { (make) -> Void in
+        self.actionFloatView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(UIEdgeInsetsMake(64, 0, 0, 0))
         }
         
         //Init listTableView
-        self.listTableView.register(TSMessageTableViewCell.NibObject(), forCellReuseIdentifier: TSMessageTableViewCell.identifier)
+        self.listTableView.register(TSMessageTableViewCell.ts_Nib(), forCellReuseIdentifier: TSMessageTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 65
         self.listTableView.tableFooterView = UIView()
         

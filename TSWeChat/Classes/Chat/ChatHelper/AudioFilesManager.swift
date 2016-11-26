@@ -20,6 +20,7 @@ class AudioFilesManager {
 
      - returns: 返回路径
      */
+    @discardableResult
     class func amrPathWithName(_ fileName: String) -> URL {
         let filePath = self.amrFilesFolder.appendingPathComponent("\(fileName).\(kAudioFileTypeAmr)")
         return filePath
@@ -33,6 +34,7 @@ class AudioFilesManager {
      
      - returns: 返回路径
      */
+    @discardableResult
     class func wavPathWithName(_ fileName: String) -> URL {
         let filePath = self.wavFilesFolder.appendingPathComponent("\(fileName).\(kAudioFileTypeWav)")
         return filePath
@@ -47,6 +49,7 @@ class AudioFilesManager {
      
      - returns: 目标路径
      */
+    @discardableResult
     class func renameFile(_ originPath: URL, destinationPath: URL) -> Bool {
         do {
             try FileManager.default.moveItem(atPath: originPath.path, toPath: destinationPath.path)
@@ -60,6 +63,7 @@ class AudioFilesManager {
     /**
      创建录音的文件夹
      */
+    @discardableResult
     class fileprivate func createAudioFolder(_ folderName :String) -> URL {
         let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let folder = documentsDirectory.appendingPathComponent(folderName)

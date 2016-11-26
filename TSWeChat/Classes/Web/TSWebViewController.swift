@@ -99,7 +99,6 @@ extension TSWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: (@escaping (WKNavigationResponsePolicy) -> Void)){
-        print(navigationResponse.response.mimeType)
         decisionHandler(.allow)
     }
 }

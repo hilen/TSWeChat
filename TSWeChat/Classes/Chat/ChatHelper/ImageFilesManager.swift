@@ -17,6 +17,7 @@ import Kingfisher
 class ImageFilesManager {
     let imageCacheFolder = KingfisherManager.shared.cache
     
+    @discardableResult
     class func cachePathForKey(_ key: String) -> String? {
         let fileName = key.ts_MD5String
         return (KingfisherManager.shared.cache.diskCachePath as NSString).appendingPathComponent(fileName)
@@ -35,6 +36,7 @@ class ImageFilesManager {
      
      - returns: 目标路径
      */
+    @discardableResult
     class func renameFile(_ originPath: URL, destinationPath: URL) -> Bool {
         do {
             try FileManager.default.moveItem(atPath: originPath.path, toPath: destinationPath.path)

@@ -54,11 +54,11 @@ final class TSChatViewController: UIViewController {
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = true
 
         //TableView init
-        self.listTableView.register(TSChatTextCell.NibObject(), forCellReuseIdentifier: TSChatTextCell.identifier)
-        self.listTableView.register(TSChatImageCell.NibObject(), forCellReuseIdentifier: TSChatImageCell.identifier)
-        self.listTableView.register(TSChatVoiceCell.NibObject(), forCellReuseIdentifier: TSChatVoiceCell.identifier)
-        self.listTableView.register(TSChatSystemCell.NibObject(), forCellReuseIdentifier: TSChatSystemCell.identifier)
-        self.listTableView.register(TSChatTimeCell.NibObject(), forCellReuseIdentifier: TSChatTimeCell.identifier)
+        self.listTableView.register(TSChatTextCell.ts_Nib(), forCellReuseIdentifier: TSChatTextCell.identifier)
+        self.listTableView.register(TSChatImageCell.ts_Nib(), forCellReuseIdentifier: TSChatImageCell.identifier)
+        self.listTableView.register(TSChatVoiceCell.ts_Nib(), forCellReuseIdentifier: TSChatVoiceCell.identifier)
+        self.listTableView.register(TSChatSystemCell.ts_Nib(), forCellReuseIdentifier: TSChatSystemCell.identifier)
+        self.listTableView.register(TSChatTimeCell.ts_Nib(), forCellReuseIdentifier: TSChatTimeCell.identifier)
         self.listTableView.tableFooterView = UIView()
         self.listTableView.tableHeaderView = self.refreshView
         
@@ -117,15 +117,13 @@ extension TSChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let chatModel = self.itemDataSouce.get(index: indexPath.row) else {return 0}
-        guard let type: MessageContentType = chatModel.messageContentType else { return 0 }
+        let type: MessageContentType = chatModel.messageContentType
         return type.chatCellHeight(chatModel)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let chatModel = self.itemDataSouce.get(index: indexPath.row) else {return TSChatBaseCell()}
-        guard let type: MessageContentType = chatModel.messageContentType else {
-            return TSChatBaseCell()
-        }
+        let type: MessageContentType = chatModel.messageContentType
         return type.chatCell(tableView, indexPath: indexPath, model: chatModel, viewController: self)!
     }
 }

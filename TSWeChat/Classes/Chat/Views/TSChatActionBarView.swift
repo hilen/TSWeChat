@@ -99,11 +99,11 @@ class TSChatActionBarView: UIView {
         self.addSubview(topBorder)
         self.addSubview(bottomBorder)
         
-        topBorder.snp_makeConstraints { (make) -> Void in
+        topBorder.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self)
             make.height.equalTo(0.5)
         }
-        bottomBorder.snp_makeConstraints { (make) -> Void in
+        bottomBorder.snp.makeConstraints { (make) -> Void in
             make.bottom.left.right.equalTo(self)
             make.height.equalTo(0.5)
         }

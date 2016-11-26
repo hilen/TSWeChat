@@ -44,15 +44,15 @@ extension TSChatViewController {
      初始化操作栏
      */
     fileprivate func setupActionBar(_ delegate: UITextViewDelegate) {
-        self.chatActionBarView = TSChatActionBarView.fromNib()
+        self.chatActionBarView = UIView.ts_viewFromNib(TSChatActionBarView.self)
         self.chatActionBarView.delegate = self
         self.chatActionBarView.inputTextView.delegate = delegate
         self.view.addSubview(self.chatActionBarView)
-        self.chatActionBarView.snp_makeConstraints { [weak self] (make) -> Void in
+        self.chatActionBarView.snp.makeConstraints { [weak self] (make) -> Void in
             guard let strongSelf = self else { return }
-            make.left.equalTo(strongSelf.view.snp_left)
-            make.right.equalTo(strongSelf.view.snp_right)
-            strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp_bottom).constraint
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.right.equalTo(strongSelf.view.snp.right)
+            strongSelf.actionBarPaddingBottomConstranit = make.bottom.equalTo(strongSelf.view.snp.bottom).constraint
             make.height.equalTo(kChatActionBarOriginalHeight)
         }
     }
@@ -62,26 +62,26 @@ extension TSChatViewController {
      */
     fileprivate func setupKeyboardInputView() {
         //emotionInputView init
-        self.emotionInputView = TSChatEmotionInputView.fromNib()
+        self.emotionInputView = UIView.ts_viewFromNib(TSChatEmotionInputView.self)
         self.emotionInputView.delegate = self
         self.view.addSubview(self.emotionInputView)
-        self.emotionInputView.snp_makeConstraints {[weak self] (make) -> Void in
+        self.emotionInputView.snp.makeConstraints {[weak self] (make) -> Void in
             guard let strongSelf = self else { return }
-            make.left.equalTo(strongSelf.view.snp_left)
-            make.right.equalTo(strongSelf.view.snp_right)
-            make.top.equalTo(strongSelf.chatActionBarView.snp_bottom).offset(0)
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.right.equalTo(strongSelf.view.snp.right)
+            make.top.equalTo(strongSelf.chatActionBarView.snp.bottom).offset(0)
             make.height.equalTo(kCustomKeyboardHeight)
         }
         
         //shareMoreView init
-        self.shareMoreView = TSChatShareMoreView.fromNib()
+        self.shareMoreView = UIView.ts_viewFromNib(TSChatShareMoreView.self)
         self.shareMoreView!.delegate = self
         self.view.addSubview(self.shareMoreView)
-        self.shareMoreView.snp_makeConstraints {[weak self] (make) -> Void in
+        self.shareMoreView.snp.makeConstraints {[weak self] (make) -> Void in
             guard let strongSelf = self else { return }
-            make.left.equalTo(strongSelf.view.snp_left)
-            make.right.equalTo(strongSelf.view.snp_right)
-            make.top.equalTo(strongSelf.chatActionBarView.snp_bottom).offset(0)
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.right.equalTo(strongSelf.view.snp.right)
+            make.top.equalTo(strongSelf.chatActionBarView.snp.bottom).offset(0)
             make.height.equalTo(kCustomKeyboardHeight)
         }
     }
@@ -91,14 +91,14 @@ extension TSChatViewController {
      */
     fileprivate func setupVoiceIndicatorView() {
         //voiceIndicatorView init
-        self.voiceIndicatorView = TSChatVoiceIndicatorView.fromNib()
+        self.voiceIndicatorView = UIView.ts_viewFromNib(TSChatVoiceIndicatorView.self)
         self.view.addSubview(self.voiceIndicatorView)
-        self.voiceIndicatorView.snp_makeConstraints {[weak self] (make) -> Void in
+        self.voiceIndicatorView.snp.makeConstraints {[weak self] (make) -> Void in
             guard let strongSelf = self else { return }
-            make.top.equalTo(strongSelf.view.snp_top).offset(100)
-            make.left.equalTo(strongSelf.view.snp_left)
-            make.bottom.equalTo(strongSelf.view.snp_bottom).offset(-100)
-            make.right.equalTo(strongSelf.view.snp_right)
+            make.top.equalTo(strongSelf.view.snp.top).offset(100)
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.bottom.equalTo(strongSelf.view.snp.bottom).offset(-100)
+            make.right.equalTo(strongSelf.view.snp.right)
         }
         self.voiceIndicatorView.isHidden = true
     }

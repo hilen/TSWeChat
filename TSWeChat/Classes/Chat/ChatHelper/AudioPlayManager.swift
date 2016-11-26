@@ -28,7 +28,7 @@ class AudioPlayManager: NSObject {
         super.init()
         //监听听筒和扬声器
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, name: NSNotification.Name.UIDeviceProximityStateDidChange.rawValue, object: UIDevice.current, handler: {
+        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIDeviceProximityStateDidChange.rawValue, object: UIDevice.current, handler: {
             observer, notification in
             if UIDevice.current.proximityState {
                 do {
@@ -166,28 +166,7 @@ class AudioPlayManager: NSObject {
                     log.info("Downloaded file successfully")
                     self.convertAmrToWavAndPlaySound(audioModel)
                 }
-
         }
-        
-//        Alamofire.download(.GET, audioModel.audioURL!, destination: destination)
-//            .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
-//                print(totalBytesRead)
-//                
-//                // This closure is NOT called on the main queue for performance
-//                // reasons. To update your ui, dispatch to the main queue.
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    log.info("Total bytes read on main queue: \(totalBytesRead)")
-//                }
-//            }
-//            .response { [weak self] request, response, _, error in
-//                if let error = error, let delegate = self!.delegate {
-//                    log.error("Failed with error: \(error)")
-//                    delegate.audioPlayFailed()
-//                } else {
-//                    log.info("Downloaded file successfully")
-//                    self!.convertAmrToWavAndPlaySound(audioModel)
-//                }
-//        }
     }
 }
 

@@ -75,7 +75,7 @@ class TSChatShareMoreView: UIView {
         layout.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
         self.listCollectionView.collectionViewLayout = layout
-        self.listCollectionView.register(TSChatShareMoreCollectionViewCell.NibObject(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
+        self.listCollectionView.register(TSChatShareMoreCollectionViewCell.ts_Nib(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
         self.listCollectionView.showsHorizontalScrollIndicator = false
         self.listCollectionView.isPagingEnabled = true
         

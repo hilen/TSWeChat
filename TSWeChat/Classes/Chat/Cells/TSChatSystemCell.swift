@@ -59,7 +59,7 @@ class TSChatSystemCell: UITableViewCell {
         }
         var height: CGFloat = 0
         height += kChatInfoLabelMarginTop + kChatInfoLabelMarginTop
-        let stringHeight: CGFloat = model.messageContent!.stringHeightWithMaxWidth(kChatInfoLabelMaxWdith, font: kChatInfoFont)
+        let stringHeight: CGFloat = model.messageContent!.ts_heightWithConstrainedWidth(kChatInfoLabelMaxWdith, font: kChatInfoFont)
         height += stringHeight + kChatInfoLabelPaddingTop*2
         model.cellHeight = height
         return model.cellHeight

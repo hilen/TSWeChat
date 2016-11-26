@@ -27,7 +27,7 @@ class TSContactsViewController: UIViewController {
         self.title = "通讯录"
         self.view.backgroundColor = UIColor.viewBackgroundColor
 
-        self.listTableView.register(TSContactTableViewCell.NibObject(), forCellReuseIdentifier: TSContactTableViewCell.identifier)
+        self.listTableView.register(TSContactTableViewCell.ts_Nib(), forCellReuseIdentifier: TSContactTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 54
         self.listTableView.sectionIndexColor = UIColor.darkGray
         self.listTableView.tableFooterView = self.footerView

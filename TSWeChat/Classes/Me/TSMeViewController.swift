@@ -34,8 +34,8 @@ class TSMeViewController: UIViewController {
         self.title = "我"
         self.view.backgroundColor = UIColor.viewBackgroundColor
 
-        self.listTableView.register(TSMeAvatarTableViewCell.NibObject(), forCellReuseIdentifier: TSMeAvatarTableViewCell.identifier)
-        self.listTableView.register(TSImageTextTableViewCell.NibObject(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
+        self.listTableView.register(TSMeAvatarTableViewCell.ts_Nib(), forCellReuseIdentifier: TSMeAvatarTableViewCell.identifier)
+        self.listTableView.register(TSImageTextTableViewCell.ts_Nib(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
         self.listTableView.tableFooterView = UIView()
     }
 

@@ -32,7 +32,7 @@ class TSDiscoverViewController: UIViewController {
         self.title = "发现"
         self.view.backgroundColor = UIColor.viewBackgroundColor
         
-        self.listTableView.register(TSImageTextTableViewCell.NibObject(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
+        self.listTableView.register(TSImageTextTableViewCell.ts_Nib(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 44
         self.listTableView.tableFooterView = UIView()
 
