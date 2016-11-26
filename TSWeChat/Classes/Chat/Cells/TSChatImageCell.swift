@@ -74,7 +74,7 @@ class TSChatImageCell: TSChatBaseCell {
         
         if model.fromMe {
             //value = 屏幕宽 - 头像的边距10 - 头像宽 - 气泡距离头像的 gap 值 - 图片宽
-            self.chatImageView.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - self.chatImageView.width
+            self.chatImageView.left = UIScreen.ts_width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - self.chatImageView.width
         } else {
             //value = 距离屏幕左边的距离
             self.chatImageView.left = kChatBubbleLeft

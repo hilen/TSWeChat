@@ -49,12 +49,9 @@
 		AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */; };
 		AE8742921C7B3547003A435C /* TSContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */; };
 		AE8F49AC1C46A905009C1541 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499D1C46A905009C1541 /* AboutApp.swift */; };
-		AE8F49AD1C46A905009C1541 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */; };
-		AE8F49AE1C46A905009C1541 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F499F1C46A905009C1541 /* Device.swift */; };
 		AE8F49B01C46A905009C1541 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */; };
 		AE8F49B21C46A905009C1541 /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A31C46A905009C1541 /* NSObject+String.swift */; };
 		AE8F49B31C46A905009C1541 /* UIBarButtonItem+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */; };
-		AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */; };
 		AE8F49B61C46A905009C1541 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */; };
 		AE8F49B91C46A905009C1541 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */; };
 		AE8F49BA1C46A905009C1541 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */; };
@@ -90,7 +87,6 @@
 		AEE69A5A1C7CB07C00C69224 /* Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEE69A591C7CB07C00C69224 /* Expression.plist */; };
 		AEE69B251C7CB2AF00C69224 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEE69B241C7CB2AF00C69224 /* Expression.bundle */; };
 		AEE69B621C81997500C69224 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */; };
-		AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */; };
 		AEE69BA01C81B58600C69224 /* TSChatBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B691C81B58600C69224 /* TSChatBaseCell.swift */; };
 		AEE69BA11C81B58600C69224 /* TSChatCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B6A1C81B58600C69224 /* TSChatCellDelegate.swift */; };
 		AEE69BA21C81B58600C69224 /* TSChatImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B6B1C81B58600C69224 /* TSChatImageCell.swift */; };
@@ -138,7 +134,6 @@
 		AEE69C121C81B66100C69224 /* TSChatSubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C111C81B66100C69224 /* TSChatSubModel.swift */; };
 		AEE69C141C81B68500C69224 /* TSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C131C81B68500C69224 /* TSLogger.swift */; };
 		AEE69C161C81B6DD00C69224 /* TSChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C151C81B6DD00C69224 /* TSChatModel.swift */; };
-		AEE69C181C81B92700C69224 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C171C81B92700C69224 /* UILabel+Extension.swift */; };
 		AEE69C1B1C81B97F00C69224 /* TSWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C1A1C81B97F00C69224 /* TSWebViewController.swift */; };
 		AEE69C1F1C81BF1F00C69224 /* TSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69C1E1C81BF1F00C69224 /* TSConfig.swift */; };
 /* End PBXBuildFile section */
@@ -197,12 +192,9 @@
 		AE87428F1C7B3547003A435C /* TSContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSContactTableViewCell.swift; sourceTree = "<group>"; };
 		AE8742901C7B3547003A435C /* TSContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSContactTableViewCell.xib; sourceTree = "<group>"; };
 		AE8F499D1C46A905009C1541 /* AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
-		AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
-		AE8F499F1C46A905009C1541 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49A31C46A905009C1541 /* NSObject+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+String.swift"; sourceTree = "<group>"; };
 		AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Block.swift"; sourceTree = "<group>"; };
-		AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -243,7 +235,6 @@
 		AEE69A591C7CB07C00C69224 /* Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expression.plist; sourceTree = "<group>"; };
 		AEE69B241C7CB2AF00C69224 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
-		AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		AEE69B691C81B58600C69224 /* TSChatBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatBaseCell.swift; sourceTree = "<group>"; };
 		AEE69B6A1C81B58600C69224 /* TSChatCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatCellDelegate.swift; sourceTree = "<group>"; };
 		AEE69B6B1C81B58600C69224 /* TSChatImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatImageCell.swift; sourceTree = "<group>"; };
@@ -291,7 +282,6 @@
 		AEE69C111C81B66100C69224 /* TSChatSubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatSubModel.swift; sourceTree = "<group>"; };
 		AEE69C131C81B68500C69224 /* TSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLogger.swift; sourceTree = "<group>"; };
 		AEE69C151C81B6DD00C69224 /* TSChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatModel.swift; sourceTree = "<group>"; };
-		AEE69C171C81B92700C69224 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AEE69C1A1C81B97F00C69224 /* TSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSWebViewController.swift; sourceTree = "<group>"; };
 		AEE69C1E1C81BF1F00C69224 /* TSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSConfig.swift; sourceTree = "<group>"; };
 		EEDE4F6B7BF2C153C58B4744 /* Pods_TSWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,17 +381,12 @@
 		AE8F499C1C46A905009C1541 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AEE69C171C81B92700C69224 /* UILabel+Extension.swift */,
 				AE8F499D1C46A905009C1541 /* AboutApp.swift */,
-				AE8F499E1C46A905009C1541 /* CGRect+Extension.swift */,
-				AE8F499F1C46A905009C1541 /* Device.swift */,
 				AE8742781C7AE48A003A435C /* NSDate+Extension.swift */,
 				AE8F49A11C46A905009C1541 /* NSDictionary+Extension.swift */,
 				AE8F49A31C46A905009C1541 /* NSObject+String.swift */,
 				AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */,
 				AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */,
-				AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */,
-				AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */,
 				AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */,
 				AE8F49AA1C46A905009C1541 /* UIView+Frame.swift */,
 				AE8F49AB1C46A905009C1541 /* UIViewController+Extension.swift */,
@@ -894,7 +879,6 @@
 			files = (
 				AE8F49BA1C46A905009C1541 /* UIViewController+Extension.swift in Sources */,
 				AE8742751C7AE23E003A435C /* TSModel.swift in Sources */,
-				AE8F49AE1C46A905009C1541 /* Device.swift in Sources */,
 				AEBEE5B01C8754BD00956B0C /* TSChatButton+UI.swift in Sources */,
 				AEE69BB71C81B58600C69224 /* TSChatEmojiDictionary.swift in Sources */,
 				AE8F49B91C46A905009C1541 /* UIView+Frame.swift in Sources */,
@@ -944,7 +928,6 @@
 				AE8742611C7AE0F1003A435C /* TSProgressHUD.swift in Sources */,
 				AEE69BB61C81B58600C69224 /* ImageFilesManager.swift in Sources */,
 				AEE69C141C81B68500C69224 /* TSLogger.swift in Sources */,
-				AE8F49AD1C46A905009C1541 /* CGRect+Extension.swift in Sources */,
 				AEE69BCE1C81B58600C69224 /* TSChatShareMoreCollectionViewCell.swift in Sources */,
 				AE8742741C7AE23E003A435C /* TSMessageModel.swift in Sources */,
 				AEE69BBB1C81B58600C69224 /* UITableView+ChatAdditions.swift in Sources */,
@@ -962,9 +945,7 @@
 				AEE69BC51C81B58600C69224 /* TSChatViewController.swift in Sources */,
 				AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */,
 				AEE69BB81C81B58600C69224 /* TSChatTextParser.swift in Sources */,
-				AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */,
 				AE92B7881C3FF7C900968A3A /* TSAppMacro.swift in Sources */,
-				AEE69C181C81B92700C69224 /* UILabel+Extension.swift in Sources */,
 				AEE69BD31C81B58600C69224 /* TSChatVoiceIndicatorView.swift in Sources */,
 				AEBEE5AE1C8754BD00956B0C /* TSChatSystemEdgeLabel.swift in Sources */,
 				AEE69BB91C81B58600C69224 /* TSYYTextLinePositionModifier.swift in Sources */,
@@ -977,7 +958,6 @@
 				AEE69C1F1C81BF1F00C69224 /* TSConfig.swift in Sources */,
 				AEE69BAD1C81B58600C69224 /* AudioDelegate.swift in Sources */,
 				AEBEE5A21C87087600956B0C /* TSResponseSerializer.swift in Sources */,
-				AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */,
 				AEE69BC91C81B58600C69224 /* TSChatEmotionCell.swift in Sources */,
 				AE40FD241C5B644300CB7339 /* TSImageTextTableViewCell.swift in Sources */,
 				AEE69C161C81B6DD00C69224 /* TSChatModel.swift in Sources */,

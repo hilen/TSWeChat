@@ -65,7 +65,7 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     
     //处理图片，并且发送图片消息
     func resizeAndSendImage(_ theImage: UIImage) {
-        let originalImage = UIImage.fixImageOrientation(theImage)
+        let originalImage = UIImage.ts_fixImageOrientation(theImage)
         let storeKey = "send_image"+String(format: "%f", Date.milliseconds)
         let thumbSize = ChatConfig.getThumbImageSize(originalImage.size)
         

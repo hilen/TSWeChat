@@ -70,7 +70,7 @@ class TSChatShareMoreView: UIView {
             kLeftRightPadding
         )
         //Calculate the UICollectionViewCell size
-        let itemSizeWidth = (UIScreen.width - kLeftRightPadding*2 - layout.minimumLineSpacing*(kItemCountOfRow - 1)) / kItemCountOfRow
+        let itemSizeWidth = (UIScreen.ts_width - kLeftRightPadding*2 - layout.minimumLineSpacing*(kItemCountOfRow - 1)) / kItemCountOfRow
         let itemSizeHeight = (self.collectionViewHeightConstraint.constant - kTopBottomPadding*2)/2
         layout.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
@@ -91,7 +91,7 @@ class TSChatShareMoreView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         //Fix the width
-        self.listCollectionView.width = UIScreen.width
+        self.listCollectionView.width = UIScreen.ts_width
     }
 
 }
@@ -150,7 +150,7 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
 // MARK: - @protocol UIScrollViewDelegate
 extension TSChatShareMoreView: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageWidth: CGFloat = self.listCollectionView.frame.sizeWidth
+        let pageWidth: CGFloat = self.listCollectionView.ts_width
         self.pageControl.currentPage = Int(self.listCollectionView.contentOffset.x / pageWidth)
     }
 }

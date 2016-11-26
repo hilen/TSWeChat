@@ -31,8 +31,7 @@ class TSDiscoverViewController: UIViewController {
         super.viewDidLoad()
         self.title = "发现"
         self.view.backgroundColor = UIColor.viewBackgroundColor
-        
-        self.listTableView.register(TSImageTextTableViewCell.ts_Nib(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
+        self.listTableView.ts_registerCellNib(TSImageTextTableViewCell.self)
         self.listTableView.estimatedRowHeight = 44
         self.listTableView.tableFooterView = UIView()
 
@@ -96,7 +95,7 @@ extension TSDiscoverViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TSImageTextTableViewCell.identifier, for: indexPath) as! TSImageTextTableViewCell
+        let cell :TSImageTextTableViewCell = tableView.ts_dequeueReusableCell(TSImageTextTableViewCell.self)
         let item = self.itemDataSouce[indexPath.section][indexPath.row]
         cell.iconImageView.image = item.iconImage
         cell.titleLabel.text = item.name

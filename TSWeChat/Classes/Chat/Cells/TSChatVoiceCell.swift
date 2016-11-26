@@ -103,7 +103,7 @@ class TSChatVoiceCell: TSChatBaseCell {
         
         if model.fromMe {
             //value = 屏幕宽 - 头像的边距10 - 头像宽 - 气泡距离头像的 gap 值 - 文字宽 - 2倍的文字和气泡的左右距离
-            self.listenVoiceButton.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - self.listenVoiceButton.width
+            self.listenVoiceButton.left = UIScreen.ts_width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - self.listenVoiceButton.width
             //value = 声音的左 - 秒数文字的宽 - 间隔值
             self.durationLabel.left = self.listenVoiceButton.left - self.durationLabel.width
             self.durationLabel.textAlignment = .right

@@ -9,9 +9,9 @@
 TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[中文说明](Chinese_README.md)
 
 ## Requirements
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.1.1 +
 - iOS 8.0+ / Mac OS X 10.9+
-- Xcode 7.3+
+- Xcode 8.1+
 
 
 ## Features

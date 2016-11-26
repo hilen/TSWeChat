@@ -33,9 +33,8 @@ class TSMeViewController: UIViewController {
         super.viewDidLoad()
         self.title = "我"
         self.view.backgroundColor = UIColor.viewBackgroundColor
-
-        self.listTableView.register(TSMeAvatarTableViewCell.ts_Nib(), forCellReuseIdentifier: TSMeAvatarTableViewCell.identifier)
-        self.listTableView.register(TSImageTextTableViewCell.ts_Nib(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
+        self.listTableView.ts_registerCellNib(TSMeAvatarTableViewCell.self)
+        self.listTableView.ts_registerCellNib(TSImageTextTableViewCell.self)
         self.listTableView.tableFooterView = UIView()
     }
 
@@ -103,10 +102,10 @@ extension TSMeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSMeAvatarTableViewCell.identifier, for: indexPath) as! TSMeAvatarTableViewCell
+            let cell:TSMeAvatarTableViewCell = tableView.ts_dequeueReusableCell(TSMeAvatarTableViewCell.self)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSImageTextTableViewCell.identifier, for: indexPath) as! TSImageTextTableViewCell
+            let cell:TSImageTextTableViewCell = tableView.ts_dequeueReusableCell(TSImageTextTableViewCell.self)
             let item = self.itemDataSouce[indexPath.section][indexPath.row]
             cell.iconImageView.image = item.iconImage
             cell.titleLabel.text = item.name

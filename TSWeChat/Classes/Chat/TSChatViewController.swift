@@ -54,11 +54,11 @@ final class TSChatViewController: UIViewController {
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = true
 
         //TableView init
-        self.listTableView.register(TSChatTextCell.ts_Nib(), forCellReuseIdentifier: TSChatTextCell.identifier)
-        self.listTableView.register(TSChatImageCell.ts_Nib(), forCellReuseIdentifier: TSChatImageCell.identifier)
-        self.listTableView.register(TSChatVoiceCell.ts_Nib(), forCellReuseIdentifier: TSChatVoiceCell.identifier)
-        self.listTableView.register(TSChatSystemCell.ts_Nib(), forCellReuseIdentifier: TSChatSystemCell.identifier)
-        self.listTableView.register(TSChatTimeCell.ts_Nib(), forCellReuseIdentifier: TSChatTimeCell.identifier)
+        self.listTableView.ts_registerCellNib(TSChatTextCell.self)
+        self.listTableView.ts_registerCellNib(TSChatImageCell.self)
+        self.listTableView.ts_registerCellNib(TSChatVoiceCell.self)
+        self.listTableView.ts_registerCellNib(TSChatSystemCell.self)
+        self.listTableView.ts_registerCellNib(TSChatTimeCell.self)
         self.listTableView.tableFooterView = UIView()
         self.listTableView.tableHeaderView = self.refreshView
         

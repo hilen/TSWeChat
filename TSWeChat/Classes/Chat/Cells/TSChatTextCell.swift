@@ -10,7 +10,7 @@ import UIKit
 import YYText
 
 let kChatTextLeft: CGFloat = 72                                         //消息在左边的时候， 文字距离屏幕左边的距离
-let kChatTextMaxWidth: CGFloat = UIScreen.width - kChatTextLeft - 82    //消息在右边， 70：文本离屏幕左的距离，  82：文本离屏幕右的距离
+let kChatTextMaxWidth: CGFloat = UIScreen.ts_width - kChatTextLeft - 82    //消息在右边， 70：文本离屏幕左的距离，  82：文本离屏幕右的距离
 let kChatTextMarginTop: CGFloat = 12                                    //文字的顶部和气泡顶部相差 12 像素
 let kChatTextMarginBottom: CGFloat = 11                                 //文字的底部和气泡底部相差 11 像素
 let kChatTextMarginLeft: CGFloat = 17                                   //文字的左边 和气泡的左边相差 17 ,包括剪头部门
@@ -84,7 +84,7 @@ class TSChatTextCell: TSChatBaseCell {
         
         if model.fromMe {
             //value = 屏幕宽 - 头像的边距10 - 头像宽 - 气泡距离头像的 gap 值 - (文字宽 - 2倍的文字和气泡的左右距离 , 或者是最小的气泡图片距离)
-            self.bubbleImageView.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - max(self.contentLabel.width + kChatBubbleWidthBuffer, kChatBubbleImageViewWidth)
+            self.bubbleImageView.left = UIScreen.ts_width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - max(self.contentLabel.width + kChatBubbleWidthBuffer, kChatBubbleImageViewWidth)
         } else {
             //value = 距离屏幕左边的距离
             self.bubbleImageView.left = kChatBubbleLeft

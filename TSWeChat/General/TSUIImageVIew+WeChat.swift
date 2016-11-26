@@ -31,7 +31,7 @@ public extension UIImageView {
         self.ts_setRoundImageWithURLString(
             URLString,
             placeholderImage: placeholder,
-            cornerRadiusRatio: self.width / 2
+            cornerRadiusRatio: self.ts_width / 2
         )
     }
     

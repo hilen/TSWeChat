@@ -41,10 +41,10 @@ class TSChatEmotionInputView: UIView {
         self.isUserInteractionEnabled = true
         
         //calculate width and height
-        let itemWidth = (UIScreen.width - 10 * 2) / kNumberOfOneRow
-        let padding = (UIScreen.width - kNumberOfOneRow * itemWidth) / 2.0
+        let itemWidth = (UIScreen.ts_width - 10 * 2) / kNumberOfOneRow
+        let padding = (UIScreen.ts_width - kNumberOfOneRow * itemWidth) / 2.0
         let paddingLeft = padding
-        let paddingRight = UIScreen.width - paddingLeft - itemWidth * kNumberOfOneRow
+        let paddingRight = UIScreen.ts_width - paddingLeft - itemWidth * kNumberOfOneRow
         
         //init FlowLayout
         let layout = UICollectionViewFlowLayout()
@@ -133,7 +133,7 @@ extension TSChatEmotionInputView: UICollectionViewDataSource {
 // MARK: - @protocol UIScrollViewDelegate
 extension TSChatEmotionInputView: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageWidth: CGFloat = self.listCollectionView.frame.sizeWidth
+        let pageWidth: CGFloat = self.listCollectionView.ts_width
         self.emotionPageControl.currentPage = Int(self.listCollectionView.contentOffset.x / pageWidth)
     }
 

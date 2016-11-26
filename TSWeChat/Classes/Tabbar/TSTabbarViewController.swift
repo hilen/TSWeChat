@@ -34,10 +34,10 @@ class TSTabbarViewController: UITabBarController {
         ]
         
         let viewControllerArray = [
-            TSMessageViewController.initFromNib(),  //消息
-            TSContactsViewController.initFromNib(), //联系人
-            TSDiscoverViewController.initFromNib(), //发现
-            TSMeViewController.initFromNib()   //我
+            TSMessageViewController.ts_initFromNib(),  //消息
+            TSContactsViewController.ts_initFromNib(), //联系人
+            TSDiscoverViewController.ts_initFromNib(), //发现
+            TSMeViewController.ts_initFromNib()   //我
         ]
         
         let navigationVCArray = NSMutableArray()

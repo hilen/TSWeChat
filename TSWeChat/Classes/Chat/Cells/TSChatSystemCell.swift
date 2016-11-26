@@ -9,7 +9,7 @@
 import UIKit
 
 private let kChatInfoFont: UIFont = UIFont.systemFont(ofSize: 13)
-private let kChatInfoLabelMaxWdith : CGFloat = UIScreen.width - 40*2
+private let kChatInfoLabelMaxWdith : CGFloat = UIScreen.ts_width - 40*2
 private let kChatInfoLabelPaddingLeft: CGFloat = 8   //左右分别留出 8 像素的留白
 private let kChatInfoLabelPaddingTop: CGFloat = 4   //上下分别留出 4 像素的留白
 private let kChatInfoLabelMarginTop: CGFloat = 3  //距离顶部
@@ -46,10 +46,10 @@ class TSChatSystemCell: UITableViewCell {
         guard let model = self.model else {
             return
         }
-        self.infomationLabel.setFrameWithString(model.messageContent!, width: kChatInfoLabelMaxWdith)
+        self.infomationLabel.ts_setFrameWithString(model.messageContent!, width: kChatInfoLabelMaxWdith)
         self.infomationLabel.width = self.infomationLabel.width + kChatInfoLabelPaddingLeft*2  //左右的留白
         self.infomationLabel.height = self.infomationLabel.height + kChatInfoLabelPaddingTop*2   //上下的留白
-        self.infomationLabel.left = (UIScreen.width - self.infomationLabel.width) / 2
+        self.infomationLabel.left = (UIScreen.ts_width - self.infomationLabel.width) / 2
         self.infomationLabel.top = kChatInfoLabelMarginTop
     }
     

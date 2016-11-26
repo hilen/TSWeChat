@@ -31,36 +31,36 @@ extension MessageContentType {
     func chatCell(_ tableView: UITableView, indexPath: IndexPath, model: ChatModel, viewController: TSChatViewController) -> UITableViewCell? {
         switch self {
         case .Text :
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatTextCell.identifier, for: indexPath) as! TSChatTextCell
+            let cell: TSChatTextCell = tableView.ts_dequeueReusableCell(TSChatTextCell.self)
             cell.delegate = viewController
             cell.setCellContent(model)
             return cell
             
         case .Image :
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatImageCell.identifier, for: indexPath) as! TSChatImageCell
+            let cell: TSChatImageCell = tableView.ts_dequeueReusableCell(TSChatImageCell.self)
             cell.delegate = viewController
             cell.setCellContent(model)
             return cell
             
         case .Voice:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatVoiceCell.identifier, for: indexPath) as! TSChatVoiceCell
+            let cell: TSChatVoiceCell = tableView.ts_dequeueReusableCell(TSChatVoiceCell.self)
             cell.delegate = viewController
             cell.setCellContent(model)
             return cell
             
         case .System:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatSystemCell.identifier, for: indexPath) as! TSChatSystemCell
+            let cell: TSChatSystemCell = tableView.ts_dequeueReusableCell(TSChatSystemCell.self)
             cell.setCellContent(model)
             return cell
-
+            
         case .File:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatVoiceCell.identifier, for: indexPath) as! TSChatVoiceCell
+            let cell: TSChatVoiceCell = tableView.ts_dequeueReusableCell(TSChatVoiceCell.self)
             cell.delegate = viewController
             cell.setCellContent(model)
             return cell
             
         case .Time :
-            let cell = tableView.dequeueReusableCell(withIdentifier: TSChatTimeCell.identifier, for: indexPath) as! TSChatTimeCell
+            let cell: TSChatTimeCell = tableView.ts_dequeueReusableCell(TSChatTimeCell.self)
             cell.setCellContent(model)
             return cell
         }

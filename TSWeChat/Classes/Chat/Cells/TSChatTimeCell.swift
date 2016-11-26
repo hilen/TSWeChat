@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let kChatTimeLabelMaxWdith : CGFloat = UIScreen.width - 30*2
+private let kChatTimeLabelMaxWdith : CGFloat = UIScreen.ts_width - 30*2
 private let kChatTimeLabelPaddingLeft: CGFloat = 6   //左右分别留出 6 像素的留白
 private let kChatTimeLabelPaddingTop: CGFloat = 3   //上下分别留出 3 像素的留白
 private let kChatTimeLabelMarginTop: CGFloat = 10   //顶部 10 px
@@ -38,9 +38,9 @@ class TSChatTimeCell: UITableViewCell {
         guard let message = self.model?.messageContent else {
             return
         }
-        self.timeLabel.setFrameWithString(message, width: kChatTimeLabelMaxWdith)
+        self.timeLabel.ts_setFrameWithString(message, width: kChatTimeLabelMaxWdith)
         self.timeLabel.width = self.timeLabel.width + kChatTimeLabelPaddingLeft*2  //左右的留白
-        self.timeLabel.left =  (UIScreen.width - self.timeLabel.width) / 2
+        self.timeLabel.left =  (UIScreen.ts_width - self.timeLabel.width) / 2
         self.timeLabel.height = self.timeLabel.height + kChatTimeLabelPaddingTop*2
         self.timeLabel.top = kChatTimeLabelMarginTop
     }

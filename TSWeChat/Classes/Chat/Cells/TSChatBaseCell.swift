@@ -76,7 +76,7 @@ class TSChatBaseCell: UITableViewCell {
         }
         if model.fromMe {
             self.nicknameLabel.height = 0
-            self.avatarImageView.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth
+            self.avatarImageView.left = UIScreen.ts_width - kChatAvatarMarginLeft - kChatAvatarWidth
         } else {
             self.nicknameLabel.height = 0
             self.avatarImageView.left = kChatAvatarMarginLeft

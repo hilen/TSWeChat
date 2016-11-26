@@ -32,7 +32,7 @@ class TSMessageViewController: UIViewController {
         }
         
         //Init listTableView
-        self.listTableView.register(TSMessageTableViewCell.ts_Nib(), forCellReuseIdentifier: TSMessageTableViewCell.identifier)
+        self.listTableView.ts_registerCellNib(TSMessageTableViewCell.self)
         self.listTableView.estimatedRowHeight = 65
         self.listTableView.tableFooterView = UIView()
         
@@ -76,7 +76,7 @@ class TSMessageViewController: UIViewController {
 extension TSMessageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let viewController = TSChatViewController.initFromNib() as! TSChatViewController
+        let viewController = TSChatViewController.ts_initFromNib() as! TSChatViewController
         viewController.messageModel = self.itemDataSouce[indexPath.row]
         self.ts_pushAndHideTabbar(viewController)
     }
@@ -97,7 +97,7 @@ extension TSMessageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TSMessageTableViewCell.identifier, for: indexPath) as! TSMessageTableViewCell
+        let cell: TSMessageTableViewCell = tableView.ts_dequeueReusableCell(TSMessageTableViewCell.self)
         cell.setCellContnet(self.itemDataSouce[indexPath.row])
         return cell
     }
