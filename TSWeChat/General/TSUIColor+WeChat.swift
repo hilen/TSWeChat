@@ -10,20 +10,19 @@
 *   颜色扩展，项目内所用到的颜色，在这里进行配置
 */
 
-typealias TSColor = UIColor.LocalColorName
-
 import Foundation
-import UIColor_Hex_Swift
 import UIKit
 
 extension UIColor {
-    enum LocalColorName : String {
-        case barTintColor = "#1A1A1A"  /*navigationbar 的颜色*/
-        case tabbarSelectedTextColor = "#68BB1E"
-        case viewBackgroundColor = "#E7EBEE"
+    class var barTintColor: UIColor {
+        get {return UIColor.init(ts_hexString: "#1A1A1A")}
     }
     
-    convenience init!(colorNamed name: LocalColorName) {
-        self.init(rgba: name.rawValue)
+    class var tabbarSelectedTextColor: UIColor {
+        get {return UIColor.init(ts_hexString: "#68BB1E")}
+    }
+    
+    class var viewBackgroundColor: UIColor {
+        get {return UIColor.init(ts_hexString: "#E7EBEE")}
     }
 }

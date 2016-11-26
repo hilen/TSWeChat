@@ -7,7 +7,7 @@ inhibit_all_warnings!
 
 def pods
     #Swift
-    pod 'Alamofire'
+    pod 'Alamofire', '~> 4.0'
     pod 'Kingfisher'
     pod 'ObjectMapper', '~> 2.2'
     pod 'SwiftyJSON'

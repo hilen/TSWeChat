@@ -25,7 +25,7 @@ class TSContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "通讯录"
-        self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
+        self.view.backgroundColor = UIColor.viewBackgroundColor
 
         self.listTableView.register(TSContactTableViewCell.NibObject(), forCellReuseIdentifier: TSContactTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 54
@@ -36,7 +36,7 @@ class TSContactsViewController: UIViewController {
     }
     
     func fetchContactList() {
-        guard let JSONData = Data.dataFromJSONFile("contact") else { return }
+        guard let JSONData = Data.ts_dataFromJSONFile("contact") else { return }
         let jsonObject = JSON(data: JSONData)
         if jsonObject != JSON.null {
             //创建群聊和公众帐号的数据

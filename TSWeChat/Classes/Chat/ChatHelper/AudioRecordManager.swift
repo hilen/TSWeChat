@@ -226,13 +226,13 @@ extension AudioRecordManager : AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag && self.isFinishRecord {
             //转换 amr 音频文件
-            if TSVoiceConverter.convertWavToAmr(TempWavRecordPath.path!, amrSavePath: TempAmrFilePath.path!) {
+            if TSVoiceConverter.convertWavToAmr(TempWavRecordPath.path, amrSavePath: TempAmrFilePath.path) {
                 //获取 amr 文件的 NSData, 改名字使用
                 guard let amrAudioData = try? Data(contentsOf: TempAmrFilePath) else {
                     self.delegate?.audioRecordFailed()
                     return
                 }
-                let fileName = amrAudioData.MD5String
+                let fileName = amrAudioData.ts_md5String
                 let amrDestinationURL = AudioFilesManager.amrPathWithName(fileName)
                 log.warning("amr destination URL:\(amrDestinationURL)")
                 AudioFilesManager.renameFile(TempAmrFilePath, destinationPath: amrDestinationURL)

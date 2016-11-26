@@ -46,7 +46,7 @@ class TSTabbarViewController: UITabBarController {
             controller.tabBarItem!.image = normalImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
             controller.tabBarItem!.selectedImage = selectedImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
             controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorNamed: TSColor.tabbarSelectedTextColor)], for: .selected)
+            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.tabbarSelectedTextColor], for: .selected)
             let navigationController = UINavigationController(rootViewController: controller)
             navigationVCArray.add(navigationController)
         }

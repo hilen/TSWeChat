@@ -16,8 +16,8 @@ extension TSChatViewController {
     func chatSendText() {
         dispatch_async_safely_to_main_queue({[weak self] in
             guard let strongSelf = self else { return }
-            let textView = strongSelf.chatActionBarView.inputTextView
-            guard textView.text.length < 1000 else {
+            guard let textView = strongSelf.chatActionBarView.inputTextView else {return }
+            guard textView.text.ts_length < 1000 else {
                 TSProgressHUD.ts_showWarningWithStatus("超出字数限制")
                 return
             }
@@ -29,7 +29,7 @@ extension TSChatViewController {
             }
             
             let string = strongSelf.chatActionBarView.inputTextView.text
-            let model = ChatModel(text: string)
+            let model = ChatModel(text: string!)
             strongSelf.itemDataSouce.append(model)
             let insertIndexPath = IndexPath(row: strongSelf.itemDataSouce.count - 1, section: 0)
             strongSelf.listTableView.insertRowsAtBottom([insertIndexPath])

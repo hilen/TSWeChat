@@ -23,7 +23,7 @@ class TSApplicationManager: NSObject {
      */
     static func initNavigationBar() {
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
-        UINavigationBar.appearance().barTintColor = UIColor(colorNamed: TSColor.barTintColor)
+        UINavigationBar.appearance().barTintColor = UIColor.barTintColor
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().isTranslucent = true
         let attributes = [

@@ -52,7 +52,7 @@ extension TSChatViewController {
     
     //获取聊天列表数据
     func fetchData() -> [ChatModel]? {
-        guard let JSONData = Data.dataFromJSONFile("chat") else {
+        guard let JSONData = Data.ts_dataFromJSONFile("chat") else {
             return nil
         }
         

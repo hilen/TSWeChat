@@ -142,7 +142,7 @@ extension Date {
                 if (month > 0 || day > 7) {
                     return String(format: "%zd月%zd日 %02d:%02d", targetComponents.month!, targetComponents.day!, targetComponents.hour!, targetComponents.minute!)
                 } else if (day > 2) {
-                    return String(format: "%@ %02d:%02d",self.week(), targetComponents.hour!, targetComponents.minute)
+                    return String(format: "%@ %02d:%02d",self.week(), targetComponents.hour!, targetComponents.minute!)
                 } else if (day == 2) {
                     if targetComponents.hour! < 12 {
                         return String(format: "前天上午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)

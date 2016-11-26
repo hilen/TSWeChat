@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     static var milliseconds: TimeInterval {
         get { return Date().timeIntervalSince1970 * 1000 }
     }

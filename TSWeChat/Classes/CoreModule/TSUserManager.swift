@@ -68,7 +68,7 @@ class UserManager: NSObject {
         self.nickname = UserDefaults.ts_stringForKey(kNickname, defaultValue: "")
         self.avatar = UserDefaults.ts_stringForKey(kAvatar, defaultValue: "")
         self.userId = UserDefaults.ts_stringForKey(kUserId, defaultValue: "")
-        self.isLogin = UserDefaults.ts_stringForKey(kIsLogin, defaultValue: false)
+        self.isLogin = UserDefaults.ts_boolForKey(kIsLogin, defaultValue: false)
         self.loginName = TSKeychain[kLoginName] ?? ""
         self.password = TSKeychain[kPassword] ?? ""
     }
@@ -98,7 +98,7 @@ class UserManager: NSObject {
     }
     
     func resetAccessToken(_ token: String) {
-        UserDefaults.setString(kAccessToken, value: token)
+        UserDefaults.ts_setString(kAccessToken, value: token)
         if token.characters.count > 0 {
             print("token success")
         } else {

@@ -18,7 +18,7 @@ class TSMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "微信"
-        self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
+        self.view.backgroundColor = UIColor.viewBackgroundColor
         self.navigationItem.rightButtonAction(TSAsset.Barbuttonicon_add.image) { (Void) -> Void in
             self.actionFloatView.hide(!self.actionFloatView.isHidden)
         }
@@ -45,7 +45,7 @@ class TSMessageViewController: UIViewController {
     }
     
     fileprivate func fetchData() {
-        guard let JSONData = Data.dataFromJSONFile("message") else { return }
+        guard let JSONData = Data.ts_dataFromJSONFile("message") else { return }
         let jsonObject = JSON(data: JSONData)
         if jsonObject != JSON.null {
             var list = [MessageModel]()

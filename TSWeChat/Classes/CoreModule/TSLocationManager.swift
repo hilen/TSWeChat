@@ -112,10 +112,10 @@ class LocationManager: NSObject {
                     return
                 }
                 if let placemarks = placemarks, placemarks.count > 0{
-                    let onePlacemark = placemarks.get(0)
-                    self.address = "\(onePlacemark.administrativeArea,onePlacemark.subLocality,onePlacemark.thoroughfare)"
-                    self.city = onePlacemark.administrativeArea!
-                    self.street = onePlacemark.thoroughfare!
+                    let onePlacemark = placemarks.get(index: 0)
+                    self.address = "\(onePlacemark?.administrativeArea,onePlacemark?.subLocality,onePlacemark?.thoroughfare)"
+                    self.city = (onePlacemark?.administrativeArea!)!
+                    self.street = (onePlacemark?.thoroughfare!)!
                 }
             })
         }
@@ -125,7 +125,7 @@ class LocationManager: NSObject {
 // MARK: - @delegate CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation: CLLocation = locations.get(locations.count - 1)
+        let userLocation: CLLocation = locations.get(index: locations.count - 1)
         self.updateLocation(userLocation)
     }
     

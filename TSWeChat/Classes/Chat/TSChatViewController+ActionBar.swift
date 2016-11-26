@@ -22,11 +22,11 @@ extension TSChatViewController {
         let shareButton: TSChatButton = self.chatActionBarView.shareButton
         
         //切换声音按钮
-        voiceButton.rx_tap.subscribeNext{[weak self] _ in
+        voiceButton.rx.tap.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
-            let showRecoring = strongSelf.chatActionBarView.recordButton.hidden
+            let showRecoring = strongSelf.chatActionBarView.recordButton.isHidden
             if showRecoring {
                 strongSelf.chatActionBarView.showRecording()
                 voiceButton.emotionSwiftVoiceButtonUI(showKeyboard: true)
@@ -43,23 +43,23 @@ extension TSChatViewController {
         var finishRecording: Bool = true  //控制滑动取消后的结果，决定停止录音还是取消录音
         let longTap = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longTap)
-        longTap.rx_event.subscribeNext{[weak self] sender in
+        longTap.rx.event.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
-            if sender.state == .Began { //长按开始
+            if longTap.state == .began { //长按开始
                 finishRecording = true
                 strongSelf.voiceIndicatorView.recording()
                 AudioRecordInstance.startRecord()
                 recordButton.replaceRecordButtonUI(isRecording: true)
-            } else if sender.state == .Changed { //长按平移
-                let point = sender.locationInView(self!.voiceIndicatorView)
-                if strongSelf.voiceIndicatorView.pointInside(point, withEvent: nil) {
+            } else if longTap.state == .changed { //长按平移
+                let point = longTap.location(in: self!.voiceIndicatorView)
+                if strongSelf.voiceIndicatorView.point(inside: point, with: nil) {
                     strongSelf.voiceIndicatorView.slideToCancelRecord()
                     finishRecording = false
                 } else {
                     strongSelf.voiceIndicatorView.recording()
                     finishRecording = true
                 }
-            } else if sender.state == .Ended { //长按结束
+            } else if longTap.state == .ended { //长按结束
                 if finishRecording {
                     AudioRecordInstance.stopRecord()
                 } else {
@@ -72,7 +72,7 @@ extension TSChatViewController {
         
         
         //表情按钮
-        emotionButton.rx_tap.subscribeNext{[weak self] _ in
+        emotionButton.rx.tap.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //设置 button 的UI
@@ -89,7 +89,7 @@ extension TSChatViewController {
         
         
         //分享按钮
-        shareButton.rx_tap.subscribeNext{[weak self] _ in
+        shareButton.rx.tap.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.chatActionBarView.resetButtonUI()
             //根据不同的状态进行不同的键盘交互
@@ -107,7 +107,7 @@ extension TSChatViewController {
         let textView: UITextView = self.chatActionBarView.inputTextView
         let tap = UITapGestureRecognizer()
         textView.addGestureRecognizer(tap)
-        tap.rx_event.subscribeNext { _ in
+        tap.rx.event.subscribe { _ in
             textView.inputView = nil
             textView.becomeFirstResponder()
             textView.reloadInputViews()
@@ -126,7 +126,7 @@ extension TSChatViewController {
         let currentTextHeight = self.chatActionBarView.inputTextViewCurrentHeight
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let textHeight = showExpandable ? currentTextHeight : kChatActionBarOriginalHeight
-            self.chatActionBarView.snp_updateConstraints { (make) -> Void in
+            self.chatActionBarView.snp.updateConstraints { (make) -> Void in
                 make.height.equalTo(textHeight)
             }
             self.view.layoutIfNeeded()

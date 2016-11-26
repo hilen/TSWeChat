@@ -153,18 +153,12 @@ class AudioPlayManager: NSObject {
                 return temporaryURL
             }
         }
-        
-        Alamofire.download(.GET, audioModel.audioURL!, destination: destination)
-            .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
-                print(totalBytesRead)
-                
-                // This closure is NOT called on the main queue for performance
-                // reasons. To update your ui, dispatch to the main queue.
-                dispatch_async(dispatch_get_main_queue()) {
-                    log.info("Total bytes read on main queue: \(totalBytesRead)")
-                }
-            }
-            .response { [weak self] request, response, _, error in
+        // When
+        let headers = ["Authorization": "123456"]
+        Alamofire.download(audioModel.audioURL!, headers: headers, to: destination)
+            .response { resp in
+//                response = resp
+//                expectation.fulfill()
                 if let error = error, let delegate = self!.delegate {
                     log.error("Failed with error: \(error)")
                     delegate.audioPlayFailed()
@@ -172,7 +166,29 @@ class AudioPlayManager: NSObject {
                     log.info("Downloaded file successfully")
                     self!.convertAmrToWavAndPlaySound(audioModel)
                 }
+
         }
+
+        
+//        Alamofire.download(.GET, audioModel.audioURL!, destination: destination)
+//            .progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
+//                print(totalBytesRead)
+//                
+//                // This closure is NOT called on the main queue for performance
+//                // reasons. To update your ui, dispatch to the main queue.
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    log.info("Total bytes read on main queue: \(totalBytesRead)")
+//                }
+//            }
+//            .response { [weak self] request, response, _, error in
+//                if let error = error, let delegate = self!.delegate {
+//                    log.error("Failed with error: \(error)")
+//                    delegate.audioPlayFailed()
+//                } else {
+//                    log.info("Downloaded file successfully")
+//                    self!.convertAmrToWavAndPlaySound(audioModel)
+//                }
+//        }
     }
 }
 

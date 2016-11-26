@@ -50,11 +50,11 @@ class TSChatTextParser: NSObject {
             
             let highlightBorder = TSChatTextParseHelper.highlightBorder
             if (attributedText.yy_attribute(YYTextHighlightAttributeName, at: UInt(phone.range.location)) == nil) {
-                attributedText.yy_setColor(UIColor(rgba: "#1F79FD"), range: phone.range)
+                attributedText.yy_setColor(UIColor.init(ts_hexString: "#1F79FD"), range: phone.range)
                 let highlight = YYTextHighlight()
                 highlight.setBackgroundBorder(highlightBorder)
                 
-                let stringRange = attributedText.string.RangeFromNSRange(phone.range)!
+                let stringRange = attributedText.string.range(from:phone.range)!
                 highlight.userInfo = [kChatTextKeyPhone : attributedText.string.substring(with: stringRange)]
                 attributedText.yy_setTextHighlight(highlight, range: phone.range)
             }
@@ -79,11 +79,11 @@ class TSChatTextParser: NSObject {
             
             let highlightBorder = TSChatTextParseHelper.highlightBorder
             if (attributedText.yy_attribute(YYTextHighlightAttributeName, at: UInt(URL.range.location)) == nil) {
-                attributedText.yy_setColor(UIColor(rgba: "#1F79FD"), range: URL.range)
+                attributedText.yy_setColor(UIColor.init(ts_hexString: "#1F79FD"), range: URL.range)
                 let highlight = YYTextHighlight()
                 highlight.setBackgroundBorder(highlightBorder)
 
-                let stringRange = attributedText.string.RangeFromNSRange(URL.range)!
+                let stringRange = attributedText.string.range(from:URL.range)!
                 highlight.userInfo = [kChatTextKeyURL : attributedText.string.substring(with: stringRange)]
                 attributedText.yy_setTextHighlight(highlight, range: URL.range)
             }
@@ -116,7 +116,7 @@ class TSChatTextParser: NSObject {
                 continue
             }
             
-            let imageName = attributedText.string.substring(with: attributedText.string.RangeFromNSRange(range)!)
+            let imageName = attributedText.string.substring(with: attributedText.string.range(from:range)!)
             guard let theImageName = TSEmojiDictionary[imageName] else { continue }
             
             //QQ 表情的文件名称
@@ -135,7 +135,7 @@ class TSChatTextParseHelper {
         get {
             let highlightBorder = YYTextBorder()
             highlightBorder.insets = UIEdgeInsetsMake(-2, 0, -2, 0)
-            highlightBorder.fillColor = UIColor(rgba: "#D4D1D1")
+            highlightBorder.fillColor = UIColor.init(ts_hexString: "#D4D1D1")
             return highlightBorder
         }
     }
@@ -178,23 +178,26 @@ class TSChatTextParseHelper {
 
 
 private extension String {
-    func NSRangeFromRange(_ range : Range<String.Index>) -> NSRange {
+    func nsRange(from range: Range<String.Index>) -> NSRange {
         let utf16view = self.utf16
-        let from = String.UTF16View.Index(range.lowerBound, within: utf16view)
-        let to = String.UTF16View.Index(range.upperBound, within: utf16view)
-        return NSMakeRange(utf16view.startIndex.distanceTo(from), from.distanceTo(to))
+        let from = range.lowerBound.samePosition(in: utf16view)
+        let to = range.upperBound.samePosition(in: utf16view)
+        return NSMakeRange(utf16view.distance(from: utf16view.startIndex, to: from),
+                           utf16view.distance(from: from, to: to))
     }
     
-    func RangeFromNSRange(_ nsRange : NSRange) -> Range<String.Index>? {
-        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
-        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
-        if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
-                return from ..< to
-        }
-        return nil
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard
+            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+            let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self)
+            else { return nil }
+        return from ..< to
     }
 }
+
+
 
 
 

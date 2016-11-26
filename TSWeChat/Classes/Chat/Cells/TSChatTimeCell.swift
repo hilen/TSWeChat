@@ -107,7 +107,7 @@ extension Date {
                 if (components.month! > 0 || components.day! > 7) {
                     return String(format: "%zd月%zd日 %zd:%zd", selfComponents.month!, selfComponents.day!, selfComponents.hour!, selfComponents.minute!)
                 } else if (components.day! > 2) {
-                    return String(format: "%@ %zd:%zd",self.week(), selfComponents.hour!, selfComponents.minute)
+                    return String(format: "%@ %zd:%zd",self.week(), selfComponents.hour!, selfComponents.minute!)
                 } else if (components.day == 2) {
                     return String(format: "前天 %zd:%zd",selfComponents.hour!, selfComponents.minute!)
                 } else if (components.day == 1) {

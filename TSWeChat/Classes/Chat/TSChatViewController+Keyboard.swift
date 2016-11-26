@@ -114,7 +114,7 @@ extension TSChatViewController {
         let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey]! as AnyObject).doubleValue
 
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
+        self.actionBarPaddingBottomConstranit?.update(offset:-heightOffset)
 
         UIView.animate(
             withDuration: duration!,
@@ -139,7 +139,7 @@ extension TSChatViewController {
             keyboardHeight = min(endFrame.width, endFrame.height)
         }
         
-        if notification.name == "" {
+        if notification.name == Notification.Name("") {
             keyboardHeight = UIScreen.main.bounds.height - endFrame.origin.y
             keyboardHeight -= self.tabBarController!.tabBar.frame.height
         }
@@ -162,7 +162,7 @@ extension TSChatViewController {
     fileprivate func hideCusttomKeyboard() {
         let heightOffset: CGFloat = 0
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
+        self.actionBarPaddingBottomConstranit?.update(offset: -heightOffset)
         
         UIView.animate(
             withDuration: 0.25,
@@ -202,7 +202,7 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
     func chatActionBarShowEmotionKeyboard() {
         let heightOffset = self.emotionInputView.height
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
+        self.actionBarPaddingBottomConstranit?.update(offset: -heightOffset)
     
         UIView.animate(
             withDuration: 0.25,
@@ -230,7 +230,7 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
     func chatActionBarShowShareKeyboard() {
         let heightOffset = self.shareMoreView.height
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
+        self.actionBarPaddingBottomConstranit?.update(offset: -heightOffset)
         
         self.shareMoreView.top = self.view.height
         self.view.bringSubview(toFront: self.shareMoreView)
@@ -240,8 +240,8 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
             options: UIViewAnimationOptions(),
             animations: {
                 //分享键盘归位，盖在表情键盘上，所以不需要控制表情键盘
-                self.shareMoreView.snp_updateConstraints { make in
-                    make.top.equalTo(self.chatActionBarView.snp_bottom).offset(0)
+                self.shareMoreView.snp.updateConstraints { make in
+                    make.top.equalTo(self.chatActionBarView.snp.bottom).offset(0)
                 }
                 self.view.layoutIfNeeded()
                 self.listTableView.scrollBottomToLastRow()

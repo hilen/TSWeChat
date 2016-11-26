@@ -30,7 +30,7 @@ class TSDiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "发现"
-        self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
+        self.view.backgroundColor = UIColor.viewBackgroundColor
         
         self.listTableView.register(TSImageTextTableViewCell.NibObject(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 44

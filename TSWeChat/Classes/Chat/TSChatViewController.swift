@@ -50,7 +50,7 @@ final class TSChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.messageModel!.nickname!
-        self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
+        self.view.backgroundColor = UIColor.viewBackgroundColor
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = true
 
         //TableView init
@@ -116,14 +116,14 @@ extension TSChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let chatModel = self.itemDataSouce.get(indexPath.row)
-        guard let type: MessageContentType = chatModel.messageContentType, chatModel != nil else { return 0 }
+        guard let chatModel = self.itemDataSouce.get(index: indexPath.row) else {return 0}
+        guard let type: MessageContentType = chatModel.messageContentType else { return 0 }
         return type.chatCellHeight(chatModel)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chatModel = self.itemDataSouce.get(indexPath.row)
-        guard let type: MessageContentType = chatModel.messageContentType, chatModel != nil else {
+        guard let chatModel = self.itemDataSouce.get(index: indexPath.row) else {return TSChatBaseCell()}
+        guard let type: MessageContentType = chatModel.messageContentType else {
             return TSChatBaseCell()
         }
         return type.chatCell(tableView, indexPath: indexPath, model: chatModel, viewController: self)!

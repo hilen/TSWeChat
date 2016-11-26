@@ -73,7 +73,7 @@ extension TSChatVoiceIndicatorView {
         self.cancelImageView.isHidden = false
         self.tooShotPromptImageView.isHidden = true
         self.recordingView.isHidden = true
-        self.noteLabel.backgroundColor = UIColor(rgba: "#9C3638")
+        self.noteLabel.backgroundColor = UIColor.init(ts_hexString: "#9C3638")
         self.noteLabel.text = "松开手指，取消发送"
     }
     
@@ -113,7 +113,7 @@ extension TSChatVoiceIndicatorView {
             TSAsset.RecordingSignal007.image,
             TSAsset.RecordingSignal008.image,
         ]
-        self.signalValueImageView.image = array.get(index)
+        self.signalValueImageView.image = array.get(index: index)
         
     }
 }

@@ -27,16 +27,16 @@ extension TSChatViewController {
         let tap = UITapGestureRecognizer()
         tap.cancelsTouchesInView = false
         self.listTableView.addGestureRecognizer(tap)
-        tap.rx_event.subscribeNext{[weak self] _ in
+        tap.rx.event.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.hideAllKeyboard()
         }.addDisposableTo(self.disposeBag)
         
         self.view.addSubview(self.listTableView)
         
-        self.listTableView.snp_makeConstraints { (make) -> Void in
+        self.listTableView.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.chatActionBarView.snp_top)
+            make.bottom.equalTo(self.chatActionBarView.snp.top)
         }
     }
     

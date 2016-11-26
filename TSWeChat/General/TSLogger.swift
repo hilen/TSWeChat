@@ -9,6 +9,11 @@
 import Foundation
 import XCGLogger
 
+let XCCacheDirectory: URL = {
+    let urls = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+    return urls[urls.endIndex - 1]
+}()
+
 let log: XCGLogger = {
     // Setup XCGLogger
     let log = XCGLogger.default
@@ -18,7 +23,7 @@ let log: XCGLogger = {
         log.add(destination: AppleSystemLogDestination(identifier: XCGLogger.Constants.systemLogDestinationIdentifier))
         log.logAppDetails()
     #else
-        let logPath: URL = AppDelegate.cacheDirectory.appendingPathComponent("XCGLogger_Log.txt")
+        let logPath: URL = XCCacheDirectory.appendingPathComponent("XCGLogger_Log.txt")
         log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: logPath)
         
         // Add colour (using the ANSI format) to our file log, you can see the colour when `cat`ing or `tail`ing the file in Terminal on macOS
