@@ -9,8 +9,8 @@
 import Foundation
 
 extension UITableView {
-    func reloadData(completion: ()->()) {
-        UIView.animateWithDuration(0, animations: {
+    func reloadData(_ completion: @escaping ()->()) {
+        UIView.animate(withDuration: 0, animations: {
             self.reloadData()
         }, completion:{ _ in
             completion()
@@ -18,15 +18,15 @@ extension UITableView {
     }
 
     
-    func insertRowsAtBottom(rows: [NSIndexPath]) {
+    func insertRowsAtBottom(_ rows: [IndexPath]) {
         //保证 insert row 不闪屏
         UIView.setAnimationsEnabled(false)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         self.beginUpdates()
-        self.insertRowsAtIndexPaths(rows, withRowAnimation: .None)
+        self.insertRows(at: rows, with: .none)
         self.endUpdates()
-        self.scrollToRowAtIndexPath(rows[0], atScrollPosition: .Bottom, animated: false)
+        self.scrollToRow(at: rows[0], at: .bottom, animated: false)
         CATransaction.commit()
         UIView.setAnimationsEnabled(true)
     }
@@ -35,15 +35,15 @@ extension UITableView {
         var i = 0
         var rowCount = 0
         while i < self.numberOfSections {
-            rowCount += self.numberOfRowsInSection(i)
+            rowCount += self.numberOfRows(inSection: i)
             i += 1
         }
         return rowCount
     }
     
-    var lastIndexPath: NSIndexPath? {
+    var lastIndexPath: IndexPath? {
         if (self.totalRows()-1) > 0{
-            return NSIndexPath(forRow: self.totalRows()-1, inSection: 0)
+            return IndexPath(row: self.totalRows()-1, section: 0)
         } else {
             return nil
         }
@@ -57,7 +57,7 @@ extension UITableView {
         UIView.setAnimationsEnabled(false)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        self.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
+        self.scrollToRow(at: indexPath, at: .bottom, animated: false)
         CATransaction.commit()
         UIView.setAnimationsEnabled(true)
     }
@@ -67,10 +67,10 @@ extension UITableView {
         guard let indexPath = self.lastIndexPath else {
             return
         }
-        self.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
+        self.scrollToRow(at: indexPath, at: .bottom, animated: false)
     }
     
-    func scrollToBottom(animated animated: Bool) {
+    func scrollToBottom(animated: Bool) {
         let bottomOffset = CGPoint(x: 0, y:self.contentSize.height - self.bounds.size.height)
         self.setContentOffset(bottomOffset, animated: animated)
     }
@@ -80,8 +80,8 @@ extension UITableView {
     }
     
     func resetContentInsetAndScrollIndicatorInsets() {
-        self.contentInset = UIEdgeInsetsZero
-        self.scrollIndicatorInsets = UIEdgeInsetsZero
+        self.contentInset = UIEdgeInsets.zero
+        self.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
 

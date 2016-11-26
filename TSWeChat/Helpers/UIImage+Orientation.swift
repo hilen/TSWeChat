@@ -11,58 +11,58 @@ import Foundation
 //https://github.com/cosnovae/fixUIImageOrientation/blob/master/fixImageOrientation.swift
 
 public extension UIImage {
-    class func fixImageOrientation(src:UIImage) -> UIImage {
+    class func fixImageOrientation(_ src:UIImage) -> UIImage {
         
-        if src.imageOrientation == UIImageOrientation.Up {
+        if src.imageOrientation == UIImageOrientation.up {
             return src
         }
         
-        var transform: CGAffineTransform = CGAffineTransformIdentity
+        var transform: CGAffineTransform = CGAffineTransform.identity
         
         switch src.imageOrientation {
-        case UIImageOrientation.Down, UIImageOrientation.DownMirrored:
-            transform = CGAffineTransformTranslate(transform, src.size.width, src.size.height)
-            transform = CGAffineTransformRotate(transform, CGFloat(M_PI))
+        case UIImageOrientation.down, UIImageOrientation.downMirrored:
+            transform = transform.translatedBy(x: src.size.width, y: src.size.height)
+            transform = transform.rotated(by: CGFloat(M_PI))
             break
-        case UIImageOrientation.Left, UIImageOrientation.LeftMirrored:
-            transform = CGAffineTransformTranslate(transform, src.size.width, 0)
-            transform = CGAffineTransformRotate(transform, CGFloat(M_PI_2))
+        case UIImageOrientation.left, UIImageOrientation.leftMirrored:
+            transform = transform.translatedBy(x: src.size.width, y: 0)
+            transform = transform.rotated(by: CGFloat(M_PI_2))
             break
-        case UIImageOrientation.Right, UIImageOrientation.RightMirrored:
-            transform = CGAffineTransformTranslate(transform, 0, src.size.height)
-            transform = CGAffineTransformRotate(transform, CGFloat(-M_PI_2))
+        case UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            transform = transform.translatedBy(x: 0, y: src.size.height)
+            transform = transform.rotated(by: CGFloat(-M_PI_2))
             break
-        case UIImageOrientation.Up, UIImageOrientation.UpMirrored:
+        case UIImageOrientation.up, UIImageOrientation.upMirrored:
             break
         }
         
         switch src.imageOrientation {
-        case UIImageOrientation.UpMirrored, UIImageOrientation.DownMirrored:
-            CGAffineTransformTranslate(transform, src.size.width, 0)
-            CGAffineTransformScale(transform, -1, 1)
+        case UIImageOrientation.upMirrored, UIImageOrientation.downMirrored:
+            transform.translatedBy(x: src.size.width, y: 0)
+            transform.scaledBy(x: -1, y: 1)
             break
-        case UIImageOrientation.LeftMirrored, UIImageOrientation.RightMirrored:
-            CGAffineTransformTranslate(transform, src.size.height, 0)
-            CGAffineTransformScale(transform, -1, 1)
-        case UIImageOrientation.Up, UIImageOrientation.Down, UIImageOrientation.Left, UIImageOrientation.Right:
+        case UIImageOrientation.leftMirrored, UIImageOrientation.rightMirrored:
+            transform.translatedBy(x: src.size.height, y: 0)
+            transform.scaledBy(x: -1, y: 1)
+        case UIImageOrientation.up, UIImageOrientation.down, UIImageOrientation.left, UIImageOrientation.right:
             break
         }
         
-        let ctx:CGContextRef = CGBitmapContextCreate(nil, Int(src.size.width), Int(src.size.height), CGImageGetBitsPerComponent(src.CGImage), 0, CGImageGetColorSpace(src.CGImage), CGImageAlphaInfo.PremultipliedLast.rawValue)!
+        let ctx:CGContext = CGContext(data: nil, width: Int(src.size.width), height: Int(src.size.height), bitsPerComponent: (src.cgImage)!.bitsPerComponent, bytesPerRow: 0, space: (src.cgImage)!.colorSpace!, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
         
-        CGContextConcatCTM(ctx, transform)
+        ctx.concatenate(transform)
         
         switch src.imageOrientation {
-        case UIImageOrientation.Left, UIImageOrientation.LeftMirrored, UIImageOrientation.Right, UIImageOrientation.RightMirrored:
-            CGContextDrawImage(ctx, CGRectMake(0, 0, src.size.height, src.size.width), src.CGImage)
+        case UIImageOrientation.left, UIImageOrientation.leftMirrored, UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            ctx.draw(src.cgImage!, in: CGRect(x: 0, y: 0, width: src.size.height, height: src.size.width))
             break
         default:
-            CGContextDrawImage(ctx, CGRectMake(0, 0, src.size.width, src.size.height), src.CGImage)
+            ctx.draw(src.cgImage!, in: CGRect(x: 0, y: 0, width: src.size.width, height: src.size.height))
             break
         }
         
-        let cgimage:CGImageRef = CGBitmapContextCreateImage(ctx)!
-        let image:UIImage = UIImage(CGImage: cgimage)
+        let cgimage:CGImage = ctx.makeImage()!
+        let image:UIImage = UIImage(cgImage: cgimage)
         
         return image
     }

@@ -42,15 +42,15 @@ public extension UIViewController {
      - parameter finish:                完成按钮
      - parameter completion:            dimiss回掉完成
      */
-    func ts_presentImagePickerController(maxNumberOfSelections maxNumberOfSelections: Int, select: ((asset: PHAsset) -> Void)?, deselect: ((asset: PHAsset) -> Void)?, cancel: (([PHAsset]) -> Void)?, finish: (([PHAsset]) -> Void)?, completion: (() -> Void)?) {
+    func ts_presentImagePickerController(maxNumberOfSelections: Int, select: ((_ asset: PHAsset) -> Void)?, deselect: ((_ asset: PHAsset) -> Void)?, cancel: (([PHAsset]) -> Void)?, finish: (([PHAsset]) -> Void)?, completion: (() -> Void)?) {
 
         let viewController = BSImagePickerViewController()
         viewController.maxNumberOfSelections = maxNumberOfSelections
-        viewController.albumButton.tintColor = UIColor.whiteColor()
-        viewController.cancelButton.tintColor = UIColor.whiteColor()
-        viewController.doneButton.tintColor = UIColor.whiteColor()
+        viewController.albumButton.tintColor = UIColor.white
+        viewController.cancelButton.tintColor = UIColor.white
+        viewController.doneButton.tintColor = UIColor.white
         
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: false)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
         self.bs_presentImagePickerController(viewController, animated: true,
             select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {_ in
                 TSApplicationManager.initNavigationBar()

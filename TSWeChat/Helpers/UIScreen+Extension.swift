@@ -10,20 +10,20 @@ import Foundation
 
 public extension UIScreen {
     class var size: CGSize {
-        return UIScreen.mainScreen().bounds.size
+        return UIScreen.main.bounds.size
     }
     
     class var width: CGFloat {
-        return UIScreen.mainScreen().bounds.size.width
+        return UIScreen.main.bounds.size.width
     }
     
     class var height: CGFloat {
-        return UIScreen.mainScreen().bounds.size.height
+        return UIScreen.main.bounds.size.height
     }
     
     class var orientationSize: CGSize {
-        let systemVersion = (UIDevice.currentDevice().systemVersion as NSString).floatValue
-        let isLand: Bool = UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation)
+        let systemVersion = (UIDevice.current.systemVersion as NSString).floatValue
+        let isLand: Bool = UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation)
         return (systemVersion > 8.0 && isLand) ? UIScreen.SwapSize(self.size) : self.size
     }
     
@@ -36,13 +36,13 @@ public extension UIScreen {
     }
     
     class var DPISize: CGSize {
-        let size: CGSize = UIScreen.mainScreen().bounds.size
-        let scale: CGFloat = UIScreen.mainScreen().scale
-        return CGSizeMake(size.width * scale, size.height * scale)
+        let size: CGSize = UIScreen.main.bounds.size
+        let scale: CGFloat = UIScreen.main.scale
+        return CGSize(width: size.width * scale, height: size.height * scale)
     }
     
-    class func SwapSize(size: CGSize) -> CGSize {
-        return CGSizeMake(size.height, size.width)
+    class func SwapSize(_ size: CGSize) -> CGSize {
+        return CGSize(width: size.height, height: size.width)
     }
 }
 

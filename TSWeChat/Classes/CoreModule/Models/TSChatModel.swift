@@ -26,10 +26,10 @@ class ChatModel: NSObject, TSModelProtocol {
     var richTextLayout: YYTextLayout?
     var richTextLinePositionModifier: TSYYTextLinePositionModifier?
     var richTextAttributedString: NSMutableAttributedString?
-    var messageSendSuccessType: MessageSendSuccessType = .Failed //发送消息的状态
+    var messageSendSuccessType: MessageSendSuccessType = .failed //发送消息的状态
     var cellHeight: CGFloat = 0 //计算的高度储存使用，默认0
 
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -57,7 +57,7 @@ class ChatModel: NSObject, TSModelProtocol {
     //自定义发送文本的 ChatModel
     init(text: String) {
         super.init()
-        self.timestamp = String(format: "%f", NSDate.milliseconds)
+        self.timestamp = String(format: "%f", Date.milliseconds)
         self.messageContent = text
         self.messageContentType = .Text
         self.chatSendId = UserInstance.userId!
@@ -66,7 +66,7 @@ class ChatModel: NSObject, TSModelProtocol {
     //自定义发送声音的 ChatModel
     init(audioModel: ChatAudioModel) {
         super.init()
-        self.timestamp = String(format: "%f", NSDate.milliseconds)
+        self.timestamp = String(format: "%f", Date.milliseconds)
         self.messageContent = "[声音]"
         self.messageContentType = .Voice
         self.audioModel = audioModel
@@ -76,7 +76,7 @@ class ChatModel: NSObject, TSModelProtocol {
     //自定义发送图片的 ChatModel
     init(imageModel: ChatImageModel) {
         super.init()
-        self.timestamp = String(format: "%f", NSDate.milliseconds)
+        self.timestamp = String(format: "%f", Date.milliseconds)
         self.messageContent = "[图片]"
         self.messageContentType = .Image
         self.imageModel = imageModel
@@ -90,7 +90,7 @@ class ChatModel: NSObject, TSModelProtocol {
 
 extension ChatModel {
     //后一条数据是否比前一条数据 多了 2 分钟以上
-    func isLateForTwoMinutes(targetModel: ChatModel) -> Bool {
+    func isLateForTwoMinutes(_ targetModel: ChatModel) -> Bool {
         //11是秒，服务器时间精确到毫秒，做一次判断
         guard self.timestamp!.length > 11 else {
             return false
@@ -105,11 +105,11 @@ extension ChatModel {
         return (nextSeconds - previousSeconds) > 120
     }
     
-    var timeDate: NSDate {
+    var timeDate: Date {
         get {
             let seconds = Double(self.timestamp!)!/1000
-            let timeInterval: NSTimeInterval = NSTimeInterval(seconds)
-            return NSDate(timeIntervalSince1970: timeInterval)
+            let timeInterval: TimeInterval = TimeInterval(seconds)
+            return Date(timeIntervalSince1970: timeInterval)
         }
     }
 }
@@ -117,55 +117,55 @@ extension ChatModel {
 
 
 // MARK: - 聊天时间的 格式化字符串
-extension NSDate {
-    private var chatTimeString: String {
+extension Date {
+    fileprivate var chatTimeString: String {
         get {
-            let calendar = NSCalendar.currentCalendar()
-            let now = NSDate()
-            let unit: NSCalendarUnit = [
-                NSCalendarUnit.Minute,
-                NSCalendarUnit.Hour,
-                NSCalendarUnit.Day,
-                NSCalendarUnit.Month,
-                NSCalendarUnit.Year,
+            let calendar = Calendar.current
+            let now = Date()
+            let unit: NSCalendar.Unit = [
+                NSCalendar.Unit.minute,
+                NSCalendar.Unit.hour,
+                NSCalendar.Unit.day,
+                NSCalendar.Unit.month,
+                NSCalendar.Unit.year,
             ]
-            let nowComponents:NSDateComponents = calendar.components(unit, fromDate: now)
-            let targetComponents:NSDateComponents = calendar.components(unit, fromDate: self)
+            let nowComponents:DateComponents = (calendar as NSCalendar).components(unit, from: now)
+            let targetComponents:DateComponents = (calendar as NSCalendar).components(unit, from: self)
             
-            let year = nowComponents.year - targetComponents.year
-            let month = nowComponents.month - targetComponents.month
-            let day = nowComponents.day - targetComponents.day
+            let year = nowComponents.year! - targetComponents.year!
+            let month = nowComponents.month! - targetComponents.month!
+            let day = nowComponents.day! - targetComponents.day!
             
             if year != 0 {
-                return String(format: "%zd年%zd月%zd日 %02d:%02d", targetComponents.year, targetComponents.month, targetComponents.day, targetComponents.hour, targetComponents.minute)
+                return String(format: "%zd年%zd月%zd日 %02d:%02d", targetComponents.year!, targetComponents.month!, targetComponents.day!, targetComponents.hour!, targetComponents.minute!)
             } else {
                 if (month > 0 || day > 7) {
-                    return String(format: "%zd月%zd日 %02d:%02d", targetComponents.month, targetComponents.day, targetComponents.hour, targetComponents.minute)
+                    return String(format: "%zd月%zd日 %02d:%02d", targetComponents.month!, targetComponents.day!, targetComponents.hour!, targetComponents.minute!)
                 } else if (day > 2) {
-                    return String(format: "%@ %02d:%02d",self.week(), targetComponents.hour, targetComponents.minute)
+                    return String(format: "%@ %02d:%02d",self.week(), targetComponents.hour!, targetComponents.minute)
                 } else if (day == 2) {
-                    if targetComponents.hour < 12 {
-                        return String(format: "前天上午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                    if targetComponents.hour! < 12 {
+                        return String(format: "前天上午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else if targetComponents.hour == 12 {
-                        return String(format: "前天下午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                        return String(format: "前天下午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else {
-                        return String(format: "前天下午 %02d:%02d",targetComponents.hour - 12, targetComponents.minute)
+                        return String(format: "前天下午 %02d:%02d",targetComponents.hour! - 12, targetComponents.minute!)
                     }
                 } else if (day == 1) {
-                    if targetComponents.hour < 12 {
-                        return String(format: "昨天上午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                    if targetComponents.hour! < 12 {
+                        return String(format: "昨天上午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else if targetComponents.hour == 12 {
-                        return String(format: "昨天下午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                        return String(format: "昨天下午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else {
-                        return String(format: "昨天下午 %02d:%02d",targetComponents.hour - 12, targetComponents.minute)
+                        return String(format: "昨天下午 %02d:%02d",targetComponents.hour! - 12, targetComponents.minute!)
                     }
                 } else if (day == 0){
-                    if targetComponents.hour < 12 {
-                        return String(format: "上午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                    if targetComponents.hour! < 12 {
+                        return String(format: "上午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else if targetComponents.hour == 12 {
-                        return String(format: "下午 %02d:%02d",targetComponents.hour, targetComponents.minute)
+                        return String(format: "下午 %02d:%02d",targetComponents.hour!, targetComponents.minute!)
                     } else {
-                        return String(format: "下午 %02d:%02d",targetComponents.hour - 12, targetComponents.minute)
+                        return String(format: "下午 %02d:%02d",targetComponents.hour! - 12, targetComponents.minute!)
                     }
                 } else {
                     return ""

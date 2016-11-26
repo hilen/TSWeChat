@@ -11,7 +11,7 @@ import Foundation
 
 class TSConfig {
     static let testUserID = "wx1234skjksmsjdfwe234"
-    static let ExpressionBundle = NSBundle(URL: NSBundle.mainBundle().URLForResource("Expression", withExtension: "bundle")!)
+    static let ExpressionBundle = Bundle(url: Bundle.main.url(forResource: "Expression", withExtension: "bundle")!)
     static let ExpressionBundleName = "Expression.bundle"
-    static let ExpressionPlist = NSBundle.mainBundle().pathForResource("Expression", ofType: "plist")
+    static let ExpressionPlist = Bundle.main.path(forResource: "Expression", ofType: "plist")
 }

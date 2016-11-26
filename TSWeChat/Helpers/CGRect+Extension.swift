@@ -14,7 +14,7 @@ public extension CGRect {
             return self.origin.x
         }
         set {
-            self = CGRectMake(newValue, self.minY, self.sizeWidth, self.sizeHeight)
+            self = CGRect(x: newValue, y: self.minY, width: self.sizeWidth, height: self.sizeHeight)
         }
     }
     
@@ -23,7 +23,7 @@ public extension CGRect {
             return self.origin.y
         }
         set {
-            self = CGRectMake(self.originX, newValue, self.sizeWidth, self.sizeHeight)
+            self = CGRect(x: self.originX, y: newValue, width: self.sizeWidth, height: self.sizeHeight)
         }
     }
     
@@ -32,7 +32,7 @@ public extension CGRect {
             return self.size.width
         }
         set {
-            self = CGRectMake(self.originX, self.minY, newValue, self.sizeHeight)
+            self = CGRect(x: self.originX, y: self.minY, width: newValue, height: self.sizeHeight)
         }
     }
     
@@ -41,7 +41,7 @@ public extension CGRect {
             return self.size.height
         }
         set {
-            self = CGRectMake(self.originX, self.minY, self.sizeWidth, newValue)
+            self = CGRect(x: self.originX, y: self.minY, width: self.sizeWidth, height: newValue)
         }
     }
     
@@ -59,7 +59,7 @@ public extension CGRect {
             return self.origin.y + self.size.height
         }
         set {
-            self = CGRectMake(originX, newValue - sizeHeight, sizeWidth, sizeHeight)
+            self = CGRect(x: originX, y: newValue - sizeHeight, width: sizeWidth, height: sizeHeight)
         }
     }
     
@@ -77,7 +77,7 @@ public extension CGRect {
             return originX + sizeWidth
         }
         set {
-            self = CGRectMake(newValue - sizeWidth, originY, sizeWidth, sizeHeight)
+            self = CGRect(x: newValue - sizeWidth, y: originY, width: sizeWidth, height: sizeHeight)
         }
     }
     
@@ -87,7 +87,7 @@ public extension CGRect {
             return self.originX + self.sizeWidth / 2
         }
         set {
-            self = CGRectMake(newValue - sizeWidth / 2, originY, sizeWidth, sizeHeight)
+            self = CGRect(x: newValue - sizeWidth / 2, y: originY, width: sizeWidth, height: sizeHeight)
         }
     }
     
@@ -96,17 +96,17 @@ public extension CGRect {
             return self.originY + self.sizeHeight / 2
         }
         set {
-            self = CGRectMake(originX, newValue - height / 2, sizeWidth, sizeHeight)
+            self = CGRect(x: originX, y: newValue - height / 2, width: sizeWidth, height: sizeHeight)
         }
     }
     
     
     var center: CGPoint {
         get {
-            return CGPointMake(self.midX, self.midY)
+            return CGPoint(x: self.midX, y: self.midY)
         }
         set {
-            self = CGRectMake(newValue.x - sizeWidth / 2, newValue.y - sizeHeight / 2, sizeWidth, sizeHeight)
+            self = CGRect(x: newValue.x - sizeWidth / 2, y: newValue.y - sizeHeight / 2, width: sizeWidth, height: sizeHeight)
         }
     }
 }

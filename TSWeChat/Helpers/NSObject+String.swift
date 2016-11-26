@@ -11,7 +11,7 @@ import UIKit
 
 extension NSObject {
     class var nameOfClass: String {
-        return NSStringFromClass(self).componentsSeparatedByString(".").last! as String
+        return NSStringFromClass(self).components(separatedBy: ".").last! as String
     }
     
     //用于获取 cell 的 reuse identifier

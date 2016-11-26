@@ -16,7 +16,7 @@ let TransformerTimestampToTimeAgo = TransformOf<String, NSNumber>(fromJSON: { (v
     }
     
     let seconds = Double(value as! NSNumber)/1000
-    let timeInterval: NSTimeInterval = NSTimeInterval(seconds)
+    let timeInterval: TimeInterval = TimeInterval(seconds)
     let date = NSDate(timeIntervalSince1970: timeInterval)
     let string = NSDate.messageAgoSinceDate(date)
     return string
@@ -64,7 +64,7 @@ let TransformerStringToCGFloat = TransformOf<CGFloat, String>(fromJSON: { (value
     return intValue
     }, toJSON: { (value: CGFloat?) -> String? in
         if let value = value {
-            return String(value)
+            return String(describing: value)
         }
         return nil
 })
@@ -72,7 +72,7 @@ let TransformerStringToCGFloat = TransformOf<CGFloat, String>(fromJSON: { (value
 
 //数组的坐标转换为 CLLocation
 let TransformerArrayToLocation = TransformOf<CLLocation, [Double]>(fromJSON: { (value: [Double]?) -> CLLocation? in
-    if let coordList = value where coordList.count == 2 {
+    if let coordList = value, coordList.count == 2 {
         return CLLocation(latitude: coordList[1], longitude: coordList[0])
     }
     return nil

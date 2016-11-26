@@ -20,13 +20,13 @@ class TSChatBaseCell: UITableViewCell {
     weak var delegate: TSChatCellDelegate?
 
     @IBOutlet weak var avatarImageView: UIImageView! {didSet{
-        avatarImageView.backgroundColor = UIColor.clearColor()
+        avatarImageView.backgroundColor = UIColor.clear
         avatarImageView.width = kChatAvatarWidth
         avatarImageView.height = kChatAvatarWidth
     }}
     @IBOutlet weak var nicknameLabel: UILabel! {didSet{
-        nicknameLabel.font = UIFont.systemFontOfSize(11)
-        nicknameLabel.textColor = UIColor.darkGrayColor()
+        nicknameLabel.font = UIFont.systemFont(ofSize: 11)
+        nicknameLabel.textColor = UIColor.darkGray
         }}
     var model: ChatModel?
     let disposeBag = DisposeBag()
@@ -39,15 +39,15 @@ class TSChatBaseCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.selectionStyle = .None
-        self.contentView.backgroundColor = UIColor.clearColor()
-        self.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .none
+        self.contentView.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
         
         //头像点击
         let tap = UITapGestureRecognizer()
         self.avatarImageView.addGestureRecognizer(tap)
-        self.avatarImageView.userInteractionEnabled = true
-        tap.rx_event.subscribeNext{[weak self ] _ in
+        self.avatarImageView.isUserInteractionEnabled = true
+        tap.rx.event.subscribe{[weak self ] _ in
             if let strongSelf = self {
                 guard let delegate = strongSelf.delegate else {
                     return
@@ -57,7 +57,7 @@ class TSChatBaseCell: UITableViewCell {
         }.addDisposableTo(self.disposeBag)
     }
     
-    func setCellContent(model: ChatModel) {
+    func setCellContent(_ model: ChatModel) {
         self.model = model
         if self.model!.fromMe {
             let avatarURL = "http://ww3.sinaimg.cn/thumbnail/6a011e49jw1f1e87gcr14j20ks0ksdgr.jpg"
@@ -83,7 +83,7 @@ class TSChatBaseCell: UITableViewCell {
         }
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

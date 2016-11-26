@@ -23,15 +23,15 @@ let kChatBubblePaddingTop: CGFloat = 3                                  //气泡
 let kChatBubbleMaginLeft: CGFloat = 5                                   //气泡和头像的 gap 值：5
 let kChatBubblePaddingBottom: CGFloat = 8                               //气泡距离底部分割线 gap 值：8
 let kChatBubbleLeft: CGFloat = kChatAvatarMarginLeft + kChatAvatarWidth + kChatBubbleMaginLeft  //气泡距离屏幕左的距
-private let kChatTextFont: UIFont = UIFont.systemFontOfSize(16)
+private let kChatTextFont: UIFont = UIFont.systemFont(ofSize: 16)
 
 class TSChatTextCell: TSChatBaseCell {
     @IBOutlet weak var contentLabel: YYLabel! {didSet{
         contentLabel.font = kChatTextFont
 //        contentLabel.debugOption = self.debugYYLabel()
         contentLabel.numberOfLines = 0
-        contentLabel.backgroundColor = UIColor.clearColor()
-        contentLabel.textVerticalAlignment = YYTextVerticalAlignment.Top
+        contentLabel.backgroundColor = UIColor.clear
+        contentLabel.textVerticalAlignment = YYTextVerticalAlignment.top
         contentLabel.displaysAsynchronously = false
         contentLabel.ignoreCommonProperties = true
         contentLabel.highlightTapAction = ({[weak self] containerView, text, range, rect in
@@ -46,14 +46,14 @@ class TSChatTextCell: TSChatBaseCell {
     
     func debugYYLabel() -> YYTextDebugOption {
         let debugOptions = YYTextDebugOption()
-        debugOptions.baselineColor = UIColor.redColor();
-        debugOptions.CTFrameBorderColor = UIColor.redColor();
-        debugOptions.CTLineFillColor = UIColor ( red: 0.0, green: 0.463, blue: 1.0, alpha: 0.18 )
-        debugOptions.CGGlyphBorderColor = UIColor ( red: 0.9971, green: 0.6738, blue: 1.0, alpha: 0.360964912280702 )
+        debugOptions.baselineColor = UIColor.red;
+        debugOptions.ctFrameBorderColor = UIColor.red;
+        debugOptions.ctLineFillColor = UIColor ( red: 0.0, green: 0.463, blue: 1.0, alpha: 0.18 )
+        debugOptions.cgGlyphBorderColor = UIColor ( red: 0.9971, green: 0.6738, blue: 1.0, alpha: 0.360964912280702 )
         return debugOptions
     }
     
-    override func setCellContent(model: ChatModel) {
+    override func setCellContent(_ model: ChatModel) {
         super.setCellContent(model)
         if let richTextLinePositionModifier = model.richTextLinePositionModifier {
             self.contentLabel.linePositionModifier = richTextLinePositionModifier
@@ -69,7 +69,7 @@ class TSChatTextCell: TSChatBaseCell {
 
         //拉伸图片区域
         let stretchImage = model.fromMe ? TSAsset.SenderTextNodeBkg.image : TSAsset.ReceiverTextNodeBkg.image
-        let bubbleImage = stretchImage.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         self.bubbleImageView.image = bubbleImage;
         self.setNeedsLayout()
     }
@@ -101,7 +101,7 @@ class TSChatTextCell: TSChatBaseCell {
         self.contentLabel.left = self.bubbleImageView.left + kChatTextMarginLeft
     }
     
-    class func layoutHeight(model: ChatModel) -> CGFloat {
+    class func layoutHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -115,7 +115,7 @@ class TSChatTextCell: TSChatBaseCell {
         
         //初始化 YYTextContainer
         let textContainer: YYTextContainer = YYTextContainer()
-        textContainer.size = CGSize(width: kChatTextMaxWidth, height: CGFloat.max)
+        textContainer.size = CGSize(width: kChatTextMaxWidth, height: CGFloat.greatestFiniteMagnitude)
         textContainer.linePositionModifier = modifier
         textContainer.maximumNumberOfRows = 0
 
@@ -132,7 +132,7 @@ class TSChatTextCell: TSChatBaseCell {
         return model.cellHeight
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -144,16 +144,16 @@ class TSChatTextCell: TSChatBaseCell {
      - parameter label:     YYLabel
      - parameter textRange: 高亮文字的 NSRange，不是 range
      */
-    private func didTapRichLabelText(label: YYLabel, textRange: NSRange) {
+    fileprivate func didTapRichLabelText(_ label: YYLabel, textRange: NSRange) {
         //解析 userinfo 的文字
         let attributedString = label.textLayout!.text
         if textRange.location >= attributedString.length {
             return
         }
-        guard let hightlight: YYTextHighlight = attributedString.yy_attribute(YYTextHighlightAttributeName, atIndex: UInt(textRange.location)) as? YYTextHighlight else {
+        guard let hightlight: YYTextHighlight = attributedString.yy_attribute(YYTextHighlightAttributeName, at: UInt(textRange.location)) as? YYTextHighlight else {
             return
         }
-        guard let info = hightlight.userInfo where info.count > 0 else {
+        guard let info = hightlight.userInfo, info.count > 0 else {
             return
         }
         

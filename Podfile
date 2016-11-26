@@ -9,19 +9,21 @@ def pods
     #Swift
     pod 'Alamofire'
     pod 'Kingfisher'
-    pod 'ObjectMapper', '~> 1.1'
+    pod 'ObjectMapper', '~> 2.2'
     pod 'SwiftyJSON'
     pod 'Dollar'
     pod 'Cent'
-    pod 'KeychainAccess', '~> 2.3.4'
-    pod 'UIColor_Hex_Swift', '~> 2.0'
-    pod 'RxSwift', '~> 2.3.1'
-    pod 'RxCocoa', '~> 2.3.1'
-    pod 'RxBlocking', '~> 2.3.1'
+    pod 'KeychainAccess'
+    pod 'UIColor_Hex_Swift', '~> 3.0.2'
+    pod 'RxSwift', '~> 3.0'
+    pod 'RxCocoa', '~> 3.0'
+    pod 'RxBlocking', '~> 3.0'
     pod 'XCGLogger'
     pod 'SnapKit'
-    pod 'BSImagePicker', '~> 2.2'
-    pod 'TSVoiceConverter', '0.1.2'
+    pod 'BSImagePicker', '~> 2.5.0'
+    pod 'TSVoiceConverter', '0.1.3'
+    pod 'XLActionController'
+    pod 'TimedSilver', '1.0.0'
 
     #Objective-C
     pod 'YYText'
@@ -31,4 +33,13 @@ end
 
 target 'TSWeChat' do
     pods
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'YES'
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
 end

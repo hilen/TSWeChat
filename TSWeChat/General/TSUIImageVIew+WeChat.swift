@@ -16,18 +16,18 @@ import Kingfisher
 
 public extension UIImageView {
     //原始图
-    func ts_setImageWithURLString(URLString: String?, placeholderImage placeholder: UIImage? = nil) {
-        guard let URLString = URLString, URL = NSURL(string: URLString) else {
+    func ts_setImageWithURLString(_ URLString: String?, placeholderImage placeholder: UIImage? = nil) {
+        guard let URLString = URLString, let URL = URL(string: URLString) else {
             print("URL wrong")
             return
         }
-        self.kf_setImageWithURL(URL, placeholderImage: placeholder)
+        self.kf.setImage(with: URL)
     }
     
     /**
      圆角图
      */
-    func ts_setCircularImageWithURLString(URLString: String?, placeholderImage placeholder: UIImage? = nil) {
+    func ts_setCircularImageWithURLString(_ URLString: String?, placeholderImage placeholder: UIImage? = nil) {
         self.ts_setRoundImageWithURLString(
             URLString,
             placeholderImage: placeholder,
@@ -39,7 +39,7 @@ public extension UIImageView {
      设置 cornerRadiusRatio
      */
     func ts_setCornerRadiusImageWithURLString(
-        URLString: String?,
+        _ URLString: String?,
         placeholderImage placeholder: UIImage? = nil ,
         cornerRadiusRatio: CGFloat? = nil)
     {
@@ -51,27 +51,27 @@ public extension UIImageView {
     }
     
     func ts_setRoundImageWithURLString(
-        URLString: String?,
+        _ URLString: String?,
         placeholderImage placeholder: UIImage? = nil ,
         cornerRadiusRatio: CGFloat? = nil,
         progressBlock: ImageDownloaderProgressBlock? = nil)
     {
-        guard let URLString = URLString, URL = NSURL(string: URLString) else {
+        guard let URLString = URLString, let URL = URL(string: URLString) else {
             print("URL wrong")
             return
         }
         
-        let memoryImage = KingfisherManager.sharedManager.cache.retrieveImageInMemoryCacheForKey(URLString)
-        let diskImage = KingfisherManager.sharedManager.cache.retrieveImageInDiskCacheForKey(URLString)
+        let memoryImage = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey:URLString)
+        let diskImage = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey:URLString)
         guard let image = memoryImage ?? diskImage else {
             let optionInfo: KingfisherOptionsInfo = [
-                .ForceRefresh,
+                .forceRefresh,
             ]
-            KingfisherManager.sharedManager.downloader.downloadImageWithURL(URL, options: optionInfo, progressBlock: progressBlock) { (image, error, imageURL, originalData) -> () in
-                if let image = image, originalData = originalData {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                        let roundedImage = image.roundWithCornerRadius(image.size.width * (cornerRadiusRatio ?? 0.5))
-                        KingfisherManager.sharedManager.cache.storeImage(roundedImage, originalData: originalData, forKey: URLString, toDisk: true, completionHandler: {
+            KingfisherManager.shared.downloader.downloadImage(with: URL, options: optionInfo, progressBlock: progressBlock) { (image, error, imageURL, originalData) -> () in
+                if let image = image, let originalData = originalData {
+                    DispatchQueue.global(qos: .default).async {
+                        let roundedImage = image.ts_roundWithCornerRadius(image.size.width * (cornerRadiusRatio ?? 0.5))
+                        KingfisherManager.shared.cache.store(roundedImage, original: originalData, forKey: URLString, toDisk: true, completionHandler: {
                             self.ts_setImageWithURLString(URLString)
                         })
                     }

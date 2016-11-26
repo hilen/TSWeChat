@@ -14,34 +14,34 @@ import SVProgressHUD
 class TSProgressHUD: NSObject {
     class func ts_initHUD() {
         SVProgressHUD.setBackgroundColor(UIColor ( red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7 ))
-        SVProgressHUD.setForegroundColor(UIColor.whiteColor())
-        SVProgressHUD.setFont(UIFont.systemFontOfSize(14))
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.None)
+        SVProgressHUD.setForegroundColor(UIColor.white)
+        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 14))
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.none)
     }
     
     //成功
-    class func ts_showSuccessWithStatus(string: String) {
-        self.TSProgressHUDShow(.Success, status: string)
+    class func ts_showSuccessWithStatus(_ string: String) {
+        self.TSProgressHUDShow(.success, status: string)
     }
     
     //失败 ，NSError
-    class func ts_showErrorWithObject(error: NSError) {
-        self.TSProgressHUDShow(.ErrorObject, status: nil, error: error)
+    class func ts_showErrorWithObject(_ error: NSError) {
+        self.TSProgressHUDShow(.errorObject, status: nil, error: error)
     }
     
     //失败，String
-    class func ts_showErrorWithStatus(string: String) {
-        self.TSProgressHUDShow(.ErrorString, status: string)
+    class func ts_showErrorWithStatus(_ string: String) {
+        self.TSProgressHUDShow(.errorString, status: string)
     }
     
     //转菊花
-    class func ts_showWithStatus(string: String) {
-        self.TSProgressHUDShow(.Loading, status: string)
+    class func ts_showWithStatus(_ string: String) {
+        self.TSProgressHUDShow(.loading, status: string)
     }
     
     //警告
-    class func ts_showWarningWithStatus(string: String) {
-        self.TSProgressHUDShow(.Info, status: string)
+    class func ts_showWarningWithStatus(_ string: String) {
+        self.TSProgressHUDShow(.info, status: string)
     }
     
     //dismiss消失
@@ -50,36 +50,36 @@ class TSProgressHUD: NSObject {
     }
     
     //私有方法
-    private class func TSProgressHUDShow(type: HUDType, status: String? = nil, error: NSError? = nil) {
+    fileprivate class func TSProgressHUDShow(_ type: HUDType, status: String? = nil, error: NSError? = nil) {
         switch type {
-        case .Success:
-            SVProgressHUD.showSuccessWithStatus(status)
+        case .success:
+            SVProgressHUD.showSuccess(withStatus: status)
             break
-        case .ErrorObject:
+        case .errorObject:
             guard let newError = error else {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉")
+                SVProgressHUD.showError(withStatus: "Error:出错拉")
                 return
             }
             
             if newError.localizedFailureReason == nil {
-                SVProgressHUD.showErrorWithStatus("Error:出错拉")
+                SVProgressHUD.showError(withStatus: "Error:出错拉")
             } else {
-                SVProgressHUD.showErrorWithStatus(error!.localizedFailureReason)
+                SVProgressHUD.showError(withStatus: error!.localizedFailureReason)
             }
             break
-        case .ErrorString:
-            SVProgressHUD.showErrorWithStatus(status)
+        case .errorString:
+            SVProgressHUD.showError(withStatus: status)
             break
-        case .Info:
-            SVProgressHUD.showInfoWithStatus(status)
+        case .info:
+            SVProgressHUD.showInfo(withStatus: status)
             break
-        case .Loading:
-            SVProgressHUD.showWithStatus(status)
+        case .loading:
+            SVProgressHUD.show(withStatus: status)
             break
         }
     }
     
-    private enum HUDType: Int {
-        case Success, ErrorObject, ErrorString, Info, Loading
+    fileprivate enum HUDType: Int {
+        case success, errorObject, errorString, info, loading
     }
 }

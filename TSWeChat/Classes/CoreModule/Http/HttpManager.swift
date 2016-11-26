@@ -10,8 +10,8 @@ import UIKit
 
 //简写的 key->value
 public typealias ts_parameters = [String : AnyObject]
-public typealias SuccessClosure = AnyObject -> Void
-public typealias FailureClosure = NSError -> Void
+public typealias SuccessClosure = (AnyObject) -> Void
+public typealias FailureClosure = (NSError) -> Void
 
 class HttpManager: NSObject {
     class var sharedInstance : HttpManager {
@@ -21,7 +21,7 @@ class HttpManager: NSObject {
         return Static.instance
     }
     
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
 }

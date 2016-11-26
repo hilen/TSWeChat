@@ -11,19 +11,19 @@ import Photos
 
 extension PHAsset {
     func getUIImage() -> UIImage? {
-        let manager = PHImageManager.defaultManager()
+        let manager = PHImageManager.default()
         let options = PHImageRequestOptions()
-        options.synchronous = true
-        options.networkAccessAllowed = true
-        options.version = .Current
-        options.deliveryMode = .HighQualityFormat
-        options.resizeMode = .Exact
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.deliveryMode = .highQualityFormat
+        options.resizeMode = .exact
 
         var image: UIImage?
-        manager.requestImageForAsset(
-            self,
+        manager.requestImage(
+            for: self,
             targetSize: CGSize(width: CGFloat(self.pixelWidth), height: CGFloat(self.pixelHeight)),
-            contentMode: .AspectFill,
+            contentMode: .aspectFill,
             options: options,
             resultHandler: {(result, info)->Void in
                 if let theResult = result {

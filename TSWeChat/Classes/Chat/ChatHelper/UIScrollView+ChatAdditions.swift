@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIScrollView {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var kKeyScrollViewVerticalIndicator = "_verticalScrollIndicator"
         static var kKeyScrollViewHorizontalIndicator = "_horizontalScrollIndicator"
     }
@@ -52,9 +52,9 @@ extension UIScrollView {
         }
     }
     
-    private func safeValueForKey(key: String) -> AnyObject{
-        let instanceVariable: Ivar = class_getInstanceVariable(self.dynamicType, key.cStringUsingEncoding(NSUTF8StringEncoding)!)
-        return object_getIvar(self, instanceVariable);
+    fileprivate func safeValueForKey(_ key: String) -> AnyObject{
+        let instanceVariable: Ivar = class_getInstanceVariable(type(of: self), key.cString(using: String.Encoding.utf8)!)
+        return object_getIvar(self, instanceVariable) as AnyObject;
     }
     
 
@@ -63,9 +63,9 @@ extension UIScrollView {
      
      - parameter animated: animated YES to animate the transition at a constant velocity to the new offset, NO to make the transition immediate.
      */
-    public func scrollToTopAnimated(animated: Bool) {
+    public func scrollToTopAnimated(_ animated: Bool) {
         if !self.isAtTop {
-            let bottomOffset = CGPointZero;
+            let bottomOffset = CGPoint.zero;
             self.setContentOffset(bottomOffset, animated: animated)
         }
     }
@@ -75,9 +75,9 @@ extension UIScrollView {
      
      - parameter animated: animated YES to animate the transition at a constant velocity to the new offset, NO to make the transition immediate.
      */
-    public func scrollToBottomAnimated(animated: Bool) {
+    public func scrollToBottomAnimated(_ animated: Bool) {
         if self.canScrollToBottom && !self.isAtBottom {
-            let bottomOffset = CGPointMake(0.0, self.contentSize.height - self.bounds.size.height)
+            let bottomOffset = CGPoint(x: 0.0, y: self.contentSize.height - self.bounds.size.height)
             self.setContentOffset(bottomOffset, animated: animated)
         }
     }
@@ -86,7 +86,7 @@ extension UIScrollView {
       Stops scrolling, if it was scrolling.
      */
     public func stopScrolling() {
-        guard self.dragging else {
+        guard self.isDragging else {
             return
         }
         var offset = self.contentOffset

@@ -15,7 +15,7 @@ protocol RecordAudioDelegate: class {
     /**
      更新进度 , 0.0 - 9.0, 浮点数
      */
-    func audioRecordUpdateMetra(metra: Float)
+    func audioRecordUpdateMetra(_ metra: Float)
     
     
     /**
@@ -41,7 +41,7 @@ protocol RecordAudioDelegate: class {
      - parameter uploadAmrData:     上传的 amr Data
      - parameter fileHash:          amr 音频数据的 MD5 值 (NSData)
      */
-    func audioRecordFinish(uploadAmrData: NSData, recordTime: Float, fileHash: String)
+    func audioRecordFinish(_ uploadAmrData: Data, recordTime: Float, fileHash: String)
 }
 
 

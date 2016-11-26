@@ -15,16 +15,16 @@ import Kingfisher
 */
 
 class ImageFilesManager {
-    let imageCacheFolder = KingfisherManager.sharedManager.cache
+    let imageCacheFolder = KingfisherManager.shared.cache
     
-    class func cachePathForKey(key: String) -> String? {
-        let fileName = key.MD5String
-        return (KingfisherManager.sharedManager.cache.diskCachePath as NSString).stringByAppendingPathComponent(fileName)
+    class func cachePathForKey(_ key: String) -> String? {
+        let fileName = key.ts_MD5String
+        return (KingfisherManager.shared.cache.diskCachePath as NSString).appendingPathComponent(fileName)
     }
     
-    class func storeImage(image: UIImage, key: String, completionHandler: (() -> ())?) {
-        KingfisherManager.sharedManager.cache.removeImageForKey(key)
-        KingfisherManager.sharedManager.cache.storeImage(image, forKey: key, toDisk: true, completionHandler: completionHandler)
+    class func storeImage(_ image: UIImage, key: String, completionHandler: (() -> ())?) {
+        KingfisherManager.shared.cache.removeImage(forKey:key)
+        KingfisherManager.shared.cache.store(image, forKey: key, toDisk: true, completionHandler: completionHandler)
     }
     
     /**
@@ -35,9 +35,9 @@ class ImageFilesManager {
      
      - returns: 目标路径
      */
-    class func renameFile(originPath: NSURL, destinationPath: NSURL) -> Bool {
+    class func renameFile(_ originPath: URL, destinationPath: URL) -> Bool {
         do {
-            try NSFileManager.defaultManager().moveItemAtPath(originPath.path!, toPath: destinationPath.path!)
+            try FileManager.default.moveItem(atPath: originPath.path, toPath: destinationPath.path)
             return true
         } catch let error as NSError {
             log.error("error:\(error)")

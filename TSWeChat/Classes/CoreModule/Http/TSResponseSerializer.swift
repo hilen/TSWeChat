@@ -17,11 +17,11 @@ private let kKeyCode         = "code"
 // MARK: - SwiftyJSON 和 Alamofire 的自定义解析器
 //文件上传的解析，图片和音频
 extension Request {
-    public func responseFileUploadSwiftyJSON(options options: NSJSONReadingOptions = .AllowFragments, completionHandler: Response<JSON, NSError> -> Void) -> Self {
+    public func responseFileUploadSwiftyJSON(options: JSONSerialization.ReadingOptions = .allowFragments, completionHandler: (Response<JSON, NSError>) -> Void) -> Self {
         return response(responseSerializer: Request.fileUploadSwiftyJSONResponseSerializer(options: options), completionHandler: completionHandler)
     }
     
-    public static func fileUploadSwiftyJSONResponseSerializer(options options: NSJSONReadingOptions = .AllowFragments) -> ResponseSerializer<JSON, NSError> {
+    public static func fileUploadSwiftyJSONResponseSerializer(options: NSJSONReadingOptions = .AllowFragments) -> ResponseSerializer<JSON, NSError> {
         return ResponseSerializer { _, _, data, error in
             guard error == nil else {
                 log.error("error:\(error)")
@@ -30,7 +30,7 @@ extension Request {
                 return .Failure(error)
             }
             
-            guard let validData = data where validData.length > 0 else {
+            guard let validData = data, validData.length > 0 else {
                 let failureReason = "数据错误，请稍候再试 ：）"
                 let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
                 return .Failure(error)

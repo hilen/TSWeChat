@@ -15,12 +15,12 @@ private let descentScale: CGFloat = 0.16
 class TSYYTextLinePositionModifier: NSObject, YYTextLinePositionModifier {
     
     internal var font: UIFont // 基准字体 (例如 Heiti SC/PingFang SC)
-    private var paddingTop: CGFloat = 2 //文本顶部留白
-    private var paddingBottom: CGFloat = 2 //文本底部留白
-    private var lineHeightMultiple: CGFloat //行距倍数
+    fileprivate var paddingTop: CGFloat = 2 //文本顶部留白
+    fileprivate var paddingBottom: CGFloat = 2 //文本底部留白
+    fileprivate var lineHeightMultiple: CGFloat //行距倍数
 
     required init(font: UIFont) {
-        if (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 9.0 {
+        if (UIDevice.current.systemVersion as NSString).floatValue >= 9.0 {
             self.lineHeightMultiple = 1.23 // for PingFang SC
         } else {
             self.lineHeightMultiple = 1.1925  // for Heiti SC
@@ -30,7 +30,7 @@ class TSYYTextLinePositionModifier: NSObject, YYTextLinePositionModifier {
     }
     
     // MARK: - @delegate YYTextLinePositionModifier
-    func modifyLines(lines: [YYTextLine], fromText text: NSAttributedString, inContainer container: YYTextContainer) {
+    func modifyLines(_ lines: [YYTextLine], fromText text: NSAttributedString, in container: YYTextContainer) {
         let ascent: CGFloat = self.font.pointSize * ascentScale
         let lineHeight: CGFloat = self.font.pointSize * self.lineHeightMultiple
         for line: YYTextLine in lines {
@@ -41,12 +41,12 @@ class TSYYTextLinePositionModifier: NSObject, YYTextLinePositionModifier {
     }
     
     // MARK: - @delegate NSCopying
-    func copyWithZone(zone: NSZone) -> AnyObject {
-        let one = self.dynamicType.init(font: self.font)
+    func copy(with zone: NSZone?) -> Any {
+        let one = type(of: self).init(font: self.font)
         return one
     }
     
-    func heightForLineCount(lineCount: Int) -> CGFloat {
+    func heightForLineCount(_ lineCount: Int) -> CGFloat {
         if lineCount == 0 {
             return 0
         }

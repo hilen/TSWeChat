@@ -20,9 +20,9 @@ extension HttpManager {
     - parameter failure: 失败
     */
     class func uploadSingleImage(
-        image:UIImage,
-        success:(imageModel: UploadImageModel) ->Void,
-        failure:(Void) ->Void)
+        _ image:UIImage,
+        success:@escaping (_ imageModel: UploadImageModel) ->Void,
+        failure:@escaping (Void) ->Void)
     {
         let parameters = [
             "access_token": UserInstance.accessToken
@@ -32,32 +32,36 @@ extension HttpManager {
         /*
         这里需要填写上传图片的 API
         */
-        let URLRequest = NSMutableURLRequest(URL: NSURL.init(string: "")!)
-        Alamofire.upload(.POST, URLRequest, multipartFormData : { multipartFormData in
-            if imageData != nil {
-                multipartFormData.appendBodyPart(data: imageData!, name: "attach", fileName: "file", mimeType: "image/jpeg")
-            }
-            for (key, value) in parameters {
-                multipartFormData.appendBodyPart(data: value!.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
-            }
-        },encodingCompletion: { result in
-            switch result {
-            case .Success(let upload, _, _):
-                upload.responseFileUploadSwiftyJSON(completionHandler: { response in
-                    switch response.result {
-                    case .Success(let data):
-                        /*
-                        根据 JSON 返回格式，做好 UploadImageModel 的 key->value 映射, 这里只是个例子
-                        */
-                        let model: UploadImageModel = TSMapper<UploadImageModel>().map(data.dictionaryObject)!
-                        success(imageModel: model)
-                    case .Failure( _):
-                        failure()
-                    }
-                })
-            case .Failure(let encodingError):
-                debugPrint(encodingError)
-            }
+        let uploadIImageURLString = ""
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                if imageData != nil {
+                    multipartFormData.append(imageData!, withName: "attach", fileName: "file", mimeType: "image/jpeg")
+                }
+                for (key, value) in parameters {
+                    multipartFormData.append(value!.data(using: String.Encoding.utf8)!, withName: key)
+                }
+            },
+            to: uploadIImageURLString,
+            encodingCompletion: { result in
+                switch result {
+                case .success(let upload, _, _):
+                    upload.responseFileUploadSwiftyJSON(completionHandler: { response in
+                        switch response.result {
+                        case .Success(let data):
+                            /*
+                             根据 JSON 返回格式，做好 UploadImageModel 的 key->value 映射, 这里只是个例子
+                             */
+                            let model: UploadImageModel = TSMapper<UploadImageModel>().map(data.dictionaryObject)!
+                            success(imageModel: model)
+                        case .Failure( _):
+                            failure()
+                        }
+                    })
+                case .failure(let encodingError):
+                    debugPrint(encodingError)
+                }
         })
     }
     
@@ -69,9 +73,9 @@ extension HttpManager {
     - parameter failure:     失败
     */
     class func uploadMultipleImages(
-        imagesArray:[UIImage],
-        success:(imageModel: [UploadImageModel], imagesId: String) ->Void,
-        failure:(Void) ->Void)
+        _ imagesArray:[UIImage],
+        success:@escaping (_ imageModel: [UploadImageModel], _ imagesId: String) ->Void,
+        failure:@escaping (Void) ->Void)
     {
         guard imagesArray.count != 0 else {
             assert(imagesArray.count == 0, "Invalid images array") // here
@@ -80,7 +84,7 @@ extension HttpManager {
         }
         
         for image in imagesArray {
-            guard image.isKindOfClass(UIImage.self) else {
+            guard image.isKind(of: UIImage.self) else {
                 failure()
                 return
             }
@@ -92,29 +96,29 @@ extension HttpManager {
 
         let emtpyId = ""
         for _ in 0..<imagesArray.count {
-            resultImageIdArray.addObject(emtpyId)
+            resultImageIdArray.add(emtpyId)
         }
         
-        let group = dispatch_group_create()
+        let group = DispatchGroup()
         var index = 0
         for (image) in imagesArray {
-            dispatch_group_enter(group);
+            group.enter();
             self.uploadSingleImage(
                 image,
                 success: {model in
                     let imageId = model.imageId
-                    resultImageIdArray.replaceObjectAtIndex(index, withObject: imageId!)
-                    resultImageModelArray.addObject(model)
-                    dispatch_group_leave(group);
+                    resultImageIdArray.replaceObject(at: index, with: imageId!)
+                    resultImageModelArray.add(model)
+                    group.leave();
                 },
                 failure: {
-                    dispatch_group_leave(group);
+                    group.leave();
                 }
             )
             index += 1
         }
         
-        dispatch_group_notify(group, dispatch_get_main_queue(), {
+        group.notify(queue: DispatchQueue.main, execute: {
             let checkIds = resultImageIdArray as NSArray as! [String]
             for imageId: String in checkIds {
                 if imageId == emtpyId {
@@ -123,9 +127,9 @@ extension HttpManager {
                 }
             }
             
-            let ids = resultImageIdArray.componentsJoinedByString(",")
+            let ids = resultImageIdArray.componentsJoined(by: ",")
             let images = resultImageModelArray as NSArray as! [UploadImageModel]
-            success(imageModel: images, imagesId: ids)
+            success(images, ids)
         })
     }
 }

@@ -15,7 +15,7 @@ private let kChatVoiceMaxWidth: CGFloat = 200
 class TSChatVoiceCell: TSChatBaseCell {
     @IBOutlet weak var listenVoiceButton: UIButton! {didSet{
             listenVoiceButton.imageView!.animationDuration = 1
-            listenVoiceButton.selected = false
+            listenVoiceButton.isSelected = false
         }}
     
     @IBOutlet weak var durationLabel: UILabel!
@@ -23,29 +23,29 @@ class TSChatVoiceCell: TSChatBaseCell {
         super.awakeFromNib()
     }
     
-    override func setCellContent(model: ChatModel) {
+    override func setCellContent(_ model: ChatModel) {
         super.setCellContent(model)
         self.durationLabel.text = String(format:"%zd\"", Int(model.audioModel!.duration!))
         
         //设置 Normal 背景Image
         let stretchImage = model.fromMe ? TSAsset.SenderTextNodeBkg.image : TSAsset.ReceiverTextNodeBkg.image
-        let bubbleImage = stretchImage.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
-        self.listenVoiceButton.setBackgroundImage(bubbleImage, forState: .Normal)
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        self.listenVoiceButton.setBackgroundImage(bubbleImage, for: UIControlState())
 
         //设置 Highlighted  背景Image
         let stretchImageHL = model.fromMe ? TSAsset.SenderTextNodeBkgHL.image : TSAsset.ReceiverTextNodeBkgHL.image
-        let bubbleImageHL = stretchImageHL.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
-        self.listenVoiceButton.setBackgroundImage(bubbleImageHL, forState: .Highlighted)
+        let bubbleImageHL = stretchImageHL.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        self.listenVoiceButton.setBackgroundImage(bubbleImageHL, for: .highlighted)
         
         //设置声音 icon 的 Image
         let voiceImage = model.fromMe ? TSAsset.SenderVoiceNodePlaying.image : TSAsset.ReceiverVoiceNodePlaying.image
-        self.listenVoiceButton.setImage(voiceImage, forState: .Normal)
+        self.listenVoiceButton.setImage(voiceImage, for: UIControlState())
         
         //设置声音 icon 的 Edge
         self.listenVoiceButton.imageEdgeInsets = model.fromMe ? UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, 0, 0, kChatVoicePlayingMarginLeft) : UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, kChatVoicePlayingMarginLeft, 0, 0)
 
         //设置声音 icon 的对齐方式
-        self.listenVoiceButton.contentHorizontalAlignment = model.fromMe ? .Right : .Left
+        self.listenVoiceButton.contentHorizontalAlignment = model.fromMe ? .right : .left
         
         if model.fromMe {
             self.listenVoiceButton.imageView!.animationImages = [
@@ -62,9 +62,9 @@ class TSChatVoiceCell: TSChatBaseCell {
         }
     }
     
-    @IBAction func playingTaped(sender: UIButton) {
-        sender.selected = !sender.selected
-        if sender.selected {
+    @IBAction func playingTaped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
             self.listenVoiceButton.imageView!.startAnimating()
         } else {
             self.listenVoiceButton.imageView!.stopAnimating()
@@ -73,13 +73,13 @@ class TSChatVoiceCell: TSChatBaseCell {
         guard let delegate = self.delegate else {
             return
         }
-        delegate.cellDidTapedVoiceButton(self, isPlayingVoice: sender.selected)
+        delegate.cellDidTapedVoiceButton(self, isPlayingVoice: sender.isSelected)
     }
     
     //停止音频的动画
     func resetVoiceAnimation() {
         self.listenVoiceButton.imageView!.stopAnimating()
-        self.listenVoiceButton.selected = false
+        self.listenVoiceButton.isSelected = false
     }
     
     override func layoutSubviews() {
@@ -88,7 +88,7 @@ class TSChatVoiceCell: TSChatBaseCell {
             return
         }
         
-        guard let duration = model.audioModel?.duration where duration > 0 else {
+        guard let duration = model.audioModel?.duration, duration > 0 else {
             return
         }
 
@@ -106,20 +106,20 @@ class TSChatVoiceCell: TSChatBaseCell {
             self.listenVoiceButton.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - self.listenVoiceButton.width
             //value = 声音的左 - 秒数文字的宽 - 间隔值
             self.durationLabel.left = self.listenVoiceButton.left - self.durationLabel.width
-            self.durationLabel.textAlignment = .Right
+            self.durationLabel.textAlignment = .right
         } else {
             //value = 距离屏幕左边的距离
             self.listenVoiceButton.left = kChatBubbleLeft
             //value = 声音的右+间隔值
             self.durationLabel.left = self.listenVoiceButton.right
-            self.durationLabel.textAlignment = .Left
+            self.durationLabel.textAlignment = .left
         }
         
         self.durationLabel.height = self.listenVoiceButton.height
         self.durationLabel.top = self.listenVoiceButton.top
     }
     
-    class func layoutHeight(model: ChatModel) -> CGFloat {
+    class func layoutHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -135,7 +135,7 @@ class TSChatVoiceCell: TSChatBaseCell {
         return model.cellHeight
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

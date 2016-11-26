@@ -17,19 +17,19 @@ class TSChatTimeCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel! {didSet {
         timeLabel.layer.cornerRadius = 4
         timeLabel.layer.masksToBounds = true
-        timeLabel.textColor = UIColor.whiteColor()
+        timeLabel.textColor = UIColor.white
         timeLabel.backgroundColor = UIColor (red: 190/255, green: 190/255, blue: 190/255, alpha: 0.6 )
         }}
     var model: ChatModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None
-        self.backgroundColor = UIColor.clearColor()
-        self.contentView.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .none
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
     }
     
-    func setCellContent(model: ChatModel) {
+    func setCellContent(_ model: ChatModel) {
         self.model = model
         self.timeLabel.text = String(format: "%@", model.messageContent!)
     }
@@ -45,7 +45,7 @@ class TSChatTimeCell: UITableViewCell {
         self.timeLabel.top = kChatTimeLabelMarginTop
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
@@ -57,7 +57,7 @@ class TSChatTimeCell: UITableViewCell {
 
 
 // MARK: - 聊天时间的 格式化字符串
-extension NSDate {
+extension Date {
     /**
      1、如果是列表的第一项，则显示时间；
      2、如果这一条与前面一条间隔两分钟以上，则显示时间
@@ -69,51 +69,51 @@ extension NSDate {
          d) 如果在一年之内，则显示月份日期 和时间，如：7月18日 12:34
          e) 一年以上的，显示年月日 加时间，如： 2014年6月29日 8:20
      */
-    private var chatTimeString: String? {
+    fileprivate var chatTimeString: String? {
         get {
-            let calendar = NSCalendar.currentCalendar()
-            let now = NSDate()
-            let earliest = now.earlierDate(self)
+            let calendar = Calendar.current
+            let now = Date()
+            let earliest = (now as NSDate).earlierDate(self)
             let latest = (earliest == now) ? self : now
-            let components:NSDateComponents = calendar.components([
-                NSCalendarUnit.Minute,
-                NSCalendarUnit.Hour,
-                NSCalendarUnit.Day,
-                NSCalendarUnit.WeekOfYear,
-                NSCalendarUnit.Month,
-                NSCalendarUnit.Year,
-                NSCalendarUnit.Second
-                ], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+            let components:DateComponents = (calendar as NSCalendar).components([
+                NSCalendar.Unit.minute,
+                NSCalendar.Unit.hour,
+                NSCalendar.Unit.day,
+                NSCalendar.Unit.weekOfYear,
+                NSCalendar.Unit.month,
+                NSCalendar.Unit.year,
+                NSCalendar.Unit.second
+                ], from: earliest, to: latest, options: NSCalendar.Options())
             
-            let nowComponents:NSDateComponents = calendar.components([
-                NSCalendarUnit.Minute,
-                NSCalendarUnit.Hour,
-                NSCalendarUnit.Day,
-                NSCalendarUnit.Month,
-                NSCalendarUnit.Year,
-                ], fromDate: now)
+            let nowComponents:DateComponents = (calendar as NSCalendar).components([
+                NSCalendar.Unit.minute,
+                NSCalendar.Unit.hour,
+                NSCalendar.Unit.day,
+                NSCalendar.Unit.month,
+                NSCalendar.Unit.year,
+                ], from: now)
             
-            let selfComponents:NSDateComponents = calendar.components([
-                NSCalendarUnit.Minute,
-                NSCalendarUnit.Hour,
-                NSCalendarUnit.Day,
-                NSCalendarUnit.Month,
-                NSCalendarUnit.Year,
-                ], fromDate: earliest)
+            let selfComponents:DateComponents = (calendar as NSCalendar).components([
+                NSCalendar.Unit.minute,
+                NSCalendar.Unit.hour,
+                NSCalendar.Unit.day,
+                NSCalendar.Unit.month,
+                NSCalendar.Unit.year,
+                ], from: earliest)
             
             if nowComponents.year != selfComponents.year {
-                return String(format: "%zd年%zd月%zd日 %zd:%zd", selfComponents.year, selfComponents.month, selfComponents.day, selfComponents.hour, selfComponents.minute)
+                return String(format: "%zd年%zd月%zd日 %zd:%zd", selfComponents.year!, selfComponents.month!, selfComponents.day!, selfComponents.hour!, selfComponents.minute!)
             } else if nowComponents.year == selfComponents.year {
-                if (components.month > 0 || components.day > 7) {
-                    return String(format: "%zd月%zd日 %zd:%zd", selfComponents.month, selfComponents.day, selfComponents.hour, selfComponents.minute)
-                } else if (components.day > 2) {
-                    return String(format: "%@ %zd:%zd",self.week(), selfComponents.hour, selfComponents.minute)
+                if (components.month! > 0 || components.day! > 7) {
+                    return String(format: "%zd月%zd日 %zd:%zd", selfComponents.month!, selfComponents.day!, selfComponents.hour!, selfComponents.minute!)
+                } else if (components.day! > 2) {
+                    return String(format: "%@ %zd:%zd",self.week(), selfComponents.hour!, selfComponents.minute)
                 } else if (components.day == 2) {
-                    return String(format: "前天 %zd:%zd",selfComponents.hour, selfComponents.minute)
+                    return String(format: "前天 %zd:%zd",selfComponents.hour!, selfComponents.minute!)
                 } else if (components.day == 1) {
-                    return String(format: "昨天 %zd:%zd",selfComponents.hour, selfComponents.minute)
+                    return String(format: "昨天 %zd:%zd",selfComponents.hour!, selfComponents.minute!)
                 } else {
-                    return String(format: "%zd:%zd",selfComponents.hour, selfComponents.minute)
+                    return String(format: "%zd:%zd",selfComponents.hour!, selfComponents.minute!)
                 }
             }
             

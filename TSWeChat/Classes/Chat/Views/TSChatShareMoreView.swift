@@ -25,7 +25,7 @@ class TSChatShareMoreView: UIView {
     weak var delegate: ChatShareMoreViewDelegate?
     internal let disposeBag = DisposeBag()
 
-    private let itemDataSouce: [(name: String, iconImage: UIImage)] = [
+    fileprivate let itemDataSouce: [(name: String, iconImage: UIImage)] = [
         ("照片", TSAsset.Sharemore_pic.image),
         ("相机", TSAsset.Sharemore_video.image),
         ("小视频", TSAsset.Sharemore_sight.image),
@@ -38,7 +38,7 @@ class TSChatShareMoreView: UIView {
         ("语音输入", TSAsset.Sharemore_voiceinput.image),
         ("卡券", TSAsset.Sharemore_wallet.image),
     ]
-    private var groupDataSouce = [[(name: String, iconImage: UIImage)]]()
+    fileprivate var groupDataSouce = [[(name: String, iconImage: UIImage)]]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,12 +72,12 @@ class TSChatShareMoreView: UIView {
         //Calculate the UICollectionViewCell size
         let itemSizeWidth = (UIScreen.width - kLeftRightPadding*2 - layout.minimumLineSpacing*(kItemCountOfRow - 1)) / kItemCountOfRow
         let itemSizeHeight = (self.collectionViewHeightConstraint.constant - kTopBottomPadding*2)/2
-        layout.itemSize = CGSizeMake(itemSizeWidth, itemSizeHeight)
+        layout.itemSize = CGSize(width: itemSizeWidth, height: itemSizeHeight)
         
         self.listCollectionView.collectionViewLayout = layout
-        self.listCollectionView.registerNib(TSChatShareMoreCollectionViewCell.NibObject(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
+        self.listCollectionView.register(TSChatShareMoreCollectionViewCell.NibObject(), forCellWithReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier)
         self.listCollectionView.showsHorizontalScrollIndicator = false
-        self.listCollectionView.pagingEnabled = true
+        self.listCollectionView.isPagingEnabled = true
         
         /**
         The section count is come from the groupDataSource, and The pageControl.numberOfPages is equal to the groupDataSouce.count.
@@ -98,7 +98,7 @@ class TSChatShareMoreView: UIView {
 
 // MARK: - @protocol UICollectionViewDelegate
 extension TSChatShareMoreView: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = self.delegate else {
             return
         }
@@ -118,25 +118,30 @@ extension TSChatShareMoreView: UICollectionViewDelegate {
 
 // MARK: - @protocol UICollectionViewDataSource
 extension TSChatShareMoreView: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.groupDataSouce.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let subArray = self.groupDataSouce.get(section)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let subArray = self.groupDataSouce.get(index: section) else {
+            return 0
+        }
         return subArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TSChatShareMoreCollectionViewCell.identifier, forIndexPath: indexPath) as! TSChatShareMoreCollectionViewCell
-        let subArray = self.groupDataSouce.get(indexPath.section)
-        let item = subArray.get(indexPath.row)
-        cell.itemButton.setImage(item.iconImage, forState: .Normal)
-        cell.itemLabel.text = item.name
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier, for: indexPath) as! TSChatShareMoreCollectionViewCell
+        guard let subArray = self.groupDataSouce.get(index: indexPath.section) else {
+            return TSChatShareMoreCollectionViewCell()
+        }
+        if let item = subArray.get(index: indexPath.row) {
+            cell.itemButton.setImage(item.iconImage, for: .normal)
+            cell.itemLabel.text = item.name
+        }
         return cell
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesBegan start")
         
     }
@@ -144,7 +149,7 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
 
 // MARK: - @protocol UIScrollViewDelegate
 extension TSChatShareMoreView: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth: CGFloat = self.listCollectionView.frame.sizeWidth
         self.pageControl.currentPage = Int(self.listCollectionView.contentOffset.x / pageWidth)
     }

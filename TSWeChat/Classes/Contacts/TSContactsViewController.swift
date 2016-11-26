@@ -19,55 +19,55 @@ class TSContactsViewController: UIViewController {
         didSet{footerLineHeightConstraint.constant = 0.5}
     }
     
-    private var sortedkeys = [String]()  //UITableView 右侧索引栏的 value
-    private var dataDict: Dictionary<String, NSMutableArray>?
+    fileprivate var sortedkeys = [String]()  //UITableView 右侧索引栏的 value
+    fileprivate var dataDict: Dictionary<String, NSMutableArray>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "通讯录"
         self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
 
-        self.listTableView.registerNib(TSContactTableViewCell.NibObject(), forCellReuseIdentifier: TSContactTableViewCell.identifier)
+        self.listTableView.register(TSContactTableViewCell.NibObject(), forCellReuseIdentifier: TSContactTableViewCell.identifier)
         self.listTableView.estimatedRowHeight = 54
-        self.listTableView.sectionIndexColor = UIColor.darkGrayColor()
+        self.listTableView.sectionIndexColor = UIColor.darkGray
         self.listTableView.tableFooterView = self.footerView
 
         self.fetchContactList()
     }
     
     func fetchContactList() {
-        guard let JSONData = NSData.dataFromJSONFile("contact") else { return }
+        guard let JSONData = Data.dataFromJSONFile("contact") else { return }
         let jsonObject = JSON(data: JSONData)
         if jsonObject != JSON.null {
             //创建群聊和公众帐号的数据
             let topArray: NSMutableArray = [
-                ContactModelEnum.NewFriends.model,
-                ContactModelEnum.GroupChat.model,
-                ContactModelEnum.Tags.model,
-                ContactModelEnum.PublicAccout.model,
+                ContactModelEnum.newFriends.model,
+                ContactModelEnum.groupChat.model,
+                ContactModelEnum.tags.model,
+                ContactModelEnum.publicAccout.model,
             ]
             //添加 群聊和公众帐号的数据 的 key
             self.sortedkeys.append("")
             self.dataDict = ["" : topArray]
             
             //解析星标联系人数据
-            if let startArray = jsonObject["data"][0].arrayObject where startArray.count > 0 {
+            if let startArray = jsonObject["data"][0].arrayObject, startArray.count > 0 {
                 let tempList = NSMutableArray()
                 for dict in startArray {
-                    guard let model = TSMapper<ContactModel>().map(dict) else { continue }
-                    tempList.addObject(model)
+                    guard let model = TSMapper<ContactModel>().map(JSON:dict as! [String : Any]) else { continue }
+                    tempList.add(model)
                 }
-                tempList.sortedArrayUsingSelector(#selector(ContactModel.compareContact(_:)))
+                tempList.sortedArray(using: #selector(ContactModel.compareContact(_:)))
                 self.sortedkeys.append("★")
                 self.dataDict = self.dataDict! + ["★" : tempList]
             }
             
             //解析联系人数据
-            if let contactArray = jsonObject["data"][1].arrayObject where contactArray.count > 0 {
+            if let contactArray = jsonObject["data"][1].arrayObject, contactArray.count > 0 {
                 let tempList = NSMutableArray()
                 for dict in contactArray {
-                    guard let model = TSMapper<ContactModel>().map(dict) else { continue }
-                    tempList.addObject(model)
+                    guard let model = TSMapper<ContactModel>().map(JSON:dict as! [String : Any]) else { continue }
+                    tempList.add(model)
                 }
                 
                 self.totalNumberLabel.text = String("\(tempList.count)位联系人")
@@ -77,17 +77,17 @@ class TSContactsViewController: UIViewController {
                 for index in 0..<tempList.count {
                     let contactModel = tempList[index] as! ContactModel
                     guard let nameSpell: String = contactModel.nameSpell else { continue }
-                    let firstLettery: String = nameSpell[0..<1].uppercaseString
+                    let firstLettery: String = nameSpell[0..<1].uppercased()
                     if let letterArray: NSMutableArray = dataSource[firstLettery] {
-                        letterArray.addObject(contactModel)
+                        letterArray.add(contactModel)
                     } else {
                         let tempArray = NSMutableArray()
-                        tempArray.addObject(contactModel)
+                        tempArray.add(contactModel)
                         dataSource[firstLettery] = tempArray
                     }
                 }
-                let sortedKeys = Array(dataSource.keys).sort(<)
-                self.sortedkeys.appendContentsOf(sortedKeys)
+                let sortedKeys = Array(dataSource.keys).sorted(by: <)
+                self.sortedkeys.append(contentsOf: sortedKeys)
                 self.dataDict = self.dataDict! + dataSource
             }
         
@@ -120,8 +120,8 @@ class TSContactsViewController: UIViewController {
 
 // MARK: - @protocol UITableViewDelegate
 extension TSContactsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let section = indexPath.section
         let row = indexPath.row
 //        let key = self.sortedkeys[indexPath.section]
@@ -130,13 +130,13 @@ extension TSContactsViewController: UITableViewDelegate {
         if section == 0 {
             let type = ContactModelEnum(rawValue: row)!
             switch type {
-            case .NewFriends:
+            case .newFriends:
                 break
-            case .GroupChat:
+            case .groupChat:
                 break
-            case .Tags:
+            case .tags:
                 break
-            case .PublicAccout:
+            case .publicAccout:
                 break
             }
         } else {
@@ -148,22 +148,22 @@ extension TSContactsViewController: UITableViewDelegate {
 // MARK: - @protocol UITableViewDataSource
 extension TSContactsViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.sortedkeys.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let key: String = self.sortedkeys[section]
         let dataArray: NSMutableArray = self.dataDict![key]!
         return dataArray.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.listTableView.estimatedRowHeight
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TSContactTableViewCell.identifier, forIndexPath: indexPath) as! TSContactTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TSContactTableViewCell.identifier, for: indexPath) as! TSContactTableViewCell
         //判断一下数组越界问题
         guard indexPath.section < self.sortedkeys.count else { return cell }
         let key: String = self.sortedkeys[indexPath.section]
@@ -172,7 +172,7 @@ extension TSContactsViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return nil
         }
@@ -183,7 +183,7 @@ extension TSContactsViewController: UITableViewDataSource {
         return title
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         guard let _ = self.dataDict else {
             return []
         }

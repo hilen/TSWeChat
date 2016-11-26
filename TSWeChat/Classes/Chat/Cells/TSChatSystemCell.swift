@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let kChatInfoFont: UIFont = UIFont.systemFontOfSize(13)
+private let kChatInfoFont: UIFont = UIFont.systemFont(ofSize: 13)
 private let kChatInfoLabelMaxWdith : CGFloat = UIScreen.width - 40*2
 private let kChatInfoLabelPaddingLeft: CGFloat = 8   //左右分别留出 8 像素的留白
 private let kChatInfoLabelPaddingTop: CGFloat = 4   //上下分别留出 4 像素的留白
@@ -27,17 +27,17 @@ class TSChatSystemCell: UITableViewCell {
         infomationLabel.layer.cornerRadius = 4
         infomationLabel.layer.masksToBounds = true
         infomationLabel.font = kChatInfoFont
-        infomationLabel.textColor = UIColor.whiteColor()
+        infomationLabel.textColor = UIColor.white
         infomationLabel.backgroundColor = UIColor (red: 190/255, green: 190/255, blue: 190/255, alpha: 0.6 )
         }}
     var model: ChatModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None
+        self.selectionStyle = .none
     }
     
-    func setCellContent(model: ChatModel) {
+    func setCellContent(_ model: ChatModel) {
         self.model = model
         self.infomationLabel.text = model.messageContent
     }
@@ -53,7 +53,7 @@ class TSChatSystemCell: UITableViewCell {
         self.infomationLabel.top = kChatInfoLabelMarginTop
     }
     
-    class func layoutHeight(model: ChatModel) -> CGFloat {
+    class func layoutHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -65,7 +65,7 @@ class TSChatSystemCell: UITableViewCell {
         return model.cellHeight
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

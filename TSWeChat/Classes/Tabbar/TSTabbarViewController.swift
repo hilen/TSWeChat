@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TimedSilver
 
 class TSTabbarViewController: UITabBarController {
     
@@ -40,14 +41,14 @@ class TSTabbarViewController: UITabBarController {
         ]
         
         let navigationVCArray = NSMutableArray()
-        for (index, controller) in viewControllerArray.enumerate() {
-            controller.tabBarItem!.title = titleArray.get(index)
-            controller.tabBarItem!.image = normalImagesArray.get(index).imageWithRenderingMode(.AlwaysOriginal)
-            controller.tabBarItem!.selectedImage = selectedImagesArray.get(index).imageWithRenderingMode(.AlwaysOriginal)
-            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()], forState: .Normal)
-            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorNamed: TSColor.tabbarSelectedTextColor)], forState: .Selected)
+        for (index, controller) in viewControllerArray.enumerated() {
+            controller.tabBarItem!.title = titleArray.get(index: index)
+            controller.tabBarItem!.image = normalImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem!.selectedImage = selectedImagesArray.get(index: index).withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
+            controller.tabBarItem!.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorNamed: TSColor.tabbarSelectedTextColor)], for: .selected)
             let navigationController = UINavigationController(rootViewController: controller)
-            navigationVCArray.addObject(navigationController)
+            navigationVCArray.add(navigationController)
         }
         self.viewControllers = navigationVCArray.mutableCopy() as! [UINavigationController]
     }

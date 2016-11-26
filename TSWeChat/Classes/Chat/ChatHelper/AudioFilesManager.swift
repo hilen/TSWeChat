@@ -20,8 +20,8 @@ class AudioFilesManager {
 
      - returns: 返回路径
      */
-    class func amrPathWithName(fileName: String) -> NSURL {
-        let filePath = self.amrFilesFolder.URLByAppendingPathComponent("\(fileName).\(kAudioFileTypeAmr)")
+    class func amrPathWithName(_ fileName: String) -> URL {
+        let filePath = self.amrFilesFolder.appendingPathComponent("\(fileName).\(kAudioFileTypeAmr)")
         return filePath
     }
     
@@ -33,8 +33,8 @@ class AudioFilesManager {
      
      - returns: 返回路径
      */
-    class func wavPathWithName(fileName: String) -> NSURL {
-        let filePath = self.wavFilesFolder.URLByAppendingPathComponent("\(fileName).\(kAudioFileTypeWav)")
+    class func wavPathWithName(_ fileName: String) -> URL {
+        let filePath = self.wavFilesFolder.appendingPathComponent("\(fileName).\(kAudioFileTypeWav)")
         return filePath
     }
     
@@ -47,9 +47,9 @@ class AudioFilesManager {
      
      - returns: 目标路径
      */
-    class func renameFile(originPath: NSURL, destinationPath: NSURL) -> Bool {
+    class func renameFile(_ originPath: URL, destinationPath: URL) -> Bool {
         do {
-            try NSFileManager.defaultManager().moveItemAtPath(originPath.path!, toPath: destinationPath.path!)
+            try FileManager.default.moveItem(atPath: originPath.path, toPath: destinationPath.path)
             return true
         } catch let error as NSError {
             log.error("error:\(error)")
@@ -60,13 +60,13 @@ class AudioFilesManager {
     /**
      创建录音的文件夹
      */
-    class private func createAudioFolder(folderName :String) -> NSURL {
-        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)[0]
-        let folder = documentsDirectory.URLByAppendingPathComponent(folderName)
-        let fileManager = NSFileManager.defaultManager()
-        if !fileManager.fileExistsAtPath(folder.absoluteString) {
+    class fileprivate func createAudioFolder(_ folderName :String) -> URL {
+        let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let folder = documentsDirectory.appendingPathComponent(folderName)
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: folder.absoluteString) {
             do {
-                try fileManager.createDirectoryAtPath(folder.path!, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.createDirectory(atPath: folder.path, withIntermediateDirectories: true, attributes: nil)
                 return folder
             } catch let error as NSError {
                 log.error("error:\(error)")
@@ -78,20 +78,20 @@ class AudioFilesManager {
     /**
      创建录音的文件夹, amr 格式
      */
-    private class var amrFilesFolder: NSURL {
+    fileprivate class var amrFilesFolder: URL {
         get { return self.createAudioFolder(kAmrRecordFolder)}
     }
     
     /**
      创建录音的文件夹, wav 格式
      */
-    private class var wavFilesFolder: NSURL {
+    fileprivate class var wavFilesFolder: URL {
         get { return self.createAudioFolder(kWavRecordFolder)}
     }
     
     class func deleteAllRecordingFiles() {
-        self.deleteFilesWithPath(self.amrFilesFolder.path!)
-        self.deleteFilesWithPath(self.wavFilesFolder.path!)
+        self.deleteFilesWithPath(self.amrFilesFolder.path)
+        self.deleteFilesWithPath(self.wavFilesFolder.path)
     }
     
     /**
@@ -99,10 +99,10 @@ class AudioFilesManager {
      
      - parameter path: 路径
      */
-    private class func deleteFilesWithPath(path: String) {
-        let fileManager = NSFileManager.defaultManager()
+    fileprivate class func deleteFilesWithPath(_ path: String) {
+        let fileManager = FileManager.default
         do {
-            let files = try fileManager.contentsOfDirectoryAtPath(path)
+            let files = try fileManager.contentsOfDirectory(atPath: path)
             var recordings = files.filter( { (name: String) -> Bool in
                 return name.hasSuffix(kAudioFileTypeWav)
             })
@@ -110,7 +110,7 @@ class AudioFilesManager {
                 let path = path + "/" + recordings[i]
                 log.info("removing \(path)")
                 do {
-                    try fileManager.removeItemAtPath(path)
+                    try fileManager.removeItem(atPath: path)
                 } catch let error as NSError {
                     log.info("could not remove \(path)")
                     log.info(error.localizedDescription)

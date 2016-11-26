@@ -32,7 +32,7 @@ class TSWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgba: "#2D3132")
+        self.view.backgroundColor = UIColor.init(ts_hexString: "#2D3132")
         
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = false
@@ -46,21 +46,21 @@ class TSWebViewController: UIViewController {
         }
 
         theWebView.scrollView.bounces = true
-        theWebView.scrollView.scrollEnabled = true
+        theWebView.scrollView.isScrollEnabled = true
         theWebView.navigationDelegate = self
         
-        let urlRequest = NSURLRequest(URL: NSURL(string: URLString!)!)
-        theWebView.loadRequest(urlRequest)
+        let urlRequest = URLRequest(url: URL(string: URLString!)!)
+        theWebView.load(urlRequest)
         self.view.addSubview(theWebView)
         
-        theWebView.addObserver(self, forKeyPath:kKVOContentSizekey, options:.New, context:nil)
-        theWebView.addObserver(self, forKeyPath:kKVOTitlekey, options:.New, context:nil)
+        theWebView.addObserver(self, forKeyPath:kKVOContentSizekey, options:.new, context:nil)
+        theWebView.addObserver(self, forKeyPath:kKVOTitlekey, options:.new, context:nil)
     }
 
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case kKVOContentSizekey?:
-            if let height = change![NSKeyValueChangeNewKey] as? Float {
+            if let height = change![NSKeyValueChangeKey.newKey] as? Float {
                 self.webView?.scrollView.contentSize.height = CGFloat(height)
             }
             break
@@ -68,7 +68,7 @@ class TSWebViewController: UIViewController {
             if self.titleString != nil {
                 return
             }
-            if let title = change![NSKeyValueChangeNewKey] as? String {
+            if let title = change![NSKeyValueChangeKey.newKey] as? String {
                 self.title = title
             }
             break
@@ -90,17 +90,17 @@ class TSWebViewController: UIViewController {
 
 // MARK: - @delegate WKNavigationDelegate
 extension TSWebViewController: WKNavigationDelegate {
-    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: ((WKNavigationResponsePolicy) -> Void)){
-        print(navigationResponse.response.MIMEType)
-        decisionHandler(.Allow)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: (@escaping (WKNavigationResponsePolicy) -> Void)){
+        print(navigationResponse.response.mimeType)
+        decisionHandler(.allow)
     }
 }
 

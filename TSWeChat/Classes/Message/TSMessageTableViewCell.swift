@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TSMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -24,16 +48,16 @@ class TSMessageTableViewCell: UITableViewCell {
         self.unreadNumberLabel.layer.cornerRadius = self.unreadNumberLabel.height / 2.0
     }
 
-    func setCellContnet(model: MessageModel) {
+    func setCellContnet(_ model: MessageModel) {
         self.avatarImageView.ts_setImageWithURLString(model.middleImageURL, placeholderImage: model.messageFromType.placeHolderImage)
         self.unreadNumberLabel.text = model.unreadNumber > 99 ? "99+" : String(model.unreadNumber!)
-        self.unreadNumberLabel.hidden = (model.unreadNumber == 0)
+        self.unreadNumberLabel.isHidden = (model.unreadNumber == 0)
         self.lastMessageLabel.text = model.lastMessage!
         self.dateLabel.text = model.dateString!
         self.nameLabel.text = model.nickname!
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

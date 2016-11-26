@@ -7,7 +7,7 @@
 //
 
 //delegate 代理
-let TSAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+let TSAppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 // 沙盒文档路径
-let kSandDocumentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
+let kSandDocumentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!

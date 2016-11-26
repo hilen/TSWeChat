@@ -16,7 +16,7 @@ extension UISearchBar {
             var button = UIButton()
             for view in self.subviews {
                 for subView in view.subviews {
-                    if subView.isKindOfClass(UIButton) {
+                    if subView.isKind(of: UIButton.self) {
                         button = subView as! UIButton
                         return button
                     }

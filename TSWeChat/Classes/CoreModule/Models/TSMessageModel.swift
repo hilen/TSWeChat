@@ -19,7 +19,7 @@ class MessageModel: NSObject, TSModelProtocol {
     var latestMessage : String? //当且仅当消息类型为 Text 的时候，才有数据，其他类型需要本地造
     var dateString: String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     

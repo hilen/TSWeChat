@@ -17,7 +17,7 @@ import ObjectMapper
     var phone : String?
     var userId : String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -33,7 +33,7 @@ import ObjectMapper
         userId <- map["userid"]
     }
     
-    func compareContact(contactModel: ContactModel) -> NSComparisonResult {
+    func compareContact(_ contactModel: ContactModel) -> ComparisonResult {
         let result = self.nameSpell?.compare(contactModel.nameSpell!)
         return result!
     }
@@ -43,27 +43,27 @@ import ObjectMapper
 
 //通讯录模拟出来的数据
 enum ContactModelEnum: Int {
-    case NewFriends = 0
-    case PublicAccout
-    case GroupChat
-    case Tags
+    case newFriends = 0
+    case publicAccout
+    case groupChat
+    case tags
     
     var model: ContactModel {
         let model = ContactModel()
         switch (self) {
-        case .GroupChat:
+        case .groupChat:
             model.chineseName = "群聊"
             model.avatarSmallURL = "http://ww1.sinaimg.cn/large/6a011e49jw1f18hercci7j2030030glf.jpg"
             return model
-        case .PublicAccout:
+        case .publicAccout:
             model.chineseName = "公众号"
             model.avatarSmallURL = "http://ww2.sinaimg.cn/large/6a011e49jw1f18hkv6i5kj20300303yb.jpg"
             return model
-        case .NewFriends:
+        case .newFriends:
             model.chineseName = "新的朋友"
             model.avatarSmallURL = "http://ww4.sinaimg.cn/large/6a011e49jw1f18hftp0foj2030030dfn.jpg"
             return model
-        case .Tags:
+        case .tags:
             model.chineseName = "标签"
             model.avatarSmallURL = "http://ww2.sinaimg.cn/large/6a011e49jw1f18hh48jr3j2030030743.jpg"
             return model

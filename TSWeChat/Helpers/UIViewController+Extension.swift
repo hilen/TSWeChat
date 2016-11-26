@@ -16,7 +16,7 @@ extension UIViewController {
      - returns: UIViewController
      */
     class func initFromNib() -> UIViewController {
-        let hasNib: Bool = NSBundle.mainBundle().pathForResource(self.nameOfClass, ofType: "nib") != nil
+        let hasNib: Bool = Bundle.main.path(forResource: self.nameOfClass, ofType: "nib") != nil
         guard hasNib else {
             assert(!hasNib, "Invalid parameter") // here
             return UIViewController()
@@ -25,7 +25,7 @@ extension UIViewController {
     }
     
     public static var topViewController: UIViewController? {
-        var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+        var presentedVC = UIApplication.shared.keyWindow?.rootViewController
         while let pVC = presentedVC?.presentedViewController {
             presentedVC = pVC
         }
@@ -36,7 +36,7 @@ extension UIViewController {
         return presentedVC
     }
     
-    private func ts_pushViewController(viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
+    fileprivate func ts_pushViewController(_ viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
         viewController.hidesBottomBarWhenPushed = hideTabbar
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
@@ -44,16 +44,16 @@ extension UIViewController {
     /**
      push
      */
-    public func ts_pushAndHideTabbar(viewController: UIViewController) {
+    public func ts_pushAndHideTabbar(_ viewController: UIViewController) {
         self.ts_pushViewController(viewController, animated: true, hideTabbar: true)
     }
     
     /**
      present
      */
-    public func ts_presentViewController(viewController: UIViewController, completion:(() -> Void)?) {
+    public func ts_presentViewController(_ viewController: UIViewController, completion:(() -> Void)?) {
         let navigationController = UINavigationController(rootViewController: viewController)
-        self.presentViewController(navigationController, animated: true, completion: completion)
+        self.present(navigationController, animated: true, completion: completion)
     }
     
 }

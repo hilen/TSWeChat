@@ -36,23 +36,23 @@ protocol TSChatActionBarViewDelegate: class {
 
 class TSChatActionBarView: UIView {
     enum ChatKeyboardType: Int {
-        case Default, Text, Emotion, Share
+        case `default`, text, emotion, share
     }
     
-    var keyboardType: ChatKeyboardType? = .Default
+    var keyboardType: ChatKeyboardType? = .default
     weak var delegate: TSChatActionBarViewDelegate?
     var inputTextViewCurrentHeight: CGFloat = kChatActionBarOriginalHeight
     
     @IBOutlet weak var inputTextView: UITextView! { didSet{
-        inputTextView.font = UIFont.systemFontOfSize(17)
-        inputTextView.layer.borderColor = UIColor(rgba: "#DADADA").CGColor
+        inputTextView.font = UIFont.systemFont(ofSize: 17)
+        inputTextView.layer.borderColor = UIColor.init(ts_hexString:"#DADADA").cgColor
         inputTextView.layer.borderWidth = 1
         inputTextView.layer.cornerRadius = 5.0
         inputTextView.scrollsToTop = false
         inputTextView.textContainerInset = UIEdgeInsetsMake(7, 5, 5, 5)
-        inputTextView.backgroundColor = UIColor(rgba: "#f8fefb")
-        inputTextView.returnKeyType = .Send
-        inputTextView.hidden = false
+        inputTextView.backgroundColor = UIColor.init(ts_hexString:"#f8fefb")
+        inputTextView.returnKeyType = .send
+        inputTextView.isHidden = false
         inputTextView.enablesReturnKeyAutomatically = true
         inputTextView.layoutManager.allowsNonContiguousLayout = false
         inputTextView.scrollsToTop = false
@@ -68,13 +68,13 @@ class TSChatActionBarView: UIView {
         }}
     
     @IBOutlet weak var recordButton: UIButton! { didSet{
-        recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), forState: .Normal)
-        recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), forState: .Highlighted)
-        recordButton.layer.borderColor = UIColor(rgba: "#C2C3C7").CGColor
+        recordButton.setBackgroundImage(UIImage.ts_imageWithColor(UIColor.init(ts_hexString:"#F3F4F8")), for: .normal)
+        recordButton.setBackgroundImage(UIImage.ts_imageWithColor(UIColor.init(ts_hexString:"#C6C7CB")), for: .highlighted)
+        recordButton.layer.borderColor = UIColor.init(ts_hexString:"#C2C3C7").cgColor
         recordButton.layer.borderWidth = 0.5
         recordButton.layer.cornerRadius = 5.0
         recordButton.layer.masksToBounds = true
-        recordButton.hidden = true
+        recordButton.isHidden = true
         }}
 
     override init (frame: CGRect) {
@@ -94,8 +94,8 @@ class TSChatActionBarView: UIView {
     func initContent() {
         let topBorder = UIView()
         let bottomBorder = UIView()
-        topBorder.backgroundColor = UIColor(rgba: "#C2C3C7")
-        bottomBorder.backgroundColor = UIColor(rgba: "#C2C3C7")
+        topBorder.backgroundColor = UIColor.init(ts_hexString:"#C2C3C7")
+        bottomBorder.backgroundColor = UIColor.init(ts_hexString: "#C2C3C7")
         self.addSubview(topBorder)
         self.addSubview(bottomBorder)
         
@@ -123,23 +123,23 @@ class TSChatActionBarView: UIView {
 extension TSChatActionBarView {
     //重置所有 Button 的图片
     func resetButtonUI() {
-        self.voiceButton.setImage(TSAsset.Tool_voice_1.image, forState: .Normal)
-        self.voiceButton.setImage(TSAsset.Tool_voice_2.image, forState: .Highlighted)
+        self.voiceButton.setImage(TSAsset.Tool_voice_1.image, for: UIControlState())
+        self.voiceButton.setImage(TSAsset.Tool_voice_2.image, for: .highlighted)
         
-        self.emotionButton.setImage(TSAsset.Tool_emotion_1.image, forState: .Normal)
-        self.emotionButton.setImage(TSAsset.Tool_emotion_2.image, forState: .Highlighted)
+        self.emotionButton.setImage(TSAsset.Tool_emotion_1.image, for: UIControlState())
+        self.emotionButton.setImage(TSAsset.Tool_emotion_2.image, for: .highlighted)
         
-        self.shareButton.setImage(TSAsset.Tool_share_1.image, forState: .Normal)
-        self.shareButton.setImage(TSAsset.Tool_share_2.image, forState: .Highlighted)
+        self.shareButton.setImage(TSAsset.Tool_share_1.image, for: UIControlState())
+        self.shareButton.setImage(TSAsset.Tool_share_2.image, for: .highlighted)
     }
     
     //当是表情键盘 或者 分享键盘的时候，此时点击文本输入框，唤醒键盘事件。
     func inputTextViewCallKeyboard() {
-        self.keyboardType = .Text
-        self.inputTextView.hidden = false
+        self.keyboardType = .text
+        self.inputTextView.isHidden = false
         
         //设置接下来按钮的动作
-        self.recordButton.hidden = true
+        self.recordButton.isHidden = true
         self.voiceButton.showTypingKeyboard = false
         self.emotionButton.showTypingKeyboard = false
         self.shareButton.showTypingKeyboard = false
@@ -147,12 +147,12 @@ extension TSChatActionBarView {
 
     //显示文字输入的键盘
     func showTyingKeyboard() {
-        self.keyboardType = .Text
+        self.keyboardType = .text
         self.inputTextView.becomeFirstResponder()
-        self.inputTextView.hidden = false
+        self.inputTextView.isHidden = false
         
         //设置接下来按钮的动作
-        self.recordButton.hidden = true
+        self.recordButton.isHidden = true
         self.voiceButton.showTypingKeyboard = false
         self.emotionButton.showTypingKeyboard = false
         self.shareButton.showTypingKeyboard = false
@@ -160,14 +160,14 @@ extension TSChatActionBarView {
     
     //显示录音
     func showRecording() {
-        self.keyboardType = .Default
+        self.keyboardType = .default
         self.inputTextView.resignFirstResponder()
-        self.inputTextView.hidden = true
+        self.inputTextView.isHidden = true
         if let delegate = self.delegate {
             delegate.chatActionBarRecordVoiceHideKeyboard()
         }
         //设置接下来按钮的动作
-        self.recordButton.hidden = false
+        self.recordButton.isHidden = false
         self.voiceButton.showTypingKeyboard = true
         self.emotionButton.showTypingKeyboard = false
         self.shareButton.showTypingKeyboard = false
@@ -179,37 +179,37 @@ extension TSChatActionBarView {
     通知在  TSChatViewController+Keyboard.swift 中需要对 actionbar 进行重置位置计算
     */
     func showEmotionKeyboard() {
-        self.keyboardType = .Emotion
+        self.keyboardType = .emotion
         self.inputTextView.resignFirstResponder()
-        self.inputTextView.hidden = false
+        self.inputTextView.isHidden = false
         if let delegate = self.delegate {
             delegate.chatActionBarShowEmotionKeyboard()
         }
         
         //设置接下来按钮的动作
-        self.recordButton.hidden = true
+        self.recordButton.isHidden = true
         self.emotionButton.showTypingKeyboard = true
         self.shareButton.showTypingKeyboard = false
     }
     
     //显示分享键盘
     func showShareKeyboard() {
-        self.keyboardType = .Share
+        self.keyboardType = .share
         self.inputTextView.resignFirstResponder()
-        self.inputTextView.hidden = false
+        self.inputTextView.isHidden = false
         if let delegate = self.delegate {
             delegate.chatActionBarShowShareKeyboard()
         }
 
         //设置接下来按钮的动作
-        self.recordButton.hidden = true
+        self.recordButton.isHidden = true
         self.emotionButton.showTypingKeyboard = false
         self.shareButton.showTypingKeyboard = true
     }
     
     //取消输入
     func resignKeyboard() {
-        self.keyboardType = .Default
+        self.keyboardType = .default
         self.inputTextView.resignFirstResponder()
         
         //设置接下来按钮的动作
@@ -225,7 +225,7 @@ extension TSChatActionBarView {
      
      - parameter color: 目标颜色
      */
-    private func changeTextViewCursorColor(color: UIColor) {
+    fileprivate func changeTextViewCursorColor(_ color: UIColor) {
         self.inputTextView.tintColor = color
         UIView.setAnimationsEnabled(false)
         self.inputTextView.resignFirstResponder()

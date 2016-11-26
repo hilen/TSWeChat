@@ -15,17 +15,17 @@ private let kOneGroupCount = 23
 private let kNumberOfOneRow: CGFloat = 8
 
 class TSChatEmotionInputView: UIView {
-    @IBOutlet private weak var emotionPageControl: UIPageControl!
-    @IBOutlet private weak var sendButton: UIButton!{ didSet{
-        sendButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+    @IBOutlet fileprivate weak var emotionPageControl: UIPageControl!
+    @IBOutlet fileprivate weak var sendButton: UIButton!{ didSet{
+        sendButton.layer.borderColor = UIColor.lightGray.cgColor
         sendButton.layer.borderWidth = 0.5
         sendButton.layer.cornerRadius = 3.0
         sendButton.layer.masksToBounds = true
         }}
 
-    @IBOutlet private weak var listCollectionView: TSChatEmotionScollView!
-    private var groupDataSouce = [[EmotionModel]]()  //大数组包含小数组
-    private var emotionsDataSouce = [EmotionModel]()  //Model 数组
+    @IBOutlet fileprivate weak var listCollectionView: TSChatEmotionScollView!
+    fileprivate var groupDataSouce = [[EmotionModel]]()  //大数组包含小数组
+    fileprivate var emotionsDataSouce = [EmotionModel]()  //Model 数组
     internal var delegate: ChatEmotionInputViewDelegate?
 
     required init(coder aDecoder: NSCoder) {
@@ -38,7 +38,7 @@ class TSChatEmotionInputView: UIView {
     }
     
     override func awakeFromNib() {
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         
         //calculate width and height
         let itemWidth = (UIScreen.width - 10 * 2) / kNumberOfOneRow
@@ -48,16 +48,16 @@ class TSChatEmotionInputView: UIView {
         
         //init FlowLayout
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .Horizontal
-        layout.itemSize = CGSizeMake(itemWidth, itemHeight)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, paddingLeft, 0, paddingRight)
         
         //init listCollectionView
         self.listCollectionView.collectionViewLayout = layout
-        self.listCollectionView.registerNib(TSChatEmotionCell.NibObject(), forCellWithReuseIdentifier: TSChatEmotionCell.identifier)
-        self.listCollectionView.pagingEnabled = true
+        self.listCollectionView.register(TSChatEmotionCell.NibObject(), forCellWithReuseIdentifier: TSChatEmotionCell.identifier)
+        self.listCollectionView.isPagingEnabled = true
         self.listCollectionView.emotionScrollDelegate = self
 
         //init dataSource
@@ -74,14 +74,14 @@ class TSChatEmotionInputView: UIView {
         self.emotionPageControl.numberOfPages = self.groupDataSouce.count
     }
     
-    @IBAction func sendTaped(sender: AnyObject) {
+    @IBAction func sendTaped(_ sender: AnyObject) {
         if let delegate = self.delegate {
             delegate.chatEmoticonInputViewDidTapSend()
         }
     }
     
     //transpose line/row
-    private func emoticonForIndexPath(indexPath: NSIndexPath) -> EmotionModel? {
+    fileprivate func emoticonForIndexPath(_ indexPath: IndexPath) -> EmotionModel? {
         let page = indexPath.section
         var index = page * kOneGroupCount + indexPath.row
         
@@ -100,27 +100,27 @@ class TSChatEmotionInputView: UIView {
 
 // MARK: - @protocol UICollectionViewDelegate
 extension TSChatEmotionInputView: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return false
     }
 }
 
 // MARK: - @protocol UICollectionViewDataSource
 extension TSChatEmotionInputView: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.groupDataSouce.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return kOneGroupCount + 1
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TSChatEmotionCell.identifier, forIndexPath: indexPath) as! TSChatEmotionCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TSChatEmotionCell.identifier, for: indexPath) as! TSChatEmotionCell
         if indexPath.row == kOneGroupCount {
             cell.setDeleteCellContnet()
         } else {
@@ -132,12 +132,12 @@ extension TSChatEmotionInputView: UICollectionViewDataSource {
 
 // MARK: - @protocol UIScrollViewDelegate
 extension TSChatEmotionInputView: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth: CGFloat = self.listCollectionView.frame.sizeWidth
         self.emotionPageControl.currentPage = Int(self.listCollectionView.contentOffset.x / pageWidth)
     }
 
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.listCollectionView.hideMagnifierView()
         self.listCollectionView.endBackspaceTimer()
     }
@@ -153,7 +153,7 @@ extension TSChatEmotionInputView: UIInputViewAudioFeedback {
 
 // MARK: - @protocol ChatEmotionScollViewDelegate
 extension TSChatEmotionInputView: ChatEmotionScollViewDelegate {
-    func emoticonScrollViewDidTapCell(cell: TSChatEmotionCell) {
+    func emoticonScrollViewDidTapCell(_ cell: TSChatEmotionCell) {
         guard let delegate = self.delegate else {
             return
         }
@@ -176,14 +176,14 @@ protocol ChatEmotionInputViewDelegate {
      
      - parameter cell: 表情 cell
      */
-    func chatEmoticonInputViewDidTapCell(cell: TSChatEmotionCell)
+    func chatEmoticonInputViewDidTapCell(_ cell: TSChatEmotionCell)
     
     /**
      点击表情退后键
      
      - parameter cell: 退后的 cell
      */
-    func chatEmoticonInputViewDidTapBackspace(cell: TSChatEmotionCell)
+    func chatEmoticonInputViewDidTapBackspace(_ cell: TSChatEmotionCell)
     
     /**
      点击发送键

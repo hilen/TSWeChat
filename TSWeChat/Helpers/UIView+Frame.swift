@@ -65,14 +65,14 @@ extension UIView {
     var centerX: CGFloat {
         get { return self.center.x }
         set {
-            self.center = CGPointMake(newValue, self.center.y)
+            self.center = CGPoint(x: newValue, y: self.center.y)
         }
     }
     
     var centerY: CGFloat {
         get { return self.center.y }
         set {
-            self.center = CGPointMake(self.center.x, newValue)
+            self.center = CGPoint(x: self.center.x, y: newValue)
         }
     }
     

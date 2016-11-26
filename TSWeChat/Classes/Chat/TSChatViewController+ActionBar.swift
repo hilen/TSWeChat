@@ -121,18 +121,18 @@ extension TSChatViewController {
     
     - parameter showExpandable: show or hide expandable inputTextView
     */
-    func controlExpandableInputView(showExpandable showExpandable: Bool) {
+    func controlExpandableInputView(showExpandable: Bool) {
         let textView = self.chatActionBarView.inputTextView
         let currentTextHeight = self.chatActionBarView.inputTextViewCurrentHeight
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let textHeight = showExpandable ? currentTextHeight : kChatActionBarOriginalHeight
             self.chatActionBarView.snp_updateConstraints { (make) -> Void in
                 make.height.equalTo(textHeight)
             }
             self.view.layoutIfNeeded()
             self.listTableView.scrollBottomToLastRow()
-            textView.contentOffset = CGPoint.zero
-        }
+            textView?.contentOffset = CGPoint.zero
+        }) 
     }
 }
 

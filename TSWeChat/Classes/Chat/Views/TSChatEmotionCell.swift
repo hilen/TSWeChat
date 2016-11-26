@@ -19,14 +19,14 @@ class TSChatEmotionCell: UICollectionViewCell {
         self.emotionModel = nil
     }
     
-    func setCellContnet(model: EmotionModel? = nil) {
+    func setCellContnet(_ model: EmotionModel? = nil) {
         guard let model = model else {
             self.emotionImageView.image = nil
             return
         }
         self.emotionModel = model
         self.isDelete = false
-        if let path = TSConfig.ExpressionBundle!.pathForResource(model.imageString, ofType:"png") {
+        if let path = TSConfig.ExpressionBundle!.path(forResource: model.imageString, ofType:"png") {
             self.emotionImageView.image = UIImage(contentsOfFile: path)
         }
     }

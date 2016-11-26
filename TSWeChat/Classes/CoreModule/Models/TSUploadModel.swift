@@ -19,7 +19,7 @@ class UploadImageModel : TSModelProtocol {
     var thumbWidth : CGFloat?
     var imageId : Int?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -44,7 +44,7 @@ class UploadAudioModel : TSModelProtocol {
     var keyHash : String?
     var recordTime : String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     

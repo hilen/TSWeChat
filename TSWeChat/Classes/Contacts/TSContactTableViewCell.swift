@@ -17,12 +17,12 @@ class TSContactTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func setCellContnet(model: ContactModel) {
+    func setCellContnet(_ model: ContactModel) {
         self.avatarImageView.ts_setImageWithURLString(model.avatarSmallURL, placeholderImage: TSAsset.Icon_avatar.image)
         self.usernameLabel.text = model.chineseName
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

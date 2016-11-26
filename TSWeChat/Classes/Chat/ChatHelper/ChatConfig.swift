@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ChatConfig {
+open class ChatConfig {
     /**
      获取缩略图的尺寸
      
@@ -16,7 +16,7 @@ public class ChatConfig {
      
      - returns: 返回的缩略图尺寸
      */
-    class func getThumbImageSize(originalSize: CGSize) -> CGSize {
+    class func getThumbImageSize(_ originalSize: CGSize) -> CGSize {
         
         let imageRealHeight = originalSize.height
         let imageRealWidth = originalSize.width
@@ -37,7 +37,7 @@ public class ChatConfig {
             resizeThumbWidth = kChatImageMaxWidth
         }
         
-        return CGSizeMake(resizeThumbWidth, resizeThumbHeight)
+        return CGSize(width: resizeThumbWidth, height: resizeThumbHeight)
     }
 }
 

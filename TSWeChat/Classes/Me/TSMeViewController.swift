@@ -11,7 +11,7 @@ import UIKit
 class TSMeViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView!
     
-    private let itemDataSouce: [[(name: String, iconImage: UIImage?)]] = [
+    fileprivate let itemDataSouce: [[(name: String, iconImage: UIImage?)]] = [
         [
             ("", nil),
         ],
@@ -34,8 +34,8 @@ class TSMeViewController: UIViewController {
         self.title = "我"
         self.view.backgroundColor = UIColor(colorNamed: TSColor.viewBackgroundColor)
 
-        self.listTableView.registerNib(TSMeAvatarTableViewCell.NibObject(), forCellReuseIdentifier: TSMeAvatarTableViewCell.identifier)
-        self.listTableView.registerNib(TSImageTextTableViewCell.NibObject(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
+        self.listTableView.register(TSMeAvatarTableViewCell.NibObject(), forCellReuseIdentifier: TSMeAvatarTableViewCell.identifier)
+        self.listTableView.register(TSImageTextTableViewCell.NibObject(), forCellReuseIdentifier: TSImageTextTableViewCell.identifier)
         self.listTableView.tableFooterView = UIView()
     }
 
@@ -65,7 +65,7 @@ class TSMeViewController: UIViewController {
 
 // MARK: @protocol - UITableViewDelegate
 extension TSMeViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 15
         } else {
@@ -73,27 +73,27 @@ extension TSMeViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: @protocol - UITableViewDataSource
 extension TSMeViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.itemDataSouce.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rows = self.itemDataSouce[section]
         return rows.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 88.0
         } else {
@@ -101,12 +101,12 @@ extension TSMeViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(TSMeAvatarTableViewCell.identifier, forIndexPath: indexPath) as! TSMeAvatarTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TSMeAvatarTableViewCell.identifier, for: indexPath) as! TSMeAvatarTableViewCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(TSImageTextTableViewCell.identifier, forIndexPath: indexPath) as! TSImageTextTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TSImageTextTableViewCell.identifier, for: indexPath) as! TSImageTextTableViewCell
             let item = self.itemDataSouce[indexPath.section][indexPath.row]
             cell.iconImageView.image = item.iconImage
             cell.titleLabel.text = item.name

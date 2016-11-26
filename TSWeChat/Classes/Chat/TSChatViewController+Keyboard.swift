@@ -24,27 +24,27 @@ extension TSChatViewController {
         /**
          Keyboard notifications
          */
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, name: UIKeyboardWillShowNotification, object: nil, handler: {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardWillShow.rawValue, object: nil, handler: {
             [weak self] observer, notification in
             guard let strongSelf = self else { return }
             strongSelf.listTableView.scrollToBottomAnimated(false)
             strongSelf.keyboardControl(notification, isShowing: true)
             })
         
-        notificationCenter.addObserver(self, name: UIKeyboardDidShowNotification, object: nil, handler: {observer, notification in
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardDidShow.rawValue, object: nil, handler: {observer, notification in
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
             }
         })
         
-        notificationCenter.addObserver(self, name: UIKeyboardWillHideNotification, object: nil, handler: {
+        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardWillHide.rawValue, object: nil, handler: {
             [weak self] observer, notification in
             guard let strongSelf = self else { return }
             strongSelf.keyboardControl(notification, isShowing: false)
             })
         
-        notificationCenter.addObserver(self, name: UIKeyboardDidHideNotification, object: nil, handler: {
+        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardDidHide.rawValue, object: nil, handler: {
             observer, notification in
             })
         
@@ -88,7 +88,7 @@ extension TSChatViewController {
      - parameter notification: NSNotification 对象
      - parameter isShowing:    是否显示键盘？
      */
-    func keyboardControl(notification: NSNotification, isShowing: Bool) {
+    func keyboardControl(_ notification: Notification, isShowing: Bool) {
         /*
         如果是表情键盘或者 分享键盘 ，走自己 delegate 的处理键盘事件。
 
@@ -97,7 +97,7 @@ extension TSChatViewController {
         Button 的点击方法中已经处理了 delegate。
         */
         let keyboardType = self.chatActionBarView.keyboardType
-        if keyboardType == .Emotion || keyboardType == .Share {
+        if keyboardType == .emotion || keyboardType == .share {
             return
         }
         
@@ -105,19 +105,19 @@ extension TSChatViewController {
         处理 Default, Text 的键盘属性
         */
         var userInfo = notification.userInfo!
-        let keyboardRect = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue
-        let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]!.unsignedIntValue
+        let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
+        let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).uint32Value
         
-        let convertedFrame = self.view.convertRect(keyboardRect, fromView: nil)
+        let convertedFrame = self.view.convert(keyboardRect!, from: nil)
         let heightOffset = self.view.bounds.size.height - convertedFrame.origin.y
-        let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16 | UIViewAnimationOptions.BeginFromCurrentState.rawValue)
-        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
+        let options = UIViewAnimationOptions(rawValue: UInt(curve!) << 16 | UIViewAnimationOptions.beginFromCurrentState.rawValue)
+        let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey]! as AnyObject).doubleValue
 
         self.listTableView.stopScrolling()
         self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
 
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration!,
             delay: 0,
             options: options,
             animations: {
@@ -132,16 +132,16 @@ extension TSChatViewController {
     }
     
     //获取键盘的高度
-    func appropriateKeyboardHeight(notification: NSNotification) -> CGFloat {
-        let endFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+    func appropriateKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let endFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         var keyboardHeight: CGFloat = 0.0
-        if notification.name == UIKeyboardWillShowNotification {
-            keyboardHeight = min(CGRectGetWidth(endFrame), CGRectGetHeight(endFrame))
+        if notification.name == NSNotification.Name.UIKeyboardWillShow {
+            keyboardHeight = min(endFrame.width, endFrame.height)
         }
         
         if notification.name == "" {
-            keyboardHeight = CGRectGetHeight(UIScreen.mainScreen().bounds) - endFrame.origin.y
-            keyboardHeight -= CGRectGetHeight(self.tabBarController!.tabBar.frame)
+            keyboardHeight = UIScreen.main.bounds.height - endFrame.origin.y
+            keyboardHeight -= self.tabBarController!.tabBar.frame.height
         }
         return keyboardHeight
     }
@@ -159,15 +159,15 @@ extension TSChatViewController {
     /**
      隐藏自定义键盘，当唤醒的自定义键盘时候，这时候点击切换录音 button。需要隐藏掉
      */
-    private func hideCusttomKeyboard() {
+    fileprivate func hideCusttomKeyboard() {
         let heightOffset: CGFloat = 0
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
+        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
         
-        UIView.animateWithDuration(
-            0.25,
+        UIView.animate(
+            withDuration: 0.25,
             delay: 0,
-            options: .CurveEaseInOut,
+            options: UIViewAnimationOptions(),
             animations: {
                 self.view.layoutIfNeeded()
             },
@@ -202,20 +202,20 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
     func chatActionBarShowEmotionKeyboard() {
         let heightOffset = self.emotionInputView.height
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
+        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
     
-        UIView.animateWithDuration(
-            0.25,
+        UIView.animate(
+            withDuration: 0.25,
             delay: 0,
-            options: .CurveEaseInOut,
+            options: UIViewAnimationOptions(),
             animations: {
                 //表情键盘归位
-                self.emotionInputView.snp_updateConstraints { make in
-                    make.top.equalTo(self.chatActionBarView.snp_bottom).offset(0)
+                self.emotionInputView.snp.updateConstraints { make in
+                    make.top.equalTo(self.chatActionBarView.snp.bottom).offset(0)
                 }
                 //分享键盘隐藏
-                self.shareMoreView.snp_updateConstraints { make in
-                    make.top.equalTo(self.chatActionBarView.snp_bottom).offset(self.view.height)
+                self.shareMoreView.snp.updateConstraints { make in
+                    make.top.equalTo(self.chatActionBarView.snp.bottom).offset(self.view.height)
                 }
                 self.view.layoutIfNeeded()
                 self.listTableView.scrollBottomToLastRow()
@@ -230,14 +230,14 @@ extension TSChatViewController: TSChatActionBarViewDelegate {
     func chatActionBarShowShareKeyboard() {
         let heightOffset = self.shareMoreView.height
         self.listTableView.stopScrolling()
-        self.actionBarPaddingBottomConstranit?.updateOffset(-heightOffset)
+        self.actionBarPaddingBottomConstranit?.updateOffset(amount: -heightOffset)
         
         self.shareMoreView.top = self.view.height
-        self.view.bringSubviewToFront(self.shareMoreView)
-        UIView.animateWithDuration(
-            0.25,
+        self.view.bringSubview(toFront: self.shareMoreView)
+        UIView.animate(
+            withDuration: 0.25,
             delay: 0,
-            options: .CurveEaseInOut,
+            options: UIViewAnimationOptions(),
             animations: {
                 //分享键盘归位，盖在表情键盘上，所以不需要控制表情键盘
                 self.shareMoreView.snp_updateConstraints { make in

@@ -9,13 +9,13 @@
 import Foundation
 
 extension String {
-    func stringHeightWithMaxWidth(maxWidth: CGFloat, font: UIFont) -> CGFloat {
+    func stringHeightWithMaxWidth(_ maxWidth: CGFloat, font: UIFont) -> CGFloat {
         let attributes: [String : AnyObject] = [
             NSFontAttributeName: font,
         ]
-        let size: CGSize = self.boundingRectWithSize(
-            CGSize(width: maxWidth, height: CGFloat.max),
-            options: NSStringDrawingOptions.UsesLineFragmentOrigin,
+        let size: CGSize = self.boundingRect(
+            with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude),
+            options: NSStringDrawingOptions.usesLineFragmentOrigin,
             attributes: attributes,
             context: nil
             ).size

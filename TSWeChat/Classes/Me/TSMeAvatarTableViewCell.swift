@@ -15,16 +15,16 @@ class TSMeAvatarTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.accessoryType = .DisclosureIndicator
+        self.accessoryType = .disclosureIndicator
         
         self.avatarImageView.layer.masksToBounds = true
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.width / 2 / 180 * 30
         self.avatarImageView.layer.borderWidth = 0.5
-        self.avatarImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.avatarImageView.layer.borderColor = UIColor.lightGray.cgColor
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

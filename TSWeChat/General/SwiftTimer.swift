@@ -31,7 +31,7 @@ import Foundation
 private class NSTimerActor {
     let block: () -> Void
     
-    init(_ block: () -> Void) {
+    init(_ block: @escaping () -> Void) {
         self.block = block
     }
     
@@ -40,7 +40,7 @@ private class NSTimerActor {
     }
 }
 
-extension NSTimer {
+extension Timer {
     // NOTE: `new` class functions are a workaround for a crashing bug when using convenience initializers (18720947)
     
     /// Create a timer that will call `block` once after the specified time.
@@ -48,7 +48,7 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.after` to create and schedule a timer in one step.
     
-    public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func new(after interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
         let actor = NSTimerActor(block)
         return self.init(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: false)
     }
@@ -58,23 +58,23 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.every` to create and schedule a timer in one step.
     
-    public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func new(every interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
         let actor = NSTimerActor(block)
         return self.init(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: true)
     }
     
     /// Create and schedule a timer that will call `block` once after the specified time.
     
-    public class func after(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let timer = NSTimer.new(after: interval, block)
+    public class func after(_ interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
+        let timer = Timer.new(after: interval, block)
         timer.start()
         return timer
     }
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
-    public class func every(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let timer = NSTimer.new(every: interval, block)
+    public class func every(_ interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
+        let timer = Timer.new(every: interval, block)
         timer.start()
         return timer
     }
@@ -84,23 +84,23 @@ extension NSTimer {
     /// By default, the timer is scheduled on the current run loop for the default mode.
     /// Specify `runLoop` or `modes` to override these defaults.
     
-    public func start(runLoop runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), modes: String...) {
-        let modes = modes.isEmpty ? [NSDefaultRunLoopMode] : modes
+    public func start(runLoop: RunLoop = RunLoop.current, modes: String...) {
+        let modes = modes.isEmpty ? [RunLoopMode.defaultRunLoopMode] : modes
         
         for mode in modes {
-            runLoop.addTimer(self, forMode: mode)
+            runLoop.add(self, forMode: mode)
         }
     }
 }
 
 extension Double {
-    public var ms:      NSTimeInterval { return self / 1000 }
-    public var second:  NSTimeInterval { return self }
-    public var seconds: NSTimeInterval { return self }
-    public var minute:  NSTimeInterval { return self * 60 }
-    public var minutes: NSTimeInterval { return self * 60 }
-    public var hour:    NSTimeInterval { return self * 3600 }
-    public var hours:   NSTimeInterval { return self * 3600 }
+    public var ms:      TimeInterval { return self / 1000 }
+    public var second:  TimeInterval { return self }
+    public var seconds: TimeInterval { return self }
+    public var minute:  TimeInterval { return self * 60 }
+    public var minutes: TimeInterval { return self * 60 }
+    public var hour:    TimeInterval { return self * 3600 }
+    public var hours:   TimeInterval { return self * 3600 }
 }
 
 

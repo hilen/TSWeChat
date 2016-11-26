@@ -19,14 +19,14 @@ class TSFullyHorizontalFlowLayout: UICollectionViewFlowLayout {
     
     override init() {
         super.init()
-        self.scrollDirection = .Horizontal
+        self.scrollDirection = .horizontal
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes {
         guard let collectionView = self.collectionView else {
             return UICollectionViewLayoutAttributes()
         }
@@ -37,17 +37,17 @@ class TSFullyHorizontalFlowLayout: UICollectionViewFlowLayout {
         let xD: Int = Int(O / nbColumns)
         let yD: Int = O % nbColumns
         let D: Int = xD + yD * nbLines + idxPage * nbColumns * nbLines
-        let fakeIndexPath: NSIndexPath = NSIndexPath(forItem: D, inSection: indexPath.section)
-        let attributes: UICollectionViewLayoutAttributes = super.layoutAttributesForItemAtIndexPath(fakeIndexPath)!
+        let fakeIndexPath: IndexPath = IndexPath(item: D, section: indexPath.section)
+        let attributes: UICollectionViewLayoutAttributes = super.layoutAttributesForItem(at: fakeIndexPath)!
         return attributes
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let newX: CGFloat = min(0, rect.origin.x - rect.size.width / 2)
         let newWidth: CGFloat = rect.size.width * 2 + (rect.origin.x - newX)
-        let newRect: CGRect = CGRectMake(newX, rect.origin.y, newWidth, rect.size.height)
+        let newRect: CGRect = CGRect(x: newX, y: rect.origin.y, width: newWidth, height: rect.size.height)
         
-        let attributes = super.layoutAttributesForElementsInRect(newRect)!
+        let attributes = super.layoutAttributesForElements(in: newRect)!
         var attributesCopy = [UICollectionViewLayoutAttributes]()
         
         for itemAttributes in attributes {
@@ -56,25 +56,25 @@ class TSFullyHorizontalFlowLayout: UICollectionViewFlowLayout {
         }
         
         return attributesCopy.map { attr in
-            let newAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(attr.indexPath)
+            let newAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: attr.indexPath)
             attr.frame = newAttr.frame
             attr.center = newAttr.center
             attr.bounds = newAttr.bounds
-            attr.hidden = newAttr.hidden
+            attr.isHidden = newAttr.isHidden
             attr.size = newAttr.size
             return attr
         }
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    override func collectionViewContentSize() -> CGSize {
-        let size: CGSize = super.collectionViewContentSize()
+    override var collectionViewContentSize : CGSize {
+        let size: CGSize = super.collectionViewContentSize
         let collectionViewWidth: CGFloat = self.collectionView!.frame.size.width
         let nbOfScreens: Int = Int(ceil((size.width / collectionViewWidth)))
-        let newSize: CGSize = CGSizeMake(collectionViewWidth * CGFloat(nbOfScreens), size.height)
+        let newSize: CGSize = CGSize(width: collectionViewWidth * CGFloat(nbOfScreens), height: size.height)
         return newSize
     }
 }

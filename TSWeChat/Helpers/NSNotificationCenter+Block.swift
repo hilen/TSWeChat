@@ -11,10 +11,10 @@
 
 import Foundation
 
-public extension NSNotificationCenter {
-    func addObserver<T: AnyObject>(observer: T, name aName: String?, object anObject: AnyObject?, queue: NSOperationQueue? = NSOperationQueue.mainQueue(), handler: (observer: T, notification: NSNotification) -> Void) -> AnyObject {
-        let observation = addObserverForName(aName, object: anObject, queue: queue) { [unowned observer] note in
-            handler(observer: observer, notification: note)
+public extension NotificationCenter {
+    func addObserver<T: AnyObject>(_ observer: T, name aName: String?, object anObject: AnyObject?, queue: OperationQueue? = OperationQueue.main, handler: @escaping (_ observer: T, _ notification: Notification) -> Void) -> AnyObject {
+        let observation = self.addObserver(forName: aName.map { NSNotification.Name(rawValue: $0) }, object: anObject, queue: queue) { [unowned observer] note in
+            handler(observer, note)
         }
         
         ObservationRemover(observation).makeRetainedBy(observer)
@@ -31,21 +31,21 @@ private class ObservationRemover: NSObject {
         super.init()
     }
     
-    func makeRetainedBy(owner: AnyObject) {
-        observationRemoversForObject(owner).addObject(self)
+    func makeRetainedBy(_ owner: AnyObject) {
+        observationRemoversForObject(owner).add(self)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(observation)
+        NotificationCenter.default.removeObserver(observation)
     }
 }
 
-private var ObservationRemoverKey: UnsafePointer<Void> = nil
+private var ObservationRemoverKey: UnsafeRawPointer? = nil
 
-private func observationRemoversForObject(object: AnyObject) -> NSMutableArray {
+private func observationRemoversForObject(_ object: AnyObject) -> NSMutableArray {
     if ObservationRemoverKey == nil {
-        withUnsafePointer(&ObservationRemoverKey) { pointer in
-            ObservationRemoverKey = UnsafePointer<Void>(pointer)
+        withUnsafePointer(to: &ObservationRemoverKey) { pointer in
+            ObservationRemoverKey = UnsafeRawPointer(pointer)
         }
     }
     

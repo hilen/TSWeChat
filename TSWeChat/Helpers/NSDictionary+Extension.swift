@@ -13,7 +13,7 @@ public extension Dictionary {
     /// values of the keys that are already set
     ///
     /// :param dictionaries A comma seperated list of dictionaries
-    mutating func merge<K, V>(dictionaries: Dictionary<K, V>...) {
+    mutating func merge<K, V>(_ dictionaries: Dictionary<K, V>...) {
         for dict in dictionaries {
             for (key, value) in dict {
                 self.updateValue(value as! Value, forKey: key as! Key)
@@ -21,7 +21,7 @@ public extension Dictionary {
         }
     }
     
-    func combine(targetDictionary: Dictionary<String, AnyObject>, resultDictionary: Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject> {
+    func combine(_ targetDictionary: Dictionary<String, AnyObject>, resultDictionary: Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject> {
         var temp = resultDictionary
         for (key, value) in targetDictionary {
             temp[key] = value

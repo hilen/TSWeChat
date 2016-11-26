@@ -26,8 +26,8 @@ class TSChatImageCell: TSChatBaseCell {
         //图片点击
         let tap = UITapGestureRecognizer()
         self.chatImageView.addGestureRecognizer(tap)
-        self.chatImageView.userInteractionEnabled = true
-        tap.rx_event.subscribeNext{[weak self] _ in
+        self.chatImageView.isUserInteractionEnabled = true
+        tap.rx.event.subscribe {[weak self] _ in
             if let strongSelf = self {
                 guard let delegate = strongSelf.delegate else {
                     return
@@ -37,7 +37,7 @@ class TSChatImageCell: TSChatBaseCell {
         }.addDisposableTo(self.disposeBag)
     }
     
-    override func setCellContent(model: ChatModel) {
+    override func setCellContent(_ model: ChatModel) {
         super.setCellContent(model)
         if let localThumbnailImage = model.imageModel!.localThumbnailImage {
             self.chatImageView.image = localThumbnailImage
@@ -69,7 +69,7 @@ class TSChatImageCell: TSChatBaseCell {
         }
         
         //根据原图尺寸等比获取缩略图的 size
-        let originalSize = CGSizeMake(imageOriginalWidth, imageOriginalHeight)
+        let originalSize = CGSize(width: imageOriginalWidth, height: imageOriginalHeight)
         self.chatImageView.size = ChatConfig.getThumbImageSize(originalSize)
         
         if model.fromMe {
@@ -87,14 +87,14 @@ class TSChatImageCell: TSChatBaseCell {
          */
         let stretchInsets = UIEdgeInsetsMake(30, 28, 23, 28)
         let stretchImage = model.fromMe ? TSAsset.SenderImageNodeMask.image : TSAsset.ReceiverImageNodeMask.image
-        let bubbleMaskImage = stretchImage.resizableImageWithCapInsets(stretchInsets, resizingMode: .Stretch)
+        let bubbleMaskImage = stretchImage.resizableImage(withCapInsets: stretchInsets, resizingMode: .stretch)
         
         //设置图片的 mask layer
         let layer = CALayer()
-        layer.contents = bubbleMaskImage.CGImage
+        layer.contents = bubbleMaskImage.cgImage
         layer.contentsCenter = self.CGRectCenterRectForResizableImage(bubbleMaskImage)
-        layer.frame = CGRectMake(0, 0, self.chatImageView.width, self.chatImageView.height)
-        layer.contentsScale = UIScreen.mainScreen().scale
+        layer.frame = CGRect(x: 0, y: 0, width: self.chatImageView.width, height: self.chatImageView.height)
+        layer.contentsScale = UIScreen.main.scale
         layer.opacity = 1
         self.chatImageView.layer.mask = layer
         self.chatImageView.layer.masksToBounds = true
@@ -103,17 +103,17 @@ class TSChatImageCell: TSChatBaseCell {
          绘制 coverImage，盖住图片
          */
         let stretchConverImage = model.fromMe ? TSAsset.SenderImageNodeBorder.image : TSAsset.ReceiverImageNodeBorder.image
-        let bubbleConverImage = stretchConverImage.resizableImageWithCapInsets(stretchInsets, resizingMode: .Stretch)
+        let bubbleConverImage = stretchConverImage.resizableImage(withCapInsets: stretchInsets, resizingMode: .stretch)
         self.coverImageView.image = bubbleConverImage
-        self.coverImageView.frame = CGRectMake(
-            self.chatImageView.left - 1,
-            self.chatImageView.top,
-            self.chatImageView.width + 2,
-            self.chatImageView.height + 2
+        self.coverImageView.frame = CGRect(
+            x: self.chatImageView.left - 1,
+            y: self.chatImageView.top,
+            width: self.chatImageView.width + 2,
+            height: self.chatImageView.height + 2
         )
     }
     
-    class func layoutHeight(model: ChatModel) -> CGFloat {
+    class func layoutHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -143,7 +143,7 @@ class TSChatImageCell: TSChatBaseCell {
         return model.cellHeight
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -157,29 +157,29 @@ class TSChatImageCell: TSChatBaseCell {
     }
     */
     
-    func CGRectCenterRectForResizableImage(image: UIImage) -> CGRect {
-        return CGRectMake(
-            image.capInsets.left / image.size.width,
-            image.capInsets.top / image.size.height,
-            (image.size.width - image.capInsets.right - image.capInsets.left) / image.size.width,
-            (image.size.height - image.capInsets.bottom - image.capInsets.top) / image.size.height
+    func CGRectCenterRectForResizableImage(_ image: UIImage) -> CGRect {
+        return CGRect(
+            x: image.capInsets.left / image.size.width,
+            y: image.capInsets.top / image.size.height,
+            width: (image.size.width - image.capInsets.right - image.capInsets.left) / image.size.width,
+            height: (image.size.height - image.capInsets.bottom - image.capInsets.top) / image.size.height
         )
     }
     
-    func _maskImage(image: UIImage, maskImage: UIImage) -> UIImage {
-        let maskRef: CGImageRef = maskImage.CGImage!
-        let mask: CGImageRef = CGImageMaskCreate(
-            CGImageGetWidth(maskRef),
-            CGImageGetHeight(maskRef),
-            CGImageGetBitsPerComponent(maskRef),
-            CGImageGetBitsPerPixel(maskRef),
-            CGImageGetBytesPerRow(maskRef),
-            CGImageGetDataProvider(maskRef),
-            nil,
-            false
+    func _maskImage(_ image: UIImage, maskImage: UIImage) -> UIImage {
+        let maskRef: CGImage = maskImage.cgImage!
+        let mask: CGImage = CGImage(
+            maskWidth: maskRef.width,
+            height: maskRef.height,
+            bitsPerComponent: maskRef.bitsPerComponent,
+            bitsPerPixel: maskRef.bitsPerPixel,
+            bytesPerRow: maskRef.bytesPerRow,
+            provider: maskRef.dataProvider!,
+            decode: nil,
+            shouldInterpolate: false
         )!
-        let maskedImageRef: CGImageRef = CGImageCreateWithMask(image.CGImage, mask)!
-        let maskedImage: UIImage = UIImage(CGImage:maskedImageRef)
+        let maskedImageRef: CGImage = (image.cgImage)!.masking(mask)!
+        let maskedImage: UIImage = UIImage(cgImage:maskedImageRef)
         // returns new image with mask applied
         return maskedImage
     }

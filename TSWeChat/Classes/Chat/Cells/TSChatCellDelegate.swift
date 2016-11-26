@@ -12,30 +12,30 @@ import Foundation
     /**
      点击了 cell 本身
      */
-    optional func cellDidTaped(cell: TSChatBaseCell)
+    @objc optional func cellDidTaped(_ cell: TSChatBaseCell)
 
     /**
      点击了 cell 的头像
      */
-    func cellDidTapedAvatarImage(cell: TSChatBaseCell)
+    func cellDidTapedAvatarImage(_ cell: TSChatBaseCell)
 
     /**
      点击了 cell 的图片
      */
-    func cellDidTapedImageView(cell: TSChatBaseCell)
+    func cellDidTapedImageView(_ cell: TSChatBaseCell)
     
     /**
      点击了 cell 中文字的 URL
      */
-    func cellDidTapedLink(cell: TSChatBaseCell, linkString: String)
+    func cellDidTapedLink(_ cell: TSChatBaseCell, linkString: String)
 
     /**
      点击了 cell 中文字的 电话
      */
-    func cellDidTapedPhone(cell: TSChatBaseCell, phoneString: String)
+    func cellDidTapedPhone(_ cell: TSChatBaseCell, phoneString: String)
     
     /**
      点击了声音 cell 的播放 button
      */
-    func cellDidTapedVoiceButton(cell: TSChatVoiceCell, isPlayingVoice: Bool)
+    func cellDidTapedVoiceButton(_ cell: TSChatVoiceCell, isPlayingVoice: Bool)
 }

@@ -28,7 +28,7 @@ class ChatAudioModel : NSObject, TSModelProtocol {
         super.init()
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -69,7 +69,7 @@ class ChatImageModel : NSObject, TSModelProtocol {
         super.init()
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     

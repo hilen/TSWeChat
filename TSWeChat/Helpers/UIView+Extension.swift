@@ -14,7 +14,7 @@ extension UIView {
      主要用于获取 Cell 的 Nib 对象，用于 registerNib
      */
     class func NibObject() -> UINib {
-        let hasNib: Bool = NSBundle.mainBundle().pathForResource(self.nameOfClass, ofType: "nib") != nil
+        let hasNib: Bool = Bundle.main.path(forResource: self.nameOfClass, ofType: "nib") != nil
         guard hasNib else {
             assert(!hasNib, "Invalid parameter") // assert
             return UINib()
@@ -23,22 +23,22 @@ extension UIView {
     }
     
     
-    class func fromNib<T : UIView>(nibNameOrNil: String? = nil) -> T {
+    class func fromNib<T : UIView>(_ nibNameOrNil: String? = nil) -> T {
         let v: T? = fromNib(nibNameOrNil)
         return v!
     }
     
-    class func fromNib<T : UIView>(nibNameOrNil: String? = nil) -> T? {
+    class func fromNib<T : UIView>(_ nibNameOrNil: String? = nil) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {
             name = nibName
         } else {
             // Most nibs are demangled by practice, if not, just declare string explicitly
-            name = "\(T.self)".componentsSeparatedByString(".").last!
+            name = "\(T.self)".components(separatedBy: ".").last!
         }
-        let nibViews = NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)
-        for v in nibViews {
+        let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
+        for v in nibViews! {
             if let tog = v as? T {
                 view = tog
             }

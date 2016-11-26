@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */; };
+		69BF07AD42EB3D03A06DA8A5 /* Pods_TSWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDE4F6B7BF2C153C58B4744 /* Pods_TSWeChat.framework */; };
 		AE040A9F1C990B4A003A764D /* TSLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE040A9E1C990B4A003A764D /* TSLocationManager.swift */; };
 		AE3CBC551C854B90008BA4AC /* TSChatDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */; };
 		AE3CBC5A1C858C3F008BA4AC /* TSChatViewController+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */; };
@@ -33,7 +33,6 @@
 		AE69C77C1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69C77B1C8FD32C00D929CD /* TSFullyHorizontalFlowLayout.swift */; };
 		AE87425C1C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */; };
 		AE87425D1C7AE0F1003A435C /* TSUIImage+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */; };
-		AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */; };
 		AE87425F1C7AE0F1003A435C /* TSUIColor+WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */; };
 		AE8742601C7AE0F1003A435C /* TSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742581C7AE0F1003A435C /* TSImagePicker.swift */; };
 		AE8742611C7AE0F1003A435C /* TSProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */; };
@@ -58,7 +57,6 @@
 		AE8F49B11C46A905009C1541 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */; };
 		AE8F49B21C46A905009C1541 /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A31C46A905009C1541 /* NSObject+String.swift */; };
 		AE8F49B31C46A905009C1541 /* UIBarButtonItem+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */; };
-		AE8F49B41C46A905009C1541 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */; };
 		AE8F49B51C46A905009C1541 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */; };
 		AE8F49B61C46A905009C1541 /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */; };
 		AE8F49B81C46A905009C1541 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8F49A91C46A905009C1541 /* UIView+Extension.swift */; };
@@ -96,7 +94,6 @@
 		AEE69A5A1C7CB07C00C69224 /* Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEE69A591C7CB07C00C69224 /* Expression.plist */; };
 		AEE69B251C7CB2AF00C69224 /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AEE69B241C7CB2AF00C69224 /* Expression.bundle */; };
 		AEE69B621C81997500C69224 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */; };
-		AEE69B631C81997500C69224 /* String+Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B601C81997500C69224 /* String+Crypto.swift */; };
 		AEE69B641C81997500C69224 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B611C81997500C69224 /* String+Extension.swift */; };
 		AEE69B661C81999E00C69224 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */; };
 		AEE69BA01C81B58600C69224 /* TSChatBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69B691C81B58600C69224 /* TSChatBaseCell.swift */; };
@@ -162,7 +159,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0A115624D01BDFF95A5161 /* Pods-TSWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.release.xcconfig"; sourceTree = "<group>"; };
 		AE040A9E1C990B4A003A764D /* TSLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLocationManager.swift; sourceTree = "<group>"; };
 		AE3CBC541C854B90008BA4AC /* TSChatDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatDataManager.swift; sourceTree = "<group>"; };
 		AE3CBC591C858C3F008BA4AC /* TSChatViewController+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSChatViewController+TestData.swift"; sourceTree = "<group>"; };
@@ -189,7 +186,6 @@
 		AE69C77D1C8FD94A00D929CD /* wechat.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = wechat.playground; sourceTree = "<group>"; };
 		AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImageVIew+WeChat.swift"; sourceTree = "<group>"; };
 		AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIImage+WeChat.swift"; sourceTree = "<group>"; };
-		AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSUserDefaults.swift; sourceTree = "<group>"; };
 		AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TSUIColor+WeChat.swift"; sourceTree = "<group>"; };
 		AE8742581C7AE0F1003A435C /* TSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImagePicker.swift; sourceTree = "<group>"; };
 		AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSProgressHUD.swift; sourceTree = "<group>"; };
@@ -214,7 +210,6 @@
 		AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
 		AE8F49A31C46A905009C1541 /* NSObject+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+String.swift"; sourceTree = "<group>"; };
 		AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Block.swift"; sourceTree = "<group>"; };
-		AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		AE8F49A91C46A905009C1541 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -257,7 +252,6 @@
 		AEE69A591C7CB07C00C69224 /* Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expression.plist; sourceTree = "<group>"; };
 		AEE69B241C7CB2AF00C69224 /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
 		AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
-		AEE69B601C81997500C69224 /* String+Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Crypto.swift"; sourceTree = "<group>"; };
 		AEE69B611C81997500C69224 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		AEE69B691C81B58600C69224 /* TSChatBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatBaseCell.swift; sourceTree = "<group>"; };
@@ -310,8 +304,8 @@
 		AEE69C171C81B92700C69224 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AEE69C1A1C81B97F00C69224 /* TSWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSWebViewController.swift; sourceTree = "<group>"; };
 		AEE69C1E1C81BF1F00C69224 /* TSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSConfig.swift; sourceTree = "<group>"; };
-		D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.release.xcconfig"; sourceTree = "<group>"; };
-		F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEDE4F6B7BF2C153C58B4744 /* Pods_TSWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE685E6D2F38288FF2725A99 /* Pods-TSWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,7 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				521AD1D46345C1A90F878475 /* Pods_TSWeChat.framework in Frameworks */,
+				69BF07AD42EB3D03A06DA8A5 /* Pods_TSWeChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,11 +327,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18FCDE5FEB0C6C5536DF0CBA /* Pods */ = {
+		74663A5ED5DFB8BB9D29510D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */,
-				D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */,
+				FE685E6D2F38288FF2725A99 /* Pods-TSWeChat.debug.xcconfig */,
+				3A0A115624D01BDFF95A5161 /* Pods-TSWeChat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -417,10 +411,8 @@
 				AE8F49A21C46A905009C1541 /* NSNotificationCenter+Block.swift */,
 				AE8F49A31C46A905009C1541 /* NSObject+String.swift */,
 				AEE69B5F1C81997500C69224 /* PHAsset+Extension.swift */,
-				AEE69B601C81997500C69224 /* String+Crypto.swift */,
 				AEE69B611C81997500C69224 /* String+Extension.swift */,
 				AE8F49A41C46A905009C1541 /* UIBarButtonItem+Block.swift */,
-				AE8F49A51C46A905009C1541 /* UIImage+Extension.swift */,
 				AEE69B651C81999E00C69224 /* UIImage+Orientation.swift */,
 				AE8F49A61C46A905009C1541 /* UIScreen+Extension.swift */,
 				AE8F49A71C46A905009C1541 /* UISearchBar+Extension.swift */,
@@ -437,8 +429,8 @@
 				AE92B5E31C3FF73000968A3A /* TSWeChat */,
 				AE92B5F81C3FF73000968A3A /* TSWeChatTests */,
 				AE92B5E21C3FF73000968A3A /* Products */,
-				FB51EDC618380CF0CB9A05BC /* Frameworks */,
-				18FCDE5FEB0C6C5536DF0CBA /* Pods */,
+				74663A5ED5DFB8BB9D29510D /* Pods */,
+				CFBA8E35C9A514AC427FEB7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -498,7 +490,6 @@
 				AEE69C131C81B68500C69224 /* TSLogger.swift */,
 				AE8742541C7AE0F1003A435C /* TSUIImageVIew+WeChat.swift */,
 				AE8742551C7AE0F1003A435C /* TSUIImage+WeChat.swift */,
-				AE8742561C7AE0F1003A435C /* TSUserDefaults.swift */,
 				AE8742571C7AE0F1003A435C /* TSUIColor+WeChat.swift */,
 				AE8742581C7AE0F1003A435C /* TSImagePicker.swift */,
 				AE8742591C7AE0F1003A435C /* TSProgressHUD.swift */,
@@ -714,10 +705,10 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
-		FB51EDC618380CF0CB9A05BC /* Frameworks */ = {
+		CFBA8E35C9A514AC427FEB7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0917A01A536A5EE41BF160D /* Pods_TSWeChat.framework */,
+				EEDE4F6B7BF2C153C58B4744 /* Pods_TSWeChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -729,12 +720,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE92B5FE1C3FF73000968A3A /* Build configuration list for PBXNativeTarget "TSWeChat" */;
 			buildPhases = (
-				333F8A69197CBA2F78BBB29A /* Check Pods Manifest.lock */,
+				A1D46E6E1A79A6D8082396D7 /* [CP] Check Pods Manifest.lock */,
 				AE92B5DD1C3FF73000968A3A /* Sources */,
 				AE92B5DE1C3FF73000968A3A /* Frameworks */,
 				AE92B5DF1C3FF73000968A3A /* Resources */,
-				9680021210E15A4A2681EDFB /* Embed Pods Frameworks */,
-				751D460FDFD59FFE4D35526B /* Copy Pods Resources */,
+				A4299EA1E4F2C96BC7D82600 /* [CP] Embed Pods Frameworks */,
+				F758FCFA19DEB030869A3AED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -776,9 +767,11 @@
 				TargetAttributes = {
 					AE92B5E01C3FF73000968A3A = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 					};
 					AE92B5F41C3FF73000968A3A = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = AE92B5E01C3FF73000968A3A;
 					};
 				};
@@ -862,49 +855,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		333F8A69197CBA2F78BBB29A /* Check Pods Manifest.lock */ = {
+		A1D46E6E1A79A6D8082396D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		751D460FDFD59FFE4D35526B /* Copy Pods Resources */ = {
+		A4299EA1E4F2C96BC7D82600 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9680021210E15A4A2681EDFB /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F758FCFA19DEB030869A3AED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSWeChat/Pods-TSWeChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -960,7 +953,6 @@
 				AEE69BA61C81B58600C69224 /* TSChatTextCell.swift in Sources */,
 				AE92B8AE1C3FFC5D00968A3A /* TSTabbarViewController.swift in Sources */,
 				AEE69BBA1C81B58600C69224 /* UIScrollView+ChatAdditions.swift in Sources */,
-				AE8F49B41C46A905009C1541 /* UIImage+Extension.swift in Sources */,
 				AE8742791C7AE48A003A435C /* NSDate+Extension.swift in Sources */,
 				AEBEE59C1C86F13D00956B0C /* HttpManager.swift in Sources */,
 				AEE69BAA1C81B58600C69224 /* TSChatVoiceCell.swift in Sources */,
@@ -973,7 +965,6 @@
 				AEE69BCE1C81B58600C69224 /* TSChatShareMoreCollectionViewCell.swift in Sources */,
 				AE8742741C7AE23E003A435C /* TSMessageModel.swift in Sources */,
 				AEE69BBB1C81B58600C69224 /* UITableView+ChatAdditions.swift in Sources */,
-				AEE69B631C81997500C69224 /* String+Crypto.swift in Sources */,
 				AEE69BAF1C81B58600C69224 /* AudioPlayManager.swift in Sources */,
 				AEE69BC31C81B58600C69224 /* TSChatViewController+Keyboard.swift in Sources */,
 				AEBEE5971C86B90600956B0C /* TSGlobalHelper.swift in Sources */,
@@ -997,7 +988,6 @@
 				AEE69BD31C81B58600C69224 /* TSChatVoiceIndicatorView.swift in Sources */,
 				AEBEE5AE1C8754BD00956B0C /* TSChatSystemEdgeLabel.swift in Sources */,
 				AEE69BB91C81B58600C69224 /* TSYYTextLinePositionModifier.swift in Sources */,
-				AE87425E1C7AE0F1003A435C /* TSUserDefaults.swift in Sources */,
 				AEE69BBF1C81B58600C69224 /* TSChatViewController+ActionBar.swift in Sources */,
 				AE8F49B01C46A905009C1541 /* NSDictionary+Extension.swift in Sources */,
 				AE8742911C7B3547003A435C /* TSContactTableViewCell.swift in Sources */,
@@ -1117,7 +1107,7 @@
 		};
 		AE92B5FF1C3FF73000968A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 879C4C7737B3D4DA6504869D /* Pods-TSWeChat.debug.xcconfig */;
+			baseConfigurationReference = FE685E6D2F38288FF2725A99 /* Pods-TSWeChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1133,12 +1123,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		AE92B6001C3FF73000968A3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7650798F0716EAD00AA686A /* Pods-TSWeChat.release.xcconfig */;
+			baseConfigurationReference = 3A0A115624D01BDFF95A5161 /* Pods-TSWeChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1154,6 +1145,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1165,6 +1157,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSWeChat.app/TSWeChat";
 			};
 			name = Debug;
@@ -1177,6 +1170,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSWeChat.app/TSWeChat";
 			};
 			name = Release;

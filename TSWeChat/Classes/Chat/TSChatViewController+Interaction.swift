@@ -25,9 +25,9 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
             }, cancel: { (assets: [PHAsset]) -> Void in
                 print("Cancel: \(assets)")
             }, finish: {[weak self] (assets: [PHAsset]) -> Void in
-                print("Finish: \(assets.get(0))")
+                print("Finish: \(assets.get(index: 0))")
                 guard let strongSelf = self else { return }
-                if let image = assets.get(0).getUIImage() {
+                if let image = assets.get(index: 0).getUIImage() {
                     strongSelf.resizeAndSendImage(image)
                 }
             }, completion: { () -> Void in
@@ -37,19 +37,19 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     
     //选择打开相机
     func chatShareMoreViewCameraTaped() {
-        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-        if authStatus == .NotDetermined {
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        if authStatus == .notDetermined {
             self.checkCameraPermission()
-        } else if authStatus == .Restricted || authStatus == .Denied {
+        } else if authStatus == .restricted || authStatus == .denied {
             TSAlertView_show("无法访问您的相机", message: "请到设置 -> 隐私 -> 相机 ，打开访问权限" )
-        } else if authStatus == .Authorized {
+        } else if authStatus == .authorized {
             self.openCamera()
         }
     }
     
     
     func checkCameraPermission () {
-        AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: {granted in
+        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: {granted in
             if !granted {
                 TSAlertView_show("无法访问您的相机", message: "请到设置 -> 隐私 -> 相机 ，打开访问权限" )
             }
@@ -59,18 +59,18 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     func openCamera() {
         self.imagePicker =  UIImagePickerController()
         self.imagePicker.delegate = self
-        self.imagePicker.sourceType = .Camera
-        self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        self.imagePicker.sourceType = .camera
+        self.present(self.imagePicker, animated: true, completion: nil)
     }
     
     //处理图片，并且发送图片消息
-    func resizeAndSendImage(theImage: UIImage) {
+    func resizeAndSendImage(_ theImage: UIImage) {
         let originalImage = UIImage.fixImageOrientation(theImage)
-        let storeKey = "send_image"+String(format: "%f", NSDate.milliseconds)
+        let storeKey = "send_image"+String(format: "%f", Date.milliseconds)
         let thumbSize = ChatConfig.getThumbImageSize(originalImage.size)
         
         //获取缩略图失败 ，抛出异常：发送失败
-        guard let thumbNail = originalImage.resize(thumbSize) else { return }
+        guard let thumbNail = originalImage.ts_resize(thumbSize) else { return }
         ImageFilesManager.storeImage(thumbNail, key: storeKey, completionHandler: { [weak self] in
             guard let strongSelf = self else { return }
             //发送图片消息
@@ -91,11 +91,11 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
                 sendImageModel.imageWidth = model.originalWidth
                 sendImageModel.thumbURL = model.thumbURL
                 sendImageModel.originalURL = model.originalURL
-                sendImageModel.imageId = String(model.imageId)
+                sendImageModel.imageId = String(describing: model.imageId)
                 
                 //修改缩略图的名称
-                let tempStorePath = NSURL(string:ImageFilesManager.cachePathForKey(storeKey)!)
-                let targetStorePath = NSURL(string:ImageFilesManager.cachePathForKey(sendImageModel.thumbURL!)!)
+                let tempStorePath = URL(string:ImageFilesManager.cachePathForKey(storeKey)!)
+                let targetStorePath = URL(string:ImageFilesManager.cachePathForKey(sendImageModel.thumbURL!)!)
                 ImageFilesManager.renameFile(tempStorePath!, destinationPath: targetStorePath!)
             }, failure: {
                     
@@ -108,19 +108,19 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
 // MARK: - @protocol UIImagePickerControllerDelegate
 // 拍照完成，进行上传图片，并且发送的请求
 extension TSChatViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let mediaType = info[UIImagePickerControllerMediaType] as? NSString else { return }
-        if mediaType.isEqualToString(kUTTypeImage as String) {
+        if mediaType.isEqual(to: kUTTypeImage as String) {
             guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-            if picker.sourceType == .Camera {
+            if picker.sourceType == .camera {
                 self.resizeAndSendImage(image)
             }
         }
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -128,7 +128,7 @@ extension TSChatViewController: UINavigationControllerDelegate, UIImagePickerCon
 // MARK: - @protocol RecordAudioDelegate
 // 语音录制完毕后
 extension TSChatViewController: RecordAudioDelegate {
-    func audioRecordUpdateMetra(metra: Float) {
+    func audioRecordUpdateMetra(_ metra: Float) {
         self.voiceIndicatorView.updateMetersValue(metra)
     }
     
@@ -136,7 +136,7 @@ extension TSChatViewController: RecordAudioDelegate {
         self.voiceIndicatorView.messageTooShort()
     }
     
-    func audioRecordFinish(uploadAmrData: NSData, recordTime: Float, fileHash: String) {
+    func audioRecordFinish(_ uploadAmrData: Data, recordTime: Float, fileHash: String) {
         self.voiceIndicatorView.endRecord()
         
         //发送本地音频
@@ -205,14 +205,14 @@ extension TSChatViewController: PlayAudioDelegate {
 // 表情点击完毕后
 extension TSChatViewController: ChatEmotionInputViewDelegate {
     //点击表情
-    func chatEmoticonInputViewDidTapCell(cell: TSChatEmotionCell) {
+    func chatEmoticonInputViewDidTapCell(_ cell: TSChatEmotionCell) {
         var string = self.chatActionBarView.inputTextView.text
-        string = string.stringByAppendingString(cell.emotionModel!.text)
+        string = string! + cell.emotionModel!.text
         self.chatActionBarView.inputTextView.text = string
     }
     
     //点击撤退删除
-    func chatEmoticonInputViewDidTapBackspace(cell: TSChatEmotionCell) {
+    func chatEmoticonInputViewDidTapBackspace(_ cell: TSChatEmotionCell) {
         self.chatActionBarView.inputTextView.deleteBackward()
     }
     
@@ -225,7 +225,7 @@ extension TSChatViewController: ChatEmotionInputViewDelegate {
 
 // MARK: - @protocol UITextViewDelegate
 extension TSChatViewController: UITextViewDelegate {
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             //点击发送文字，包含表情
             self.chatSendText()
@@ -234,7 +234,7 @@ extension TSChatViewController: UITextViewDelegate {
         return true
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         let contentHeight = textView.contentSize.height
         guard contentHeight < kChatActionBarTextViewMaxHeight else {
             return
@@ -244,7 +244,7 @@ extension TSChatViewController: UITextViewDelegate {
         self.controlExpandableInputView(showExpandable: true)
     }
     
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         //设置键盘类型，响应 UIKeyboardWillShowNotification 事件
         self.chatActionBarView.inputTextViewCallKeyboard()
         
@@ -263,28 +263,28 @@ extension TSChatViewController: TSChatCellDelegate {
     /**
      点击了 cell 本身
      */
-    func cellDidTaped(cell: TSChatBaseCell) {
+    func cellDidTaped(_ cell: TSChatBaseCell) {
         
     }
     
     /**
      点击了 cell 的头像
      */
-    func cellDidTapedAvatarImage(cell: TSChatBaseCell) {
+    func cellDidTapedAvatarImage(_ cell: TSChatBaseCell) {
         TSAlertView_show("点击了头像")
     }
     
     /**
      点击了 cell 的图片
      */
-    func cellDidTapedImageView(cell: TSChatBaseCell) {
+    func cellDidTapedImageView(_ cell: TSChatBaseCell) {
         TSAlertView_show("点击了图片")
     }
     
     /**
      点击了 cell 中文字的 URL
      */
-    func cellDidTapedLink(cell: TSChatBaseCell, linkString: String) {
+    func cellDidTapedLink(_ cell: TSChatBaseCell, linkString: String) {
         let viewController = TSWebViewController(URLString: linkString)
         self.ts_pushAndHideTabbar(viewController)
     }
@@ -292,14 +292,14 @@ extension TSChatViewController: TSChatCellDelegate {
     /**
      点击了 cell 中文字的 电话
      */
-    func cellDidTapedPhone(cell: TSChatBaseCell, phoneString: String) {
+    func cellDidTapedPhone(_ cell: TSChatBaseCell, phoneString: String) {
         TSAlertView_show("点击了电话")
     }
     
     /**
      点击了声音 cell 的播放 button
      */
-    func cellDidTapedVoiceButton(cell: TSChatVoiceCell, isPlayingVoice: Bool) {
+    func cellDidTapedVoiceButton(_ cell: TSChatVoiceCell, isPlayingVoice: Bool) {
         //在切换选中的语音 cell 之前把之前的动画停止掉
         if self.currentVoiceCell != nil && self.currentVoiceCell != cell {
             self.currentVoiceCell.resetVoiceAnimation()

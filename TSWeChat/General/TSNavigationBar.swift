@@ -23,11 +23,11 @@ class TSNavigationBar: UINavigationBar {
         super.init(coder: aDecoder)
     }
     
-    private func initContent() {
+    fileprivate func initContent() {
         
         //Init containerView
         let containerView : UIView = UIView()
-        containerView.backgroundColor = UIColor.clearColor()
+        containerView.backgroundColor = UIColor.clear
         self.addSubview(containerView)
         containerView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.snp_top).offset(-20)

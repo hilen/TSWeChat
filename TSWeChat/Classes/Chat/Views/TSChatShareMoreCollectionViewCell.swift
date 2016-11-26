@@ -11,11 +11,11 @@ import UIKit
 class TSChatShareMoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemButton: UIButton!
     @IBOutlet weak var itemLabel: UILabel!
-    override var highlighted: Bool { didSet {
-        if self.highlighted {
-            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other_HL.image, forState: .Highlighted)
+    override var isHighlighted: Bool { didSet {
+        if self.isHighlighted {
+            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other_HL.image, for: .highlighted)
         } else {
-            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other.image, forState: .Normal)
+            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other.image, for: UIControlState())
         }
     }}
 

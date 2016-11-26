@@ -18,7 +18,7 @@ final class TSChatEdgeLabel: UILabel {
         // Drawing code
     }
     */
-    override func drawTextInRect(rect: CGRect) {
-        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, labelEdge))
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, labelEdge))
     }
 }
