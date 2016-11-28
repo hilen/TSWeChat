@@ -1,5 +1,5 @@
 # TSWeChat 中文说明
-A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift.
+A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift 3.
 
 ## 运行环境
 - [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
