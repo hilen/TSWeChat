@@ -8,27 +8,27 @@ inhibit_all_warnings!
 def pods
     #Swift
     pod 'Alamofire', '~> 4.0'
-    pod 'Kingfisher'
+    pod 'Kingfisher', '3.2.1'
     pod 'ObjectMapper', '~> 2.2'
-    pod 'SwiftyJSON'
-    pod 'Dollar'
-    pod 'Cent'
-    pod 'KeychainAccess'
+    pod 'SwiftyJSON', '3.1.3'
+    pod 'Dollar', '6.1.0'
+    pod 'Cent', '6.0.3'
+    pod 'KeychainAccess', '3.0.1'
     pod 'UIColor_Hex_Swift', '~> 3.0.2'
     pod 'RxSwift', '~> 3.0'
     pod 'RxCocoa', '~> 3.0'
     pod 'RxBlocking', '~> 3.0'
-    pod 'XCGLogger'
-    pod 'SnapKit'
+    pod 'XCGLogger', '4.0.0'
+    pod 'SnapKit', '3.0.2'
     pod 'BSImagePicker', '~> 2.5.0'
     pod 'TSVoiceConverter', '0.1.3'
-    pod 'XLActionController'
+    pod 'XLActionController', '3.0.1'
     pod 'TimedSilver', '1.0.0'
 
     #Objective-C
-    pod 'YYText'
-    pod 'SVProgressHUD'
-    pod 'INTULocationManager'
+    pod 'YYText', '1.0.7'
+    pod 'SVProgressHUD', '2.0.4'
+    pod 'INTULocationManager', '4.2.0'
 end
 
 target 'TSWeChat' do
