@@ -316,9 +316,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AE196EBE1E6712200083B7F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AE196EBF1E6712200083B7F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AE1E4C431CE32167004BD467 /* Moments */ = {
 			isa = PBXGroup;
 			children = (
+				AE196EBE1E6712200083B7F2 /* View */,
+				AE196EBF1E6712200083B7F2 /* Model */,
 				AE5127041D64B475008442F4 /* TSMomentsViewController.swift */,
 				AE5127051D64B475008442F4 /* TSMomentsViewController.xib */,
 			);
@@ -737,6 +753,7 @@
 				TargetAttributes = {
 					AE92B5E01C3FF73000968A3A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8BG9H4D2J5;
 						LastSwiftMigration = 0810;
 					};
 					AE92B5F41C3FF73000968A3A = {
@@ -1078,6 +1095,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8BG9H4D2J5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/TSWeChat/Supportting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1086,7 +1104,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TSWeChat/Vendor/VoiceConvert/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilen.tswechat9898;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1101,6 +1119,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8BG9H4D2J5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/TSWeChat/Supportting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1109,7 +1128,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TSWeChat/Vendor/VoiceConvert/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Hilen.TSWeChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilen.tswechat9898;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TSWeChat/Supportting Files//TSWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

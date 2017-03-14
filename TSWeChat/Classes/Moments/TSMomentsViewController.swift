@@ -6,6 +6,8 @@
 //  Copyright © 2016 Hilen. All rights reserved.
 //
 
+/// High performance
+
 import UIKit
 
 class TSMomentsViewController: UIViewController {

@@ -27,6 +27,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This application requires camera services to work</string>
+	<key>NSContactsUsageDescription</key>
+	<string>This application requires contact to work</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This application requires location services to work</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This application requires location services to work</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This application requires photo library to work</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This application requires microphone to work</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -43,15 +55,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This application requires photo library to work</string>
-	<key>NSContactsUsageDescription</key>
-	<string>This application requires contact to work</string>
-	<key>NSCameraUsageDescription</key>
-	<string>This application requires camera services to work</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This application requires location services to work</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This application requires location services to work</string>
 </dict>
 </plist>
