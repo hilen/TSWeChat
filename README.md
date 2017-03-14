@@ -1,4 +1,4 @@
-<img src="./images/logo.png" alt="TSWeChat" title="TSWeChat"/>
+<img src="./images/tswechat_logo.png" alt="TSWeChat" title="TSWeChat"/>
 
 <a href="https://github.com/hilen/TSWeChat"><img src="https://img.shields.io/travis/rust-lang/rust.svg"></a>
 <a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-compatible-orange.svg"></a>
