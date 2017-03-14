@@ -206,9 +206,7 @@ extension TSChatViewController: PlayAudioDelegate {
 extension TSChatViewController: ChatEmotionInputViewDelegate {
     //点击表情
     func chatEmoticonInputViewDidTapCell(_ cell: TSChatEmotionCell) {
-        var string = self.chatActionBarView.inputTextView.text
-        string = string! + cell.emotionModel!.text
-        self.chatActionBarView.inputTextView.text = string
+        self.chatActionBarView.inputTextView.insertText(cell.emotionModel!.text)
     }
     
     //点击撤退删除
