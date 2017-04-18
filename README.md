@@ -70,10 +70,10 @@ TSWeChat is released under the MIT license. See [LICENSE](https://github.com/hil
 - Multilanguage support
 - And so on...
 
-##Contributing
+## Contributing
 - All kinds of contributions (enhancements, new features, documentation & code improvements, issues & bugs reporting & todo task) are welcome. Let's make it better. XD
 
-##Contact
+## Contact
 Follow and contact me on [Twitter](http://twitter.com/hilenlai) or [Sina Weibo](http://weibo.com/laihailong).
 
 
