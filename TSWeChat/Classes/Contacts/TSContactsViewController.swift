@@ -22,6 +22,8 @@ class TSContactsViewController: UIViewController {
     fileprivate var sortedkeys = [String]()  //UITableView 右侧索引栏的 value
     fileprivate var dataDict: Dictionary<String, NSMutableArray>?
     
+    var delegate: TagContactDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "通讯录"
@@ -31,7 +33,8 @@ class TSContactsViewController: UIViewController {
         self.listTableView.estimatedRowHeight = 54
         self.listTableView.sectionIndexColor = UIColor.darkGray
         self.listTableView.tableFooterView = self.footerView
-
+        
+        self.setUpNavBar()
         self.fetchContactList()
     }
     
@@ -94,6 +97,31 @@ class TSContactsViewController: UIViewController {
             self.listTableView.reloadData()
         }
     }
+    
+    func handleCancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setUpNavBar() {
+        var isModal: Bool {
+            if presentingViewController != nil {
+                return true
+            }
+            if navigationController?.presentingViewController?.presentedViewController === navigationController {
+                return true
+            }
+            if let presentingVC = tabBarController?.presentingViewController, presentingVC is UITabBarController {
+                return true
+            }
+            return false
+        }
+        
+        if isModal {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+    }
 
     deinit {
         log.verbose("deinit")
@@ -124,8 +152,9 @@ extension TSContactsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let section = indexPath.section
         let row = indexPath.row
-//        let key = self.sortedkeys[indexPath.section]
-//        let dataArray: NSMutableArray = self.dataDict![key]!
+        let key = self.sortedkeys[indexPath.section]
+        let dataArray: NSMutableArray = self.dataDict![key]!
+        let model = dataArray[indexPath.row] as! ContactModel
 
         if section == 0 {
             let type = ContactModelEnum(rawValue: row)!
@@ -140,7 +169,7 @@ extension TSContactsViewController: UITableViewDelegate {
                 break
             }
         } else {
-        
+            delegate?.didTag(model.chineseName!)
         }
     }
 }
