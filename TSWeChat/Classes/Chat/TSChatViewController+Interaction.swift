@@ -16,28 +16,28 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
    
     //选择打开相册
     func chatShareMoreViewPhotoTaped() {
-        self.ts_presentImagePickerController(
-            maxNumberOfSelections: 1,
-            select: { (asset: PHAsset) -> Void in
-                print("Selected: \(asset)")
-            }, deselect: { (asset: PHAsset) -> Void in
-                print("Deselected: \(asset)")
-            }, cancel: { (assets: [PHAsset]) -> Void in
-                print("Cancel: \(assets)")
-            }, finish: {[weak self] (assets: [PHAsset]) -> Void in
-                print("Finish: \(assets.get(index: 0))")
-                guard let strongSelf = self else { return }
-                if let image = assets.get(index: 0).getUIImage() {
-                    strongSelf.resizeAndSendImage(image)
-                }
-            }, completion: { () -> Void in
-                print("completion")
-        })
+//        self.ts_presentImagePickerController(
+//            maxNumberOfSelections: 1,
+//            select: { (asset: PHAsset) -> Void in
+//                print("Selected: \(asset)")
+//            }, deselect: { (asset: PHAsset) -> Void in
+//                print("Deselected: \(asset)")
+//            }, cancel: { (assets: [PHAsset]) -> Void in
+//                print("Cancel: \(assets)")
+//            }, finish: {[weak self] (assets: [PHAsset]) -> Void in
+//                print("Finish: \(assets.get(index: 0))")
+//                guard let strongSelf = self else { return }
+//                if let image = assets.get(index: 0).getUIImage() {
+//                    strongSelf.resizeAndSendImage(image)
+//                }
+//            }, completion: { () -> Void in
+//                print("completion")
+//        })
     }
     
     //选择打开相机
     func chatShareMoreViewCameraTaped() {
-        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         if authStatus == .notDetermined {
             self.checkCameraPermission()
         } else if authStatus == .restricted || authStatus == .denied {
@@ -49,7 +49,7 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
     
     
     func checkCameraPermission () {
-        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: {granted in
+        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: {granted in
             if !granted {
                 TSAlertView_show("无法访问您的相机", message: "请到设置 -> 隐私 -> 相机 ，打开访问权限" )
             }
@@ -248,7 +248,7 @@ extension TSChatViewController: UITextViewDelegate {
         
         //使 UITextView 滚动到末尾的区域
         UIView.setAnimationsEnabled(false)
-        let range = NSMakeRange(textView.text.length - 1, 1)
+        let range = NSMakeRange(textView.text.ts_length - 1, 1)
         textView.scrollRangeToVisible(range)
         UIView.setAnimationsEnabled(true)
         return true

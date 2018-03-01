@@ -18,9 +18,9 @@ extension TSChatViewController {
             return
         }
         self.itemDataSouce.insert(contentsOf: list, at: 0)
-        self.listTableView.reloadData({[unowned self] _ in
+        self.listTableView.reloadData { 
             self.isReloading = false
-            })
+        }
         self.listTableView.setContentOffset(CGPoint(x: 0, y: CGFloat.greatestFiniteMagnitude), animated: false)
     }
     
@@ -57,17 +57,17 @@ extension TSChatViewController {
         }
         
         var list = [ChatModel]()
-        let jsonObj = JSON(data: JSONData)
-        if jsonObj != JSON.null {
+        do {
+            let jsonObj = try JSON(data: JSONData)
             var temp: ChatModel?
             for dict in jsonObj["data"].arrayObject! {
                 guard let model = TSMapper<ChatModel>().map(JSON: dict as! [String : Any]) else {
                     continue
                 }
                 /**
-                *  1，刷新获取的第一条数据，加上时间 model
-                *  2，当后面的数据比前面一条多出 2 分钟以上，加上时间 model
-                */
+                 *  1，刷新获取的第一条数据，加上时间 model
+                 *  2，当后面的数据比前面一条多出 2 分钟以上，加上时间 model
+                 */
                 if temp == nil || model.isLateForTwoMinutes(temp!) {
                     guard let timestamp = model.timestamp else {
                         continue
@@ -77,6 +77,8 @@ extension TSChatViewController {
                 list.insert(model, at: list.count)
                 temp = model
             }
+        } catch {
+            print("Error \(error)")
         }
         return list
     }

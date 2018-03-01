@@ -10,11 +10,14 @@ import Foundation
 import AVFoundation
 import Alamofire
 import TSVoiceConverter
+import RxSwift
+import RxBlocking
 
 let AudioPlayInstance = AudioPlayManager.sharedInstance
 
 class AudioPlayManager: NSObject {
     fileprivate var audioPlayer: AVAudioPlayer?
+    internal let disposeBag = DisposeBag()
     weak var delegate: PlayAudioDelegate?
     
     class var sharedInstance : AudioPlayManager {
@@ -27,9 +30,8 @@ class AudioPlayManager: NSObject {
     fileprivate override init() {
         super.init()
         //监听听筒和扬声器
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIDeviceProximityStateDidChange.rawValue, object: UIDevice.current, handler: {
-            observer, notification in
+        let center = NotificationCenter.default.rx.notification(Notification.Name(rawValue: NSNotification.Name.UIDeviceProximityStateDidChange.rawValue), object: UIDevice.current)
+        center.subscribe { notification in
             if UIDevice.current.proximityState {
                 do {
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -39,7 +41,19 @@ class AudioPlayManager: NSObject {
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
                 } catch _ {}
             }
-        })
+        }.dispose()
+//        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIDeviceProximityStateDidChange.rawValue, object: UIDevice.current, handler: {
+//            observer, notification in
+//            if UIDevice.current.proximityState {
+//                do {
+//                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+//                } catch _ {}
+//            } else {
+//                do {
+//                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//                } catch _ {}
+//            }
+//        })
     }
     
     func startPlaying(_ audioModel: ChatAudioModel) {

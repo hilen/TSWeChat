@@ -11,6 +11,7 @@ import SnapKit
 import RxSwift
 import RxBlocking
 import Dollar
+import Cent
 
 private let kLeftRightPadding: CGFloat = 15.0
 private let kTopBottomPadding: CGFloat = 10.0
@@ -84,7 +85,7 @@ class TSChatShareMoreView: UIView {
         So I cut the itemDataSouce into 2 arrays. And the UICollectionView will has 2 sections.
         And then set the minimumLineSpacing and sectionInset of the flowLayout. The UI will be perfect like WeChat.
         */
-        self.groupDataSouce = $.chunk(self.itemDataSouce, size: Int(kItemCountOfRow)*2)
+        self.groupDataSouce = Dollar.chunk(self.itemDataSouce, size: Int(kItemCountOfRow)*2)
         self.pageControl.numberOfPages = self.groupDataSouce.count
     }
     

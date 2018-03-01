@@ -22,7 +22,7 @@ extension HttpManager {
     class func uploadSingleImage(
         _ image:UIImage,
         success:@escaping (_ imageModel: UploadImageModel) ->Void,
-        failure:@escaping (Void) ->Void)
+        failure:@escaping () ->Void)
     {
         let parameters = [
             "access_token": UserInstance.accessToken
@@ -75,7 +75,7 @@ extension HttpManager {
     class func uploadMultipleImages(
         _ imagesArray:[UIImage],
         success:@escaping (_ imageModel: [UploadImageModel], _ imagesId: String) ->Void,
-        failure:@escaping (Void) ->Void)
+        failure:@escaping () ->Void)
     {
         guard imagesArray.count != 0 else {
             assert(imagesArray.count == 0, "Invalid images array") // here

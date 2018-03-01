@@ -9,7 +9,7 @@
 import Foundation
 
 /// PDF image size : 20px * 20px is perfect one
-public typealias ActionHandler = (Void) -> Void
+public typealias ActionHandler = () -> Void
 
 public extension UIViewController {
     //Back bar with custom action
@@ -94,12 +94,12 @@ public extension UINavigationItem {
  Block of UIControl
 */
 open class ClosureWrapper : NSObject {
-    let _callback : (Void) -> Void
-    init(callback : @escaping (Void) -> Void) {
+    let _callback : () -> Void
+    init(callback : @escaping () -> Void) {
         _callback = callback
     }
     
-    open func invoke() {
+    @objc open func invoke() {
         _callback()
     }
 }
@@ -107,7 +107,7 @@ open class ClosureWrapper : NSObject {
 var AssociatedClosure: UInt8 = 0
 
 extension UIControl {
-    fileprivate func ngl_addAction(forControlEvents events: UIControlEvents, withCallback callback: @escaping (Void) -> Void) {
+    fileprivate func ngl_addAction(forControlEvents events: UIControlEvents, withCallback callback: @escaping () -> Void) {
         let wrapper = ClosureWrapper(callback: callback)
         addTarget(wrapper, action:#selector(ClosureWrapper.invoke), for: events)
         objc_setAssociatedObject(self, &AssociatedClosure, wrapper, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)

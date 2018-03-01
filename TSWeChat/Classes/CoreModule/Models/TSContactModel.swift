@@ -33,7 +33,7 @@ import ObjectMapper
         userId <- map["userid"]
     }
     
-    func compareContact(_ contactModel: ContactModel) -> ComparisonResult {
+    @objc func compareContact(_ contactModel: ContactModel) -> ComparisonResult {
         let result = self.nameSpell?.compare(contactModel.nameSpell!)
         return result!
     }

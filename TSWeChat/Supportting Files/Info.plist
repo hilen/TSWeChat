@@ -37,8 +37,10 @@
 	<string>This application requires location services to work</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This application requires photo library to work</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>This application requires microphone to work</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This application requires microphone to work</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This application requires location services to work</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

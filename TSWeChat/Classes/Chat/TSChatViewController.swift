@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import RxSwift
-import BSImagePicker
+//import BSImagePicker
 import Photos
 import SwiftyJSON
 

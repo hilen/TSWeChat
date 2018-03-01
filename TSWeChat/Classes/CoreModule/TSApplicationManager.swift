@@ -27,8 +27,8 @@ class TSApplicationManager: NSObject {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().isTranslucent = true
         let attributes = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 19.0),
-            NSForegroundColorAttributeName: UIColor.white
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 19.0),
+            NSAttributedStringKey.foregroundColor: UIColor.white
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
     }

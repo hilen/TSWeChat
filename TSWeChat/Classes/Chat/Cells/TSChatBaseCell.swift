@@ -54,7 +54,7 @@ class TSChatBaseCell: UITableViewCell {
                 }
                 delegate.cellDidTapedAvatarImage(strongSelf)
             }
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
     }
     
     func setCellContent(_ model: ChatModel) {

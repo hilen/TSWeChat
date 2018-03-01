@@ -19,7 +19,7 @@ class TSMessageViewController: UIViewController {
         super.viewDidLoad()
         self.title = "微信"
         self.view.backgroundColor = UIColor.viewBackgroundColor
-        self.navigationItem.rightButtonAction(TSAsset.Barbuttonicon_add.image) { (Void) -> Void in
+        self.navigationItem.rightButtonAction(TSAsset.Barbuttonicon_add.image) { () -> Void in
             self.actionFloatView.hide(!self.actionFloatView.isHidden)
         }
         
@@ -46,8 +46,8 @@ class TSMessageViewController: UIViewController {
     
     fileprivate func fetchData() {
         guard let JSONData = Data.ts_dataFromJSONFile("message") else { return }
-        let jsonObject = JSON(data: JSONData)
-        if jsonObject != JSON.null {
+        do {
+            let jsonObject = try JSON(data: JSONData)
             var list = [MessageModel]()
             for dict in jsonObject["data"].arrayObject! {
                 guard let model = TSMapper<MessageModel>().map(JSON: dict as! [String : Any]) else { continue }
@@ -59,6 +59,8 @@ class TSMessageViewController: UIViewController {
             self.itemDataSouce.insert(contentsOf: list, at: 0)
             self.itemDataSouce.insert(contentsOf: list, at: 0)
             self.listTableView.reloadData()
+        } catch {
+            print("Error \(error)")
         }
     }
     

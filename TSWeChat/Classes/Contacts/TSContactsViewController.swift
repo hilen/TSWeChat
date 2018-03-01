@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import Cent
+//import Cent
 
 class TSContactsViewController: UIViewController {
 
@@ -37,15 +37,15 @@ class TSContactsViewController: UIViewController {
     
     func fetchContactList() {
         guard let JSONData = Data.ts_dataFromJSONFile("contact") else { return }
-        let jsonObject = JSON(data: JSONData)
-        if jsonObject != JSON.null {
+        do {
+            let jsonObject = try JSON(data: JSONData)
             //创建群聊和公众帐号的数据
             let topArray: NSMutableArray = [
                 ContactModelEnum.newFriends.model,
                 ContactModelEnum.groupChat.model,
                 ContactModelEnum.tags.model,
                 ContactModelEnum.publicAccout.model,
-            ]
+                ]
             //添加 群聊和公众帐号的数据 的 key
             self.sortedkeys.append("")
             self.dataDict = ["" : topArray]
@@ -77,7 +77,9 @@ class TSContactsViewController: UIViewController {
                 for index in 0..<tempList.count {
                     let contactModel = tempList[index] as! ContactModel
                     guard let nameSpell: String = contactModel.nameSpell else { continue }
-                    let firstLettery: String = nameSpell[0..<1].uppercased()
+                    let lowerBound = String.Index(encodedOffset: 0)
+                    let upperBound = String.Index(encodedOffset: 1)
+                    let firstLettery: String = nameSpell[lowerBound..<upperBound].uppercased()
                     if let letterArray: NSMutableArray = dataSource[firstLettery] {
                         letterArray.add(contactModel)
                     } else {
@@ -90,9 +92,12 @@ class TSContactsViewController: UIViewController {
                 self.sortedkeys.append(contentsOf: sortedKeys)
                 self.dataDict = self.dataDict! + dataSource
             }
-        
+            
             self.listTableView.reloadData()
+        } catch {
+            print("Error \(error)")
         }
+       
     }
 
     deinit {

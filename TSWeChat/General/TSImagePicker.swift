@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BSImagePicker
+//import BSImagePicker
 import Photos
 
 /*
@@ -44,20 +44,20 @@ public extension UIViewController {
      */
     func ts_presentImagePickerController(maxNumberOfSelections: Int, select: ((_ asset: PHAsset) -> Void)?, deselect: ((_ asset: PHAsset) -> Void)?, cancel: (([PHAsset]) -> Void)?, finish: (([PHAsset]) -> Void)?, completion: (() -> Void)?) {
 
-        let viewController = BSImagePickerViewController()
-        viewController.maxNumberOfSelections = maxNumberOfSelections
-        viewController.albumButton.tintColor = UIColor.white
-        viewController.cancelButton.tintColor = UIColor.white
-        viewController.doneButton.tintColor = UIColor.white
-        
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
-        self.bs_presentImagePickerController(viewController, animated: true,
-            select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {_ in
-                TSApplicationManager.initNavigationBar()
-                if let newCompletion = completion {
-                    newCompletion()
-                }
-        })
+//        let viewController = BSImagePickerViewController()
+//        viewController.maxNumberOfSelections = maxNumberOfSelections
+//        viewController.albumButton.tintColor = UIColor.white
+//        viewController.cancelButton.tintColor = UIColor.white
+//        viewController.doneButton.tintColor = UIColor.white
+//        
+//        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
+//        self.bs_presentImagePickerController(viewController, animated: true,
+//            select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {_ in
+//                TSApplicationManager.initNavigationBar()
+//                if let newCompletion = completion {
+//                    newCompletion()
+//                }
+//        })
     }
     
 }

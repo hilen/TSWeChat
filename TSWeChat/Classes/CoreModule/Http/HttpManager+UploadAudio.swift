@@ -23,7 +23,7 @@ extension HttpManager {
         _ audioData: Data,
         recordTime: String,
         success:@escaping (_ audioModel: UploadAudioModel) ->Void,
-        failure:@escaping (Void) ->Void)
+        failure:@escaping () ->Void)
     {
         let parameters = [
             "access_token": UserInstance.accessToken,

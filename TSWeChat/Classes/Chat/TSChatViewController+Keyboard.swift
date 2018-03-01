@@ -24,29 +24,37 @@ extension TSChatViewController {
         /**
          Keyboard notifications
          */
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardWillShow.rawValue, object: nil, handler: {
-            [weak self] observer, notification in
-            guard let strongSelf = self else { return }
-            strongSelf.listTableView.scrollToBottomAnimated(false)
-            strongSelf.keyboardControl(notification, isShowing: true)
+        NotificationCenter.default
+            .rx.notification(Notification.Name(rawValue: NSNotification.Name.UIKeyboardWillShow.rawValue), object: nil)
+            .subscribe(onNext: {[weak self] notification in
+                guard let strongSelf = self else { return }
+                strongSelf.listTableView.scrollToBottomAnimated(false)
+                strongSelf.keyboardControl(notification, isShowing: true)
             })
+            .disposed(by: disposeBag)
         
-        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardDidShow.rawValue, object: nil, handler: {observer, notification in
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-            }
-        })
-        
-        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardWillHide.rawValue, object: nil, handler: {
-            [weak self] observer, notification in
-            guard let strongSelf = self else { return }
-            strongSelf.keyboardControl(notification, isShowing: false)
+        NotificationCenter.default
+            .rx.notification(Notification.Name(rawValue: NSNotification.Name.UIKeyboardDidShow.rawValue), object: nil)
+            .subscribe(onNext: {notification in
+                if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                    _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+                }
             })
+            .disposed(by: disposeBag)
         
-        notificationCenter.ts_addObserver(self, name: NSNotification.Name.UIKeyboardDidHide.rawValue, object: nil, handler: {
-            observer, notification in
+        NotificationCenter.default
+            .rx.notification(Notification.Name(rawValue: NSNotification.Name.UIKeyboardWillHide.rawValue), object: nil)
+            .subscribe(onNext: {[weak self] notification in
+                guard let strongSelf = self else { return }
+                strongSelf.keyboardControl(notification, isShowing: false)
             })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default
+            .rx.notification(Notification.Name(rawValue: NSNotification.Name.UIKeyboardDidHide.rawValue), object: nil)
+            .subscribe(onNext: {notification in
+            })
+            .disposed(by: disposeBag)
         
 //        notificationCenter.addObserverForName(
 //            UIKeyboardWillChangeFrameNotification,

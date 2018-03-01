@@ -119,7 +119,7 @@ class AudioRecordManager: NSObject {
     /**
      准备录音
      */
-    func readyStartRecord() {
+    @objc func readyStartRecord() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryRecord)
@@ -201,7 +201,7 @@ class AudioRecordManager: NSObject {
         self.delegate?.audioRecordCanceled()
     }
     
-    func readyStopRecord() {
+    @objc func readyStopRecord() {
         self.recorder.stop()
         self.recorder = nil
         let audioSession = AVAudioSession.sharedInstance()

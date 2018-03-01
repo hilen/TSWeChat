@@ -36,7 +36,7 @@ extension TSChatViewController {
                 voiceButton.emotionSwiftVoiceButtonUI(showKeyboard: false)
                 strongSelf.controlExpandableInputView(showExpandable: true)
             }
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
         
         
         //录音按钮
@@ -68,7 +68,7 @@ extension TSChatViewController {
                 strongSelf.voiceIndicatorView.endRecord()
                 recordButton.replaceRecordButtonUI(isRecording: false)
             }
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
         
         
         //表情按钮

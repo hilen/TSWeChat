@@ -25,7 +25,7 @@ extension Alamofire.DataRequest {
     static func fileUploadSwiftyJSONResponseSerializer() -> DataResponseSerializer<Any> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else {
-                log.error("error:\(error)")
+                log.error("error:\(String(describing: error))")
                 let failureReason = "网络不给力，请稍候再试 ：）"
                 let userInfo = [NSLocalizedFailureReasonErrorKey: failureReason]
                 let error = NSError(domain: "", code: 1002, userInfo: userInfo)
@@ -40,20 +40,24 @@ extension Alamofire.DataRequest {
             }
             
             //JSON 解析错误
-            let json: JSON = SwiftyJSON.JSON(data: validData)
-            if let jsonError = json.error {
-                return Result.failure(jsonError)
+            if let json = try? JSON(data: validData) {
+                if let jsonError = json.error {
+                    return Result.failure(jsonError)
+                }
+                
+                //服务器返回 code 错误处理， 假设是 1993
+                let code = json[kKeyCode].intValue
+                if code == 1993 {
+                    let userInfo = [NSLocalizedFailureReasonErrorKey: json["message"].stringValue]
+                    let error = NSError(domain: "", code: 1004, userInfo: userInfo)
+                    return Result.failure(error)
+                }
+                return Result.success(json)
+            } else {
+                let userInfo = [NSLocalizedFailureReasonErrorKey: "JSON parse error"]
+                let error = NSError(domain: "", code: 1005, userInfo: userInfo)
+                return Result.failure(error)
             }
-            
-            //服务器返回 code 错误处理， 假设是 1993
-            let code = json[kKeyCode].intValue
-            if code == 1993 {
-                let userInfo = [NSLocalizedFailureReasonErrorKey: json["message"].stringValue]
-                let error = NSError(domain: "", code: 1004, userInfo: userInfo)
-                return .failure(error)
-            }
-            
-            return Result.success(json)
         }
     }
 }

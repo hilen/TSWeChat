@@ -53,7 +53,7 @@ extension UIScrollView {
     }
     
     fileprivate func safeValueForKey(_ key: String) -> AnyObject{
-        let instanceVariable: Ivar = class_getInstanceVariable(type(of: self), key.cString(using: String.Encoding.utf8)!)
+        let instanceVariable: Ivar = class_getInstanceVariable(type(of: self), key.cString(using: String.Encoding.utf8)!)!
         return object_getIvar(self, instanceVariable) as AnyObject;
     }
     

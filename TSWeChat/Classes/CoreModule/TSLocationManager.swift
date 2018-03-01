@@ -36,7 +36,7 @@ class LocationManager: NSObject {
         super.init()
     }
     
-    func startLocation(_ success:@escaping (Void) ->Void, failure:@escaping (Void) ->Void) {
+    func startLocation(_ success:@escaping () ->Void, failure:@escaping () ->Void) {
         let manager = INTULocationManager.sharedInstance()
         manager.requestLocation(
             withDesiredAccuracy: .city,
@@ -53,7 +53,7 @@ class LocationManager: NSObject {
                     success()
                     break
                 case .timedOut:
-                    TSAlertView_show("Location request timed out. Current Location:\(currentLocation)")
+                    TSAlertView_show("Location request timed out. Current Location:\(String(describing: currentLocation))")
                     failure()
                     break
                 default:

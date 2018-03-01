@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import Cent
 
 private let kActionViewWidth: CGFloat = 140   //container view width
 private let kActionViewHeight: CGFloat = 190    //container view height
@@ -107,7 +108,7 @@ class TSMessageActionFloatView: UIView {
         self.isHidden = true
     }
     
-    func buttonTaped(_ sender: UIButton!) {
+    @objc func buttonTaped(_ sender: UIButton!) {
         guard let delegate = self.delegate else {
             self.hide(true)
             return

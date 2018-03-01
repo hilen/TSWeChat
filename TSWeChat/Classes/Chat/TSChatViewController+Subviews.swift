@@ -30,7 +30,7 @@ extension TSChatViewController {
         tap.rx.event.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.hideAllKeyboard()
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
         
         self.view.addSubview(self.listTableView)
         
