@@ -14,9 +14,7 @@ import SwiftyJSON
 extension TSChatViewController {
     //第一次请求的数据
     func firstFetchMessageList() {
-        guard let list = self.fetchData() else {
-            return
-        }
+        guard let list = self.fetchData() else {return}
         self.itemDataSouce.insert(contentsOf: list, at: 0)
         self.listTableView.reloadData { 
             self.isReloading = false

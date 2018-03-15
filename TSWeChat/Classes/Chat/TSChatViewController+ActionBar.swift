@@ -85,7 +85,7 @@ extension TSChatViewController {
             }
             
             strongSelf.controlExpandableInputView(showExpandable: true)
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
         
         
         //分享按钮
@@ -100,7 +100,7 @@ extension TSChatViewController {
             }
             
             strongSelf.controlExpandableInputView(showExpandable: true)
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
 
         
         //文字框的点击，唤醒键盘
@@ -111,7 +111,7 @@ extension TSChatViewController {
             textView.inputView = nil
             textView.becomeFirstResponder()
             textView.reloadInputViews()
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by: self.disposeBag)
     }
     
     /**

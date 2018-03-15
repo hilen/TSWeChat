@@ -61,7 +61,10 @@ final class TSChatViewController: UIViewController {
         self.listTableView.ts_registerCellNib(TSChatTimeCell.self)
         self.listTableView.tableFooterView = UIView()
         self.listTableView.tableHeaderView = self.refreshView
-        
+        self.listTableView.estimatedRowHeight = 0;
+        self.listTableView.estimatedSectionHeaderHeight = 0;
+        self.listTableView.estimatedSectionFooterHeight = 0;
+
         //初始化子 View，键盘控制，动作 bar
         self.setupSubviews(self)
         self.keyboardControl()
