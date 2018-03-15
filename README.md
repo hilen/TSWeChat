@@ -6,12 +6,12 @@
 <a href="https://github.com/hilen/TSWeChat/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 <a href="http://twitter.com/hilenlai"><img src="https://img.shields.io/badge/twitter-@hilenlai-blue.svg?style=flat"></a>
 
-TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift 3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[中文说明](Chinese_README.md)
+TSWeChat - A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift 4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[中文说明](Chinese_README.md)
 
 ## Requirements
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.1.1 +
-- iOS 8.0+ / Mac OS X 10.9+
-- Xcode 8.1+
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.2.0 +
+- iOS 10.0+ / Mac OS X 10.9+
+- Xcode 9.0+
 
 
 ## Features

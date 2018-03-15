@@ -1,10 +1,10 @@
 # TSWeChat 中文说明
-A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift 3.
+A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written in Swift 4.
 
 ## 运行环境
-- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 0.39.0 +
-- iOS 8.0+ / Mac OS X 10.9+
-- Xcode 7.2+
+- [Cocoapods](https://github.com/CocoaPods/CocoaPods) 1.2.0 +
+- iOS 10.0+ / Mac OS X 10.9+
+- Xcode 9.0+
 
 ##预览
 在终端里面运行 `pod install`，然后运行`TSWeChat.xcworkspace` 来查看所有的 UI
