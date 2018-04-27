@@ -57,11 +57,9 @@ class AudioPlayManager: NSObject {
     }
     
     func startPlaying(_ audioModel: ChatAudioModel) {
-        if AVAudioSession.sharedInstance().category == AVAudioSessionCategoryRecord {
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            } catch _ {}
-        }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {}
         
         guard let keyHash = audioModel.keyHash else {
             self.delegate?.audioPlayFailed()
@@ -122,6 +120,7 @@ class AudioPlayManager: NSObject {
         }
         self.audioPlayer!.delegate = nil
         self.audioPlayer!.stop()
+        self.audioPlayer?.prepareToPlay() //重置AVAudioSession
         self.audioPlayer = nil
         UIDevice.current.isProximityMonitoringEnabled = false
     }
