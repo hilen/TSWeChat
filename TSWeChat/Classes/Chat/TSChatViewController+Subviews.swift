@@ -1,5 +1,5 @@
 //
-//  TSChatViewController+Subviews.swift
+//  TSChatViewController Subviews.swift
 //  TSWeChat
 //
 //  Created by Hilen on 1/7/16.
@@ -26,11 +26,12 @@ extension TSChatViewController {
         //点击 UITableView 隐藏键盘
         let tap = UITapGestureRecognizer()
         tap.cancelsTouchesInView = false
+        tap.delegate = self
         self.listTableView.addGestureRecognizer(tap)
         tap.rx.event.subscribe {[weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.hideAllKeyboard()
-        }.disposed(by: self.disposeBag)
+            }.disposed(by: self.disposeBag)
         
         self.view.addSubview(self.listTableView)
         
@@ -101,6 +102,17 @@ extension TSChatViewController {
             make.right.equalTo(strongSelf.view.snp.right)
         }
         self.voiceIndicatorView.isHidden = true
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension TSChatViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        //弹出键盘后，避免按钮的点击事件被listTableView的手势拦截而不执行，例如播放语音
+        if touch.view is UIButton {
+            return false
+        }
+        return true
     }
 }
 
