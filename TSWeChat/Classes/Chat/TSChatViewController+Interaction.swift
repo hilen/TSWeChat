@@ -14,6 +14,13 @@ import MobileCoreServices
 // 分享更多里面的 Button 交互
 extension TSChatViewController: ChatShareMoreViewDelegate {
    
+    //提朋友
+    func tagFriend() {
+        let viewController = TSContactsViewController.ts_initFromNib() as! TSContactsViewController
+        viewController.delegate = self
+        self.ts_presentViewController(viewController, completion: nil)
+    }
+    
     //选择打开相册
     func chatShareMoreViewPhotoTaped() {
 //        self.ts_presentImagePickerController(
@@ -224,6 +231,9 @@ extension TSChatViewController: ChatEmotionInputViewDelegate {
 // MARK: - @protocol UITextViewDelegate
 extension TSChatViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "@" {
+            tagFriend()
+        }
         if text == "\n" {
             //点击发送文字，包含表情
             self.chatSendText()
@@ -312,6 +322,23 @@ extension TSChatViewController: TSChatCellDelegate {
             AudioPlayInstance.startPlaying(audioModel)
         } else {
             AudioPlayInstance.stopPlayer()
+        }
+    }
+}
+
+protocol TagContactDelegate {
+    func didTag(_ contact: String)
+}
+
+extension TSChatViewController: TagContactDelegate {
+    func didTag(_ contact: String) {
+        self.dismiss(animated: true, completion: nil)
+        self.chatActionBarView.inputTextView.becomeFirstResponder()
+        let pinedContact = "@" + contact + " "
+        if let text = self.chatActionBarView.inputTextView.text {
+            self.chatActionBarView.inputTextView.text = text + " " + pinedContact
+        } else {
+            self.chatActionBarView.inputTextView.text = pinedContact
         }
     }
 }
