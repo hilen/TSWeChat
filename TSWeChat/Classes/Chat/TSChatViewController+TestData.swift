@@ -18,8 +18,8 @@ extension TSChatViewController {
         self.itemDataSouce.insert(contentsOf: list, at: 0)
         self.listTableView.reloadData { 
             self.isReloading = false
+            self.listTableView.scrollBottomToLastRow()
         }
-        self.listTableView.setContentOffset(CGPoint(x: 0, y: CGFloat.greatestFiniteMagnitude), animated: false)
     }
     
     /**

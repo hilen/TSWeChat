@@ -4,6 +4,7 @@ PODS:
     - Dollar (~> 7.1.0)
   - Dollar (7.1.0)
   - ImagePicker (3.0.0)
+  - ImagePicker (3.1.0)
   - INTULocationManager (4.2.0)
   - KeychainAccess (3.1.0)
   - Kingfisher (4.6.1)
