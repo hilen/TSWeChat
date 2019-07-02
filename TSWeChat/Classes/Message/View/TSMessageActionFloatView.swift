@@ -62,7 +62,7 @@ class TSMessageActionFloatView: UIView {
         }
         
         //Init bgImageView
-        let stretchInsets = UIEdgeInsetsMake(14, 6, 6, 34)
+        let stretchInsets = UIEdgeInsets.init(top: 14, left: 6, bottom: 6, right: 34)
         let bubbleMaskImage = TSAsset.MessageRightTopBg.image.resizableImage(withCapInsets: stretchInsets, resizingMode: .stretch)
         let bgImageView: UIImageView = UIImageView(image: bubbleMaskImage)
         containerView.addSubview(bgImageView)
@@ -76,16 +76,16 @@ class TSMessageActionFloatView: UIView {
             let itemButton: UIButton = UIButton(type: .custom)
             itemButton.backgroundColor = UIColor.clear
             itemButton.titleLabel!.font = UIFont.systemFont(ofSize: 17)
-            itemButton.setTitleColor(UIColor.white, for: UIControlState())
+            itemButton.setTitleColor(UIColor.white, for: UIControl.State())
             itemButton.setTitleColor(UIColor.white, for: .highlighted)
             itemButton.setTitle(actionTitles.get(index: index), for: .normal)
             itemButton.setTitle(actionTitles.get(index: index), for: .highlighted)
             itemButton.setImage(actionImages.get(index: index), for: .normal)
             itemButton.setImage(actionImages.get(index: index), for: .highlighted)
-            itemButton.addTarget(self, action: #selector(TSMessageActionFloatView.buttonTaped(_:)), for: UIControlEvents.touchUpInside)
+            itemButton.addTarget(self, action: #selector(TSMessageActionFloatView.buttonTaped(_:)), for: UIControl.Event.touchUpInside)
             itemButton.contentHorizontalAlignment = .left
-            itemButton.contentEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
-            itemButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+            itemButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 12, bottom: 0, right: 0)
+            itemButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 0)
             itemButton.tag = index
             containerView.addSubview(itemButton)
             

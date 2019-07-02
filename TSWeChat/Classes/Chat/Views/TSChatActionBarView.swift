@@ -49,7 +49,7 @@ class TSChatActionBarView: UIView {
         inputTextView.layer.borderWidth = 1
         inputTextView.layer.cornerRadius = 5.0
         inputTextView.scrollsToTop = false
-        inputTextView.textContainerInset = UIEdgeInsetsMake(7, 5, 5, 5)
+        inputTextView.textContainerInset = UIEdgeInsets.init(top: 7, left: 5, bottom: 5, right: 5)
         inputTextView.backgroundColor = UIColor.init(ts_hexString:"#f8fefb")
         inputTextView.returnKeyType = .send
         inputTextView.isHidden = false
@@ -123,13 +123,13 @@ class TSChatActionBarView: UIView {
 extension TSChatActionBarView {
     //重置所有 Button 的图片
     func resetButtonUI() {
-        self.voiceButton.setImage(TSAsset.Tool_voice_1.image, for: UIControlState())
+        self.voiceButton.setImage(TSAsset.Tool_voice_1.image, for: UIControl.State())
         self.voiceButton.setImage(TSAsset.Tool_voice_2.image, for: .highlighted)
         
-        self.emotionButton.setImage(TSAsset.Tool_emotion_1.image, for: UIControlState())
+        self.emotionButton.setImage(TSAsset.Tool_emotion_1.image, for: UIControl.State())
         self.emotionButton.setImage(TSAsset.Tool_emotion_2.image, for: .highlighted)
         
-        self.shareButton.setImage(TSAsset.Tool_share_1.image, for: UIControlState())
+        self.shareButton.setImage(TSAsset.Tool_share_1.image, for: UIControl.State())
         self.shareButton.setImage(TSAsset.Tool_share_2.image, for: .highlighted)
     }
     

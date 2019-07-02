@@ -57,7 +57,7 @@ class TSChatEmotionScollView: UICollectionView {
                 self!.emotionScrollDelegate?.emoticonScrollViewDidTapCell(self!.currentMagnifierCell!)
             }
         })
-        RunLoop.main.add(self.backspaceTimer, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(self.backspaceTimer, forMode: RunLoop.Mode.common)
     }
     
     /**
@@ -79,7 +79,7 @@ class TSChatEmotionScollView: UICollectionView {
      - returns: 表情 Cell
      */
     func cellForTouches(_ touches: Set<UITouch>) -> TSChatEmotionCell? {
-        let touch =  touches.first as UITouch!
+        let touch =  touches.first as UITouch?
         let point = touch?.location(in: self)
         let indexPath = self.indexPathForItem(at: point!)
         guard let newIndexPath = indexPath else {

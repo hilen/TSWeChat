@@ -64,11 +64,11 @@ class TSChatShareMoreView: UIView {
         let layout = TSFullyHorizontalFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsetsMake(
-            kTopBottomPadding,
-            kLeftRightPadding,
-            kTopBottomPadding,
-            kLeftRightPadding
+        layout.sectionInset = UIEdgeInsets.init(
+            top: kTopBottomPadding,
+            left: kLeftRightPadding,
+            bottom: kTopBottomPadding,
+            right: kLeftRightPadding
         )
         //Calculate the UICollectionViewCell size
         let itemSizeWidth = (UIScreen.ts_width - kLeftRightPadding*2 - layout.minimumLineSpacing*(kItemCountOfRow - 1)) / kItemCountOfRow

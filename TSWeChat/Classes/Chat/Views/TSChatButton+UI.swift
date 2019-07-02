@@ -17,10 +17,10 @@ extension UIButton {
      */
     func emotionSwiftVoiceButtonUI(showKeyboard: Bool) {
         if showKeyboard {
-            self.setImage(TSAsset.Tool_keyboard_1.image, for: UIControlState())
+            self.setImage(TSAsset.Tool_keyboard_1.image, for: UIControl.State())
             self.setImage(TSAsset.Tool_keyboard_2.image, for: .highlighted)
         } else {
-            self.setImage(TSAsset.Tool_voice_1.image, for: UIControlState())
+            self.setImage(TSAsset.Tool_voice_1.image, for: UIControl.State())
             self.setImage(TSAsset.Tool_voice_2.image, for: .highlighted)
         }
     }
@@ -32,10 +32,10 @@ extension UIButton {
      */
     func replaceEmotionButtonUI(showKeyboard: Bool) {
         if showKeyboard {
-            self.setImage(TSAsset.Tool_keyboard_1.image, for: UIControlState())
+            self.setImage(TSAsset.Tool_keyboard_1.image, for: UIControl.State())
             self.setImage(TSAsset.Tool_keyboard_2.image, for: .highlighted)
         } else {
-            self.setImage(TSAsset.Tool_emotion_1.image, for: UIControlState())
+            self.setImage(TSAsset.Tool_emotion_1.image, for: UIControl.State())
             self.setImage(TSAsset.Tool_emotion_2.image, for: .highlighted)
         }
     }

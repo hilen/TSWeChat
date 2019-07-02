@@ -98,7 +98,7 @@ extension TSChatViewController {
         }
         contentOffset.y += heightForNewRows
         
-        self.listTableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.none)
+        self.listTableView.insertRows(at: indexPaths, with: UITableView.RowAnimation.none)
         self.listTableView.endUpdates()
         UIView.setAnimationsEnabled(true)
         self.self.listTableView.setContentOffset(contentOffset, animated: false)

@@ -85,7 +85,7 @@ class TSChatImageCell: TSChatBaseCell {
         /**
          *  绘制 imageView 的 bubble layer
          */
-        let stretchInsets = UIEdgeInsetsMake(30, 28, 23, 28)
+        let stretchInsets = UIEdgeInsets.init(top: 30, left: 28, bottom: 23, right: 28)
         let stretchImage = model.fromMe ? TSAsset.SenderImageNodeMask.image : TSAsset.ReceiverImageNodeMask.image
         let bubbleMaskImage = stretchImage.resizableImage(withCapInsets: stretchInsets, resizingMode: .stretch)
         

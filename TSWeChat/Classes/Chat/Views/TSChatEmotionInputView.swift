@@ -52,7 +52,7 @@ class TSChatEmotionInputView: UIView {
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsetsMake(0, paddingLeft, 0, paddingRight)
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: paddingLeft, bottom: 0, right: paddingRight)
         
         //init listCollectionView
         self.listCollectionView.collectionViewLayout = layout
