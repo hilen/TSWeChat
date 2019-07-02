@@ -1,0 +1,6 @@
+framework module TSVoiceConverter {
+  umbrella header "TSVoiceConverter-umbrella.h"
+
+  export *
+  module * { export * }
+}
