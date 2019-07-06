@@ -99,7 +99,7 @@ class UserManager: NSObject {
     
     func resetAccessToken(_ token: String) {
         UserDefaults.ts_setString(kAccessToken, value: token)
-        if token.characters.count > 0 {
+        if token.count > 0 {
             print("token success")
         } else {
             self.userLogout()

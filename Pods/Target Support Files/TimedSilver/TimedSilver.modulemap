@@ -1,0 +1,6 @@
+framework module TimedSilver {
+  umbrella header "TimedSilver-umbrella.h"
+
+  export *
+  module * { export * }
+}

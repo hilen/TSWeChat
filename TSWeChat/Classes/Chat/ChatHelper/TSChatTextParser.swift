@@ -14,7 +14,7 @@ public let kChatTextKeyURL = "URL"
 
 class TSChatTextParser: NSObject {
     class func parseText(_ text: String, font: UIFont) -> NSMutableAttributedString? {
-        if text.characters.count == 0 {
+        if text.count == 0 {
             return nil
         }
         
@@ -134,7 +134,7 @@ class TSChatTextParseHelper {
     class var highlightBorder: YYTextBorder {
         get {
             let highlightBorder = YYTextBorder()
-            highlightBorder.insets = UIEdgeInsetsMake(-2, 0, -2, 0)
+            highlightBorder.insets = UIEdgeInsets.init(top: -2, left: 0, bottom: -2, right: 0)
             highlightBorder.fillColor = UIColor.init(ts_hexString: "#D4D1D1")
             return highlightBorder
         }

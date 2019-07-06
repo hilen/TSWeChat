@@ -57,7 +57,7 @@ public struct App {
     }
     
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight

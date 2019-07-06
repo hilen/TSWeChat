@@ -108,10 +108,13 @@ extension TSChatViewController: ChatShareMoreViewDelegate {
 // MARK: - @protocol UIImagePickerControllerDelegate
 // 拍照完成，进行上传图片，并且发送的请求
 extension TSChatViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let mediaType = info[UIImagePickerControllerMediaType] as? NSString else { return }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        guard let mediaType = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? NSString else { return }
         if mediaType.isEqual(to: kUTTypeImage as String) {
-            guard let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+            guard let image: UIImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else { return }
             if picker.sourceType == .camera {
                 self.resizeAndSendImage(image)
             }
@@ -319,3 +322,13 @@ extension TSChatViewController: TSChatCellDelegate {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

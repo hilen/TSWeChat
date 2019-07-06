@@ -1,0 +1,6 @@
+framework module Dollar {
+  umbrella header "Dollar-umbrella.h"
+
+  export *
+  module * { export * }
+}

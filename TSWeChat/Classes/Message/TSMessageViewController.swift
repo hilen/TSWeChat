@@ -28,7 +28,7 @@ class TSMessageViewController: UIViewController {
         self.actionFloatView.delegate = self
         self.view.addSubview(self.actionFloatView)
         self.actionFloatView.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(UIEdgeInsetsMake(64, 0, 0, 0))
+            make.edges.equalTo(UIEdgeInsets.init(top: 64, left: 0, bottom: 0, right: 0))
         }
         
         //Init listTableView

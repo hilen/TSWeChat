@@ -41,7 +41,6 @@ class TSChatTextCell: TSChatBaseCell {
     @IBOutlet weak var bubbleImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func debugYYLabel() -> YYTextDebugOption {
@@ -69,7 +68,7 @@ class TSChatTextCell: TSChatBaseCell {
 
         //拉伸图片区域
         let stretchImage = model.fromMe ? TSAsset.SenderTextNodeBkg.image : TSAsset.ReceiverTextNodeBkg.image
-        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsets.init(top: 30, left: 28, bottom: 85, right: 28), resizingMode: .stretch)
         self.bubbleImageView.image = bubbleImage;
         self.setNeedsLayout()
     }
@@ -134,8 +133,6 @@ class TSChatTextCell: TSChatBaseCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
 
     /**
@@ -169,13 +166,5 @@ class TSChatTextCell: TSChatBaseCell {
             delegate.cellDidTapedLink(self, linkString: URL)
         }
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-    // Drawing code
-    }
-    */
-    
+
 }

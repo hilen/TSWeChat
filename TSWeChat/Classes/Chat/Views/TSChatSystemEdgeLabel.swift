@@ -19,6 +19,6 @@ final class TSChatEdgeLabel: UILabel {
     }
     */
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, labelEdge))
+        super.drawText(in: rect.inset(by: labelEdge))
     }
 }

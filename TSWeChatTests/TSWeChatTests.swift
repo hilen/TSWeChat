@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import TSWeChat
+@testable import Pods_TSWeChat
 
 class TSWeChatTests: XCTestCase {
     
@@ -28,7 +28,7 @@ class TSWeChatTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

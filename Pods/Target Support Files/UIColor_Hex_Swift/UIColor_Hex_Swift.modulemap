@@ -1,0 +1,6 @@
+framework module UIColor_Hex_Swift {
+  umbrella header "UIColor_Hex_Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

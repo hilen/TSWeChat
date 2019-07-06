@@ -29,20 +29,20 @@ class TSChatVoiceCell: TSChatBaseCell {
         
         //设置 Normal 背景Image
         let stretchImage = model.fromMe ? TSAsset.SenderTextNodeBkg.image : TSAsset.ReceiverTextNodeBkg.image
-        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
-        self.listenVoiceButton.setBackgroundImage(bubbleImage, for: UIControlState())
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsets.init(top: 30, left: 28, bottom: 85, right: 28), resizingMode: .stretch)
+        self.listenVoiceButton.setBackgroundImage(bubbleImage, for: UIControl.State())
 
         //设置 Highlighted  背景Image
         let stretchImageHL = model.fromMe ? TSAsset.SenderTextNodeBkgHL.image : TSAsset.ReceiverTextNodeBkgHL.image
-        let bubbleImageHL = stretchImageHL.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        let bubbleImageHL = stretchImageHL.resizableImage(withCapInsets: UIEdgeInsets.init(top: 30, left: 28, bottom: 85, right: 28), resizingMode: .stretch)
         self.listenVoiceButton.setBackgroundImage(bubbleImageHL, for: .highlighted)
         
         //设置声音 icon 的 Image
         let voiceImage = model.fromMe ? TSAsset.SenderVoiceNodePlaying.image : TSAsset.ReceiverVoiceNodePlaying.image
-        self.listenVoiceButton.setImage(voiceImage, for: UIControlState())
+        self.listenVoiceButton.setImage(voiceImage, for: UIControl.State())
         
         //设置声音 icon 的 Edge
-        self.listenVoiceButton.imageEdgeInsets = model.fromMe ? UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, 0, 0, kChatVoicePlayingMarginLeft) : UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, kChatVoicePlayingMarginLeft, 0, 0)
+        self.listenVoiceButton.imageEdgeInsets = model.fromMe ? UIEdgeInsets.init(top: -kChatBubbleBottomTransparentHeight, left: 0, bottom: 0, right: kChatVoicePlayingMarginLeft) : UIEdgeInsets.init(top: -kChatBubbleBottomTransparentHeight, left: kChatVoicePlayingMarginLeft, bottom: 0, right: 0)
 
         //设置声音 icon 的对齐方式
         self.listenVoiceButton.contentHorizontalAlignment = model.fromMe ? .right : .left
@@ -137,16 +137,6 @@ class TSChatVoiceCell: TSChatBaseCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

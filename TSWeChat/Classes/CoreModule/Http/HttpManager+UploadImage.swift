@@ -28,7 +28,7 @@ extension HttpManager {
             "access_token": UserInstance.accessToken
         ]
         
-        let imageData = UIImageJPEGRepresentation(image, 0.7)
+        let imageData = image.jpegData(compressionQuality: 0.7)
         /*
         这里需要填写上传图片的 API
         */

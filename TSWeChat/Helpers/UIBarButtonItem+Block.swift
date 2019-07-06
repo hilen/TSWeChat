@@ -29,8 +29,8 @@ public extension UIViewController {
             return
         }
         
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        button.setImage(backImage, for: UIControlState())
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(backImage, for: UIControl.State())
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         button.imageView!.contentMode = .scaleAspectFit;
         button.contentHorizontalAlignment = .left
@@ -59,8 +59,8 @@ public extension UIViewController {
 public extension UINavigationItem {
     //left bar
     func leftButtonAction(_ image: UIImage, action:@escaping ActionHandler) {
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        button.setImage(image, for: UIControlState())
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(image, for: UIControl.State())
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         button.imageView!.contentMode = .scaleAspectFit;
         button.contentHorizontalAlignment = .left
@@ -75,8 +75,8 @@ public extension UINavigationItem {
 
     //right bar
     func rightButtonAction(_ image: UIImage, action:@escaping ActionHandler) {
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        button.setImage(image, for: UIControlState())
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        button.setImage(image, for: UIControl.State())
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         button.imageView!.contentMode = .scaleAspectFit;
         button.contentHorizontalAlignment = .right
@@ -107,7 +107,7 @@ open class ClosureWrapper : NSObject {
 var AssociatedClosure: UInt8 = 0
 
 extension UIControl {
-    fileprivate func ngl_addAction(forControlEvents events: UIControlEvents, withCallback callback: @escaping () -> Void) {
+    fileprivate func ngl_addAction(forControlEvents events: UIControl.Event, withCallback callback: @escaping () -> Void) {
         let wrapper = ClosureWrapper(callback: callback)
         addTarget(wrapper, action:#selector(ClosureWrapper.invoke), for: events)
         objc_setAssociatedObject(self, &AssociatedClosure, wrapper, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)

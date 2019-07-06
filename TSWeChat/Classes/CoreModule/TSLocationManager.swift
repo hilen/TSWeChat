@@ -113,7 +113,7 @@ class LocationManager: NSObject {
                 }
                 if let placemarks = placemarks, placemarks.count > 0{
                     let onePlacemark = placemarks.get(index: 0)
-                    self.address = "\(onePlacemark?.administrativeArea,onePlacemark?.subLocality,onePlacemark?.thoroughfare)"
+                    self.address = "\(onePlacemark?.administrativeArea), \(onePlacemark?.subLocality), \(onePlacemark?.thoroughfare)"
                     self.city = (onePlacemark?.administrativeArea!)!
                     self.street = (onePlacemark?.thoroughfare!)!
                 }

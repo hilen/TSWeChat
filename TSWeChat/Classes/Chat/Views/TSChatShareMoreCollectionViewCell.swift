@@ -15,14 +15,12 @@ class TSChatShareMoreCollectionViewCell: UICollectionViewCell {
         if self.isHighlighted {
             self.itemButton.setBackgroundImage(TSAsset.Sharemore_other_HL.image, for: .highlighted)
         } else {
-            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other.image, for: UIControlState())
+            self.itemButton.setBackgroundImage(TSAsset.Sharemore_other.image, for: UIControl.State())
         }
     }}
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.contentView.backgroundColor = UIColor.redColor()
-        // Initialization code
     }
 
 }
