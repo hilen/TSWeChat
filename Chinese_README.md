@@ -6,7 +6,7 @@ A [WeChat](https://itunes.apple.com/cn/app/wei/id414478124) alternative, written
 - iOS 10.0+ / Mac OS X 10.9+
 - Xcode 9.0+
 
-##预览
+## 预览
 在终端里面运行 `pod install`，然后运行`TSWeChat.xcworkspace` 来查看所有的 UI
 
 ## 特色
