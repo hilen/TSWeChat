@@ -71,7 +71,8 @@ public extension UIScreen {
         guard let app = UIApplication.ts_sharedApplication() else {
             return 0
         }
-        if app.statusBarOrientation.isPortrait {
+        
+        if app.statusBarOrientation.isLandscape {
             return UIScreen.main.bounds.size.height - app.statusBarFrame.height
         } else {
             return UIScreen.main.bounds.size.width - app.statusBarFrame.height

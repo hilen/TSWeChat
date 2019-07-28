@@ -1,6 +1,0 @@
-framework module Cent {
-  umbrella header "Cent-umbrella.h"
-
-  export *
-  module * { export * }
-}

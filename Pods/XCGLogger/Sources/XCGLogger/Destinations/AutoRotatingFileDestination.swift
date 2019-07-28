@@ -202,20 +202,20 @@ open class AutoRotatingFileDestination: FileDestination {
         guard let fileURLs = try? FileManager.default.contentsOfDirectory(at: archiveFolderURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]) else { return [] }
         guard let identifierData: Data = identifier.data(using: .utf8) else { return [] }
 
-        var archivedDetails: [(url: URL, timestamp: String?)] = []
+        var archivedDetails: [(url: URL, timestamp: String)] = []
         for fileURL in fileURLs {
-//            guard let archivedLogIdentifierOptionalData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogIdentifierKey) else { continue }
-            guard let archivedLogIdentifierData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogTimestampKey) else { continue }
+            guard let archivedLogIdentifierOptionalData = ((try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogIdentifierKey)) as Data??) else { continue }
+            guard let archivedLogIdentifierData = archivedLogIdentifierOptionalData else { continue }
             guard archivedLogIdentifierData == identifierData else { continue }
 
-//            guard let timestampOptionalData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogTimestampKey) else { continue }
-            guard let timestampData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogTimestampKey) else { continue }
+            guard let timestampOptionalData = ((try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogTimestampKey)) as Data??) else { continue }
+            guard let timestampData = timestampOptionalData else { continue }
             guard let timestamp = String(data: timestampData, encoding: .utf8) else { continue }
 
             archivedDetails.append((fileURL, timestamp))
         }
-        
-        archivedDetails.sort(by: { (lhs, rhs) -> Bool in lhs.timestamp!.count > rhs.timestamp!.count })
+
+        archivedDetails.sort(by: { (lhs, rhs) -> Bool in lhs.timestamp > rhs.timestamp })
         var archivedFileURLs: [URL] = []
         for archivedDetail in archivedDetails {
             archivedFileURLs.append(archivedDetail.url)

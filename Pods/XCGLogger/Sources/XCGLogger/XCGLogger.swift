@@ -46,7 +46,7 @@ open class XCGLogger: CustomDebugStringConvertible {
         public static let userInfoKeyInternal = "\(baseIdentifier).internal"
 
         /// Library version number
-        public static let versionString = "6.0.4"
+        public static let versionString = "7.0.0"
 
         /// Internal userInfo
         internal static let internalUserInfo: [String: Any] = [XCGLogger.Constants.userInfoKeyInternal: true]
@@ -60,13 +60,16 @@ open class XCGLogger: CustomDebugStringConvertible {
 
     // MARK: - Enums
     /// Enum defining our log levels
-    public enum Level: Int, Comparable, CustomStringConvertible {
+    public enum Level: Int, CaseIterable, Comparable, CustomStringConvertible {
         case verbose
         case debug
         case info
+        case notice
         case warning
         case error
-        case severe
+        case severe // aka critical
+        case alert
+        case emergency
         case none
 
         public var description: String {
@@ -77,29 +80,30 @@ open class XCGLogger: CustomDebugStringConvertible {
                 return "Debug"
             case .info:
                 return "Info"
+            case .notice:
+                return "Notice"
             case .warning:
                 return "Warning"
             case .error:
                 return "Error"
             case .severe:
                 return "Severe"
+            case .alert:
+                return "Alert"
+            case .emergency:
+                return "Emergency"
             case .none:
                 return "None"
             }
         }
 
-        public static let all: [Level] = [.verbose, .debug, .info, .warning, .error, .severe]
+        @available(*, deprecated, renamed: "allCases")
+        public static let all: [Level] = [.verbose, .debug, .info, .notice, .warning, .error, .severe, .alert, .emergency]
     }
 
     // MARK: - Default instance
     /// The default XCGLogger object
-    public static var `default`: XCGLogger = {
-        struct Statics {
-            static let instance: XCGLogger = XCGLogger(identifier: XCGLogger.Constants.defaultInstanceIdentifier)
-        }
-
-        return Statics.instance
-    }()
+    public static let `default`: XCGLogger = XCGLogger(identifier: XCGLogger.Constants.defaultInstanceIdentifier)
 
     // MARK: - Properties
     /// Identifier for this logger object (should be unique)
@@ -127,13 +131,7 @@ open class XCGLogger: CustomDebugStringConvertible {
     open var filters: [FilterProtocol]? = nil
 
     /// The default dispatch queue used for logging
-    open class var logQueue: DispatchQueue {
-        struct Statics {
-            static var logQueue = DispatchQueue(label: XCGLogger.Constants.logQueueIdentifier, attributes: [])
-        }
-
-        return Statics.logQueue
-    }
+    public static let logQueue: DispatchQueue = DispatchQueue(label: XCGLogger.Constants.logQueueIdentifier, attributes: [])
 
     /// A custom date formatter object to use when displaying the dates of log messages (internal storage)
     internal var _customDateFormatter: DateFormatter? = nil

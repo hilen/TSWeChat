@@ -17,7 +17,7 @@ public extension NSDictionary {
      
      - returns: NSDictionary or nil
      */
-    public convenience init? (ts_JSONString: String) {
+    convenience init? (ts_JSONString: String) {
         if let data = (try? JSONSerialization.jsonObject(with: ts_JSONString.data(using: String.Encoding.utf8, allowLossyConversion: true)!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary {
             self.init(dictionary: data)
         } else {
@@ -31,7 +31,7 @@ public extension NSDictionary {
      
      - returns: string or nil
      */
-    public func ts_formatJSON() -> String? {
+    func ts_formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
             let jsonStr = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)
             return String(jsonStr ?? "")

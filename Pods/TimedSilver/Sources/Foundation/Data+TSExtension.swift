@@ -39,17 +39,5 @@ public extension Data {
             return nil
         }
     }
-    
-    /// Convert NSData to MD5 String
-    var ts_md5String: String {
-        let MD5Calculator = TS_MD5(Array(UnsafeBufferPointer(start: (self as NSData).bytes.bindMemory(to: UInt8.self, capacity: self.count), count: self.count)))
-        let MD5Data = MD5Calculator.calculate()
-        
-        let MD5String = NSMutableString()
-        for c in MD5Data {
-            MD5String.appendFormat("%02x", c)
-        }
-        return MD5String as String
-    }
 }
 

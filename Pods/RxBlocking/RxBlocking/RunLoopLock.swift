@@ -7,12 +7,17 @@
 //
 
 import CoreFoundation
-
+import Foundation
 import RxSwift
 
 #if os(Linux)
     import Foundation
-    let runLoopMode: RunLoopMode = RunLoopMode.defaultRunLoopMode
+    #if compiler(>=5.0) 
+    let runLoopMode: RunLoop.Mode = .default
+    #else
+    let runLoopMode: RunLoopMode = .defaultRunLoopMode
+    #endif
+
     let runLoopModeRaw: CFString = unsafeBitCast(runLoopMode.rawValue._bridgeToObjectiveC(), to: CFString.self)
 #else
     let runLoopMode: CFRunLoopMode = CFRunLoopMode.defaultMode
@@ -24,9 +29,9 @@ final class RunLoopLock {
 
     let _calledRun = AtomicInt(0)
     let _calledStop = AtomicInt(0)
-    var _timeout: RxTimeInterval?
+    var _timeout: TimeInterval?
 
-    init(timeout: RxTimeInterval?) {
+    init(timeout: TimeInterval?) {
         self._timeout = timeout
         self._currentRunLoop = CFRunLoopGetCurrent()
     }

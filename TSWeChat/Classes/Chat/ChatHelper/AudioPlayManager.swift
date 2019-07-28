@@ -119,7 +119,7 @@ class AudioPlayManager: NSObject {
             self.stopPlayer()
         }
         
-        guard let fileName = audioModel.keyHash, fileName.length > 0 else { return}
+        guard let fileName = audioModel.keyHash, fileName.count > 0 else { return}
 
         let amrPathString = AudioFilesManager.amrPathWithName(fileName).path
         let wavPathString = AudioFilesManager.wavPathWithName(fileName).path        

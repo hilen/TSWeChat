@@ -6,8 +6,7 @@
 //  Copyright © 2018 P.D.Q. All rights reserved.
 //
 
-import UIKit
-
+import Foundation
 
 public enum UIColorInputError: Error {
     

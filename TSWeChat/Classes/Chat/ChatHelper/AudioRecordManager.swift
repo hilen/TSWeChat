@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import TSVoiceConverter
+import TimedSilver
 
 let kAudioFileTypeWav = "wav"
 let kAudioFileTypeAmr = "amr"
@@ -230,16 +231,16 @@ extension AudioRecordManager : AVAudioRecorderDelegate {
                     self.delegate?.audioRecordFailed()
                     return
                 }
-                let fileName = amrAudioData.ts_md5String
-                let amrDestinationURL = AudioFilesManager.amrPathWithName(fileName)
+                let fileName = String(data: amrAudioData, encoding: String.Encoding.utf8)
+                let amrDestinationURL = AudioFilesManager.amrPathWithName(fileName ?? "")
                 log.warning("amr destination URL:\(amrDestinationURL)")
                 AudioFilesManager.renameFile(TempAmrFilePath, destinationPath: amrDestinationURL)
                 
                 //缓存：将录音 temp 文件改名为 amr 文件 NSData 的 md5 值
-                let wavDestinationURL = AudioFilesManager.wavPathWithName(fileName)
+                let wavDestinationURL = AudioFilesManager.wavPathWithName(fileName ?? "")
                 AudioFilesManager.renameFile(TempWavRecordPath, destinationPath: wavDestinationURL)
                 
-                self.delegate?.audioRecordFinish(amrAudioData, recordTime: self.audioTimeInterval.floatValue, fileHash: fileName)
+                self.delegate?.audioRecordFinish(amrAudioData, recordTime: self.audioTimeInterval.floatValue, fileHash: fileName ?? "")
             } else {
                 self.delegate?.audioRecordFailed()
             }

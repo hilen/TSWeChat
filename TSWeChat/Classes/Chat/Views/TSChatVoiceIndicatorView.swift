@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Dollar
 
 class TSChatVoiceIndicatorView: UIView {
     @IBOutlet weak var centerView: UIView!{didSet {  //中央的灰色背景 view
@@ -113,8 +114,7 @@ extension TSChatVoiceIndicatorView {
             TSAsset.RecordingSignal007.image,
             TSAsset.RecordingSignal008.image,
         ]
-        self.signalValueImageView.image = array.get(index: index)
-        
+        self.signalValueImageView.image = Dollar.fetch(array, index)
     }
 }
 

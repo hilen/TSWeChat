@@ -653,7 +653,11 @@ public final class Keychain {
 
     public subscript(key: String) -> String? {
         get {
+            #if swift(>=5.0)
+            return try? get(key)
+            #else
             return (try? get(key)).flatMap { $0 }
+            #endif
         }
 
         set {
@@ -681,7 +685,11 @@ public final class Keychain {
 
     public subscript(data key: String) -> Data? {
         get {
+            #if swift(>=5.0)
+            return try? getData(key)
+            #else
             return (try? getData(key)).flatMap { $0 }
+            #endif
         }
 
         set {
@@ -699,7 +707,11 @@ public final class Keychain {
 
     public subscript(attributes key: String) -> Attributes? {
         get {
+            #if swift(>=5.0)
+            return try? get(key) { $0 }
+            #else
             return (try? get(key) { $0 }).flatMap { $0 }
+            #endif
         }
     }
 
@@ -778,7 +790,14 @@ public final class Keychain {
     }
 
     public func allKeys() -> [String] {
-        return type(of: self).prettify(itemClass: itemClass, items: items()).flatMap { $0["key"] as? String }
+        let allItems = type(of: self).prettify(itemClass: itemClass, items: items())
+        let filter: ([String: Any]) -> String? = { $0["key"] as? String }
+
+        #if swift(>=4.1)
+            return allItems.compactMap(filter)
+        #else
+            return allItems.flatMap(filter)
+        #endif
     }
 
     public class func allItems(_ itemClass: ItemClass) -> [[String: Any]] {

@@ -957,7 +957,7 @@ open class Dollar {
     ///            the last partition may less than n elements long.
     /// - returns: Array partitioned into n element arrays, starting step elements apart.
     open class func partition<T>(_ array: [T], n num: Int, step: Int? = .none, pad: [T]?) -> [[T]] {
-        var array = array
+        let array = array
         var num = num
         var step = step
         var result: [[T]] = []
@@ -1325,7 +1325,7 @@ open class Dollar {
                 returnMatrix[index][rowNumber] = item
             }
         }
-        return returnMatrix.flatMap { $0.flatMap { $0 } }
+        return returnMatrix.compactMap { $0.compactMap { $0 } }
     }
 
     /// Creates an array of unique values, in order, of the provided arrays.

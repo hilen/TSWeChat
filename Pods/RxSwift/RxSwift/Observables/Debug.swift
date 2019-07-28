@@ -21,7 +21,7 @@ extension ObservableType {
      - returns: An observable sequence whose events are printed to standard output.
      */
     public func debug(_ identifier: String? = nil, trimOutput: Bool = false, file: String = #file, line: UInt = #line, function: String = #function)
-        -> Observable<E> {
+        -> Observable<Element> {
             return Debug(source: self, identifier: identifier, trimOutput: trimOutput, file: file, line: line, function: function)
     }
 }
@@ -32,14 +32,14 @@ fileprivate func logEvent(_ identifier: String, dateFormat: DateFormatter, conte
     print("\(dateFormat.string(from: Date())): \(identifier) -> \(content)")
 }
 
-final private class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>, ObserverType where O.E == Source.E {
-    typealias Element = O.E
+final private class DebugSink<Source: ObservableType, Observer: ObserverType>: Sink<Observer>, ObserverType where Observer.Element == Source.Element {
+    typealias Element = Observer.Element 
     typealias Parent = Debug<Source>
     
     private let _parent: Parent
     private let _timestampFormatter = DateFormatter()
     
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: Observer, cancel: Cancelable) {
         self._parent = parent
         self._timestampFormatter.dateFormat = dateFormat
 
@@ -72,7 +72,7 @@ final private class DebugSink<Source: ObservableType, O: ObserverType>: Sink<O>,
     }
 }
 
-final private class Debug<Source: ObservableType>: Producer<Source.E> {
+final private class Debug<Source: ObservableType>: Producer<Source.Element> {
     fileprivate let _identifier: String
     fileprivate let _trimOutput: Bool
     fileprivate let _source: Source
@@ -95,7 +95,7 @@ final private class Debug<Source: ObservableType>: Producer<Source.E> {
         self._source = source
     }
     
-    override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Source.E {
+    override func run<Observer: ObserverType>(_ observer: Observer, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where Observer.Element == Source.Element {
         let sink = DebugSink(parent: self, observer: observer, cancel: cancel)
         let subscription = self._source.subscribe(sink)
         return (sink: sink, subscription: subscription)

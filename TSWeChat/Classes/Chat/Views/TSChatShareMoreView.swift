@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 import RxBlocking
 import Dollar
-import Cent
+//import Cent
 
 private let kLeftRightPadding: CGFloat = 15.0
 private let kTopBottomPadding: CGFloat = 10.0
@@ -124,7 +124,7 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let subArray = self.groupDataSouce.get(index: section) else {
+        guard let subArray = Dollar.fetch(self.groupDataSouce, section) else {
             return 0
         }
         return subArray.count
@@ -132,10 +132,10 @@ extension TSChatShareMoreView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TSChatShareMoreCollectionViewCell.identifier, for: indexPath) as! TSChatShareMoreCollectionViewCell
-        guard let subArray = self.groupDataSouce.get(index: indexPath.section) else {
+        guard let subArray = Dollar.fetch(self.groupDataSouce, indexPath.section) else {
             return TSChatShareMoreCollectionViewCell()
         }
-        if let item = subArray.get(index: indexPath.row) {
+        if let item = Dollar.fetch(subArray, indexPath.row) {
             cell.itemButton.setImage(item.iconImage, for: .normal)
             cell.itemLabel.text = item.name
         }

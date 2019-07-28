@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import RxSwift
-import Cent
+import Dollar
 
 private let kActionViewWidth: CGFloat = 140   //container view width
 private let kActionViewHeight: CGFloat = 190    //container view height
@@ -78,10 +78,12 @@ class TSMessageActionFloatView: UIView {
             itemButton.titleLabel!.font = UIFont.systemFont(ofSize: 17)
             itemButton.setTitleColor(UIColor.white, for: UIControl.State())
             itemButton.setTitleColor(UIColor.white, for: .highlighted)
-            itemButton.setTitle(actionTitles.get(index: index), for: .normal)
-            itemButton.setTitle(actionTitles.get(index: index), for: .highlighted)
-            itemButton.setImage(actionImages.get(index: index), for: .normal)
-            itemButton.setImage(actionImages.get(index: index), for: .highlighted)
+            let title = Dollar.fetch(actionTitles, index, orElse: "")
+            itemButton.setTitle(title, for: .normal)
+            itemButton.setTitle(title, for: .highlighted)
+            let image = Dollar.fetch(actionImages, index, orElse: nil)
+            itemButton.setImage(image, for: .normal)
+            itemButton.setImage(image, for: .highlighted)
             itemButton.addTarget(self, action: #selector(TSMessageActionFloatView.buttonTaped(_:)), for: UIControl.Event.touchUpInside)
             itemButton.contentHorizontalAlignment = .left
             itemButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 12, bottom: 0, right: 0)
@@ -103,7 +105,7 @@ class TSMessageActionFloatView: UIView {
         self.addGestureRecognizer(tap)
         tap.rx.event.subscribe { _ in
             self.hide(true)
-        }.addDisposableTo(self.disposeBag)
+        }.disposed(by:self.disposeBag)
         
         self.isHidden = true
     }

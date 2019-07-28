@@ -4,18 +4,30 @@ All about swift extension 😉
 
 ## Installation
 
+Swift 5.0
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'YourApp' do
+pod 'TimedSilver', '1.2.0'
+end
+```
+
+Swift 4.0
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
 target 'YourApp' do
-    pod 'TimedSilver'
+    pod 'TimedSilver', '1.1.0'
 end
 ```
 
+
 ## Documentation
-[See the detail API documentation](http://cocoadocs.org/docsets/TimedSilver/1.0.0/index.html)
 
 ```
 ├── Foundation

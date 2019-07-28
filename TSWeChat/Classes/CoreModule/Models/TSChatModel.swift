@@ -92,11 +92,11 @@ extension ChatModel {
     //后一条数据是否比前一条数据 多了 2 分钟以上
     func isLateForTwoMinutes(_ targetModel: ChatModel) -> Bool {
         //11是秒，服务器时间精确到毫秒，做一次判断
-        guard self.timestamp!.length > 11 else {
+        guard self.timestamp!.count > 11 else {
             return false
         }
         
-        guard targetModel.timestamp!.length > 11 else {
+        guard targetModel.timestamp!.count > 11 else {
             return false
         }
 

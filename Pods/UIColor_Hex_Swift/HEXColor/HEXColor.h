@@ -6,7 +6,7 @@
 //  Copyright © 2015 P.D.Q. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for HEXColor.
 FOUNDATION_EXPORT double HEXColorVersionNumber;

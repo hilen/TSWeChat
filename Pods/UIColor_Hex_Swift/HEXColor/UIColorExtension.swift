@@ -6,10 +6,16 @@
 //  Copyright (c) 2014 P.D.Q. All rights reserved.
 //
 
+#if os(macOS)
+import Cocoa
+typealias Color = NSColor
+#else
 import UIKit
+typealias Color = UIColor
+#endif
 
 
-@objc extension UIColor {
+@objc extension Color {
     /**
      The shorthand three-digit hexadecimal representation of color.
      #RGB defines to the color #RRGGBB.
@@ -79,7 +85,7 @@ import UIKit
             throw error
         }
         
-        let hexString: String = String(rgba[String.Index.init(encodedOffset: 1)...])
+        let hexString: String = String(rgba[String.Index(utf16Offset: 1, in: rgba)...])
         var hexValue:  UInt32 = 0
         
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
@@ -109,6 +115,15 @@ import UIKit
      
      - parameter rgba: String value.
      */
+#if os(macOS)
+    public convenience init?(_ rgba: String, defaultColor: NSColor = NSColor.clear) {
+        guard let color = try? Color(rgba_throws: rgba) else {
+            self.init(cgColor: defaultColor.cgColor)
+            return
+        }
+        self.init(cgColor: color.cgColor)
+    }
+#else
     public convenience init(_ rgba: String, defaultColor: UIColor = UIColor.clear) {
         guard let color = try? UIColor(rgba_throws: rgba) else {
             self.init(cgColor: defaultColor.cgColor)
@@ -116,6 +131,7 @@ import UIKit
         }
         self.init(cgColor: color.cgColor)
     }
+#endif
     
     /**
      Hex string of a UIColor instance, throws error.
@@ -136,9 +152,12 @@ import UIKit
         }
         
         if (includeAlpha) {
-            return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
+            return String(format: "#%02X%02X%02X%02X",
+                          Int(round(r * 255)), Int(round(g * 255)),
+                          Int(round(b * 255)), Int(round(a * 255)))
         } else {
-            return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
+            return String(format: "#%02X%02X%02X", Int(round(r * 255)),
+                          Int(round(g * 255)), Int(round(b * 255)))
         }
     }
     

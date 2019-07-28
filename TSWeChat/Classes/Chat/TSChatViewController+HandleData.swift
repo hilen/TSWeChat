@@ -23,7 +23,7 @@ extension TSChatViewController {
             }
             
             let text = textView.text.trimmingCharacters(in: CharacterSet.whitespaces)
-            if text.length == 0 {
+            if text.count == 0 {
                 TSProgressHUD.ts_showWarningWithStatus("不能发送空白消息")
                 return
             }
